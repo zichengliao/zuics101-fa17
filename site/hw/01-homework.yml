@@ -1,0 +1,56 @@
+title: "Homework 1"
+description: |
+    # Homework 1
+
+rules:
+  access:
+    -
+      if_has_role: [student, ta, instructor]
+      permissions: [view]
+
+  grade_identifier: null
+
+  grading:
+    -   generates_grade: false
+
+groups:
+ - id: intro
+   pages:
+
+    -
+        type: Page
+        id: overview
+        content: |
+            
+            #   Get started.
+            
+            We will use CodeLab for the first several homework assignments.
+            This requires you to register an account with the CodeLab service.
+            
+            <div class="alert alert-warning">
+            **Warning!**  Register using your university email address!
+            </div>
+            
+            Click `Next` for registration instructions.
+
+    -
+        type: Page
+        id: registration
+        content: |
+            
+            #   Register for CodeLab.
+            
+            1.  Navigate to [the CodeLab site](www.tcgo1.com).
+            2.  Click `Register for CodeLab`.
+            3.  Choose `I am a student in a course...` and `Continue`.
+            4.  Enter the section access code `UIUC-24959-CKXV-30` and 
+                `Continue`.
+            5.  Continue filling out the form.  Be careful to use a valid 
+                University of Illinois email address and your first and last 
+                names as these will appear in the course roster.
+
+completion_text: |
+    
+    #   Finish the assignment.
+    
+    Follow the instructions on CodeLab and work your way through the exercises for `hw01`.  If you have any questions, ask on Piazza.
