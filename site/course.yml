@@ -16,6 +16,64 @@ chunks:
         
         #   CS 101—Introduction to Computing for Engineering and Science
         
+        ##  Resources
+        
+        | What                 | When and Where |
+        | -------------------- | -------------- |
+        | **Lectures**         | Mon/Wed 09h00–09h50; [Foellinger Auditorium](http://ada.fs.illinois.edu/0007.html) |
+        | **Labs**             | Per-section, [see below](#labs); [L416](http://ada.fs.illinois.edu/0210PLANB.html) [Digital Computer Laboratory](http://ada.fs.illinois.edu/0210.html) |
+        | **Class URL**        | [`go.illinois.edu/cs101/`](http://go.illinois.edu/cs101/) |
+        | **Class forum**      | <a href="https://piazza.com/class/ipzxix9y8ou155" target="_blank" role="button" class="btn btn-default">Piazza &raquo;</a> |
+        | **Instructor email** | [`cs101admin@cs.illinois.edu`](mailto:cs101admin@cs.illinois.edu) |
+        
+        
+        ##  Homework
+        
+        Homework assignments are due at 6:00 p.m. on the due date.
+        
+        | Assignment | Due Date |
+        | ---------- | -------- |
+        | [![](repocur:img/banner-hw01.png)](flow:hw/01-homework) | 2016-08-31 |
+        
+        
+        ##  Labs
+        
+        All labs meet in [L416](http://ada.fs.illinois.edu/0210PLANB.html) [Digital Computer Laboratory](http://ada.fs.illinois.edu/0210.html).
+        
+        You should attend your own lab section to complete and submit
+        assignments.  Exceptions must be approved in advance.
+        
+        | Section | Lab Time        | TA |
+        | ------- | --------------- | -- |
+        | AYA     | Mon 11h00–12h50 |  |
+        | AYB     | Mon 13h00–14h50 |  |
+        | AYC     | Mon 15h00–16h50 |  |
+        | AYD     | Tue 09h00–10h50 |  |
+        | AYE     | Tue 11h00–12h50 |  |
+        | AYF     | Tue 13h00–14h50 |  |
+        | AYG     | Tue 15h00–16h50 |  |
+        | AYH     | Wed 11h00–12h50 |  |
+        | AYI     | Wed 13h00–14h50 |  |
+        | AYJ     | Wed 15h00–16h50 |  |
+        | AYK     | Thu 09h00–10h50 |  |
+        | AYL     | Thu 11h00–12h50 |  |
+        | AYM     | Thu 13h00–14h50 |  |
+        | AYN     | Thu 15h00–16h50 |  |
+        | AYO     | Fri 09h00–10h50 |  |
+        | AYP     | Fri 11h00–12h50 |  |
+        | AYQ     | Fri 13h00–14h50 |  |
+        | AYR     | Fri 15h00–16h50 |  |
+        
+        -   [Jupyter platform]()
+        
+        -   [Lab queue](http://davis68.web.engr.illinois.edu:8888/)
+        
+        
+        ##  Lectures
+        
+        | Lecture | Date       | Supporting Resources |
+        | ------- | ---------- | -------------------- |
+        | <a href="http://nbviewer.jupyter.org/github/davis68/cs101-fa16/lec01.ipynb" target="_blank" role="button" class="btn btn-info"><div style="font-family: Courier;">lec01</div></a> | 2016-08-22 |  |
         
         
         ##  Office Hours
