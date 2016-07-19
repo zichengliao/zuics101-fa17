@@ -1,0 +1,27 @@
+Dependencies:	
+lab01	lec01
+lab02	lec02,lec03
+lab03	lec04,lec05
+lab04	lec06,lec07
+lab05	lec08,lec09
+lab06	lec10,lec11
+lab07	lec12
+lab08	lec13,lec14
+lab09	lec15,lec16
+lab10	lec17,lec18
+lab11	lec19,lec20
+lab12	lec21,lec22
+lab13	lec23
+hw01	lec02,lec03
+hw02	lec04,lec05
+hw03	lec06,lec07
+hw04	lec08,lec09
+hw05	lec10,lec11
+hw06	lec12
+hw07	lec13,lec14
+hw08	lec15,lec16
+hw09	lec17,lec18
+hw10	lec19,lec20
+hw11	lec21,lec22
+hw12	lec21,lec22
+hw13	lec23,lec26
