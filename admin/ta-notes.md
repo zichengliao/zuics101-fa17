@@ -22,7 +22,7 @@ Neal Davis, instructor:  lectures, labs, homework, courseware and infrastructure
 
 Chelsea Song, course assistant:  operations and scheduling, student exceptions
 
-Teaching assistants:  operating labs, grading, holding office hours, proctoring exams, duties as assigned
+Teaching assistants:  operating labs, grading, holding office hours, proctoring exams, answering student questions on Piazza forum, duties as assigned
 
 Course aides:  supporting TAs in lab responsibilities
 
@@ -31,7 +31,7 @@ Course aides:  supporting TAs in lab responsibilities
 
 L416 DCL:  student labs
 
-L424 DCL:  TA office
+L424 DCL:  TA office (ND has physical key; we'll work out procedure for use)
 
 TBD:  office hours starting week 6 of class
 
@@ -99,3 +99,5 @@ TAs have the following resources available to them:
 -   Guest accounts `cs101-01` through `cs101-05`.  These are cleared regularly, so encourage students to save work they wish to keep to their own device or upload the work to Box.
 
 -   An office hours queue, online at [go.illinois.edu/cs101-ohq](go.illinois.edu/cs101-ohq).  The password to clear this queue or remove single students after they have been helped is `101score`.  If the server goes down, it should restart automatically within a minute unless EWS itself is under preventative maintenance or an outage.
+
+
