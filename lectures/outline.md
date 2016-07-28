@@ -3,7 +3,7 @@
 
 ---
 #   lec01
-**Objectives**
+#### Objectives
 -   Understand course policies and resources.
 -   Explain how a computer works schematically.
 
@@ -12,11 +12,11 @@ computing
 
 ---
 #   lec02
-**Objectives**
+#### Objectives
 -   Understand hierarchy/rôle of expressions, statements, programs.
 -   Combine operators to express mathematical formulae.
 
-**Quiz**
+#### Quiz
 -   What is a program?
 -   Details of computer pipeline
 
@@ -28,11 +28,11 @@ computing
 
 ---
 #   lec03
-**Objectives**
+#### Objectives
 -   Apply basic Python types (`int`, `float`, `str`) to adequately store data values.
 -   Index elements of a string.
 
-**Quiz**
+#### Quiz
 -   expressions (particularly `^`)
 -   operators
 
@@ -43,12 +43,12 @@ indexing
 
 ---
 #   lec04
-**Objectives**
+#### Objectives
 -   Use functions to encapsulate code.
 -   Understand how scope masks variable names.
 -   Use library functions with `import` to make coding easier.
 
-**Quiz**
+#### Quiz
 -   string indexing
 -   types
 
@@ -60,11 +60,11 @@ import
 
 ---
 #   lec05
-**Objectives**
+#### Objectives
 -   Use function parameters to accept data, and function arguments to apply.
 -   Name and apply the parts of a function.
 
-**Quiz**
+#### Quiz
 -   What will the following code block output?
 
         def squinch():
@@ -97,12 +97,12 @@ comments
 
 ---
 #   lec06
-**Objectives**
+#### Objectives
 -   Distinguish between modes of executing code:  notebooks, the interpreter, and scripts.
 -   Utilize logical operators (`<`, etc.) to determine truth values.
 -   Use the control structure `if` to branch a program's logic.
 
-**Quiz**
+#### Quiz
 -   Label the parts of a function correctly.
 
         def name(parameters):
@@ -121,12 +121,12 @@ control (if)
 
 ---
 #   lec07
-**Objectives**
+#### Objectives
 -   Create and use lists to store multiple associated data values.
 -   Use `list(range(n))` to see how a range is constructed.
 -   Iterate over the members of a list using a `for` loop.
 
-**Quiz**
+#### Quiz
 -   boolean logic, control
 
 
@@ -137,14 +137,20 @@ range
 iteration
 list
 
+colors = ['red', 'yellow', 'blue', 'jale', 'ulfire']
+for color in colors:
+    print(color)
+
+offer to do coffee w/ students?
+
 ---
 #   lec08
-**Objectives**
+#### Objectives
 -   Expand logical branching opportunities with `else` and `elif`, as well as nested `if` statements.
 -   Use tuples as a "simpler" (immutable) list.
 -   Format strings for data output with format replacement.
 
-**Quiz**
+#### Quiz
 -   `for` loop
 -   lists
 
@@ -155,10 +161,10 @@ string formatting
 
 ---
 #   lec09
-**Objectives**
+#### Objectives
 -   Index, sort, and search strings and lists for content; understand the subtleties of their `return` types.
 
-**Quiz**
+#### Quiz
 -   branched control
 -   string formatting
 
@@ -168,11 +174,11 @@ searching
 
 ---
 #   lec10
-**Objectives**
+#### Objectives
 -   Load file data by the classic `open`, `read`/`readlines`, `close` pipeline.
 -   Access data inside of nested lists using multidimensional indexing.
 
-**Quiz**
+#### Quiz
 -   indexing, sorting, searching
 
 file I/O:  open/read/close
@@ -181,10 +187,10 @@ multidimensional indexing
 
 ---
 #   lec11
-**Objectives**
+#### Objectives
 -   Store and access data in `dict`s.
 
-**Quiz**
+#### Quiz
 -   file I/O process
 -   multidimensional indexing
 
@@ -195,12 +201,12 @@ dicts
 
 ---
 #   lec12
-**Objectives**
+#### Objectives
 -   Access web-based data sources using `requests`.
 -   Review functions and understand default values.
 -   Use named tuples to collect associated data values.
 
-**Quiz**
+#### Quiz
 -   `dict`s
 
 requests (webdata)

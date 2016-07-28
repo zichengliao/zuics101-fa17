@@ -1,0 +1,378 @@
+%!TEX program = xelatex
+\documentclass[11pt]{beamer}
+
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{blindtext}
+\usepackage{enumitem}
+
+\usetheme{SaoPaulo}
+
+\title{Python Basics!}
+\subtitle{functions, scope}
+\author{CS101 Lecture \#4}
+\date{2016-08-31}
+
+\setcounter{showSlideNumbers}{1}
+
+\begin{document}
+  \setcounter{showProgressBar}{0}
+  \setcounter{showSlideNumbers}{0}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\frame{\titlepage}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setcounter{framenumber}{0}
+\setcounter{showProgressBar}{1}
+\setcounter{showSlideNumbers}{1}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Administrivia}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+  \frametitle{Administrivia}
+  \Enlarge
+  \begin{itemize}
+  \myitem  Register your i>clickers on the course Compass page---attendance counts from today!
+  \myitem  Complete Homework \#1 before 5:00 p.m. today.
+  \myitem  Homework \#2 is due Friday Sep.\ 9.
+  \myitem  No lab next week (Labor Day).
+  \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Warmup Quiz}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Question \#1}
+  \Enlarge
+
+  \begin{semiverbatim}
+x = "3"
+y = 10 % 4
+print(x * y)
+  \end{semiverbatim}
+  What does this program print?
+  \begin{enumerate}[label=\Alph*]
+  \item  6
+  \item  2
+  \item  33
+  \item  32
+  \end{enumerate}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Question \#2}
+  \Enlarge
+
+  \begin{semiverbatim}
+c = (10 + 5j)
+i = 25
+r = c.real + i
+  \end{semiverbatim}
+  What is the type and value of \texttt{r}?
+  \begin{enumerate}[label=\Alph*]
+  \item  \texttt{int}, \texttt{35}
+  \item  \texttt{complex}, \texttt{35 + 5j}
+  \item  \texttt{float}, \texttt{35.0}
+  \item  \texttt{complex}, \texttt{35 + 0j}
+  \end{enumerate}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+  \frametitle{Question \#3}
+  \Enlarge
+
+  Which of these expressions will cause an \textbf{overflow}?
+  \begin{enumerate}[label=\Alph*]
+  \item  \texttt{10 ** 100000}
+  \item  \texttt{"10" * 100000}
+  \item  \texttt{10.0 ** 100000}
+  \item  \texttt{"10" ** 100000}
+  \item  None of the above
+  \end{enumerate}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Question \#4}
+  \Enlarge
+
+  \begin{semiverbatim}
+x = "10"
+y = "%i"
+print( (x+y) % 2)
+  \end{semiverbatim}
+  What does this program print?
+  \begin{enumerate}[label=\Alph*]
+  \item  \texttt{102}
+  \item  \texttt{1111}
+  \item  \texttt{1010}
+  \item  None of the above
+  \end{enumerate}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Strings Redux}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+  \frametitle{Strings}
+  \Enlarge
+
+  \begin{itemize}
+  \myitem  As a literal:  text surrounded by quotes.
+    \begin{itemize}
+    \mysubitem  \texttt{"DEEP"}
+    \end{itemize}
+  \myitem  Each symbol is a character.
+  \myitem  Unlike numeric types, strings vary in length.
+  \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+  \frametitle{String operations}
+  \Enlarge
+
+  \begin{itemize}
+  \myitem  \textbf{Concatenation}:  combine two strings
+    \begin{itemize}
+    \mysubitem  Uses the \texttt{+} symbol
+    \mysubitem  \texttt{'RACE' + 'CAR'}
+    \end{itemize}
+  \myitem  \textbf{Repetition}:  repeat a string
+    \begin{itemize}
+    \mysubitem  Uses the \texttt{*}
+    \mysubitem  \texttt{'HELLO '*10}
+    \end{itemize}
+  \myitem  \textbf{Formatting}:  used to encode other data as string
+    \begin{itemize}
+    \mysubitem  Uses \texttt{\%} symbol
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+  \frametitle{Formatting operator}
+  \Enlarge
+
+  \begin{itemize}
+  \myitem  Creates string with value inserted
+    \begin{itemize}
+    \mysubitem  Formats nicely
+    \mysubitem  Requires indicator of type inside of string
+      \begin{tabular}{*{27}{l}}
+        \texttt{"%i"} & \texttt{int} \\
+        \texttt{"%f"} & \texttt{float} \\
+        \texttt{"%e"} & \texttt{float} (scientific notation) \\
+        \texttt{"%s"} & \texttt{str} \\
+      \end{tabular}
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Example}
+  \Enlarge
+
+  \begin{semiverbatim}
+print( "An integer:  %i" % 7 )
+print( "A float:     %f" % 7.0 )
+print( "A float:     %e" % 7.0 )
+print( "A string:    %s" % 'seven' )
+  \end{semiverbatim}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Indexing operator \textbf{[]}}
+  \Enlarge
+
+  \begin{itemize}
+  \myitem  Extracts single character
+\begin{semiverbatim}
+a = "FIRE"
+a[0]
+\end{semiverbatim}
+  \myitem  The integer is the index.
+  \myitem  \textcolor{red}{We count from zero!}
+  \myitem  If negative, counts down from end.
+  \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Slicing operator \textbf{:}}
+  \Enlarge
+
+  \begin{itemize}
+  \myitem  Extracts range of characters (\emph{substring})
+  \myitem  Range specified inside of indexing operator
+\begin{semiverbatim}
+a = "FIREHOUSE"
+a[0:4]
+\end{semiverbatim}
+  \myitem  Can be a bit tricky at first:
+    \begin{itemize}
+    \mysubitem  Includes character at first index
+    \mysubitem  Excludes character at last index
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Example}
+  \Enlarge
+
+  \begin{semiverbatim}
+alpha = "ABCDE"
+x = alpha[1:3]
+  \end{semiverbatim}
+  What is the value of \texttt{x}?
+  \begin{enumerate}[label=\Alph*]
+  \item  \texttt{'AB'}
+  \item  \texttt{'ABC'}
+  \item  \texttt{'BC'}
+  \item  \texttt{'BCD'}
+  \item  \texttt{'CD'}
+  \end{enumerate}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Functions}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+  \frametitle{And now for something different...}
+  \Enlarge
+
+  \begin{itemize}
+  \myitem  A small program (block of code) we can run within Python.
+    \begin{itemize}
+    \mysubitem  Saves us from rewriting code
+    \mysubitem  Don't reinvent the wheel!
+    \end{itemize}
+  \myitem  Analogy:  Functions are more verbs.
+  \myitem  Also called subroutine or procedure.
+  \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+  \frametitle{Function calls}
+  \Enlarge
+
+  \begin{itemize}
+  \myitem  When we want to execute a function, we call or invoke it.
+  \myitem  Use name of the function with parentheses.
+    \begin{itemize}
+    \mysubitem  \texttt{print()}
+    \end{itemize}
+  \myitem  Many functions come built-in to Python or in the standard library.
+  \myitem  Others we will compose at need.
+  \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+  \frametitle{Arguments}
+  \Enlarge
+
+  \begin{itemize}
+  \myitem  Functions can act on data.
+  \myitem  \emph{Arguments} are the input to functions.
+  \myitem  Functions can return a value.  (fruitful)
+  \myitem  Return values are the output of a function.
+    \begin{itemize}
+    \mysubitem  \texttt{print('10')}
+    \mysubitem  \texttt{len('Rex Kwon Do')}
+    \mysubitem  \texttt{abs(-123)}
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+  \frametitle{Arguments}
+  \Enlarge
+
+  \begin{itemize}
+  \myitem  \emph{Arguments} are values passed to a function.
+  \myitem  A function can accept zero to many arguments.
+  \myitem  Multiple arguments are separated by commas:
+    \begin{itemize}
+    \mysubitem  \texttt{min( 1,4,5 )}
+    \mysubitem  \texttt{max( 1,4,5 )}
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+  \frametitle{Type conversion.}
+  \Enlarge
+
+  \begin{itemize}
+  \myitem  A set of built-in functions to convert data from one type to another.
+    \begin{itemize}
+    \mysubitem  \texttt{float( "0.3" )}
+    \mysubitem  \texttt{str( 3 + 5j )}
+    \end{itemize}
+  \myitem  Some are nonsensical:
+    \begin{itemize}
+    \mysubitem  \texttt{int( "Rex" )}
+    \mysubitem  \texttt{int( 3 + 5j )}
+    \end{itemize}
+  \myitem  Also called subroutine or procedure.
+  \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+  \frametitle{User input}
+  \Enlarge
+
+  \begin{itemize}
+  \myitem  \texttt{input} is a built-in function.
+  \myitem  Argument:  string prompting user
+  \myitem  Return value:  input from user (as \texttt{str})
+  \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+  \frametitle{Goal}
+  \Enlarge
+
+  \begin{itemize}
+  \myitem  A program should achieve a goal.
+  \myitem  Next time we will write our first nontrivial program.
+  \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Reminders}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+  \frametitle{Reminders}
+  \Enlarge
+
+  \begin{itemize}
+  \myitem  Homework \#1 due today, Aug.\ 31, 5:00 p.m.
+  \myitem  Homework \#2 due Friday, Sep.\ 9, 5:00 p.m.
+  \myitem  No class Monday, Sep.\ 5 (Labor Day).
+  \myitem  No lab next week!
+  \end{itemize}
+\end{frame}
+
+\end{document}

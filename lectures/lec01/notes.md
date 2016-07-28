@@ -4,20 +4,19 @@ computing
 
 #   `lec01`
 
-##  Administration
-
-Next Monday and Wednesday are i<clicker test sessions.  Then grades count for real.
-
-
 ##  Motivation
 
 ##  Encouragement
 
 Everyone can learn how to program.  It is a way of thinking about the world.
 
+
+Shall we get the boring bits out of the way?  Let's do that really quick.  (Some of you are thinking "yeah, right, so we can get to the *really* boring bits.")
+
+
 ##  Class Structure
 
-20% HW
+20% Homework
 25% Labs
 10% Lecture (~5% attendace, ~5% quizzes)
 20% Midterms
@@ -30,10 +29,13 @@ go.illinois.edu/cs101
 -   homework assignments, course calendar, policies
 
 
+
 Required supplies:
 -   no textbook
 -   i>clicker
 -   codelab account (instructions in hw01)
+
+Next Monday and Wednesday are i<clicker test sessions.  Then grades count for real.
 
 
 lab01 begins TODAY
@@ -44,7 +46,7 @@ Policies
 -   All machine generated grades are final
 -   Late registrants should keep up with work
     -   Corollary:  no extensions or exceptions for late registration
--   Never copy code 
+-   Never copy code
 
 
 Get help at the Piazza forum
@@ -65,7 +67,7 @@ A set of instructions a computer executes
 to achieve a goal
 • Can be very long (millions of instructions)
 • Also called “code” or “source code”
-• Our programs will be called “scripts” 
+• Our programs will be called “scripts”
 
 Information stored in a computer is called
 data.
@@ -85,7 +87,7 @@ communicate instructions to a computer
 • Rigorous and unambiguous
 • Grammar is mathematically formal
 • Has syntax and semantics like a natural
-language 
+language
 
 Programming Languages
 • Low-level: add $t0, $t1, $t2
@@ -93,7 +95,7 @@ Programming Languages
 instructions
 • High-level: x=y+z
 – Human readable instructions translated into
-machine readable instructions 
+machine readable instructions
 
 High-level languages
 • Compiled languages
@@ -102,13 +104,13 @@ machine language
 • Interpreted (scripting)
 – Interpreter translates program into machine
 language line by line
-– Translation happens “on the fly” 
+– Translation happens “on the fly”
 
 Python
 • High-level language
 • Interpreted language
 • Strongly, dynamically typed language
-• WARNING: Split between versions 2 and 3. We will use version 3! 
+• WARNING: Split between versions 2 and 3. We will use version 3!
 
 Why Python?
 • Freely available
@@ -138,7 +140,6 @@ https://techcrunch.com/2016/06/07/software-is-eating-the-world-5-years-later/
 
 
 
-Shall we get the boring bits out of the way?  Let's do that really quick.  (Some of you are thinking "yeah, right, so we can get to the *really* boring bits.")
 
 
 

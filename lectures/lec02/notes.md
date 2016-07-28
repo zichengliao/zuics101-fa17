@@ -58,16 +58,16 @@ combining literals and operators, we build expressions (sentence fragments, phra
 expressions are evaluated to produce a new value (3*5, 23-100)
 expressions can be very complicated (3+8*5+4-7/100)
 
-order of operations matters!
+» Do spaces matter?
 
 1+1*2?
 a.  4
 b.  3
 c.  None of the above
 
----
+» order of operations matters!
 
-not always intuitive—when in doubt, use parentheses!
+---
 
 Evaluate this expression:
     23 + 6 / 2 - 4
@@ -75,6 +75,8 @@ a.  22
 b.  18
 c.  -9
 d.  None of the above
+
+» not always intuitive—when in doubt, use parentheses!
 
 ---
 
@@ -96,7 +98,7 @@ d.  None of the above
 
 -   floor division, `//`
 
-Bitwise operators:  `|`, `^`, `&`, `<<`, `>>` (don’t need to know)
+Bitwise operators:  `|`, `^`, `&`, `<<`, `>>`
 
 Evaluate this expression:
     1^2
@@ -104,6 +106,8 @@ a.  0
 b.  1
 c.  2
 d.  3
+
+» not a major point of this class but need to be aware
 
 ---
 
