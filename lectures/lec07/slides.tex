@@ -1,0 +1,456 @@
+%!TEX program = xelatex
+\documentclass[11pt]{beamer}
+
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{blindtext}
+\usepackage{enumitem}
+
+\usetheme{SaoPaulo}
+
+\title{Python Basics!}
+\subtitle{loops, iteration}
+\author{CS101 Lecture \#7}
+\date{2016-09-14}
+
+\setcounter{showSlideNumbers}{1}
+
+\begin{document}
+  \setcounter{showProgressBar}{0}
+  \setcounter{showSlideNumbers}{0}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\frame{\titlepage}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setcounter{framenumber}{0}
+\setcounter{showProgressBar}{1}
+\setcounter{showSlideNumbers}{1}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Administrivia}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+  \frametitle{Administrivia}
+  \Enlarge
+  \begin{itemize}
+  \myitem  Homework \#3 is due Friday Sep.\ 16.
+  \myitem  Midterm \#1 will be Monday Oct.\ 3.  (evening)
+  \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Warmup Quiz}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Question \#1}
+  \Enlarge
+
+  \begin{semiverbatim}
+a = 1
+def fun(a,b):
+    return a + b
+a = fun( a,a ) + a
+  \end{semiverbatim}
+  What is the final value of \texttt{a}?
+  \begin{enumerate}[label=\Alph*]
+  \item  \texttt{2}
+  \item  \texttt{3}
+  \item  \texttt{4}
+  \end{enumerate}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Question \#1 (Worked)}
+  \Enlarge
+
+  \begin{semiverbatim}
+a = 1
+def fun(c,b):
+    return c + b
+a = fun( a,a ) + a
+  \end{semiverbatim}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Question \#2}
+  \Enlarge
+
+  \begin{semiverbatim}
+x = 10
+if ((x/2) < 5) or ((x%3) == 1):
+    x = x + 2
+if (x != 10) or ((x**2) <= 144):
+    x = x * 2
+  \end{semiverbatim}
+  What is the final value of \texttt{x}?
+  \begin{enumerate}[label=\Alph*]
+  \item  \texttt{10}
+  \item  \texttt{12}
+  \item  \texttt{20}
+  \item  \texttt{24}
+  \end{enumerate}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Question \#3}
+  \Enlarge
+
+  \begin{semiverbatim}
+def fun(x):
+    if x and x:
+        return not x
+    return x or x
+
+x = fun(True) or fun(False)
+  \end{semiverbatim}
+  What is the final value of \texttt{x}?
+  \begin{enumerate}[label=\Alph*]
+  \item  \texttt{True}
+  \item  \texttt{False}
+  \end{enumerate}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Question \#4}
+  \Enlarge
+
+  \begin{semiverbatim}
+def fun(a,b):
+    if len(a)+len(b)>5:
+        return (a+b)[0:5]
+  return (b+a)+str(len(a))
+
+x = fun("abc","def") + fun("gh","ij")
+  \end{semiverbatim}
+  What is the final value of \texttt{x}?
+  \begin{enumerate}[label=\Alph*]
+  \item  \texttt{'abcdefijgh4'}
+  \item  \texttt{'defabcghij4'}
+  \item  \texttt{'abcdeijgh'}
+  \item  None of the above.
+  \end{enumerate}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Question \#5}
+  \Enlarge
+
+  The following code should increment \texttt{x} if the hundreds place contains a zero:
+  \begin{semiverbatim}
+def fun(x):
+    if x < 100 or ???:
+        return x+1
+    return x
+  \end{semiverbatim}
+  What should replace the \texttt{???} to complete the code?
+  \begin{enumerate}[label=\Alph*]
+  \item  \texttt{x.string(3) == '0'}
+  \item  \texttt{str(x)[-3] == '0'}
+  \item  \texttt{((x/100) % 10) == 0}
+  \item  None of the above.
+  \end{enumerate}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Loops}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Loops}
+  \Enlarge
+
+  \begin{itemize}
+  \myitem  We frequently need to process each value in a set of values.
+  \myitem  Two kinds:  \texttt{while} and \texttt{for}
+  \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Example:  \texttt{while} Loop}
+  \Enlarge
+
+  \begin{semiverbatim}
+number = 10
+while number > 0:
+    print(number)
+    number = number - 1
+print('Blast off!')
+  \end{semiverbatim}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Defining loops:  \texttt{while}}
+  \Enlarge
+
+  \begin{itemize}
+  \myitem  A \texttt{while} loop has only:
+    \begin{itemize}
+    \mysubitem  the keyword \texttt{while}
+    \mysubitem  a logical comparison (\texttt{bool}-valued result)
+    \mysubitem  a \textbf{block} of code
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Example}
+  \Enlarge
+
+  The following code should increment \texttt{x} if the hundreds place contains a zero:
+  \begin{semiverbatim}
+x = 3
+while x > 0:
+    print("Hello")
+x -= 1
+  \end{semiverbatim}
+  How many times is \texttt{'Hello'} printed?
+  \begin{enumerate}[label=\Alph*]
+  \item  zero
+  \item  once
+  \item  twice
+  \item  thrice
+  \item  four times
+  \end{enumerate}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Exercise}
+  \Enlarge
+
+  Write a program for a user to create a new password.  The program should accept a password attempt from the user and check it with the function \texttt{validate_password}.  If the password is valid, the program ends.  If the password is invalid, the program asks for a new attempt, repeating until the user enters a valid password.
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Solution}
+  \Enlarge
+
+  \begin{semiverbatim}
+pwd = input("Enter a password:  ")
+while not validate_password(pwd):
+    pwd = input("INVALID!  Try again:  ")
+print("Your password is valid.")
+  \end{semiverbatim}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Infinite loops}}
+  \Enlarge
+
+  \begin{itemize}
+  \myitem  Make sure that your code always has a way to end!
+  \begin{semiverbatim}
+while True:
+    print('Hello!')
+  \end{semiverbatim}
+  \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Infinite loops}}
+  \Enlarge
+
+  \begin{itemize}
+  \myitem  Make sure that your code always has a way to end!
+  \begin{semiverbatim}
+while True:
+    print('Hello!')
+  \end{semiverbatim}
+  \myitem  \textcolor{red}{Use \texttt{Ctrl}+\texttt{C} to break free.}
+  \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Accumulator pattern}}
+  \Enlarge
+
+  \begin{itemize}
+  \myitem  \emph{Design patterns} are common structures we encounter in writing code.
+  \myitem  The \emph{accumulator} pattern uses an accumulator variable to track a result inside of a loop:
+  \begin{semiverbatim}
+i = 0
+sum = 0
+while i <= 4:
+    sum += i
+    i += 1
+  \end{semiverbatim}
+  \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Example}
+  \Enlarge
+
+  \begin{semiverbatim}
+i = 0
+sum = 0
+while i <= 4:
+    sum += i
+    i += 1
+  \end{semiverbatim}
+  What is the value of \texttt{sum}?
+  \begin{enumerate}[label=\Alph*]
+  \item  \texttt{6}
+  \item  \texttt{10}
+  \item  \texttt{15}
+  \item  None of the above.
+  \end{enumerate}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Example}
+  \Enlarge
+
+  \begin{semiverbatim}
+i = 0
+sum = 0
+while i < 7:
+    if (i % 2) == 1:
+        sum += i
+        i += 1
+  \end{semiverbatim}
+  What is the value of \texttt{sum}?
+  \begin{enumerate}[label=\Alph*]
+  \item  \texttt{9}
+  \item  \texttt{12}
+  \item  \texttt{16}
+  \item  \texttt{21}
+  \end{enumerate}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Exercise}
+  \Enlarge
+
+  Write a function to sum all of the digits in a number.  \emph{I.e.},
+
+  \begin{center}
+  \texttt{12145} $\rightarrow$ \texttt{1 + 2 + 1 + 4 + 5} $\rightarrow$ \texttt{13}
+  \end{center}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Solution (\texttt{while})}
+  \Enlarge
+
+  \begin{semiverbatim}
+def sum_digits( n ):
+    s = str( n )
+    i = 0
+    result = 0
+    while i < len( s ):
+        result = result + int( s[i] )
+        i = i + 1
+    return result
+  \end{semiverbatim}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Example:  Loop}
+  \Enlarge
+
+  \begin{semiverbatim}
+for number in 1,2,3,4,5:
+    print(number)
+  \end{semiverbatim}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Defining loops:  \texttt{for}}
+  \Enlarge
+
+  \begin{itemize}
+  \myitem  A \texttt{for} loop requires:
+    \begin{itemize}
+    \mysubitem  the keyword \texttt{for}
+    \mysubitem  a loop variable
+    \mysubitem  the keyword \texttt{in}
+    \mysubitem  a set of values
+    \mysubitem  a \textbf{block} of code
+    \end{itemize}
+  \myitem  \texttt{for} loops iterate over \emph{iterable} types one at a time.
+  \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Example}
+  \Enlarge
+
+  \begin{semiverbatim}
+s = 'abcdefg'
+t = ''
+for c in s:
+    t = c + t
+  \end{semiverbatim}
+  What is the value of \texttt{t}?
+  \begin{enumerate}[label=\Alph*]
+  \item  \texttt{'abcdefg'}
+  \item  \texttt{'gfedcba'}
+  \item  \texttt{'a'}
+  \item  \texttt{'g'}
+  \end{enumerate}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Exercise}
+  \Enlarge
+
+  Write a function to sum all of the digits in a number.  \emph{I.e.},
+
+  \begin{center}
+  \texttt{12145} $\rightarrow$ \texttt{1 + 2 + 1 + 4 + 5} $\rightarrow$ \texttt{13}
+  \end{center}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Solution (\texttt{for})}
+  \Enlarge
+
+  \begin{semiverbatim}
+def sum_digits( n ):
+    result = 0
+    for letter in str( n ):
+        result += int( letter )
+    return result
+  \end{semiverbatim}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Reminders}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+  \frametitle{Reminders}
+  \Enlarge
+
+  \begin{itemize}
+  \myitem  Homework \#3 is due Friday Sep.\ 16.
+  \myitem  Midterm \#1 will be Monday Oct.\ 3.  (evening)
+  \end{itemize}
+\end{frame}
+
+\end{document}
