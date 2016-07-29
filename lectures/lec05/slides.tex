@@ -9,7 +9,7 @@
 \usetheme{SaoPaulo}
 
 \title{Python Basics!}
-\subtitle{arguments, parameters, scope, comments}
+\subtitle{arguments, parameters, methods, comments}
 \author{CS101 Lecture \#5}
 \date{2016-09-07}
 
@@ -258,6 +258,30 @@ x = x.title().swapcase()
   \item  \texttt{'wATE'}
   \item  \texttt{'aTER'}
   \end{enumerate}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Comments}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Methods}
+  \Enlarge
+
+  \begin{itemize}
+  \myitem  We can explain our code using comments.
+  \myitem  Comments begin with a \texttt{#} sign; Python ignore the rest of the line.
+  \myitem  Long comments can also be stored as triple-quoted strings.
+    \begin{semiverbatim}
+dx = 0.01  # grid spacing, m
+V  = 14.2  # voltage, V
+"""
+This is an extended comment.
+I can be many lines long.
+Use me to explain functions or formulae, to document code,
+or to temporarily hide blocks you don't want to run.
+"""
+  \end{itemize}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
