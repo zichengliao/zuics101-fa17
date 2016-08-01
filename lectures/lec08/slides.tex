@@ -414,9 +414,10 @@ for i in x:
   \begin{columns}
   \begin{column}{0.6\textwidth}
     \begin{semiverbatim}
-s = "wee'ins"
-s[4] = 'u'
-s = s[:4] + 'u' + s[4:]
+s = "good advise"
+s[9] = 'c'                 # nope
+
+s = s[:9] + 'c' + s[9:]    # this way
     \end{semiverbatim}
   \end{column}
   \begin{column}{0.4\textwidth}
