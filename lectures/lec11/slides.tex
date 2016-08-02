@@ -410,6 +410,36 @@ for f in open(“filenames.txt”):
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Copying mutable values}
+  \Enlarge
+
+  \begin{itemize}
+  \myitem  What if we \emph{want} a copy of a \texttt{list} (not an alias)?
+  \myitem  Slice!
+  \end{itemize}
+  \begin{semiverbatim}
+x = [ 3,2,1 ]
+y = x[ : ]
+y.sort()
+print( x )
+  \end{semiverbatim}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Copying mutable values}
+  \Enlarge
+
+  \begin{semiverbatim}
+x = [ 1,2,3 ]
+y = x[ : ]
+y.append( 4 )
+print( x == y )
+  \end{semiverbatim}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{String/List Methods}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
