@@ -13,11 +13,11 @@ chunks:
         weight: 0
 
     content: |
-        
+
         #   CS 101—Introduction to Computing for Engineering and Science
-        
+
         ##  Resources
-        
+
         | What                 | When and Where |
         | -------------------- | -------------- |
         | **Lectures**         | Mon/Wed 09h00–09h50; [Foellinger Auditorium](http://ada.fs.illinois.edu/0007.html) |
@@ -25,24 +25,24 @@ chunks:
         | **Class URL**        | [`go.illinois.edu/cs101/`](http://go.illinois.edu/cs101/) |
         | **Class forum**      | <a href="https://piazza.com/class/ipzxix9y8ou155" target="_blank" role="button" class="btn btn-default">Piazza &raquo;</a> |
         | **Instructor email** | [`cs101admin@cs.illinois.edu`](mailto:cs101admin@cs.illinois.edu) |
-        
-        
+
+
         ##  Homework
-        
+
         Homework assignments are due at 6:00 p.m. on the due date.
-        
+
         | Assignment | Due Date |
         | ---------- | -------- |
-        | [![](repocur:img/banner-hw01.png)](flow:hw/01-homework) | 2016-08-31 |
-        
-        
+        | [![](repocur:img/banner-hw01.png)](flow:hw01) | 2016-08-31 |
+
+
         ##  Labs
-        
+
         All labs meet in [L416](http://ada.fs.illinois.edu/0210PLANB.html) [Digital Computer Laboratory](http://ada.fs.illinois.edu/0210.html).
-        
+
         You should attend your own lab section to complete and submit
         assignments.  Exceptions must be approved in advance.
-        
+
         | Section | Lab Time        | TA |
         | ------- | --------------- | -- |
         | AYA     | Mon 11h00–12h50 |  |
@@ -63,21 +63,21 @@ chunks:
         | AYP     | Fri 11h00–12h50 |  |
         | AYQ     | Fri 13h00–14h50 |  |
         | AYR     | Fri 15h00–16h50 |  |
-        
+
         -   [Jupyter platform]()
-        
+
         -   [Lab queue](http://davis68.web.engr.illinois.edu:8888/)
-        
-        
+
+
         ##  Lectures
-        
+
         | Lecture | Date       | Supporting Resources |
         | ------- | ---------- | -------------------- |
         | <a href="http://nbviewer.jupyter.org/github/davis68/cs101-fa16/lec01.ipynb" target="_blank" role="button" class="btn btn-info"><div style="font-family: Courier;">lec01</div></a> | 2016-08-22 |  |
-        
-        
+
+
         ##  Office Hours
-        
-        In-person office hours will become available several weeks into the 
-        class.  Until then, please rely on the 
+
+        In-person office hours will become available several weeks into the
+        class.  Until then, please rely on the
         [class forum](https://piazza.com/class/ipzxix9y8ou155) for help.
