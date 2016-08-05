@@ -5,7 +5,10 @@
 \usepackage{amsmath}
 \usepackage{blindtext}
 \usepackage{enumitem}
-\usepackage[colorlinks=false,urlcolor=CS101GradBot]{hyperref}
+\usepackage{hyperref}
+\usepackage{colortbl}
+
+\hypersetup{pdfborder = {0 0 0}}
 
 \usetheme{SaoPaulo}
 
@@ -48,11 +51,16 @@
   \Enlarge
 
   \begin{tabular}{ll}
-  AYA AYB AYC AYD AYE & \href{http://ada.fs.illinois.edu/0043.html}{Gregory Hall 112}
-  AYF AYG AYH & \href{http://ada.fs.illinois.edu/0159.html}{Wohlers Hall 141}
-  AY  AY  AY  & \href{http://ada.fs.illinois.edu/0041.html}{Main Library 66}$^\text{[\href{https://www.reddit.com/r/UIUC/comments/3ianar/where_is_library_66/}{room}]}$
-  AY  AY  AY  & \href{http://ada.fs.illinois.edu/0563.html}{Siebel Center 1404}
-  AY  AY  AY  & \href{http://ada.fs.illinois.edu/0054.html}{David Kinley Hall 114}
+  \rowcolor{CS101Alt}
+  AYA AYB AYC AYD AYE & \href{http://ada.fs.illinois.edu/0043.html}{Gregory Hall 112} \\ % 369
+  \rowcolor{CS101White}
+  AYF AYG AYH AYI     & \href{http://ada.fs.illinois.edu/0159.html}{Wohlers Hall 141} \\ % 327
+  \rowcolor{CS101Alt}
+  AYJ AYK AYL         & \href{http://ada.fs.illinois.edu/0041.html}{Main Library 66} \\ % 216
+  \rowcolor{CS101White}
+  AYM AYN AYO         & \href{http://ada.fs.illinois.edu/0563.html}{Siebel Center 1404} \\ % 200
+  \rowcolor{CS101Alt}
+  AYP AYQ AYR         & \href{http://ada.fs.illinois.edu/0054.html}{David Kinley Hall 114} \\ % 280
   \end{tabular}
 \end{frame}
 
@@ -162,12 +170,12 @@ a = fun( a,a ) + a
     \end{itemize}
   \end{itemize}
   \begin{semiverbatim}
-model = {
+model = \{
   'Civic': 'Honda',
   'Mustang': 'Ford',
   'Model S': 'Tesla',
   'Model T': 'Ford'
-}
+\}
   \end{semiverbatim}
 \end{frame}
 
@@ -177,7 +185,7 @@ model = {
   \Enlarge
 
   \begin{semiverbatim}
-d = { 'one':1, 'two':2, 'three':3 }
+d = \{ 'one':1, 'two':2, 'three':3 \}
 print( d['one'] )
 d[ 'four' ] = 4
 del d[ 'four' ]
@@ -193,7 +201,7 @@ for key in d:  # no guarantee on order
   \Enlarge
 
   \begin{semiverbatim}
-d = { 'a':2, 'c':3, 'b':1 }
+d = \{ 'a':2, 'c':3, 'b':1 \}
 x = d[ 'a' ] + d[ 'c' ]
   \end{semiverbatim}
   What is the final value of \texttt{x}?
@@ -211,7 +219,7 @@ x = d[ 'a' ] + d[ 'c' ]
   \Enlarge
 
   \begin{semiverbatim}
-d = {}
+d = \{ \}
 words = [ 'red', 'orange', 'yellow' ]
 for word in words:
     d[ word ] = words.index( word )
@@ -236,7 +244,7 @@ for word in words:
   \begin{semiverbatim}
 x = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 y = 'BCDEFGHIJKLMNOPQRSTUVWXYZA'
-e = {}
+e = \{ \}
 for i in range( len(x) ):
     e[ x[i] ] = y[i]
 encoded = ''
@@ -256,7 +264,7 @@ for c in 'HELLO':
   \begin{semiverbatim}
 x = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 y = 'BCDEFGHIJKLMNOPQRSTUVWXYZA'
-e = {}
+d = \{ \}
 for i in range( len(x) ):
     d [y[i] ] = x[i]
 decoded = ''
@@ -286,7 +294,7 @@ for c in encoded:
   \end{itemize}
   \begin{semiverbatim}
 x = 'ABBACAB'
-d = {}
+d = \{ \}
 for c in x:
     if c not in d:
         d[c] = 0
@@ -317,12 +325,12 @@ for c in x:
   \myitem  We can link data based on a common field.
   \end{itemize}
   \begin{semiverbatim}
-zipcode = { 'Bill': 60644,
+zipcode = \{ 'Bill': 60644,
             'Jill': 41073,
-            'Tony': 63103 }
-city = { 60644: 'Chicago',
+            'Tony': 63103 \}
+city = \{ 60644: 'Chicago',
          41073: 'Cincinnati',
-         63103: 'St. Louis' }
+         63103: 'St. Louis' \}
 for name in zipcode:
     print( name,city[zipcode[name]] )
   \end{semiverbatim}
@@ -337,15 +345,10 @@ for name in zipcode:
   \Enlarge
 
   \begin{semiverbatim}
-x=[3,2,1]
-y=x
+x = [ 3,2,1 ]
+y = x
 y.sort()
-x.append(0)
-What is the final value of x?
-a) [3,2,1]
-b) [1,2,3]
-c) [1,2,3,0]
-d) [0,1,2,3]
+x.append( 0 )
   \end{semiverbatim}
   What is the final value of \texttt{x}?
   \begin{enumerate}[label=\Alph*]
@@ -370,7 +373,7 @@ d) [0,1,2,3]
 def fun(q):
     q.append(3)
 
-a = []
+a = [ ]
 for i in range(3):
     fun(a)
 print(a)
@@ -505,7 +508,7 @@ y = x.split('-')
   \myitem  Returns the \texttt{list} elements joined as a string.
   \end{itemize}
   \begin{semiverbatim}
-names = [ "Geoffrey", "Richard", "Aloitius", "Johnston", "Windsor", "Dean" ]
+names = [ "Geoffrey", "Richard", "Aloysius", "Johnston", "Windsor", "Dean" ]
 ','.join(names)     # note the odd syntax!
   \end{semiverbatim}
 \end{frame}
