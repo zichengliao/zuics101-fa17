@@ -49,30 +49,37 @@
   \Enlarge
 
   \begin{semiverbatim}
-a = 1
-def fun(a,b):
-    return a + b
-a = fun( a,a ) + a
+t = ''
+for c in s:
+    if c not in 'aeiou':
+        t += c
   \end{semiverbatim}
-  What is the final value of \texttt{a}?
+  What does this program do to string \texttt{s}?
   \begin{enumerate}[label=\Alph*]
-  \item  \texttt{2}
-  \item  \texttt{3}
-  \item  \texttt{4}
+  \item  Counts the vowels.
+  \item  Removes the vowels.
+  \item  Counts the consonants.
+  \item  Removes the consonants.
   \end{enumerate}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}[fragile]
-  \frametitle{Question \#1 (Worked)}
-  \Enlarge
+\frametitle{Question \#2}
+\Enlarge
 
-  \begin{semiverbatim}
-a = 1
-def fun(c,b):
-    return c + b
-a = fun( a,a ) + a
-  \end{semiverbatim}
+\begin{semiverbatim}
+x = 0
+for i in [ 1,4950,99,100 ][ 0:-1 ]:
+    x = i
+\end{semiverbatim}
+  What is the final value of \texttt{x}?
+  \begin{enumerate}[label=\Alph*]
+  \item  \texttt{0}
+  \item  \texttt{99}
+  \item  \texttt{100}
+  \item  \texttt{4950}
+  \end{enumerate}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

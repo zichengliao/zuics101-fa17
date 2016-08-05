@@ -86,16 +86,56 @@
   \Enlarge
 
   \begin{semiverbatim}
-a = 1
-def fun(a,b):
-    return a + b
-a = fun( a,a ) + a
+a = [ [1,2,3], [4,5,6], [7,8,9] ]
   \end{semiverbatim}
-  What is the final value of \texttt{a}?
+  How would you refer to the value 8?
   \begin{enumerate}[label=\Alph*]
-  \item  \texttt{2}
-  \item  \texttt{3}
-  \item  \texttt{4}
+  \item  \texttt{a[2][3]}
+  \item  \texttt{a[1][2]}
+  \item  \texttt{a[2,3]}
+  \item  \texttt{a[2][1]}
+  \end{enumerate}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Question \#2}
+  \Enlarge
+
+  \begin{semiverbatim}
+x = [ 'a', 'b' ]
+y = [ 'c', 'd' ]
+def add_it( x,y ):
+    y.append( x )
+add_it( y,x )
+  \end{semiverbatim}
+  What is the final value of \texttt{x}?
+  \begin{enumerate}[label=\Alph*]
+  \item  \texttt{[ 'a', 'b', 'c', 'd' ]}
+  \item  \texttt{[ 'a', 'b' ]}
+  \item  \texttt{[ 'a', 'b', [ 'c', 'd' ] ]}
+  \item  \texttt{None}
+  \end{enumerate}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Question \#3}  %TODO:make file i/o question
+  \Enlarge
+
+  \begin{semiverbatim}
+x = [ 'a', 'b' ]
+y = [ 'c', 'd' ]
+def add_it( x,y ):
+    y.append( x )
+add_it( y,x )
+  \end{semiverbatim}
+  What is the final value of \texttt{x}?
+  \begin{enumerate}[label=\Alph*]
+  \item  \texttt{[ 'a', 'b', 'c', 'd' ]}
+  \item  \texttt{[ 'a', 'b' ]}
+  \item  \texttt{[ 'a', 'b', [ 'c', 'd' ] ]}
+  \item  \texttt{None}
   \end{enumerate}
 \end{frame}
 
@@ -192,6 +232,8 @@ del d[ 'four' ]
 'five' in d
 for key in d:  # no guarantee on order
     print( key, d[key] )
+d.keys()
+d.values()
   \end{semiverbatim}
 \end{frame}
 

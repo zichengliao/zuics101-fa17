@@ -49,30 +49,46 @@
   \Enlarge
 
   \begin{semiverbatim}
-a = 1
-def fun(a,b):
-    return a + b
-a = fun( a,a ) + a
+s = 'ABCDEFGH'
+t = ''
+i = 0
+while i < 8:
+    t = t + s[ i+1 ]
+    i += 2
   \end{semiverbatim}
-  What is the final value of \texttt{a}?
+  What is the final value of \texttt{t}?
   \begin{enumerate}[label=\Alph*]
-  \item  \texttt{2}
-  \item  \texttt{3}
-  \item  \texttt{4}
+  \item  \texttt{"ACEG"}
+  \item  \texttt{"BDFH"}
+  \item  \texttt{"ABCDEF"}
+  \item  \texttt{"ABEF"}
   \end{enumerate}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}[fragile]
-  \frametitle{Question \#1 (Worked)}
+  \frametitle{Question \#2}
   \Enlarge
 
   \begin{semiverbatim}
-a = 1
-def fun(c,b):
-    return c + b
-a = fun( a,a ) + a
-  \end{semiverbatim}
+s = '0123456789'
+t = ''
+i = 0
+while i < 5:
+    if (i%2) == 1:
+        t = t + s[ i-1 ]
+    if (i%2) == 0:
+        t = t + s[ i+1 ]
+    i = i + 1
+\end{semiverbatim}
+  What is the final value of \texttt{t}?
+  \begin{enumerate}[label=\Alph*]
+  \item  \texttt{"92143"}
+  \item  \texttt{"103254"}
+  \item  \texttt{"10325"}
+  \item  \texttt{"921436"}
+  \item  None (loop doesn't terminate)
+  \end{enumerate}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -96,7 +112,7 @@ if float(ans) < 0:
   \Enlarge
 
   \begin{itemize}
-  \myitem  \emph{Control flow} represents actual sequence of lines executed by processor.
+  \myitem  \emph{Control flow} represents actual sequence of lines executed by processor. \pause
   \myitem  \emph{Conditional execution} lets you execute (or not) a block of code based on logical comparison.
   \end{itemize}
 \end{frame}
@@ -107,7 +123,7 @@ if float(ans) < 0:
   \Enlarge
 
   \begin{itemize}
-  \myitem  We often need to make decisions with \emph{several} options.
+  \myitem  We often need to make decisions with \emph{several} options. \pause
   \myitem  \emph{Branched conditional execution} lets you execute one of several blocks of code.
   \end{itemize}
 \end{frame}
@@ -210,17 +226,17 @@ x = fun( "sam" ) and fun( "AS" )
   \Enlarge
 
   \begin{itemize}
-  \myitem  Sometimes we need to make more than one decision.
-  \myitem  We can \emph{nest} blocks.
-    \begin{semiverbatim}
+  \myitem  Sometimes we need to make more than one decision. \pause
+  \myitem  We can \emph{nest} blocks. \pause
+    \begin{Verbatim}
 word = input( 'Enter a Scrabble word:  ' )
 if not word.isalpha():
-    print( 'There are only letters in Scrabble!' )
+    print( 'There are only letters in Scrabble!' ) \pause
 else:
     if not word.isupper():      # why wouldn't `word.islower()` work?
         word = answer.upper()
     print( 'You entered %s.' % word )
-    \end{semiverbatim}
+    \end{Verbatim}
   \end{itemize}
 \end{frame}
 
@@ -362,8 +378,8 @@ for color in colors:
   \Enlarge
 
   \begin{itemize}
-  \myitem  The \texttt{list} type represents an ordered collection of items.
-  \myitem  \texttt{list} is an \emph{iterable} and a \emph{container}.
+  \myitem  The \texttt{list} type represents an ordered collection of items. \pause
+  \myitem  \texttt{list} is an \emph{iterable} and a \emph{container}. \pause
   \myitem  Containers hold values of any type (doesn't have to be the same).
   \end{itemize}
 \end{frame}
@@ -409,7 +425,7 @@ for i in x:
   \Enlarge
 
   \begin{itemize}
-  \myitem  But strings are \emph{immutable} (we can't change contents without creating a new string):
+  \myitem  But strings are \emph{immutable} (we can't change contents without creating a new string): \pause
   \end{itemize}
   \begin{columns}
   \begin{column}{0.6\textwidth}
@@ -434,7 +450,7 @@ s = s[:9] + 'c' + s[9:]    # this way
   \Enlarge
 
   \begin{itemize}
-  \myitem  We \emph{can} change \texttt{list} content---they are \emph{mutable}.
+  \myitem  We \emph{can} change \texttt{list} content---they are \emph{mutable}. \pause
   \end{itemize}
   \begin{columns}
   \begin{column}{0.6\textwidth}
@@ -471,8 +487,8 @@ for i in range(10):
   \Enlarge
 
   \begin{itemize}
-  \myitem  The \texttt{range} function returns an \texttt{iterator} containing integers:
-  \myitem  \texttt{range} can be cast as a \texttt{list}.
+  \myitem  The \texttt{range} function returns an \texttt{iterator} containing integers: \pause
+  \myitem  \texttt{range} can be cast as a \texttt{list}. \pause
   \myitem  Two arguments:
     \begin{itemize}
     \mysubitem  (optional) the starting value of the range (inclusive)
