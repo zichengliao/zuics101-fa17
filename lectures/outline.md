@@ -10,6 +10,8 @@
 overview
 computing
 
+re hw:  can be a bit more obtuse in phrasing than I prefer, but that's often how things are couched so get used to it
+
 ---
 #   lec02
 #### Objectives

@@ -168,11 +168,11 @@ print( (x+y) % 2)
     \begin{itemize}
     \mysubitem  Formats nicely
     \mysubitem  Requires indicator of type inside of string
-      \begin{tabular}{*{27}{l}}
-        \texttt{"%i"} & \texttt{int} \\
-        \texttt{"%f"} & \texttt{float} \\
-        \texttt{"%e"} & \texttt{float} (scientific notation) \\
-        \texttt{"%s"} & \texttt{str} \\
+      \begin{tabular}{*{27}{ll}}
+        \texttt{"\%i"} & \texttt{int} \\
+        \texttt{"\%f"} & \texttt{float} \\
+        \texttt{"\%e"} & \texttt{float} (scientific notation) \\
+        \texttt{"\%s"} & \texttt{str}
       \end{tabular}
     \end{itemize}
   \end{itemize}
@@ -184,10 +184,10 @@ print( (x+y) % 2)
   \Enlarge
 
   \begin{semiverbatim}
-print( "An integer:  %i" % 7 )
-print( "A float:     %f" % 7.0 )
-print( "A float:     %e" % 7.0 )
-print( "A string:    %s" % 'seven' )
+print( "An integer:  \%i" \% 7 )
+print( "A float:     \%f" \% 7.0 )
+print( "A float:     \%e" \% 7.0 )
+print( "A string:    \%s" \% 'seven' )
   \end{semiverbatim}
 \end{frame}
 
@@ -214,12 +214,12 @@ a[0]
   \Enlarge
 
   \begin{itemize}
-  \myitem  Extracts range of characters (\emph{substring})
-  \myitem  Range specified inside of indexing operator
+  \myitem  Extracts range of characters (\emph{substring}) \pause
+  \myitem  Range specified inside of indexing operator \pause
 \begin{semiverbatim}
 a = "FIREHOUSE"
 a[0:4]
-\end{semiverbatim}
+\end{semiverbatim} \pause
   \myitem  Can be a bit tricky at first:
     \begin{itemize}
     \mysubitem  Includes character at first index
@@ -256,12 +256,12 @@ x = alpha[1:3]
   \Enlarge
 
   \begin{itemize}
-  \myitem  A small program (block of code) we can run within Python.
+  \myitem  A \emph{function} is a small program (block of code) we can run within Python. \pause
     \begin{itemize}
     \mysubitem  Saves us from rewriting code
     \mysubitem  Don't reinvent the wheel!
-    \end{itemize}
-  \myitem  Analogy:  Functions are more verbs.
+    \end{itemize} \pause
+  \myitem  Analogy:  Functions are more verbs. \pause
   \myitem  Also called subroutine or procedure.
   \end{itemize}
 \end{frame}
@@ -272,12 +272,12 @@ x = alpha[1:3]
   \Enlarge
 
   \begin{itemize}
-  \myitem  When we want to execute a function, we call or invoke it.
-  \myitem  Use name of the function with parentheses.
+  \myitem  When we want to execute a function, we call or invoke it. \pause
+  \myitem  Use name of the function with parentheses. \pause
     \begin{itemize}
     \mysubitem  \texttt{print()}
-    \end{itemize}
-  \myitem  Many functions come built-in to Python or in the standard library.
+    \end{itemize} \pause
+  \myitem  Many functions come built-in to Python or in the standard library. \pause
   \myitem  Others we will compose at need.
   \end{itemize}
 \end{frame}
@@ -288,10 +288,10 @@ x = alpha[1:3]
   \Enlarge
 
   \begin{itemize}
-  \myitem  Functions can act on data.
-  \myitem  \emph{Arguments} are the input to functions.
-  \myitem  Functions can return a value.  (fruitful)
-  \myitem  Return values are the output of a function.
+  \myitem  Functions can act on data. \pause
+  \myitem  \emph{Arguments} are the input to functions. \pause
+  \myitem  Functions can return a value.  (fruitful) \pause
+  \myitem  Return values are the output of a function. \pause
     \begin{itemize}
     \mysubitem  \texttt{print('10')}
     \mysubitem  \texttt{len('Rex Kwon Do')}
@@ -306,8 +306,8 @@ x = alpha[1:3]
   \Enlarge
 
   \begin{itemize}
-  \myitem  \emph{Arguments} are values passed to a function.
-  \myitem  A function can accept zero to many arguments.
+  \myitem  \emph{Arguments} are values passed to a function. \pause
+  \myitem  A function can accept zero to many arguments. \pause
   \myitem  Multiple arguments are separated by commas:
     \begin{itemize}
     \mysubitem  \texttt{min( 1,4,5 )}
@@ -322,12 +322,12 @@ x = alpha[1:3]
   \Enlarge
 
   \begin{itemize}
-  \myitem  A set of built-in functions to convert data from one type to another.
+  \myitem  A set of built-in functions to convert data from one type to another. \pause
     \begin{itemize}
     \mysubitem  \texttt{float( "0.3" )}
     \mysubitem  \texttt{str( 3 + 5j )}
-    \end{itemize}
-  \myitem  Some are nonsensical:
+    \end{itemize} \pause
+  \myitem  Be careful of nonsense:
     \begin{itemize}
     \mysubitem  \texttt{int( "Rex" )}
     \mysubitem  \texttt{int( 3 + 5j )}
@@ -342,8 +342,8 @@ x = alpha[1:3]
   \Enlarge
 
   \begin{itemize}
-  \myitem  \texttt{input} is a built-in function.
-  \myitem  Argument:  string prompting user
+  \myitem  \texttt{input} is a built-in function. \pause
+  \myitem  Argument:  string prompting user \pause
   \myitem  Return value:  input from user (as \texttt{str})
   \end{itemize}
 \end{frame}
@@ -354,7 +354,7 @@ x = alpha[1:3]
   \Enlarge
 
   \begin{itemize}
-  \myitem  A program should achieve a goal.
+  \myitem  A program should achieve a goal. \pause
   \myitem  Next time we will write our first nontrivial program.
   \end{itemize}
 \end{frame}

@@ -155,8 +155,8 @@ x = 5
   \texttt{01001000 01000101 01001100 01001100} \\
   What does this binary data value represent?
   \begin{itemize}
-  \myitem  What does this binary data represent?
-  \myitem  How does the processor know?
+  \myitem  What does this binary data represent? \pause
+  \myitem  How does the processor know? \pause
   \myitem  The \textbf{encoding} interprets the value.
   \end{itemize}
 \end{frame}
@@ -168,8 +168,8 @@ x = 5
 
   \begin{itemize}
   \myitem  A \textbf{data type} defines an encoding rule.
-  \myitem  All values have a type.
-  \myitem  The type defines how data is represented in memory.
+  \myitem  All values have a type. \pause
+  \myitem  The type defines how data is represented in memory. \pause
   \myitem  The type defines allowed operations and how they work.
   \end{itemize}
 \end{frame}
@@ -200,8 +200,8 @@ x = 5
       \texttt{001} & 1 & \texttt{101} & 5 \\
       \texttt{010} & 2 & \texttt{110} & 6 \\
       \texttt{011} & 3 & \texttt{111} & 7 \\
-    \end{tabular}
-  \myitem  If we add more, the number \textbf{overflows}.
+    \end{tabular} \pause
+  \myitem  If we add more, the number \textbf{overflows}. \pause
   \myitem  Negative numbers?  Add a \textbf{sign bit}.
   \end{itemize}
 \end{frame}
@@ -227,7 +227,7 @@ x = 5
   \myitem  Evaluating an expression of integers will generally result in an integer answer
     \begin{itemize}
     \mysubitem  \texttt{3 + 5}
-    \mysubitem  \textcolor{red}{EXCEPTION:  DIVISION!}
+    \mysubitem  \textcolor{red}{EXCEPTION:  DIVISION!} \pause
     \mysubitem  \texttt{3 / 4 $\rightarrow$ 0.75}
     \mysubitem  \texttt{3 // 4 $\rightarrow$ 0} (floor division)
     \end{itemize}
@@ -241,8 +241,8 @@ x = 5
 
   \begin{itemize}
   \myitem  Floating-point numbers include a fractional part. \\
-    \textcolor{CS101GradBot}{(Anything with a decimal point---\texttt{2.4}, \texttt{3.0}.)}
-  \myitem  What are limits?
+    \textcolor{CS101GradBot}{(Anything with a decimal point---\texttt{2.4}, \texttt{3.0}.)} \pause
+  \myitem  What are limits? \pause
     \begin{itemize}
     \mysubitem  Overflow/underflow
     \mysubitem  Arbitrary precision ($\pi$, $\mathbb{e}$)
@@ -256,12 +256,12 @@ x = 5
   \Enlarge
 
   \begin{itemize}
-  \myitem  Evaluating an expression of floating-point values will result in a floating-point answer.
+  \myitem  Evaluating an expression of floating-point values will result in a floating-point answer. \pause
     \begin{itemize}
     \mysubitem  \texttt{3.0 + 5.5 $\rightarrow$ 8.5}
     \mysubitem  \texttt{3.0 + 5.0 $\rightarrow$ 8.0}
     \mysubitem  \texttt{3   + 5.5 $\rightarrow$ ?} (what happens here?)
-    \end{itemize}
+    \end{itemize} \pause
   \myitem  Engineers and scientists need to think carefully about the precision of answers.
   \end{itemize}
 \end{frame}
@@ -272,9 +272,9 @@ x = 5
   \Enlarge
 
   \begin{itemize}
-  \myitem  Represent numbers with an imaginary component.
+  \myitem  Represent numbers with an imaginary component. \pause
   \myitem  Use \texttt{j} for $i$: \\
-    \textcolor{CS101GradBot}{\texttt{1.0 + 1j}}
+    \textcolor{CS101GradBot}{\texttt{1.0 + 1j}} \pause
   \myitem  Think of "jmaginary" numbers, I suppose.
   \end{itemize}
 \end{frame}
@@ -305,12 +305,12 @@ print( x + y + z )
   \Enlarge
 
   \begin{itemize}
-  \myitem  Reaches inside of a value to access part of its data (called an attribute).
+  \myitem  Reaches inside of a value to access part of its data (called an attribute). \pause
   \myitem  Extracts special variables stored “inside” the type.
     \begin{semiverbatim}
 print(x.real)
 print(x.imag)
-    \end{semiverbatim}
+    \end{semiverbatim} \pause
   \myitem  Both of these components are floats.
   \end{itemize}
 \end{frame}
@@ -389,8 +389,8 @@ z = x + y
   \myitem  As a literal:  text surrounded by quotes.
     \begin{itemize}
     \mysubitem  \texttt{"DEEP"}
-    \end{itemize}
-  \myitem  Each symbol is a character.
+    \end{itemize} \pause
+  \myitem  Each symbol is a character. \pause
   \myitem  Unlike numeric types, strings vary in length.
   \end{itemize}
 \end{frame}
@@ -405,12 +405,12 @@ z = x + y
     \begin{itemize}
     \mysubitem  Uses the \texttt{+} symbol
     \mysubitem  \texttt{'RACE' + 'CAR'}
-    \end{itemize}
+    \end{itemize} \pause
   \myitem  \textbf{Repetition}:  repeat a string
     \begin{itemize}
     \mysubitem  Uses the \texttt{*}
     \mysubitem  \texttt{'HELLO '*10}
-    \end{itemize}
+    \end{itemize} \pause
   \myitem  \textbf{Formatting}:  used to encode other data as string
     \begin{itemize}
     \mysubitem  Uses \texttt{\%} symbol
@@ -424,11 +424,11 @@ z = x + y
   \Enlarge
 
   \begin{itemize}
-  \myitem  Creates string with value inserted
+  \myitem  Creates string with value inserted \pause
     \begin{itemize}
     \mysubitem  Formats nicely
     \mysubitem  Requires indicator of type inside of string
-    \end{itemize}
+    \end{itemize} \pause
   \begin{semiverbatim}
 x = 100 * 54
 s = "String is: %i" % x
@@ -478,13 +478,13 @@ print(s)
   \Enlarge
 
   \begin{itemize}
-  \myitem  Extracts single character
+  \myitem  Extracts single character \pause
 \begin{semiverbatim}
 a = "FIRE"
 a[0]
-\end{semiverbatim}
-  \myitem  The integer is the index.
-  \myitem  \textcolor{red}{We count from zero!}
+\end{semiverbatim} \pause
+  \myitem  The integer is the index. \pause
+  \myitem  \textcolor{red}{We count from zero!} \pause
   \myitem  If negative, counts down from end.
   \end{itemize}
 \end{frame}
