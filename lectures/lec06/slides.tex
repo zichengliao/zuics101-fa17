@@ -5,6 +5,7 @@
 \usepackage{amsmath}
 \usepackage{blindtext}
 \usepackage{enumitem}
+\usepackage{fancyvrb}
 
 \usetheme{SaoPaulo}
 
@@ -151,21 +152,22 @@ def hello():
   \frametitle{Example:  Defining functions}
   \Enlarge
 
-  \begin{semiverbatim}
-a = 5
-def fun():
-  \end{semiverbatim}
+  \begin{Verbatim}[commandchars=\\\{\}]
+\textcolor{CS101AltDark}{
+a = 5}
+\textcolor{CS101AltDark}{
+def fun():}
 \textcolor{CS101PureBase}{
-  \begin{semiverbatim}
-    a = 3
-    b = 4
-    a = a + b
-  \end{semiverbatim}
-}
-  \begin{semiverbatim}
-fun()
-print(a)
-  \end{semiverbatim}
+    a = 3}
+\textcolor{CS101PureBase}{
+    b = 4}
+\textcolor{CS101PureBase}{
+    a = a + b } \pause
+\textcolor{CS101AltDark}{
+fun()} \pause
+\textcolor{CS101AltDark}{
+print(a)}
+  \end{Verbatim}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
