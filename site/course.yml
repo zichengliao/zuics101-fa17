@@ -33,11 +33,12 @@ chunks:
 
         |            |          |          |
         | ---------- | -------- | -------- |
-        | [![](repocur:img/banner-hw01.png)](flow:hw01) <br/> **Due** 2016-08-31 | [![](repocur:img/banner-hw02.png)](flow:hw02) <br/> **Due** 2016-09-09 | ![](repocur:img/banner-blank.png) |
+        | [![](repocur:img/banner-hw01.png)](flow:hw01) <br/> **Due** 2016-08-31 | ![](repocur:img/banner-blank.png) | ![](repocur:img/banner-blank.png) |
         | ![](repocur:img/banner-blank.png) | ![](repocur:img/banner-blank.png) | ![](repocur:img/banner-blank.png) |
 
 
         ##  Labs
+        <a name="labs"></a>
 
         All labs meet in [L416](http://ada.fs.illinois.edu/0210PLANB.html) [Digital Computer Laboratory](http://ada.fs.illinois.edu/0210.html).
 
