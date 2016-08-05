@@ -124,8 +124,8 @@ def greetings():
   \Enlarge
 
   \begin{itemize}
-  \myitem  A section of code grouped together.
-  \myitem  Begins with a \texttt{:}.
+  \myitem  A section of code grouped together. \pause
+  \myitem  Begins with a \texttt{:}. \pause
   \myitem  Contents of the block are indented:
   \end{itemize}
   \begin{semiverbatim}
@@ -140,8 +140,8 @@ def hello():
   \Enlarge
 
   \begin{itemize}
-  \myitem  Variables defined inside of a block are \emph{independent} of variables outside of the block.
-  \myitem  Variables inside a block \emph{do not exist} outside of the block.
+  \myitem  Variables defined inside of a block are \emph{independent} of variables outside of the block. \pause
+  \myitem  Variables inside a block \emph{do not exist} outside of the block. \pause
   \myitem  Blocks are isolated from the rest of the code!
   \end{itemize}
 \end{frame}
@@ -154,36 +154,19 @@ def hello():
   \begin{semiverbatim}
 a = 5
 def fun():
-    a = 3
-    b = 4
-    a = a + b
-fun()
-print(a)
   \end{semiverbatim}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}[fragile]
-  \frametitle{Example:  Defining functions}
-  \Enlarge
-
+\textcolor{CS101PureBase}{
   \begin{semiverbatim}
-a = 5
-def fun():
     a = 3
     b = 4
     a = a + b
+  \end{semiverbatim}
+}
+  \begin{semiverbatim}
 fun()
 print(a)
   \end{semiverbatim}
-  \begin{tikzpicture}
-    %\useasboundingbox (-1cm,-1cm) rectangle(\the\paperwidth,\the\paperheight);
-    %\node[anchor=north west] at (0, 0);
-    \fill[color=CS101PureBase] (0, 0)   rectangle(\slidewidth,3cm);
-    \fill[color=CS101PureBase] (0, 6cm) rectangle(\slidewidth,\slideheight);
-  \end{tikzpicture}
 \end{frame}
-%TODO:  fix bounding box on tikz
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}[fragile]
@@ -191,12 +174,12 @@ print(a)
   \Enlarge
 
   \begin{itemize}
-  \myitem  Functions can return values with the keyword \texttt{return}.
+  \myitem  Functions can return values with the keyword \texttt{return}. \pause
     \begin{semiverbatim}
 def three():
     return 3
-    \end{semiverbatim}
-  \myitem  \texttt{return} immediately exits a function.
+    \end{semiverbatim} \pause
+  \myitem  \texttt{return} immediately exits a function. \pause
     \begin{semiverbatim}
 def zero():
   return 0
@@ -211,9 +194,9 @@ def zero():
   \Enlarge
 
   \begin{itemize}
-  \myitem  Functions can accept values as parameters (input, arguments).
-  \myitem  These variables are declared in the function header.
-  \myitem  Multiple parameters are separated by commas.
+  \myitem  Functions can accept values as parameters (input, arguments). \pause
+  \myitem  These variables are declared in the function header. \pause
+  \myitem  Multiple parameters are separated by commas. \pause
   \end{itemize}
   \begin{semiverbatim}
 def print_message( msg ):
@@ -314,9 +297,9 @@ x = fun( "ab", "caa" )
     \begin{itemize}
     \mysubitem  \texttt{True}
     \mysubitem  \texttt{False}
-    \end{itemize}
+    \end{itemize} \pause
   \myitem  We use these to make decisions.
-  \myitem  Their logic is based on Boolean algebra.
+  \myitem  Their logic is based on Boolean algebra. \pause
   \myitem  Operators:
     \begin{itemize}
     \mysubitem  \texttt{and}
@@ -490,7 +473,7 @@ x = fun(b,a)
   \Enlarge
 
   \begin{itemize}
-  \myitem  \emph{Control flow} represents actual sequence of lines executed by processor.
+  \myitem  \emph{Control flow} represents actual sequence of lines executed by processor. \pause
   \myitem  \emph{Conditional execution} lets you execute (or not) a block of code based on logical comparison.
   \end{itemize}
 \end{frame}
@@ -528,7 +511,7 @@ if float(ans) < 0:
   \Enlarge
 
   \begin{itemize}
-  \myitem  This lets us make decisions in the program!
+  \myitem  This lets us make decisions in the program! \pause
   \myitem  We can change program behavior as it executes.
   \end{itemize}
 \end{frame}
