@@ -154,7 +154,7 @@ def fun(x):
   \begin{enumerate}[label=\Alph*]
   \item  \texttt{x.string(3) == '0'}
   \item  \texttt{str(x)[-3] == '0'}
-  \item  \texttt{((x/100) % 10) == 0}
+  \item  \texttt{((x/100) \% 10) == 0}
   \item  None of the above.
   \end{enumerate}
 \end{frame}
@@ -168,7 +168,7 @@ def fun(x):
   \Enlarge
 
   \begin{itemize}
-  \myitem  We frequently need to process each value in a set of values.
+  \myitem  We frequently need to process each value in a set of values. \pause
   \myitem  Two kinds:  \texttt{while} and \texttt{for}
   \end{itemize}
 \end{frame}
@@ -229,7 +229,7 @@ x -= 1
   \frametitle{Exercise}
   \Enlarge
 
-  Write a program for a user to create a new password.  The program should accept a password attempt from the user and check it with the function \texttt{validate_password}.  If the password is valid, the program ends.  If the password is invalid, the program asks for a new attempt, repeating until the user enters a valid password.
+  Write a program for a user to create a new password.  The program should accept a password attempt from the user and check it with the function \texttt{validate\_password}.  If the password is valid, the program ends.  If the password is invalid, the program asks for a new attempt, repeating until the user enters a valid password.
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -247,11 +247,11 @@ print("Your password is valid.")
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}[fragile]
-  \frametitle{Infinite loops}}
+  \frametitle{Infinite loops}
   \Enlarge
 
   \begin{itemize}
-  \myitem  Make sure that your code always has a way to end!
+  \myitem  Make sure that your code always has a way to end! \pause
   \begin{semiverbatim}
 while True:
     print('Hello!')
@@ -261,7 +261,7 @@ while True:
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}[fragile]
-  \frametitle{Infinite loops}}
+  \frametitle{Infinite loops}
   \Enlarge
 
   \begin{itemize}
@@ -276,12 +276,12 @@ while True:
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}[fragile]
-  \frametitle{Accumulator pattern}}
+  \frametitle{Accumulator pattern}
   \Enlarge
 
   \begin{itemize}
-  \myitem  \emph{Design patterns} are common structures we encounter in writing code.
-  \myitem  The \emph{accumulator} pattern uses an accumulator variable to track a result inside of a loop:
+  \myitem  \emph{Design patterns} are common structures we encounter in writing code. \pause
+  \myitem  The \emph{accumulator} pattern uses an accumulator variable to track a result inside of a loop: \pause
   \begin{semiverbatim}
 i = 0
 sum = 0
@@ -340,7 +340,7 @@ while i < 7:
   \frametitle{Exercise}
   \Enlarge
 
-  Write a function to sum all of the digits in a number.  \emph{I.e.},
+  Write a function to sum all of the digits in a number.  \pause \emph{I.e.},
 
   \begin{center}
   \texttt{12145} $\rightarrow$ \texttt{1 + 2 + 1 + 4 + 5} $\rightarrow$ \texttt{13}
