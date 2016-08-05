@@ -31,9 +31,10 @@ chunks:
 
         Homework assignments are due at 6:00 p.m. on the due date.
 
-        | Assignment | Due Date |
+        |            |          |
         | ---------- | -------- |
-        | [![](repocur:img/banner-hw01.png)](flow:hw01) <br/> 2016-08-31 | [![](repocur:img/banner-hw02.png)](flow:hw02) <br/> 2016-09-09 |
+        | [![](repocur:img/banner-hw01.png)](flow:hw01) <br/> 2016-08-31 | [![](repocur:img/banner-hw02.png)](flow:hw02) <br/> 2016-09-09 | [![](repocur:img/banner-blank.png)](flow:hw02) <br/> 2016-09-09 |
+        | [![](repocur:img/banner-blank.png)](flow:hw01) <br/> 2016-08-31 | [![](repocur:img/banner-blank.png)](flow:hw02) <br/> 2016-09-09 | [![](repocur:img/banner-blank.png)](flow:hw02) <br/> 2016-09-09 |
 
 
         ##  Labs
