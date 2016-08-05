@@ -65,8 +65,6 @@ chunks:
         | AYQ     | Fri 13h00–14h50 |  |
         | AYR     | Fri 15h00–16h50 |  |
 
-        -   [Jupyter platform]()
-
         -   [Lab queue](http://davis68.web.engr.illinois.edu:8888/)
 
 
@@ -74,7 +72,7 @@ chunks:
 
         | Lecture | Date       | Supporting Resources |
         | ------- | ---------- | -------------------- |
-        | <a href="http://nbviewer.jupyter.org/github/davis68/cs101-fa16/lec01.ipynb" target="_blank" role="button" class="btn btn-info"><div style="font-family: Courier;">lec01</div></a> | 2016-08-22 |  |
+        | <a href="" target="_blank" role="button" class="btn btn-info">Lecture #1</a> | 2016-08-22 | Nothing yet. |
 
 
         ##  Office Hours
