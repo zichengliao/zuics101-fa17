@@ -91,13 +91,13 @@ for i in [ 1,4950,99,100 ][ 0:-1 ]:
   \Enlarge
 
   \begin{itemize}
-  \myitem  Just as we can nest control structures, we can nest container values.
+  \myitem  Just as we can nest control structures, we can nest container values. \pause
   \end{itemize}
   \begin{semiverbatim}
 a = [ [ 1, 2 ], [ 3, 4 ] ]
   \end{semiverbatim}
   \begin{itemize}
-  \myitem  What does this look like?
+  \myitem  What does this look like to you?
   \end{itemize}
 \end{frame}
 
@@ -107,15 +107,15 @@ a = [ [ 1, 2 ], [ 3, 4 ] ]
   \Enlarge
 
   \begin{itemize}
-  \myitem  Access member values of a nested container by coordinates:
+  \myitem  Access member values of a nested container by coordinates: \pause
   \end{itemize}
   \begin{semiverbatim}
 a = [ [ 1, 2 ], [ 3, 4 ] ]
 a[0]    #?
 a[0][0] #?
-  \end{semiverbatim}
+  \end{semiverbatim} \pause
   \begin{itemize}
-  \myitem  Python orders by \texttt{(row, column)}---that is, the first number selects the row and the second selects the column in that row.
+  \myitem  Python orders by \texttt{(row, column)}---that is, the first number selects the row and the second selects the column in that row. \pause
   \myitem  \textcolor{red}{Side effect:  easy to select rows, hard to select columns!}
   \end{itemize}
 \end{frame}
@@ -242,9 +242,9 @@ d = a.append(b)  #?
   \Enlarge
 
   \begin{itemize}
-  \myitem  \texttt{file} is an iterable type created by the function \texttt{open}.
-  \myitem  \texttt{open} accepts one option:  the file name as a string (for now).
-  \myitem  Each item in the iterable is a string representing one line in the file.
+  \myitem  \texttt{file} is an iterable type created by the function \texttt{open}. \pause
+  \myitem  \texttt{open} accepts one option:  the file name as a string (for now). \pause
+  \myitem  Each item in the iterable is a string representing one line in the file. \pause
   \end{itemize}
   \begin{semiverbatim}
 myfile = open( 'wordlist.txt' )
@@ -288,8 +288,8 @@ for w in open( 'words.txt' ):
   \Enlarge
 
   \begin{itemize}
-  \myitem  If we \texttt{open} a  \texttt{file}, we should \texttt{close} it as well.
-  \myitem  \texttt{close} protects the file against data loss.
+  \myitem  If we \texttt{open} a  \texttt{file}, we should \texttt{close} it as well. \pause
+  \myitem  \texttt{close} protects the file against data loss. \pause
   \end{itemize}
   \begin{semiverbatim}
 myfile = open( 'wordlist.txt' )
@@ -305,7 +305,7 @@ myfile.close()  # process responsibly
   \Enlarge
 
   \begin{itemize}
-  \myitem  The default way of opening a \texttt{file} is to read it.
+  \myitem  The default way of opening a \texttt{file} is to \texttt{'r'}ead it. \pause
   \myitem  We can extract all of the data from the file at once with:
     \begin{itemize}
     \mysubitem  \texttt{read}, which returns a string
@@ -347,13 +347,13 @@ for line in mydata:
   \Enlarge
 
   \begin{itemize}
-  \myitem  We can also \texttt{write} to a \texttt{file}, but we need to \texttt{open} it differently.
+  \myitem  We can also \texttt{w}rite to a \texttt{file}, but we need to \texttt{open} it differently. \pause
   \myitem  We can specify a file mode when we open a file:
     \begin{itemize}
     \mysubitem  \texttt{'r'} to read a \texttt{file}'s data (default)
     \mysubitem  \texttt{'w'} to write data to a \texttt{file}
     \end{itemize}
-  \end{itemize}
+  \end{itemize} \pause
   \begin{semiverbatim}
 myfile = open( 'wordlist.txt','w' )
 myfile.write( 'Hello, this is a test.' )

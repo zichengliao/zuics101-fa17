@@ -40,8 +40,8 @@
   \Enlarge
 
   \begin{itemize}
-  \myitem  Homework \#5 is due Friday Sep.\ 30.
-  \myitem  Midterm \#1 will be Monday Oct.\ 3.  (7 p.m.) \\ \textcolor{CS101GradBot}{No class on Monday, \\ Labs WILL be held all week. \\ Contact \texttt{cs101admin@cs.illinois.edu} for conflict exam.}
+  \myitem  Homework \#5 is due Friday Sep.\ 30. \pause
+  \myitem  Midterm \#1 will be Monday Oct.\ 3.  (7 p.m.) \\ \pause \textcolor{CS101GradBot}{No class on Monday, \\ Labs WILL be held all week. \\ Contact \texttt{cs101admin@cs.illinois.edu} for conflict exam.}
   \end{itemize}
 \end{frame}
 
@@ -71,8 +71,8 @@
 
   \begin{itemize}
   \myitem  30 multiple-choice questions
-  \myitem  60 minutes
-  \myitem  Requires NetID and University I-Card.
+  \myitem  60 minutes \pause
+  \myitem  Requires NetID and University I-Card. \pause
   \mysubitem  Exams are unique—omitting the exam code will dock one letter grade (10\%).
   \end{itemize}
 \end{frame}
@@ -161,7 +161,7 @@ a = fun( a,a ) + a
   \Enlarge
 
   \begin{itemize}
-  \myitem  How do we index a \texttt{list}?
+  \myitem  How do we index a \texttt{list}? \pause
   \myitem  \texttt{list}s and \texttt{tuple}s are \emph{ordered}.
   \myitem  What else may make sense---how else could you organize data?
   \end{itemize}
@@ -180,9 +180,9 @@ a = fun( a,a ) + a
   \Enlarge
 
   \begin{itemize}
-  \myitem  The \texttt{dict} indexes data by \emph{any} value (\emph{unordered}).
-  \myitem  Easy to think of as dictionary, but can use lots besides strings.
-  \myitem  This container maps \emph{keys} to \emph{values}.
+  \myitem  The \texttt{dict} indexes data by \emph{any} value (\emph{unordered}). \pause
+  \myitem  Easy to think of as dictionary, but can use lots besides strings. \pause
+  \myitem  This container maps \emph{keys} to \emph{values}. \pause
   \end{itemize}
   \includegraphics[height=0.333\textheight]{./img/dict-02.png}
 \end{frame}
@@ -207,7 +207,7 @@ a = fun( a,a ) + a
     \mysubitem  \texttt{key : value} pairs, separated by commas
     \mysubitem  closing brace \texttt{\}}
     \end{itemize}
-  \end{itemize}
+  \end{itemize} \pause
   \begin{semiverbatim}
 model = \{
   'Civic': 'Honda',
@@ -281,7 +281,7 @@ for word in words:
 
   \begin{itemize}
   \myitem  Dictionaries can encode/decode data, or translate from one representation to another.
-  \end{itemize}
+  \end{itemize} \pause
   \begin{semiverbatim}
 x = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 y = 'BCDEFGHIJKLMNOPQRSTUVWXYZA'
@@ -406,9 +406,9 @@ x.append( 0 )
   \Enlarge
 
   \begin{itemize}
-  \myitem  Mutability causes \texttt{list}s to work differently in functions.
-  \myitem  \texttt{list}s used as arguments \emph{can be changed} by the function.
-  \myitem  This is very useful!
+  \myitem  Mutability causes \texttt{list}s to work differently in functions. \pause
+  \myitem  \texttt{list}s used as arguments \emph{can be changed} by the function. \pause
+  \myitem  This is very useful! \pause
   \end{itemize}
   \begin{semiverbatim}
 def fun(q):
@@ -459,8 +459,8 @@ for f in open(“filenames.txt”):
   \Enlarge
 
   \begin{itemize}
-  \myitem  What if we \emph{want} a copy of a \texttt{list} (not an alias)?
-  \myitem  Slice!
+  \myitem  What if we \emph{want} a copy of a \texttt{list} (not an alias)? \pause
+  \myitem  Slice everything! \pause
   \end{itemize}
   \begin{semiverbatim}
 x = [ 3,2,1 ]
@@ -492,8 +492,8 @@ print( x == y )
   \Enlarge
 
   \begin{itemize}
-  \myitem  \texttt{split} returns a \texttt{list}.
-  \myitem  Takes a single string argument, the \emph{delimiter}.
+  \myitem  \texttt{split} returns a \texttt{list}. \pause
+  \myitem  Takes a single string argument, the \emph{delimiter}. \pause
   \end{itemize}
   \begin{semiverbatim}
 name = 'Oliver Wendell Holmes'
@@ -544,9 +544,9 @@ y = x.split('-')
   \Enlarge
 
   \begin{itemize}
-  \myitem  \texttt{join} returns a \texttt{str}.
-  \myitem  Takes a single \texttt{list} argument.
-  \myitem  Returns the \texttt{list} elements joined as a string.
+  \myitem  \texttt{join} returns a \texttt{str}. \pause
+  \myitem  Takes a single \texttt{list} argument. \pause
+  \myitem  Returns the \texttt{list} elements joined as a string. \pause
   \end{itemize}
   \begin{semiverbatim}
 names = [ "Geoffrey", "Richard", "Aloysius", "Johnston", "Windsor", "Dean" ]

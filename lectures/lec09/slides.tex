@@ -90,7 +90,7 @@ else:
   \Enlarge
 
   \begin{itemize}
-  \myitem  We distinguished \emph{mutability} and \emph{immutability}. %\pause
+  \myitem  We distinguished \emph{mutability} and \emph{immutability}. \pause
   \myitem  The distinction arises from the storage in memory.
   \end{itemize}
   \includegraphics[width=0.8\textwidth]{./img/memory-mutability.png}
@@ -114,7 +114,7 @@ else:
   \Enlarge
 
   \begin{itemize}
-  \myitem  \emph{Mutability} occurs when values share the same location. %\pause
+  \myitem  \emph{Mutability} occurs when values share the same location. \pause
   \myitem  The distinction arises from the storage in memory.
   \end{itemize}
 \end{frame}
@@ -125,7 +125,7 @@ else:
   \Enlarge
 
   \begin{itemize}
-  \myitem  \emph{Aliasing} occurs when one memory location has two names. %\pause
+  \myitem  \emph{Aliasing} occurs when one memory location has two names. \pause
   \myitem  \textcolor{red}{Aliasing causes mutable types to behave unexpectedly!}
   \end{itemize}
   \begin{semiverbatim}
@@ -166,7 +166,7 @@ b[3] = '*'
   \Enlarge
 
   \begin{itemize}
-  \myitem  The immutable analogue of a \texttt{list} is a \texttt{tuple}. %\pause
+  \myitem  The immutable analogue of a \texttt{list} is a \texttt{tuple}. \pause
   \myitem  We form a tuple by using parentheses \texttt{()} instead of square brackets \texttt{[]}.
   \end{itemize}
 \end{frame}
@@ -211,8 +211,8 @@ print(s % x,y,z)
   \Enlarge
 
   \begin{itemize}
-  \myitem  \texttt{tuple}s can also be used on the left-hand side of an assignment operator. %\pause
-  \myitem  This lets us make \emph{multiple assignments} at once. %\pause
+  \myitem  \texttt{tuple}s can also be used on the left-hand side of an assignment operator. \pause
+  \myitem  This lets us make \emph{multiple assignments} at once. \pause
   \end{itemize}
   \begin{semiverbatim}
 one,pi,hello = ( 1,3.14,'Hi' )
@@ -226,7 +226,7 @@ x,y = y,x
   \Enlarge
 
   \begin{itemize}
-  \myitem  \texttt{tuple}s can return \emph{multiple values} from a function. %\pause
+  \myitem  \texttt{tuple}s can return \emph{multiple values} from a function. \pause
   \end{itemize}
   \begin{semiverbatim}
 def fun():
@@ -245,7 +245,7 @@ a,b,c = fun()
   \Enlarge
 
   \begin{itemize}
-  \myitem  Because \texttt{list}s are mutable, we can change their contents. %\pause
+  \myitem  Because \texttt{list}s are mutable, we can change their contents. \pause
   \end{itemize}
   \begin{semiverbatim}
 x = [ 4,1,2,3 ]
@@ -262,7 +262,7 @@ x.sort()        # changing item order
   \Enlarge
 
   \begin{itemize}
-  \myitem  \texttt{sort} and \texttt{append} modify the \texttt{list} itself. %\pause
+  \myitem  \texttt{sort} and \texttt{append} modify the \texttt{list} itself. \pause
   \end{itemize}
   \begin{alertblock}{Warning!}
   This means that \texttt{sort} and \texttt{append} \texttt{return None}!
@@ -330,7 +330,7 @@ y[-1] = 3
   \Enlarge
 
   \begin{Verbatim}
-list( range( 0, 6, 2) ) %\pause
+list( range( 0, 6, 2) ) \pause
 [ 0, 2, 4 ]
   \end{Verbatim}
   \end{itemize}
