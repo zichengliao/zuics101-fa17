@@ -1,0 +1,13 @@
+[JINJA]
+{% from "yaml-macros.jinja" import hw_header, indented_include %}
+{{ hw_header(8) }}
+
+groups:
+  - id: hw
+    pages:
+      -
+        {{ indented_include("hw/hw08-baseball.yml", 8) }}
+
+[/JINJA]
+
+# vim: foldmethod=marker
