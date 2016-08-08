@@ -1,12 +1,21 @@
 %!TEX program = xelatex
-\documentclass{beamer}
+\documentclass[11pt]{beamer}
 
+\usepackage{amsfonts}
+\usepackage{amsmath}
 \usepackage{blindtext}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{colortbl}
+\usepackage{fancyvrb}
+\usepackage{booktabs}
 
-\usetheme{Execushares}
+\hypersetup{pdfborder = {0 0 0}}
 
-\title{Welcome to CS101!}
-\subtitle{}
+\usetheme{SaoPaulo}
+
+\title{Welcome to CS \emph{101}!}
+\subtitle{Introduction to Programming}
 \author{CS101 Lecture \#1}
 \date{2016-08-22}
 
@@ -20,16 +29,6 @@
 \frame{\titlepage}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-  \frametitle{Contents}
-  \begin{enumerate}
-    \item Introduction \\ \textcolor{CS101GradBot}{\footnotesize\hspace{1em} The reasoning and background behind this theme}
-    \item Lorem Text  \\ \textcolor{CS101GradBot}{\footnotesize\hspace{1em} Just some Lorem Ipsum for filler}
-    \item Conclusions \\ \textcolor{CS101GradBot}{\footnotesize\hspace{1em} Some closing thoughts}
-  \end{enumerate}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \setcounter{framenumber}{0}
 \setcounter{showProgressBar}{1}
 \setcounter{showSlideNumbers}{1}
@@ -40,6 +39,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}[plain,c]
   \frametitle{Class Website}
+  \Enlarge
+
   \begin{center}
     \textcolor{CS101Base}{\Huge \texttt{go.illinois.edu/cs101}}
   \end{center}
@@ -48,11 +49,11 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
   \frametitle{Grading}
-  \begin{tabular}{*{27}{l}}
+  \begin{tabular}{*{27}{ll}}
     \toprule
     20\% & Homework \\
     25\% & Labs \\
-    10\% & Lecture \\
+    10\% & Lecture Participation \\
     20\% & Midterms \\
     25\% & Final Exam \\
     \bottomrule
@@ -62,29 +63,35 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
   \frametitle{Required Supplies}
+  \Enlarge
+
   \begin{itemize}
-    \item i>clicker \\ \textcolor{CS101GradBot}{\footnotesize\hspace{1em} Grades count starting Wed 08-31}
-    \item CodeLab account \\ \textcolor{CS101GradBot}{\footnotesize\hspace{1em} Instructions in \texttt{hw01}}
-    \item No textbook!
+    \myitem i>clicker \\ \textcolor{CS101GradBot}{\footnotesize\hspace{1em} Grades count starting Wed 08-31} \pause
+    \myitem CodeLab account \\ \textcolor{CS101GradBot}{\footnotesize\hspace{1em} Instructions in \texttt{hw01}} \pause
+    \myitem No textbook!
   \end{itemize}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
   \frametitle{Homework Policies}
+  \Enlarge
+
   \begin{itemize}
-    \item No late homework submissions.
-    \item All machine-generated grades are final.
-    \item Late registrants should keep up with work. \\ \textcolor{CS101GradBot}{\footnotesize\hspace{1em} Corollary:  No extensions or exceptions for late registration.}
-    \item Get help at Piazza forum. \\ \textcolor{CS101GradBot}{\footnotesize\hspace{1em} Be civil to staff and peers. \\ All posts containing solutions should be marked as private.}
+    \myitem No late homework submissions. \pause
+    \myitem All machine-generated grades are final. \pause
+    \myitem Late registrants should keep up with work. \\ \textcolor{CS101GradBot}{\footnotesize\hspace{1em} Corollary:  No extensions or exceptions for late registration.} \pause
+    \myitem Get help at Piazza forum. \\ \textcolor{CS101GradBot}{\footnotesize\hspace{1em} Be civil to staff and peers. \\ All posts containing solutions should be marked as private.}
   \end{itemize}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}[plain,c]
   \frametitle{Class Website}
+  \Enlarge
+
   \begin{center}
-    \textcolor{CS101Base}{\Huge \texttt{lab01} begins today!}
+    \textcolor{CS101Base}{\Huge Lab \#1 begins today!}
   \end{center}
 \end{frame}
 
@@ -92,46 +99,241 @@
 \section{Programming}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Early mathematics}
+
+  \begin{tabular}{cc}
+  \includegraphics[height=0.75\textheight]{./img/ybc7289.jpg}
+  \includegraphics[height=0.375\textheight]{./img/ybc7289-schematic.jpg}
+  \end{tabular}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Early mathematics}
+
+  \begin{tabular}{cc}
+  \includegraphics[height=0.75\textheight]{./img/pentagon.png}
+  \end{tabular}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Early calculation}
+
+  \includegraphics[height=0.25\textheight]{./img/abacus.jpg} \\
+  \includegraphics[width=0.75\textwidth]{./img/pascal.jpg}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Early calculation}
+
+  \includegraphics[height=0.75\textheight]{./img/al-khwarizmi.png}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Characteristica universalis}
+
+  \begin{tabular}{cc}
+  \includegraphics[height=0.75\textheight]{./img/wilkins.jpg}
+  \includegraphics[width=0.5\textwidth]{./img/llull.png}
+  \end{tabular}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Modern calculation}
+
+  \includegraphics[height=0.75\textheight]{./img/babbage-1.jpg}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Modern calculation}
+
+  \includegraphics[height=0.75\textheight]{./img/jacquard.jpg}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Modern calculation}
+
+  \includegraphics[height=0.75\textheight]{./img/babbage-2.png}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Modern calculation}
+
+  \includegraphics[height=0.75\textheight]{./img/babbage-3.jpg}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Modern calculation}
+
+  \includegraphics[height=0.75\textheight]{./img/ibm.jpg}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Modern calculation}
+
+  \includegraphics[width=\textwidth]{./img/turing-et-al.jpg}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Modern calculation}
+
+  \includegraphics[height=0.75\textheight]{./img/enigma.jpg}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Modern calculation}
+
+  \includegraphics[height=0.75\textheight]{./img/eniac.jpg}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Algorithms}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Algorithms}
+
+  \includegraphics[height=0.75\textheight]{./img/hedge-maze.jpg}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Computing}
+
+  \includegraphics[width=\textwidth]{./img/assembler-1.png}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Computing}
+
+  \includegraphics[width=\textwidth]{./img/assembler-2.png}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Computing}
+
+  \includegraphics[width=\textwidth]{./img/assembler-3.png}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Computing}
+
+  \includegraphics[width=\textwidth]{./img/assembler-4.png}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Algorithms}
+
+  \begin{centering}
+  \includegraphics[width=0.5\textwidth]{./img/python-logo.png}
+  \end{centering}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Algorithms}
+  \Enlarge
+%TODO
+  \begin{Verbatim}
+\textcolor{CS101AltDark}{
+depth * area = volume}
+
+\textcolor{CS101AltDark}{
+volume of rain / volume per raindrop = number of raindrops}
+  \end{Verbatim}
+  \begin{Verbatim}
+\textcolor{CS101PureBase}{
+volume_rain = area * depth}
+
+\textcolor{CS101PureBase}{
+n_raindrops = volume_rain / volume_raindrop}
+  \end{Verbatim}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
   \frametitle{What is a program?}
-  \begin{itemize}
-    \item A set of instructions a computer executes to achieve a goal.
+  \Enlarge
+
+  \begin{itemize} \pause
+    \myitem A set of instructions a computer executes to achieve a goal.
   \end{itemize}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
   \frametitle{What is data?}
-  \begin{itemize}
-    \item Information stored in a computer.
-    \item All data is stored in binary.
+  \Enlarge
+
+  \begin{itemize} \pause
+    \myitem Information stored in a computer. \pause
+    \myitem All data is stored in binary.
   \end{itemize}
-  % graphic or text:  bits and bytes
+  \includegraphics[width=\textwidth]{./img/assembler-2.png}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
   \frametitle{What is data?}
+  \Enlarge
+
   \begin{itemize}
-    \item Binary data must be interpreted:
+    \myitem Binary data must be interpreted:
 	\begin{itemize}
-	  \item instruction
-	  \item value (number, character)
-	  \item memory location
+	  \mysubitem instruction \pause
+	  \mysubitem value (number, character) \pause
+	  \mysubitem memory location \pause
 	\end{itemize}
   \end{itemize}
-  % graphic or text:  byte alternatives ; Salvador Dalí?
+  \begin{centering}
+  \includegraphics[height=0.5\textheight]{./img/dali.png}
+  \end{centering}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
   \frametitle{What is a program?}
-  \begin{itemize}
-    \item Programs are data!
-	\item Instructions are encoded in binary.
+  \Enlarge
+
+  \begin{itemize} \pause
+    \myitem Programs are data! \pause
+	\myitem Instructions are encoded in binary.
   \end{itemize}
-  % graphic or text:  bits and bytes
+  \includegraphics[width=\textwidth]{./img/assembler-4.png}
 \end{frame}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Reminders}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+  \frametitle{Reminders}
+  \Enlarge
+
+  \begin{itemize}
+  \myitem i>clicker \\ \textcolor{CS101GradBot}{\footnotesize\hspace{1em} Grades count starting Wed 08-31}
+  \end{itemize}
+  \begin{center}
+    \textcolor{CS101Base}{\Huge \texttt{go.illinois.edu/cs101}}
+  \end{center}
+\end{frame}
 
 \end{document}
