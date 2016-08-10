@@ -1,0 +1,9 @@
+Atreya	Siddharth	atreya2@illinois.edu
+Bhattad	Anand	bhattad2@illinois.edu
+Ghosh	Ritwika	rghosh9@illinois.edu
+Hassan	Wajih Ul	whassan3@illinois.edu
+Li	Lunan	lunanli3@illinois.edu
+Liu	Chaoqun	cliu68@illinois.edu
+Pampari	Anusri	pampari2@illinois.edu
+Saha	Shambwaditya	ssaha6@illinois.edu
+Sharma	Neetesh	nsharm11@illinois.edu
