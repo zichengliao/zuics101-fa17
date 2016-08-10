@@ -100,4 +100,7 @@ TAs have the following resources available to them:
 
 -   An office hours queue, online at [go.illinois.edu/cs101-ohq](go.illinois.edu/cs101-ohq).  The password to clear this queue or remove single students after they have been helped is `101score`.  If the server goes down, it should restart automatically within a minute unless EWS itself is under preventative maintenance or an outage.
 
+##  Forum
+
+TAs will be assigned hours of responsibility for responding to student questions on Piazza.
 
