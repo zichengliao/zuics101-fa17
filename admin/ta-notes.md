@@ -47,15 +47,12 @@ As much of the lab workflow as possible has been automated.  Labs will typically
 -   Printed worksheets
 
 Students will need to run the following command the first time they log in:
-    
-    /class/cs101/bin/setup
+
+    /class/cs101/setup
 
 This interactive script will ask for the student's section so that they are able to access the correct repository for fetching and submitting assignments.  (This step is not necessary for guest account users.)
 
-Students then access notebooks by
-
-(navigating to URL)
-(or via EWS at `jupyter notebook` => alias `notebook`?)
+Students then access notebooks via the command line by typing `jupyter-notebook`.  Submitted assignments will be automatically retrieved at the hour ending a lab session, so students should submit promptly.
 
 Labs will be made available to TAs one week beforehand.  You should review and understand the labs, as well as report any difficulties or errors as soon as possible for correction prior to release to students.  Collect hard copies of worksheets from the instructor beforehand.
 
@@ -103,4 +100,3 @@ TAs have the following resources available to them:
 ##  Forum
 
 TAs will be assigned hours of responsibility for responding to student questions on Piazza.
-
