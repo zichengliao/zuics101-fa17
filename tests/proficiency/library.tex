@@ -1,0 +1,1380 @@
+\documentclass{article}
+\usepackage{amsmath,amssymb,listings,upquote}
+\usepackage[margin=3cm]{geometry}
+\usepackage{graphicx,color}
+\lstset{language=Python}
+
+\newcounter{zone}
+\setcounter{zone}{0}
+\newcommand{\zone}{\clearpage\refstepcounter{zone}\section*{Zone \arabic{zone}}}
+\newcounter{question}
+\setcounter{question}{0}
+\newcounter{variant}
+\newcounter{questionpoints}
+\newcommand{\question}[1]{\newpage \refstepcounter{question} \setcounter{variant}{0} \setcounter{questionpoints}{#1}}
+\newcommand{\variant}{\vspace{4em}\refstepcounter{variant}\noindent \arabic{question}/\arabic{variant}. (\arabic{questionpoints} point\ifnum \thequestionpoints > 1 s\fi) }
+\newenvironment{answers}{\begin{enumerate}}{\end{enumerate}}
+\newcommand{\answer}{\item }
+\newcommand{\correctanswer}{\item $\bigstar$ }
+\renewcommand{\theenumi}{\Alph{enumi}}
+\newenvironment{solution}{{\bf Solution.} }{\vspace*{.3in}\hrule}
+
+\begin{document}
+
+\begin{center}
+\textbf{\Large CS 101 Proficiency Exam \\ Fall 2016}
+\end{center}
+
+\bigskip
+\noindent
+\begin{itemize}
+\item \textbf{Be sure to enter your \underline{NetID} and \underline{the code below} on your Scantron}.
+\item Do not turn this page until instructed to.
+\item There are a total of 200 possible points on this exam.
+\item There are 30 multiple choice questions worth 5 points each.
+\item There are 2 coding questions worth 25 points each.
+\item Each question has only \textbf{one} correct answer.
+\item You must not communicate with other students during this test.
+\item No books, notes, or electronic devices allowed.
+\item This is a 120-minute exam.
+\item There are several different versions of this exam.
+\end{itemize}
+
+\bigskip\bigskip
+\noindent
+\textbf{\Large 1. Fill in your information:}
+
+\bigskip
+{\Large\bf
+\begin{tabular}{ll}
+Full Name: & \underbar{\hskip 8cm} \\[0.5em]
+UIN (Student Number): & \underbar{\hskip 8cm} \\[0.5em]
+NetID: & \underbar{\hskip 8cm}
+\end{tabular}
+}
+
+\bigskip
+\bigskip
+\noindent
+\textbf{\Large 2. Fill in the following answers on the Scantron form:}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\zone
+\pagebreak \noindent \textbf{The following 20 questions are about Python.}
+\\\\
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{5}
+\variant
+Consider the following incomplete Python program.
+\begin{verbatim}
+s="".join(["0","1","2","1","1"])
+x=0
+for i in range(len(s)-1):
+    x+=int(???)
+\end{verbatim}
+What should replace the three question marks so the resulting value of x is 45?
+\begin{answers}
+\correctanswer \begin{verbatim}s[i:i+2]\end{verbatim}
+\answer \begin{verbatim}s[i:i+1]\end{verbatim}
+\answer \begin{verbatim}s[i:i-1]\end{verbatim}
+\answer \begin{verbatim}s[i+1:i+2]\end{verbatim}
+\end{answers}
+\begin{solution}
+\end{solution}
+
+\variant
+Consider the following incomplete Python program.
+\begin{verbatim}
+s="".join(["2","2","0","1","2"])
+x=0
+for i in range(len(s)-1):
+    x+=int(???)
+\end{verbatim}
+What should replace the three question marks so the resulting value of x is 55?
+\begin{answers}
+\correctanswer \begin{verbatim}s[i:i+2]\end{verbatim}
+\answer \begin{verbatim}s[i:i+1]\end{verbatim}
+\answer \begin{verbatim}s[i:i-1]\end{verbatim}
+\answer \begin{verbatim}s[i+1:i+2]\end{verbatim}
+\end{answers}
+\begin{solution}
+\end{solution}
+
+\variant
+Consider the following incomplete Python program.
+\begin{verbatim}
+s="".join(["1","0","2","1","1"])
+x=0
+for i in range(len(s)-1):
+    x+=int(???)
+\end{verbatim}
+What should replace the three question marks so the resulting value of x is 44?
+\begin{answers}
+\correctanswer \begin{verbatim}s[i:i+2]\end{verbatim}
+\answer \begin{verbatim}s[i:i+1]\end{verbatim}
+\answer \begin{verbatim}s[i:i-1]\end{verbatim}
+\answer \begin{verbatim}s[i+1:i+2]\end{verbatim}
+\end{answers}
+\begin{solution}
+\end{solution}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{5}
+\variant
+Consider the following incomplete Python function.
+\begin{verbatim}
+def total_sales(sales_file):
+    d={}
+    for line in open(sales_file):
+        ???
+    return d
+\end{verbatim}
+The function is intended to compute the total sales of each employee working for a company by reading a comma separated (csv) input file of employee sale data. The result should be stored in a dictionary. The first column of each line in the input file is expected to contain the employee's name represented as a string. The second column is expected to contain a floating point number representing the total for that sale. Here is an example input file:
+\begin{verbatim}
+Bob,10.0
+Jill,10.55
+Jill,115.50
+Your program should ignore this line
+Bob,30.25
+\end{verbatim}
+The resulting return value for this file should be the following dictionary:
+\begin{verbatim}
+{'Bob': 40.25, 'Jill': 126.05}
+\end{verbatim}
+What should replace the three question marks to complete the function?
+\begin{answers}
+\correctanswer  \begin{verbatim}
+try:
+    s,f=line.split(",")
+    if s not in d:
+        d[s]=0.0
+    d[s]+=float(f)
+except:
+    continue
+\end{verbatim}
+\answer  \begin{verbatim}
+if line not in d:
+    d[line]=0.0
+try:
+    s,f=line.split(",")
+except:
+    d[s]+=float(f)
+    continue
+\end{verbatim}
+\answer  \begin{verbatim}
+try:
+    s,f=line.split(",")
+except:
+    continue
+if f not in d:
+    d[f]=0.0
+d[f]+=float(s)
+\end{verbatim}
+\end{answers}
+\begin{solution}
+\end{solution}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{5}
+\variant
+Consider the following incomplete Python program:
+\begin{verbatim}
+x=[ ]
+for i in range(1,101):
+    for j in range(i+1,101):
+        t=i,j
+        x.append(t)
+\end{verbatim}
+After the program runs, which of the following is an element of x?
+\begin{answers}
+\correctanswer \begin{verbatim}(10,52)\end{verbatim}
+\answer \begin{verbatim}(0,33)\end{verbatim}
+\answer \begin{verbatim}(42,15)\end{verbatim}
+\answer \begin{verbatim}(78,78)\end{verbatim}
+\answer \begin{verbatim}(11,4)\end{verbatim}
+\end{answers}
+\begin{solution}
+\end{solution}
+
+\variant
+Consider the following incomplete Python program:
+\begin{verbatim}
+x=[ ]
+for i in range(1,101):
+    for j in range(i+1,101):
+        t=i,j
+        x.append(t)
+\end{verbatim}
+After the program runs, which of the following is \textbf{not} an element of x?
+\begin{answers}
+\correctanswer \begin{verbatim}(55,55)\end{verbatim}
+\answer \begin{verbatim}(4,33)\end{verbatim}
+\answer \begin{verbatim}(19,32)\end{verbatim}
+\answer \begin{verbatim}(78,100)\end{verbatim}
+\answer \begin{verbatim}(1,20)\end{verbatim}
+\end{answers}
+\begin{solution}
+\end{solution}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{5}
+\variant
+Consider the following Python program.
+\begin{verbatim}
+e=[1,1,2,2,3,3,4,4,5,5,6,6]
+d={0:0,1:0,2:0}
+for a,b in enumerate(e):
+    d[a%3]+=b
+x=d[1]
+\end{verbatim}
+After it is run, what is the final \textbf{value} of x?
+\begin{answers}
+\answer \begin{verbatim}3\end{verbatim}
+\answer \begin{verbatim}8\end{verbatim}
+\answer \begin{verbatim}12\end{verbatim}
+\answer \begin{verbatim}22\end{verbatim}
+\correctanswer \begin{verbatim}14\end{verbatim}
+\end{answers}
+\begin{solution}
+\end{solution}
+
+\variant
+Consider the following Python program.
+\begin{verbatim}
+e=[6,6,5,5,4,4,3,3,2,2,1,1]
+d={0:0,1:0,2:0}
+for a,b in enumerate(e):
+    d[a%3]+=b
+x=d[2]
+\end{verbatim}
+After it is run, what is the final \textbf{value} of x?
+\begin{answers}
+\answer \begin{verbatim}3\end{verbatim}
+\answer \begin{verbatim}8\end{verbatim}
+\answer \begin{verbatim}14\end{verbatim}
+\answer \begin{verbatim}22\end{verbatim}
+\correctanswer \begin{verbatim}12\end{verbatim}
+\end{answers}
+\begin{solution}
+\end{solution}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{5}
+\variant
+Consider the following incomplete Python program.
+\begin{verbatim}
+a="HAMBUG"
+b="BUSHWA"
+d={}
+for x,y in zip(a,b):
+    ???
+s=""
+for c in a:
+    s+=d[c]
+print(s)
+\end{verbatim}
+Which of the following could replace the three question marks to cause this program to print out  \begin{verbatim}BUSHWA\end{verbatim}?
+\begin{answers}
+\correctanswer \begin{verbatim}d[x]=y\end{verbatim}
+\answer \begin{verbatim}d[y]=x\end{verbatim}
+\answer \begin{verbatim}d[a]=b\end{verbatim}
+\answer \begin{verbatim}d[b]=a\end{verbatim}
+\answer \begin{verbatim}d[a]=x\end{verbatim}
+\end{answers}
+\begin{solution}
+\end{solution}
+
+\variant
+Consider the following incomplete Python program.
+\begin{verbatim}
+a="HAMBUG"
+b="BUSHWA"
+d={}
+for x,y in zip(a,b):
+    ???
+s=""
+for c in b:
+    s+=d[c]
+print(s)
+\end{verbatim}
+Which of the following could replace the three question marks to cause this program to print out  \begin{verbatim}HAMBUG\end{verbatim}?
+\begin{answers}
+\answer \begin{verbatim}d[x]=y\end{verbatim}
+\correctanswer \begin{verbatim}d[y]=x\end{verbatim}
+\answer \begin{verbatim}d[a]=b\end{verbatim}
+\answer \begin{verbatim}d[b]=a\end{verbatim}
+\answer \begin{verbatim}d[a]=x\end{verbatim}
+\end{answers}
+\begin{solution}
+\end{solution}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{5}
+\variant
+Consider the following Python program.
+\begin{verbatim}
+import numpy as np
+x=np.array( [2,3,4]*3 )-1
+end{verbatim}
+After it is run, what is the final \textbf{value} of \begin{verbatim}x\end{verbatim}?
+\begin{answers}
+\answer $ \left[ \begin{array}{ccc} 1 & 2 & 3 \\ 1 & 2 & 3  \\ 1 & 2 & 3  \\ \end{array} \right] $
+\answer $ \left[ \begin{array}{ccc} 5 & 8 & 11 \\ \end{array} \right] $
+\answer $ \left[ \begin{array}{c} 5 \\ 8 \\ 11 \\ \end{array} \right] $
+\correctanswer $ \left[ \begin{array}{ccccccccc} 1 & 2 & 3 & 1 & 2 & 3 & 1 & 2 & 3 \\ \end{array} \right] $
+\answer None of the other answers are correct
+\end{answers}
+\begin{solution}
+\end{solution}
+
+\variant
+Consider the following Python program.
+\begin{verbatim}
+import numpy as np
+x=np.array( [2,3,4] ) * 3 - 1
+\end{verbatim}
+After it is run, what is the final \textbf{value} of x?
+\begin{answers}
+\answer $ \left[ \begin{array}{ccc} 1 & 2 & 3 \\ 1 & 2 & 3  \\ 1 & 2 & 3  \\ \end{array} \right] $
+\correctanswer $ \left[ \begin{array}{ccc} 5 & 8 & 11 \\ \end{array} \right] $
+\answer $ \left[ \begin{array}{c} 5 \\ 8 \\ 11 \\ \end{array} \right] $
+\answer $ \left[ \begin{array}{ccccccccc} 1 & 2 & 3 & 1 & 2 & 3 & 1 & 2 & 3 \\ \end{array} \right] $
+\answer None of the other answers are correct
+\end{answers}
+\begin{solution}
+\end{solution}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{5}
+\variant
+Consider the following Python program.
+\begin{verbatim}
+x="5 4 1".split()
+x=x.sort()
+try:
+    print(len(x))
+except:
+    print(type(x))
+\end{verbatim}
+After it is run, what is printed by this program?
+\begin{answers}
+\answer \begin{verbatim}TypeError\end{verbatim}
+\answer \begin{verbatim}3\end{verbatim}
+\answer \begin{verbatim}list\end{verbatim}
+\correctanswer \begin{verbatim}NoneType\end{verbatim}
+\end{answers}
+\begin{solution}
+\end{solution}
+
+\variant
+Consider the following Python program.
+\begin{verbatim}
+x="1 2 3".split()
+x=','.join(x)
+try:
+    print(x.append(4))
+except:
+    print(type(x))
+\end{verbatim}
+After it is run, what is printed by this program?
+\begin{answers}
+\answer \begin{verbatim}TypeError\end{verbatim}
+\answer \begin{verbatim}[1,2,3,4]\end{verbatim}
+\answer \begin{verbatim}list\end{verbatim}
+\correctanswer \begin{verbatim}str\end{verbatim}
+\end{answers}
+\begin{solution}
+\end{solution}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{5}
+\variant
+Consider the following program:
+\begin{verbatim}
+a=1
+def fun(a):
+    a=2
+    return a+1
+    a=2
+a=a+fun()
+print(a)
+\end{verbatim}
+What is printed out by this program?
+\begin{answers}
+\answer 1
+\answer 2
+\answer 3
+\correctanswer 4
+\answer None of the other answers. This code is not valid.
+\end{answers}
+\begin{solution}
+\end{solution}
+
+\variant
+Consider the following program:
+\begin{verbatim}
+a=1
+def fun(a):
+    a=2
+    return a+1
+    a=4
+a=fun(a)
+print(a)
+\end{verbatim}
+What is printed out by this program?
+\begin{answers}
+\answer 1
+\answer 2
+\correctanswer 3
+\answer 4
+\answer None of the other answers. This code is not valid.
+\end{answers}
+\begin{solution}
+\end{solution}
+
+\variant
+Consider the following program:
+\begin{verbatim}
+a=1
+def fun(a):
+    a=2
+    return a+1
+    a=4
+fun(a)
+print(a)
+\end{verbatim}
+What is printed out by this program?
+\begin{answers}
+\correctanswer 1
+\answer 2
+\answer 3
+\answer 4
+\answer None of the other answers. This code is not valid.
+\end{answers}
+\begin{solution}
+\end{solution}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{5}
+\variant
+Consider the following program:
+\begin{verbatim}
+a=["B","I","L","G","E"]
+a.sort()
+a[0]=a[-1]
+x=""
+for e in a:
+    x=x+e
+\end{verbatim}
+What is the \textbf{value} of x after this program is executed?
+\begin{answers}
+\correctanswer \begin{verbatim}"LEGIL"\end{verbatim}
+\answer \begin{verbatim}"BILEB"\end{verbatim}
+\answer \begin{verbatim}"BILGB"\end{verbatim}
+\answer \begin{verbatim}"GILEG"\end{verbatim}
+\answer None of the other answers are correct.
+\end{answers}
+\begin{solution}
+\end{solution}
+
+\variant
+Consider the following program:
+\begin{verbatim}
+a=["M","U","L","L","O","C","K"]
+a=a[0:4]
+a.sort()
+x=""
+for e in a:
+    x=e+x
+\end{verbatim}
+What is the \textbf{value} of x after this program is executed?
+\begin{answers}
+\answer \begin{verbatim}"LLMU"\end{verbatim}
+\correctanswer \begin{verbatim}"UMLL"\end{verbatim}
+\answer \begin{verbatim}"LMUL"\end{verbatim}
+\answer \begin{verbatim}"LULM"\end{verbatim}
+\answer None of the other answers are correct.
+\end{answers}
+\begin{solution}
+\end{solution}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{5}
+\variant
+Consider the following incomplete program.
+\begin{verbatim}
+sum=0
+???:
+    sum=sum+i
+\end{verbatim}
+The program is intended to sum all of the integers between 1 and 100 (inclusive). What should replace the three question marks to complete the program?
+\begin{answers}
+\answer  \begin{verbatim}for i in range(0,100)\end{verbatim}
+\answer  \begin{verbatim}while i<=100 \end{verbatim}
+\correctanswer  \begin{verbatim}for i in range(1,101) \end{verbatim}
+\answer  \begin{verbatim}while i=i+1<100 \end{verbatim}
+\end{answers}
+\begin{solution}
+\end{solution}
+\variant
+Consider the following incomplete program.
+\begin{verbatim}
+sum=0
+for i in range(0,100):
+    ???
+
+\end{verbatim}
+The program is intended to sum all of the integers between 1 and 100 (inclusive). What should replace the three question marks to complete the program?
+\begin{answers}
+\answer  \begin{verbatim}sum=sum+1\end{verbatim}
+\answer  \begin{verbatim}sum+1=sum \end{verbatim}
+\answer  \begin{verbatim}sum=sum+i \end{verbatim}
+\correctanswer  \begin{verbatim}sum=sum+i+1 \end{verbatim}
+\end{answers}
+\begin{solution}
+\end{solution}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{5}
+\variant
+Consider the following program.
+\begin{verbatim}
+x=False
+for i in range(0,3):
+    x=x and not x
+\end{verbatim}
+After it is run, what is the final \textbf{value} of x?
+\begin{answers}
+\correctanswer False
+\answer True
+\end{answers}
+\begin{solution}
+\end{solution}
+\variant
+Consider the following program.
+\begin{verbatim}
+y=1
+for i in range(0,3):
+    y=y+(2*y)
+x=y>10
+\end{verbatim}
+After it is run, what is the final \textbf{value} of x?
+\begin{answers}
+\answer False
+\correctanswer True
+\end{answers}
+\begin{solution}
+\end{solution}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{5}
+\variant
+Consider the following program:
+\begin{verbatim}
+x=["snip","snap"]
+x[-1]=list(x[0])
+x=x[1],x[0]
+\end{verbatim}
+What is the \textbf{type} of x after the program is run?
+\begin{answers}
+\answer None
+\correctanswer Tuple
+\answer List
+\answer String
+\answer None of the other answers are correct.
+\end{answers}
+\begin{solution}
+\end{solution}
+
+\variant
+Consider the following program:
+\begin{verbatim}
+x=["snip","snap"]
+x[0]=len(list(x[-1]))
+x=x[-2]
+\end{verbatim}
+What is the \textbf{type} of x after the program is run?
+\begin{answers}
+\answer None
+\correctanswer Integer
+\answer List
+\answer String
+\answer None of the other answers are correct.
+\end{answers}
+\begin{solution}
+\end{solution}
+
+\variant
+Consider the following program:
+\begin{verbatim}
+x=["snip","snap"]
+x[0]=(len(list(x[-1])),x[1])
+x=x[1]
+\end{verbatim}
+What is the \textbf{type} of x after the program is run?
+\begin{answers}
+\answer None
+\answer Integer
+\answer List
+\correctanswer String
+\answer None of the other answers are correct.
+\end{answers}
+\begin{solution}
+\end{solution}
+
+\variant
+Consider the following program:
+\begin{verbatim}
+x=["snip","snap"]
+x[0]="snip" in x
+if x[0]:
+    x=1
+\end{verbatim}
+What is the \textbf{type} of x after the program is run?
+\begin{answers}
+\answer None
+\correctanswer Integer
+\answer List
+\answer String
+\answer None of the other answers are correct.
+\end{answers}
+\begin{solution}
+\end{solution}
+
+\variant
+Consider the following program:
+\begin{verbatim}
+x=["snip","snap"]
+x[0]=len(x[1])
+if x[0]<4:
+    x="A"
+\end{verbatim}
+What is the \textbf{type} of x after the program is run?
+\begin{answers}
+\answer None
+\answer Integer
+\correctanswer List
+\answer String
+\answer None of the other answers are correct.
+\end{answers}
+\begin{solution}
+\end{solution}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{5}
+\variant
+What do we call the optimization heuristic that involves iteratively checking to see if neighboring solutions improve upon the current solution?
+\begin{answers}
+\answer Brute-force search
+\answer Local optimum
+\correctanswer Hill climbing
+\answer Random search
+\end{answers}
+\begin{solution}
+\end{solution}
+\variant
+What do we call the optimization heuristic that involves choosing the best from a stochastically sampled subset of the domain?
+\begin{answers}
+\answer Brute-force search
+\answer Local optimum
+\answer Gradient descent
+\correctanswer Random search
+\end{answers}
+\begin{solution}
+\end{solution}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{5}
+\variant
+Consider the following incomplete function.
+\begin{verbatim}
+def sum_pairs(A):
+    total=0
+    ???
+    return total
+\end{verbatim}
+The function takes a single parameter A, which contains a list of floats. The function is intended to return the sum of all pairs of values in the list (with no repeats.) For example, given the list \verb|[1,2,3]|, the function should return \verb|12|, because $(1+2)+(1+3)+(2+3)=12$. What should replace the three question marks to complete the function?
+\begin{answers}
+\correctanswer
+\begin{verbatim}
+    for i in range(len(A)):
+        for j in range(i+1,len(A)):
+            total+=A[i]+A[j]
+\end{verbatim}
+\answer
+\begin{verbatim}
+    for i in range(len(A)):
+        for j in range(len(A)):
+            total+=A[i]+A[j]
+\end{verbatim}
+\answer
+\begin{verbatim}
+    for i,j in enumerate(A):
+            total+=A[i]+A[j]
+\end{verbatim}
+\answer
+\begin{verbatim}
+    for i in itertools.permutations(A):
+            total+=i[0]+i[1]
+\end{verbatim}
+\end{answers}
+\begin{solution}
+\end{solution}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{5}
+\variant
+Consider the following program:
+\begin{verbatim}
+s="BABOONERY"
+x=""
+for i in range(0,len(s)):
+    if (i>3) and (i<6):
+        x+=s[i:i+2]
+\end{verbatim}
+What is the \textbf{value} of x after this program is executed?
+\begin{answers}
+\correctanswer \begin{verbatim}"ONNE"\end{verbatim}
+\answer \begin{verbatim}"NE"\end{verbatim}
+\answer \begin{verbatim}"OO"\end{verbatim}
+\answer \begin{verbatim}"OOON"\end{verbatim}
+\answer None of the other answers are correct.
+\end{answers}
+\begin{solution}
+\end{solution}
+
+\variant
+Consider the following program:
+\begin{verbatim}
+s="BALLYHOO"
+x=""
+for i in range(0,len(s)):
+    if (i>3) and (i<6):
+        x+=s[i:i+2]
+\end{verbatim}
+What is the \textbf{value} of x after this program is executed?
+\begin{answers}
+\correctanswer \begin{verbatim}"YHHO"\end{verbatim}
+\answer \begin{verbatim}"YHHO"\end{verbatim}
+\answer \begin{verbatim}"LYYHHO"\end{verbatim}
+\answer \begin{verbatim}"YH"\end{verbatim}
+\answer None of the other answers are correct.
+\end{answers}
+\begin{solution}
+\end{solution}
+
+\variant
+Consider the following program:
+\begin{verbatim}
+s="TOOTLE"
+x=""
+for i in range(0,len(s)):
+    if (i>1) and (i<3):
+        x+=s[i:i+3]
+\end{verbatim}
+What is the \textbf{value} of x after this program is executed?
+\begin{answers}
+\correctanswer \begin{verbatim}"OTL"\end{verbatim}
+\answer \begin{verbatim}"OOT"\end{verbatim}
+\answer \begin{verbatim}"OTLE"\end{verbatim}
+\answer \begin{verbatim}"OOTL"\end{verbatim}
+\answer None of the other answers are correct.
+\end{answers}
+\begin{solution}
+\end{solution}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{5}
+\variant
+Consider the following incomplete program.
+\begin{verbatim}
+v=0.0
+y=1.0
+g=-9.8
+t=0.0
+dt=???
+while y>0.0:
+    t+=dt
+    v+=g*dt
+    y+=v*dt
+\end{verbatim}
+The program is intended to simulate an object falling from a height of 1 meter. If we replace the question marks with one of the following values, which choice would produce the most \textit{accurate} simulation?
+\begin{answers}
+\answer \begin{verbatim}0.1\end{verbatim}
+\answer \begin{verbatim}0.001\end{verbatim}
+\answer \begin{verbatim}0.01\end{verbatim}
+\correctanswer \begin{verbatim}0.0001\end{verbatim}
+\end{answers}
+\begin{solution}
+\end{solution}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{5}
+\variant
+Consider the following simulation program.
+\begin{verbatim}
+v=500000
+x=0.0
+t=0.0
+dt=.001
+while x<1000:
+    t+=dt
+    x+=v*dt
+\end{verbatim}
+The program simulates a celestial object moving at constant velocity. Which of the following is a \textbf{state variable} in this simulation?
+\begin{answers}
+\answer \begin{verbatim}v\end{verbatim}
+\answer \begin{verbatim}dt\end{verbatim}
+\correctanswer \begin{verbatim}x\end{verbatim}
+\end{answers}
+\begin{solution}
+\end{solution}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{5}
+\variant
+Consider the following incomplete program:
+\begin{verbatim}
+import itertools
+x="HAVER"
+???:
+    print(x)
+\end{verbatim}
+Replacing the three question marks with which of the following will result in \begin{verbatim}'HAVER'\end{verbatim} being printed exactly five times?
+\begin{answers}
+\answer
+\begin{verbatim}
+for a in itertools.combinations(x,5)
+\end{verbatim}
+\answer
+\begin{verbatim}
+for a in itertools.combinations(x,2)
+\end{verbatim}
+\answer
+\begin{verbatim}
+for a in itertools.combinations(x,3)
+\end{verbatim}
+\correctanswer
+\begin{verbatim}
+for a in itertools.combinations(x,4)
+\end{verbatim}
+\end{answers}
+\begin{solution}
+\end{solution}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{5}
+\variant
+Consider the following program.
+\begin{verbatim}
+import numpy as np
+x=np.arange(1,4)
+np.random.shuffle(x)
+print(x)
+\end{verbatim}
+Which of the following is \emph{not} a possible output for this program?
+\begin{answers}
+\answer \begin{verbatim}[1,2,3]\end{verbatim}
+\answer \begin{verbatim}[2,3,1]\end{verbatim}
+\answer \begin{verbatim}[3,2,1]\end{verbatim}
+\answer \begin{verbatim}[3,1,2]\end{verbatim}
+\correctanswer All of the other answers are possible outputs.
+\end{answers}
+\begin{solution}
+\end{solution}
+
+\variant
+Consider the following program.
+\begin{verbatim}
+import numpy as np
+x=np.arange(1,4)
+np.random.shuffle(x)
+print(x)
+\end{verbatim}
+Which of the following is a possible output for this program?
+\begin{answers}
+\correctanswer \begin{verbatim}[1,2,3]\end{verbatim}
+\answer \begin{verbatim}[1,3,1]\end{verbatim}
+\answer \begin{verbatim}[3,3,2]\end{verbatim}
+\answer \begin{verbatim}[1,2]\end{verbatim}
+\answer None of the other answers are possible outputs.
+\end{answers}
+\begin{solution}
+\end{solution}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{5}
+\variant
+Consider the following incomplete program.
+
+\begin{verbatim}
+import matplotlib.pyplot as plt
+import numpy as np
+???
+plt.hist(x,bins=100)
+plot.show()
+\end{verbatim}
+
+Which line should replace the three question marks to produce the following plot?
+
+\includegraphics[scale=.5]{./img/normal.png}
+\begin{answers}
+\answer \begin{verbatim}x=np.random.rand(1000000)\end{verbatim}
+\correctanswer \begin{verbatim}x=np.random.randn(1000000)\end{verbatim}
+\answer \begin{verbatim}x=np.random.choice(np.arange(1000000))\end{verbatim}
+\answer \begin{verbatim}x=np.random.shuffle(np.arange(1000000))\end{verbatim}
+\end{answers}
+\begin{solution}
+\end{solution}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\zone
+\pagebreak  \noindent \textbf{The following 10 questions are about MATLAB.}
+\\\\
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{5}
+\variant
+Consider the following MATLAB program.
+\begin{verbatim}
+x=[1,2];
+y=[3,4];
+z=[y,x;x,y]';
+\end{verbatim}
+After it is run, what is the final \textbf{value} of z?
+\begin{answers}
+\correctanswer $ \left[ \begin{array}{cc} 3 & 1 \\ 4 & 2 \\ 1 & 3 \\ 2 & 4 \\ \end{array} \right] $
+\answer $ \left[ \begin{array}{cccc} 3 & 4 & 1 & 2\\ 1 & 2 & 3 & 4 \\ \end{array} \right] $
+\answer $ \left[ \begin{array}{cccc} 1 & 2 & 3 & 4\\ 3 & 4 & 1 & 2 \\ \end{array} \right] $
+\answer $ \left[ \begin{array}{cc} 1 & 3 \\ 2 & 4 \\ 3 & 1 \\ 4 & 2 \\ \end{array} \right] $
+\answer None of the other answers are correct
+\end{answers}
+\begin{solution}
+\end{solution}
+
+\variant
+Consider the following MATLAB program.
+\begin{verbatim}
+x=[1,2];
+y=[3,4];
+z=[x,y;y,x]';
+\end{verbatim}
+After it is run, what is the final \textbf{value} of z?
+\begin{answers}
+\answer $ \left[ \begin{array}{cc} 3 & 1 \\ 4 & 2 \\ 1 & 3 \\ 2 & 4 \\ \end{array} \right] $
+\answer $ \left[ \begin{array}{cccc} 3 & 4 & 1 & 2\\ 1 & 2 & 3 & 4 \\ \end{array} \right] $
+\answer $ \left[ \begin{array}{cccc} 1 & 2 & 3 & 4\\ 3 & 4 & 1 & 2 \\ \end{array} \right] $
+\correctanswer $ \left[ \begin{array}{cc} 1 & 3 \\ 2 & 4 \\ 3 & 1 \\ 4 & 2 \\ \end{array} \right] $
+\answer None of the other answers are correct
+\end{answers}
+\begin{solution}
+\end{solution}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{5}
+\variant
+Consider the following MATLAB program.
+\begin{verbatim}
+A=eye(3,3);
+for x=1:2:3
+    A(x,x)=0;
+end
+\end{verbatim}
+After it is run, what is the final \textbf{value} of A?
+\begin{answers}
+\answer $ \left[ \begin{array}{ccc} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1 \\ \end{array} \right] $
+\correctanswer $ \left[ \begin{array}{ccc} 0 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 0 \\ \end{array} \right] $
+\answer $ \left[ \begin{array}{ccc} 1 & 0 & 1 \\ 0 & 1 & 0 \\ 1 & 0 & 1 \\ \end{array} \right] $
+\answer $ \left[ \begin{array}{ccc} 0 & 0 & 0 \\ 0 & 0 & 0 \\ 0 & 0 & 0 \\ \end{array} \right] $
+\answer $ \left[ \begin{array}{ccc} 1 & 0 & 0 \\ 0 & 0 & 0 \\ 0 & 0 & 1 \\ \end{array} \right] $
+\end{answers}
+\begin{solution}
+\end{solution}
+
+\variant
+Consider the following MATLAB program.
+\begin{verbatim}
+A=eye(3,3);
+for x=2:1:3
+    A(x,x)=0;
+end
+\end{verbatim}
+After it is run, what is the final \textbf{value} of A?
+\begin{answers}
+\answer $ \left[ \begin{array}{ccc} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1 \\ \end{array} \right] $
+\answer $ \left[ \begin{array}{ccc} 0 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 0 \\ \end{array} \right] $
+\answer $ \left[ \begin{array}{ccc} 1 & 0 & 1 \\ 0 & 1 & 0 \\ 1 & 0 & 1 \\ \end{array} \right] $
+\answer $ \left[ \begin{array}{ccc} 0 & 0 & 0 \\ 0 & 0 & 0 \\ 0 & 0 & 0 \\ \end{array} \right] $
+\correctanswer $ \left[ \begin{array}{ccc} 1 & 0 & 0 \\ 0 & 0 & 0 \\ 0 & 0 & 0 \\ \end{array} \right] $
+\end{answers}
+\begin{solution}
+\end{solution}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{5}
+\variant
+Consider the following MATLAB program.
+\begin{verbatim}
+A=eye(3,3)+ones(3,3);
+for x=1:3
+    for y=1:3
+        if x<=y
+            A(x,y)=x+y;
+        end
+    end
+end
+\end{verbatim}
+After it is run, what is the final \textbf{value} of A?
+\begin{answers}
+\answer $ \left[ \begin{array}{ccc} 2 & 3 & 4 \\ 1 & 2 & 5 \\ 1 & 1 & 2  \\ \end{array} \right] $
+\correctanswer $ \left[ \begin{array}{ccc} 2 & 3 & 4 \\ 1 & 4 & 5 \\ 1 & 1 & 6  \\ \end{array} \right] $
+\answer $ \left[ \begin{array}{ccc} 2 & 1 & 1 \\ 3 & 2 & 1 \\ 4 & 5 & 2 \\ \end{array} \right] $
+\answer $ \left[ \begin{array}{ccc} 2 & 1 & 1 \\ 3 & 4 & 1 \\ 4 & 4 & 6 \\ \end{array} \right] $
+\end{answers}
+\begin{solution}
+\end{solution}
+
+\variant
+Consider the following MATLAB program.
+\begin{verbatim}
+A=eye(3,3)+ones(3,3);
+for x=1:3
+    for y=1:3
+        if x>y
+            A(x,y)=x+y;
+        end
+    end
+end
+\end{verbatim}
+After it is run, what is the final \textbf{value} of A?
+\begin{answers}
+\answer $ \left[ \begin{array}{ccc} 2 & 3 & 4 \\ 1 & 2 & 5 \\ 1 & 1 & 2  \\ \end{array} \right] $
+\answer $ \left[ \begin{array}{ccc} 2 & 3 & 4 \\ 1 & 4 & 5 \\ 1 & 1 & 6  \\ \end{array} \right] $
+\correctanswer $ \left[ \begin{array}{ccc} 2 & 1 & 1 \\ 3 & 2 & 1 \\ 4 & 5 & 2 \\ \end{array} \right] $
+\answer $ \left[ \begin{array}{ccc} 2 & 1 & 1 \\ 3 & 4 & 1 \\ 4 & 4 & 6 \\ \end{array} \right] $
+\end{answers}
+\begin{solution}
+\end{solution}
+
+\variant
+Consider the following MATLAB program.
+\begin{verbatim}
+A=eye(3,3)+ones(3,3);
+for x=1:3
+    for y=1:3
+        if x>=y
+            A(x,y)=x+y;
+        end
+    end
+end
+\end{verbatim}
+After it is run, what is the final \textbf{value} of A?
+\begin{answers}
+\answer $ \left[ \begin{array}{ccc} 2 & 3 & 4 \\ 1 & 2 & 5 \\ 1 & 1 & 2  \\ \end{array} \right] $
+\answer $ \left[ \begin{array}{ccc} 2 & 3 & 4 \\ 1 & 4 & 5 \\ 1 & 1 & 6  \\ \end{array} \right] $
+\answer $ \left[ \begin{array}{ccc} 2 & 1 & 1 \\ 3 & 2 & 1 \\ 4 & 5 & 2 \\ \end{array} \right] $
+\correctanswer $ \left[ \begin{array}{ccc} 2 & 1 & 1 \\ 3 & 4 & 1 \\ 4 & 5 & 6 \\ \end{array} \right] $
+\end{answers}
+\begin{solution}
+\end{solution}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\question{5}
+\variant
+Consider the following MATLAB program.
+\begin{verbatim}
+x=(3<5) && (2>3)
+\end{verbatim}
+After it is run, what is the final \textbf{value} of x?
+\begin{answers}
+\correctanswer 0
+\answer 1
+\answer True
+\answer False
+\end{answers}
+\begin{solution}
+\end{solution}
+
+\variant
+Consider the following MATLAB program.
+\begin{verbatim}
+x=(3<5) || (2>3)
+\end{verbatim}
+After it is run, what is the final \textbf{value} of x?
+\begin{answers}
+\answer 0
+\correctanswer 1
+\answer True
+\answer False
+\end{answers}
+\begin{solution}
+\end{solution}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{5}
+\variant
+Consider the following MATLAB program.
+\begin{verbatim}
+A=[1,1,1;0,1,1;0,0,1];
+B=A';
+x=B(1,1)+B(2,2)+B(3,3);
+\end{verbatim}
+After it is run, what is the final \textbf{value} of x?
+\begin{answers}
+\answer 1
+\correctanswer 3
+\answer 2
+\answer 0
+\answer None of the other answers are correct.
+\end{answers}
+\begin{solution}
+\end{solution}
+
+\variant
+Consider the following MATLAB program.
+\begin{verbatim}
+A=[1,1,1;0,1,1;0,0,1];
+B=A';
+x=B(1,1)+B(1,2)+B(1,3);
+\end{verbatim}
+After it is run, what is the final \textbf{value} of x?
+\begin{answers}
+\correctanswer 1
+\answer 2
+\answer 3
+\answer 0
+\answer None of the other answers are correct.
+\end{answers}
+\begin{solution}
+\end{solution}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{5}
+\variant
+Consider the following MATLAB program.
+\begin{verbatim}
+x=[2;3;4];
+x=3*eye(3,3)*x;
+x=x(1)+x(2)+x(3)
+\end{verbatim}
+After it is run, what is the final \textbf{value} of x?
+\begin{answers}
+\correctanswer 27
+\answer 6
+\answer 12
+\answer 9
+\answer The program contains a syntax error and will not run.
+\end{answers}
+\begin{solution}
+\end{solution}
+
+\variant
+Consider the following MATLAB program.
+\begin{verbatim}
+x=[4;3;2];
+x=2*eye(3,3)*x;
+x=x(1)+x(2)+x(3)
+\end{verbatim}
+After it is run, what is the final \textbf{value} of x?
+\begin{answers}
+\correctanswer 18
+\answer 6
+\answer 12
+\answer 9
+\answer The program contains a syntax error and will not run.
+\end{answers}
+\begin{solution}
+\end{solution}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{5}
+\variant
+Consider the following 2-dimensional MATLAB array:
+
+$ \left[ \begin{array}{ccc} 1 & 2 & 3 \\ 4 & 5 & 6 \\ 7 & 8 & 9 \\ 10 & 11 & 12 \\ \end{array} \right] $ \\
+
+Assuming it is stored in a variable named A, how can we index and retrieve the value 8?
+\begin{answers}
+\answer A(1,2)
+\answer A(2,1)
+\answer A(2,3)
+\correctanswer A(3,2)
+\end{answers}
+\begin{solution}
+\end{solution}
+\variant
+Consider the following 2-dimensional MATLAB array:
+
+$ \left[ \begin{array}{ccc} 1 & 2 & 3 \\ 4 & 5 & 6 \\ 7 & 8 & 9 \\ 10 & 11 & 12 \\ \end{array} \right] $ \\
+
+Assuming it is stored in a variable named A, how can we index and retrieve the value 4?
+\begin{answers}
+\answer A(1,2)
+\answer A(3,2)
+\answer A(2,3)
+\correctanswer A(2,1)
+\end{answers}
+\begin{solution}
+\end{solution}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{5}
+\variant
+Consider the following MATLAB program.
+\begin{verbatim}
+x=3:2:7;
+y=4:2:8;
+z=x+y;
+\end{verbatim}
+After it is run, what is the final \textbf{value} of z?
+\begin{answers}
+\answer $ \left[ \begin{array}{ccccc} 7 & 11 \\ \end{array} \right] $
+\correctanswer $ \left[ \begin{array}{ccccc} 7 & 11 & 15 \\ \end{array} \right] $
+\answer $ \left[ \begin{array}{cc} 3 & 7 \\ 4 & 8 \\ \end{array} \right] $
+\answer $ \left[ \begin{array}{ccc} 3 & 5 & 7 \\ 4 & 6 & 8 \\ \end{array} \right] $
+\answer $ \left[ \begin{array}{ccc} 3 & 2 & 7 \\ 4 & 2 & 8 \\ \end{array} \right] $
+\end{answers}
+\begin{solution}
+\end{solution}
+
+\variant
+Consider the following MATLAB program.
+\begin{verbatim}
+x=2:2:6;
+y=4:2:8;
+z=x+y;
+\end{verbatim}
+After it is run, what is the final \textbf{value} of z?
+\begin{answers}
+\answer $ \left[ \begin{array}{ccccc} 6 & 10 \\ \end{array} \right] $
+\correctanswer $ \left[ \begin{array}{ccccc} 6 & 10 & 14 \\ \end{array} \right] $
+\answer $ \left[ \begin{array}{cc} 2 & 6 \\ 4 & 8 \\ \end{array} \right] $
+\answer $ \left[ \begin{array}{ccc} 2 & 4 & 6 \\ 4 & 6 & 8 \\ \end{array} \right] $
+\answer $ \left[ \begin{array}{ccc} 2 & 2 & 6 \\ 4 & 2 & 8 \\ \end{array} \right] $
+\end{answers}
+\begin{solution}
+\end{solution}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{5}
+\variant
+Consider the following MATLAB program.
+\begin{verbatim}
+A=[3,2,1;0,2,1;0,0,1];
+B=(2*eye(3,3)*A)-A;
+x=B(1,1)+B(2,2)+B(3);
+\end{verbatim}
+After it is run, what is the final \textbf{value} of x?
+\begin{answers}
+\answer 1
+\answer 6
+\answer 3
+\answer 2
+\correctanswer 5
+\end{answers}
+\begin{solution}
+\end{solution}
+
+\variant
+Consider the following MATLAB program.
+\begin{verbatim}
+A=[1,2,3;0,2,3;0,0,3];
+B=(2*eye(3,3)*A)-A;
+x=B(1,3)+B(2,3)+B(3,3);
+\end{verbatim}
+After it is run, what is the final \textbf{value} of x?
+\begin{answers}
+\answer 1
+\answer 6
+\answer 3
+\answer 2
+\correctanswer 9
+\end{answers}
+\begin{solution}
+\end{solution}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{5}
+\variant
+Consider the following MATLAB program.
+\begin{verbatim}
+A=[[ones(2,2),[2;2]];3,3,3];
+x=A(2,3);
+\end{verbatim}
+After it is run, what is the final \textbf{value} of x?
+\begin{answers}
+\correctanswer 2
+\answer 1
+\answer 3
+\answer 0
+\end{answers}
+\begin{solution}
+\end{solution}
+\variant
+Consider the following MATLAB program.
+\begin{verbatim}
+A=[[[3,3];eye(2,2)],[2;2;2]];
+x=A(2,3);
+\end{verbatim}
+After it is run, what is the final \textbf{value} of x?
+\begin{answers}
+\correctanswer 2
+\answer 1
+\answer 3
+\answer 0
+\end{answers}
+\begin{solution}
+\end{solution}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\zone
+\pagebreak \noindent \textbf{The following 2 coding questions are about Python.}
+\\\\
+\noindent Be sure to write clearly and comment your code, so we can understand your answer.
+\\\\
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{25}
+\variant
+Your friend Vanessa can't remember her Facebook password and wants your help figuring it out. She remembers the password is exactly 9 characters long. She also remembers that her username is either ``vanessa'' or ``VanessaC'' or ``Vanessa95''. Assume someone else has already written a function \verb|login| that takes a two string arguments representing a username and password combination. \verb|login| returns  \verb|True| if the input username and password are valid credentials for Facebook and \verb|False| otherwise. Your function  \verb|guess_password| should perform a brute force search and return the correct username and password for Vanessa's account as a tuple of two strings.
+\\\\
+\noindent We set up the alphabet string for you. Assume all of the possible password characters are contained in this string. You may import itertools in your solution if you prefer, but no other libraries are allowed.
+
+\begin{verbatim}
+def guess_password():
+    alphabet="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
+    alphabet+="0123456789!@#$%^&*()-_=+,<.>/?~`"
+\end{verbatim}
+\begin{solution}
+\end{solution}
+
+\zone \pagebreak \noindent
+
+\question{25}
+\variant
+Write a Python program to simulate a population of rabbits for 50 years. Your simulation should update annually (i.e. $\Delta t=1$ year). The initial population of rabbits is 15. Each year, 5\% of the population of the previous year dies off, and each year exactly 5 new rabbits are born. In your simulation, it should be impossible for ``partial rabbits'' to exist. For example, the population should never be 13.7. 70\% of a rabbit is a grisly idea, and it's probably best that we don't spend any more time thinking about it. You should always round the population \emph{down} to a whole number.
+\\\\
+\noindent You may import NumPy in your solution if you prefer, but no other libraries are allowed.
+\begin{solution}
+\end{solution}
+
+\end{document}
