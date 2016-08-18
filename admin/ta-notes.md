@@ -48,7 +48,7 @@ As much of the lab workflow as possible has been automated.  Labs will typically
 
 Students will need to run the following command the first time they log in:
 
-    /class/cs101/setup
+    /class/cs101/startup
 
 This interactive script will ask for the student's section so that they are able to access the correct repository for fetching and submitting assignments.  (This step is not necessary for guest account users.)
 
@@ -58,7 +58,7 @@ Labs will be made available to TAs one week beforehand.  You should review and u
 
 ### Grading
 
-Notebooks are autograded (using `nbgrader`), although worksheets need to be graded by hand.  The instructor will distribute notebook grading to responsible TAs so that TAs get to know the performance of their individual students and sections.  TAs should take the worksheets with them at the end of their section for grading.
+Notebooks are autograded (using `nbgrader`), although worksheets need to be graded by hand.  The instructor will distribute notebook grades to the TAs responsible so that TAs get to know the performance of their individual students and sections.  TAs should take the worksheets with them at the end of their section for grading and return them to students at the beginning of the next lab session.
 
 **Grading should be completed and posted online by the subsequent Friday (one week).**  TAs should return notebook feedback to students on the subsequent Friday as well.
 
@@ -69,7 +69,7 @@ Notebooks are autograded (using `nbgrader`), although worksheets need to be grad
 | Lab to TAs | one week before release, Monday (-7) |
 | Lab released | Monday (+0) |
 | Lab closed | Friday (+4) |
-| Autograding complete | few days after closing, Wednesday (+9) |
+| Autograding complete | same day |
 | Hand grading complete | few days after closing, Wednesday (+9) |
 | Grades posted | one week after closing, Friday (+11) |
 | Feedback returned to students | one week after closing, Friday (+11) |
@@ -80,6 +80,9 @@ TAs have the following resources available to them:
 
 -   A lab help queue, online at [go.illinois.edu/cs101-labq](go.illinois.edu/cs101-labq).  The password to clear this queue or remove single students after they have been helped is `101score`.  If the server goes down, it should restart automatically within a minute unless EWS itself is under preventative maintenance or an outage.
 
+-   A script to reset Firefox if the system crashes and the browser locks, `reset_firefox` should be available on all student systems.
+
+-   Guest accounts `cs101-01` through `cs101-05`.  These will be cleared regularly, so encourage students to save work they wish to keep to their own device or upload the work to Box.
 
 ##  Office Hours
 
@@ -92,8 +95,6 @@ TAs have the following resources available to them:
 -   `set_office_hours netid`  Bash script which sets the student's `nbgrader_config.py` file to pull from the office hours repository, `OH`.  Run this from your own account before a student loads Jupyter.
 
 -   `unset_office_hours netid`  Bash script which reverts the student's `nbgrader_config.py` file to pull from their normal section's repository.  Run this from your own account after a student submits their approved office-hour exception work.
-
--   Guest accounts `cs101-01` through `cs101-05`.  These are cleared regularly, so encourage students to save work they wish to keep to their own device or upload the work to Box.
 
 -   An office hours queue, online at [go.illinois.edu/cs101-ohq](go.illinois.edu/cs101-ohq).  The password to clear this queue or remove single students after they have been helped is `101score`.  If the server goes down, it should restart automatically within a minute unless EWS itself is under preventative maintenance or an outage.
 
