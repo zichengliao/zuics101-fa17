@@ -104,3 +104,7 @@ TAs have the following resources available to them:
 ##  Forum
 
 TAs will be assigned hours of responsibility for responding to student questions on Piazza.
+
+##  Final Reminders
+
+You are expected to be here through the end of the semester, including grading the final exam.  If you need to take some time, you are still responsible for your section, and will have to coordinate another TA trading responsibility yourself (but report to Chelsea).
