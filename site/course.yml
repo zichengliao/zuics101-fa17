@@ -65,7 +65,7 @@ chunks:
         | AYQ     | Fri 13h00–14h50 | Lunan Li          |
         | AYR     | Fri 15h00–16h50 | Anand Bhattad     |
 
-        -   <a href="http://davis68.web.engr.illinois.edu:8888/" target="_blank" role="button" class="btn btn-info">Lab queue &raquo;</a>
+        <a href="http://davis68.web.engr.illinois.edu:8888/" target="_blank" role="button" class="btn btn-info">Lab queue &raquo;</a>
 
 
         ##  Lectures
