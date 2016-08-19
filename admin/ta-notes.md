@@ -73,9 +73,9 @@ Although the system will complete autograding (as currently planned), each TA is
 
 -   Scenario #1:  Labs are locked.  Call EngrIT at 217-333-1313.
 
--   Scenario #2:  Computer infrastructure is down (home directories unavailable, etc.).  Call EngrIT at 217-265-5189.  Do not dismiss students for at least 15 minutes.
+-   Scenario #2:  Computer infrastructure is down (home directories unavailable, etc.).  Call EngrIT and notify ND.  Do not dismiss students for at least 15 minutes.
 
--   Scenario #3:  Labs are unavailable in Jupyter (EWS reset the `atq` script or it otherwise failed).  Slack me or text me immediately at 217-666-1040.
+-   Scenario #3:  Labs are unavailable in Jupyter (EWS reset the `atq` script or it otherwise failed).  Slack or text ND immediately at 217-666-1040.
 
 ### Timeline
 
