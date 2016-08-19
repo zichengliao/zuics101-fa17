@@ -1,0 +1,109 @@
+<h1 id="cs-101">CS 101</h1>
+<h2 id="course-administration">Course Administration</h2>
+<ul>
+<li><p><a href="go.illinois.edu/cs101">Course Website, <code>go.illinois.edu/cs101</code></a></p></li>
+<li><p><a href="https://piazza.com/class/ipzxix9y8ou155">Piazza forum</a></p></li>
+<li><p><a href="http://www.turingscraft.com/go.html">CodeLab (<code>hw01</code>–<code>hw06</code>)</a></p></li>
+<li><p><a href="https://compass2g.illinois.edu/">Illinois Compass (gradebook)</a></p></li>
+</ul>
+<h3 id="contact-information">Contact Information</h3>
+<ul>
+<li><p>Slack channel <a href="https://cs101-fa16.slack.com"><code>cs101-fa16</code></a> is preferred for course-related discussions.</p></li>
+<li><p><code>cs101admin@cs.illinois.edu</code> should be distributed to students and used for necessary email-based communications.</p></li>
+</ul>
+<h3 id="responsibilities">Responsibilities</h3>
+<ul>
+<li><p>Neal Davis, instructor: lectures, labs, midterms, homework, courseware and infrastructure</p></li>
+<li><p>Chelsea Song, course assistant: operations and scheduling, student exceptions</p></li>
+<li><p>Teaching assistants: hosting and grading labs, holding office hours, proctoring and grading exams, answering student questions on Piazza forum, other duties as assigned, BEING PREPARED TO ANSWER STUDENT QUESTIONS</p></li>
+<li><p>Course aides: supporting TAs in lab responsibilities</p></li>
+</ul>
+<h3 id="facilities">Facilities</h3>
+<p>Foellinger Auditorium: lectures</p>
+<p>2229 Siebel: Neal Davis' office</p>
+<p>2105 Siebel: Chelsea Song's office</p>
+<p>L416 DCL: student labs</p>
+<p>L424 DCL: TA office (ND has physical key; we'll work out procedure for use)</p>
+<p>EWS labs in Grainger, Siebel, or DCL (TBD): office hours starting week 6 of class</p>
+<h2 id="labs">Labs</h2>
+<p>Students should complete their labs in their own section. <strong>All exceptions must be approved by Chelsea.</strong> The deadline for submission is the end of class. (The real deadline is five minutes after the hour, when a script collects and autogrades assignments. This is a hard deadline.)</p>
+<p>As much of the lab workflow as possible has been automated. Labs will typically consist of two components:</p>
+<ul>
+<li><p>Jupyter notebooks</p></li>
+<li><p>Printed worksheets</p></li>
+</ul>
+<p>Students need to run the following command the first time they log in:</p>
+<pre><code>/class/cs101/startup</code></pre>
+<p>This interactive script will ask for the student's section so that they are able to access the correct repository for fetching and submitting assignments. (This step is not necessary for guest account users.)</p>
+<p>Students then access notebooks via the command line by typing <code>jupyter-notebook</code>. Submitted assignments will be automatically retrieved at the hour ending a lab session, so students should submit promptly.</p>
+<p>Labs will be made available to TAs one week beforehand. You should review and understand the labs, as well as report any difficulties or errors as soon as possible for correction prior to release to students. Collect hard copies of worksheets from the instructor beforehand.</p>
+<h3 id="grading">Grading</h3>
+<p>Notebooks are autograded (using <code>nbgrader</code>), although worksheets need to be graded by hand. The instructor will distribute notebook grades to the TAs responsible so that TAs get to know the performance of their individual students and sections. TAs should take the worksheets with them at the end of their section for grading and return them to students at the beginning of the next lab session.</p>
+<p>Although the system will complete autograding (as currently planned), each TA is responsible for extracting and posting grades for his or her section. The gradebook is a SQLite file located at <code>/class/cs101/grading/AYX/gradebook.db</code>, where <code>AYX</code> is the section. More guidance regarding obtaining and processing grades will be made available.</p>
+<p><strong>Grading should be completed and posted online by the subsequent Friday (one week).</strong> TAs should return notebook feedback to students on the subsequent Friday as well.</p>
+<p><strong>Emergency procedures if labs are unavailable</strong>:</p>
+<ul>
+<li><p>Scenario #1: Labs are locked. Call EngrIT at 217-333-1313.</p></li>
+<li><p>Scenario #2: Computer infrastructure is down (home directories unavailable, etc.). Call EngrIT at 217-265-5189. Do not dismiss students for at least 15 minutes.</p></li>
+<li><p>Scenario #3: Labs are unavailable in Jupyter (EWS reset the <code>atq</code> script or it otherwise failed). Slack me or text me immediately at 217-666-1040.</p></li>
+</ul>
+<h3 id="timeline">Timeline</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Event</th>
+<th align="left">Relative Date</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Lab to TAs</td>
+<td align="left">one week before release, Monday (-7)</td>
+</tr>
+<tr class="even">
+<td align="left">Lab released</td>
+<td align="left">Monday (+0)</td>
+</tr>
+<tr class="odd">
+<td align="left">Lab closed</td>
+<td align="left">Friday (+4)</td>
+</tr>
+<tr class="even">
+<td align="left">Autograding complete</td>
+<td align="left">same day</td>
+</tr>
+<tr class="odd">
+<td align="left">Hand grading complete</td>
+<td align="left">few days after closing, Wednesday (+9)</td>
+</tr>
+<tr class="even">
+<td align="left">Grades posted</td>
+<td align="left">one week after closing, Friday (+11)</td>
+</tr>
+<tr class="odd">
+<td align="left">Feedback returned to students</td>
+<td align="left">one week after closing, Friday (+11)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="resources">Resources</h3>
+<p>TAs have the following resources available to them:</p>
+<ul>
+<li><p>A lab help queue, online at <a href="go.illinois.edu/cs101-labq" class="uri">go.illinois.edu/cs101-labq</a>. The password to clear this queue or remove single students after they have been helped is <code>101score</code>. If the server goes down, it should restart automatically within a minute unless EWS itself is under preventative maintenance or an outage.</p></li>
+<li><p>A script to reset Firefox if the system crashes and the browser locks, <code>reset_firefox</code> should be available on all student systems.</p></li>
+<li><p>Guest accounts <code>cs101-01</code> through <code>cs101-05</code>. These will be cleared regularly, so encourage students to save work they wish to keep to their own device or upload the work to Box. Students will additionally have to run <code>/class/cs101/startup</code> for the current section. The password is <code>PlsChgMe</code> and should <em>not</em> be told to students.</p></li>
+</ul>
+<h2 id="office-hours">Office Hours</h2>
+<p>Office hours are focused on helping students think critically through problems—homework, approved labs, and general questions.</p>
+<h3 id="resources-1">Resources</h3>
+<p>TAs have the following resources available to them:</p>
+<ul>
+<li><p><code>set_office_hours netid</code> Bash script which sets the student's <code>nbgrader_config.py</code> file to pull from the office hours repository, <code>OH</code>. Run this in the student's account before he or she opens Jupyter.</p></li>
+<li><p><code>unset_office_hours netid</code> Bash script which reverts the student's <code>nbgrader_config.py</code> file to pull from their normal section's repository. Run this from your own account after a student submits their approved office-hour exception work. Then notify me of the student's NetID so I can collect the assignment for grading.</p></li>
+<li><p>An office hours queue, online at <a href="go.illinois.edu/cs101-ohq" class="uri">go.illinois.edu/cs101-ohq</a>. The password to clear this queue or remove single students after they have been helped is <code>101score</code>. If the server goes down, it should restart automatically within a minute unless EWS itself is under preventative maintenance or an outage.</p></li>
+</ul>
+<h2 id="forum">Forum</h2>
+<p>TAs will be assigned hours of responsibility for responding to student questions on Piazza.</p>
+<h2 id="final-reminders">Final Reminders</h2>
+<p>You are expected to attend every weekly staff meeting and carry out your other responsibilities. Failure to do so can lead to revocation of your TA contract (and thus your tuition waiver). You are additionally expected to model the utmost academic integrity for your students.</p>
+<p>You are expected to be here through the end of the semester, including grading the final exam. (The registrar's office will not make the date of the final exam official until mid-October, but the likely date is Friday, December 16.) If you need time off (<em>e.g.</em>, for an interview), you are still responsible for your section, and will have to coordinate another TA trading responsibility yourself (but report the switch to Chelsea).</p>
