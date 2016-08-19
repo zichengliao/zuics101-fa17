@@ -1,6 +1,8 @@
-#   CS 101 Course Administration
+#   CS 101
 
--   [Course Website](go.illinois.edu/cs101)
+##  Course Administration
+
+-   [Course Website, `go.illinois.edu/cs101`](go.illinois.edu/cs101)
 
 -   [Piazza forum](https://piazza.com/class/ipzxix9y8ou155)
 
@@ -8,31 +10,35 @@
 
 -   [Illinois Compass (gradebook)](https://compass2g.illinois.edu/)
 
-
 ### Contact Information
 
 -   Slack channel [`cs101-fa16`](https://cs101-fa16.slack.com) is preferred for course-related discussions.
 
 -   `cs101admin@cs.illinois.edu` should be distributed to students and used for necessary email-based communications.
 
-
 ### Responsibilities
 
-Neal Davis, instructor:  lectures, labs, midterms, homework, courseware and infrastructure
+-   Neal Davis, instructor:  lectures, labs, midterms, homework, courseware and infrastructure
 
-Chelsea Song, course assistant:  operations and scheduling, student exceptions
+-   Chelsea Song, course assistant:  operations and scheduling, student exceptions
 
-Teaching assistants:  labs, grading, holding office hours, proctoring exams, answering student questions on Piazza forum, duties as assigned
+-   Teaching assistants:  hosting and grading labs, holding office hours, proctoring and grading exams, answering student questions on Piazza forum, other duties as assigned, BEING PREPARED TO ANSWER STUDENT QUESTIONS
 
-Course aides:  supporting TAs in lab responsibilities
+-   Course aides:  supporting TAs in lab responsibilities
 
 ### Facilities
+
+Foellinger Auditorium:  lectures
+
+2229 Siebel:  Neal Davis' office
+
+2105 Siebel:  Chelsea Song's office
 
 L416 DCL:  student labs
 
 L424 DCL:  TA office (ND has physical key; we'll work out procedure for use)
 
-TBD:  office hours starting week 6 of class
+EWS labs in Grainger, Siebel, or DCL (TBD):  office hours starting week 6 of class
 
 
 ##  Labs
@@ -45,7 +51,7 @@ As much of the lab workflow as possible has been automated.  Labs will typically
 
 -   Printed worksheets
 
-Students will need to run the following command the first time they log in:
+Students need to run the following command the first time they log in:
 
     /class/cs101/startup
 
@@ -63,7 +69,13 @@ Although the system will complete autograding (as currently planned), each TA is
 
 **Grading should be completed and posted online by the subsequent Friday (one week).**  TAs should return notebook feedback to students on the subsequent Friday as well.
 
-**Emergency procedure if labs are unavailable**:  TODO
+**Emergency procedures if labs are unavailable**:
+
+-   Scenario #1:  Labs are locked.  Call EngrIT at 217-333-1313.
+
+-   Scenario #2:  Computer infrastructure is down (home directories unavailable, etc.).  Call EngrIT at 217-265-5189.  Do not dismiss students for at least 15 minutes.
+
+-   Scenario #3:  Labs are unavailable in Jupyter (EWS reset the `atq` script or it otherwise failed).  Slack me or text me immediately at 217-666-1040.
 
 ### Timeline
 
@@ -85,7 +97,8 @@ TAs have the following resources available to them:
 
 -   A script to reset Firefox if the system crashes and the browser locks, `reset_firefox` should be available on all student systems.
 
--   Guest accounts `cs101-01` through `cs101-05`.  These will be cleared regularly, so encourage students to save work they wish to keep to their own device or upload the work to Box.  The password is `PlsChgMe` and should *not* be told to students.
+-   Guest accounts `cs101-01` through `cs101-05`.  These will be cleared regularly, so encourage students to save work they wish to keep to their own device or upload the work to Box.  Students will additionally have to run `/class/cs101/startup` for the current section.  The password is `PlsChgMe` and should *not* be told to students.
+
 
 ##  Office Hours
 
@@ -101,10 +114,14 @@ TAs have the following resources available to them:
 
 -   An office hours queue, online at [go.illinois.edu/cs101-ohq](go.illinois.edu/cs101-ohq).  The password to clear this queue or remove single students after they have been helped is `101score`.  If the server goes down, it should restart automatically within a minute unless EWS itself is under preventative maintenance or an outage.
 
+
 ##  Forum
 
 TAs will be assigned hours of responsibility for responding to student questions on Piazza.
 
+
 ##  Final Reminders
 
-You are expected to be here through the end of the semester, including grading the final exam.  If you need to take some time, you are still responsible for your section, and will have to coordinate another TA trading responsibility yourself (but report to Chelsea).
+You are expected to attend every weekly staff meeting and carry out your other responsibilities.  Failure to do so can lead to revocation of your TA contract (and thus your tuition waiver).  You are additionally expected to model the utmost academic integrity for your students.
+
+You are expected to be here through the end of the semester, including grading the final exam.  (The registrar's office will not make the date of the final exam official until mid-October, but the likely date is Friday, December 16.)  If you need time off (*e.g.*, for an interview), you are still responsible for your section, and will have to coordinate another TA trading responsibility yourself (but report the switch to Chelsea).
