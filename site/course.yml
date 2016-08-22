@@ -72,7 +72,7 @@ chunks:
 
         | Lecture | Date       | Supporting Resources |
         | ------- | ---------- | -------------------- |
-        | <a href="" target="_blank" role="button" class="btn btn-info">Lecture #1</a> | 2016-08-22 | Nothing yet. |
+        | <a href="repocur:lectures/lec01.pdf" target="_blank" role="button" class="btn btn-info">Lecture #1</a> | 2016-08-22 | Nothing yet. |
 
 
         ##  Office Hours
