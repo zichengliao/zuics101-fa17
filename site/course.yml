@@ -56,11 +56,11 @@ chunks:
         | AYH     | Wed 11h00–12h50 | Shambwaditya Saha |
         | AYI     | Wed 13h00–14h50 | Shambwaditya Saha |
         | AYJ     | Wed 15h00–16h50 | Lunan Li          |
-        | AYK     | Thu 09h00–10h50 |  |
+        | AYK     | Thu 09h00–10h50 | Anusri Pampari    |
         | AYL     | Thu 11h00–12h50 | Wajih Ul Hassan   |
-        | AYM     | Thu 13h00–14h50 | Chaoqun Liu       |
-        | AYN     | Thu 15h00–16h50 |  |
-        | AYO     | Fri 09h00–10h50 |  |
+        | AYM     | Thu 13h00–14h50 | Siddharth Atreya  |
+        | AYN     | Thu 15h00–16h50 | Chaoqun Liu       |
+        | AYO     | Fri 09h00–10h50 | Anusri Pampari    |
         | AYP     | Fri 11h00–12h50 | Anand Bhattad     |
         | AYQ     | Fri 13h00–14h50 | Lunan Li          |
         | AYR     | Fri 15h00–16h50 | Anand Bhattad     |
@@ -82,7 +82,20 @@ chunks:
         [class forum](https://piazza.com/class/ipzxix9y8ou155) for help.
 
 
-        ##  Campus Resources
+        ##  Policies
 
-        -   [Campus Emergency Procedures](https://dps.illinois.edu/dpsapp/wp-content/uploads/2016/08/syllabus-attachment.pdf)
-        -   [Academic Integrity and Plagiarism](http://www.library.illinois.edu/learn/research/academicintegrity.html)
+        ### Absence Policy
+
+        Students should attend the lecture and lab section for which they registered, or they will receive a zero for that lecture attendance or lab. Permitted absences require proof of overriding considerations. Official proof of absence need to be in forms of doctor's note or letter provided by an authority that clearly states that the purpose of the letter is to prove absence; examples include a doctor's note, travel proof from an athletic team, etc.. Special events might be taken into consideration only if it was contacted at least 72 hours in advance. To request for absence, students shall email Chelsea Song at cs101admin@cs.illinois.edu. If the request is for lab absence, the TA of the lab should also be cc'd.
+
+        When a student has a permitted absence for lab, make-up labs will be arranged. Make-up labs will be held in office hours under supervision of a course TA.
+
+        ### Academic Integrity
+
+        Cheating not only robs you of an opportunity to learn, it also devalues your peers' hard work. Because of this, we take cheating very seriously in this course. The first case of cheating will result in a zero on the assignment or exam. The second case of cheating will result in a zero for the course. We will also report instances of cheating to the college and to your department. You'll find the official university policies on academic integrity [here](http://studentcode.illinois.edu/article1_part4_1-402.html). You can learn more about the Computer Science Department's stance [here](https://wiki.illinois.edu//wiki/display/undergradProg/Honor+Code).
+
+        Plagiarism is also very easy to detect in a programming class. Do not take shortcuts. Always do your own work. Note that we encourage discussion on course content. However, please write answers/codes to homework and lab assignments on your own (unless in some labs when you are instructed by your TA to complete assignments in pairs or groups).
+
+        Our philosophy in this course is based on the fact that (in real life) most of the time you have access to many resources: websites, peers, mentors, books, and others' source code. Your competence will be greatly increased by the resources you can use without recourse to external references, but when learning it only makes sense to let you function in a realistic manner. Thus, for lab exercises and assignments, you should work alone unless told otherwise, but you may consult outside sources of information. Any consultation is subject to the following restrictions: (1) you may not copy that source's work verbatim (i.e., ALWAYS write YOUR OWN code!); and (2) you must cite all sources used and the contribution they made to your work. This policy is designed to protect you against plagiarism.
+
+        You must also protect your own work from plagiarism. If you allow your peers to copy your work, you could end up with academic dishonesty. Do not send solutions to your peers. Do not show them your solution. Do not give out your account passwords. Do not leave your login sessions active.
