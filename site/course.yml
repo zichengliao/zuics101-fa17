@@ -53,8 +53,8 @@ chunks:
         | AYE     | Tue 11h00–12h50 | Neetesh Sharma    |
         | AYF     | Tue 13h00–14h50 | Neetesh Sharma    |
         | AYG     | Tue 15h00–16h50 | Chaoqun Liu       |
-        | AYH     | Wed 11h00–12h50 | Shambwaditya Saha |
-        | AYI     | Wed 13h00–14h50 | Shambwaditya Saha |
+        | AYH     | Wed 11h00–12h50 | Lunan Li          |
+        | AYI     | Wed 13h00–14h50 | Hong Cheng        |
         | AYJ     | Wed 15h00–16h50 | Lunan Li          |
         | AYK     | Thu 09h00–10h50 | Anusri Pampari    |
         | AYL     | Thu 11h00–12h50 | Wajih Ul Hassan   |
@@ -62,7 +62,7 @@ chunks:
         | AYN     | Thu 15h00–16h50 | Chaoqun Liu       |
         | AYO     | Fri 09h00–10h50 | Anusri Pampari    |
         | AYP     | Fri 11h00–12h50 | Anand Bhattad     |
-        | AYQ     | Fri 13h00–14h50 | Lunan Li          |
+        | AYQ     | Fri 13h00–14h50 | Hong Cheng        |
         | AYR     | Fri 15h00–16h50 | Anand Bhattad     |
 
         <a href="http://davis68.web.engr.illinois.edu:8888/" target="_blank" role="button" class="btn btn-info">Lab queue &raquo;</a>
@@ -72,9 +72,9 @@ chunks:
 
         | Lecture | Date       | Supporting Resources |
         | ------- | ---------- | -------------------- |
-        | [Lecture #1](repocur:lectures/lec01.pdf) | 2016-08-22 |  |
-        | [Lecture #2](repocur:lectures/lec02.pdf) | 2016-08-24 | [Notebook](repocur:lectures/lec02.ipynb) |
-        | [Lecture #3](repocur:lectures/lec03.pdf) | 2016-08-29 |  |
+        | [Lecture #1:  introduction](repocur:lectures/lec01.pdf) | 2016-08-22 |  |
+        | [Lecture #2:  literals, variables](repocur:lectures/lec02.pdf) | 2016-08-24 | [Notebook](repocur:lectures/lec02.ipynb) |
+        | [Lecture #3:  data types (`int`, `float`, `str`)](repocur:lectures/lec03.pdf) | 2016-08-29 |  |
 
 
         ##  Examinations
