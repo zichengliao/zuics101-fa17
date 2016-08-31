@@ -75,6 +75,7 @@ chunks:
         | [Lecture #1:  introduction](repocur:lectures/lec01.pdf) | 2016-08-22 |  |
         | [Lecture #2:  literals, variables](repocur:lectures/lec02.pdf) | 2016-08-24 | [Notebook](repocur:lectures/lec02.ipynb) |
         | [Lecture #3:  data types (`int`, `float`, `str`)](repocur:lectures/lec03.pdf) | 2016-08-29 |  |
+        | [Lecture #4:  string formatting, functions](repocur:lectures/lec04.pdf) | 2016-08-31 | [Python session](repocur:lectures/lec04.txt) |
 
 
         ##  Examinations
