@@ -27,6 +27,16 @@ chunks:
         | **Instructor email** | [`cs101admin@cs.illinois.edu`](mailto:cs101admin@cs.illinois.edu) |
 
 
+        ##  Lectures
+
+        | Lecture | Date       | Supporting Resources |
+        | ------- | ---------- | -------------------- |
+        | [Lecture #1:  introduction](repocur:lectures/lec01.pdf) | 2016-08-22 |  |
+        | [Lecture #2:  literals, variables](repocur:lectures/lec02.pdf) | 2016-08-24 | [Notebook](repocur:lectures/lec02.ipynb) |
+        | [Lecture #3:  data types (`int`, `float`, `str`)](repocur:lectures/lec03.pdf) | 2016-08-29 |  |
+        | [Lecture #4:  string formatting, functions](repocur:lectures/lec04.pdf) | 2016-08-31 | [Python session](repocur:lectures/lec04.txt) |
+
+
         ##  Homework
 
         Homework assignments are due at 6:00 p.m. on the due date.
@@ -68,22 +78,12 @@ chunks:
         <a href="http://davis68.web.engr.illinois.edu:8888/" target="_blank" role="button" class="btn btn-info">Lab queue &raquo;</a>
 
 
-        ##  Lectures
-
-        | Lecture | Date       | Supporting Resources |
-        | ------- | ---------- | -------------------- |
-        | [Lecture #1:  introduction](repocur:lectures/lec01.pdf) | 2016-08-22 |  |
-        | [Lecture #2:  literals, variables](repocur:lectures/lec02.pdf) | 2016-08-24 | [Notebook](repocur:lectures/lec02.ipynb) |
-        | [Lecture #3:  data types (`int`, `float`, `str`)](repocur:lectures/lec03.pdf) | 2016-08-29 |  |
-        | [Lecture #4:  string formatting, functions](repocur:lectures/lec04.pdf) | 2016-08-31 | [Python session](repocur:lectures/lec04.txt) |
-
-
         ##  Examinations
 
         | Exam | Date |
         | ---- | ---- |
-        | Midterm #1 | Monday, October 3 (evening) |
-        | Midterm #2 | Monday, November 14 (evening) |
+        | Midterm #1 | Monday, October 3 (7:00–9:00 p.m.) |
+        | Midterm #2 | Monday, November 14 (7:00–9:00 p.m.) |
         | Final | TBD by registrar's office |
 
 
@@ -95,6 +95,16 @@ chunks:
 
 
         ##  Policies
+
+        ### Grading
+
+        | Component | Fraction of Total | Notes |
+        | --------- | ----------------- | ----- |
+        | Homework  | 20% | Lowest grade dropped |
+        | Labs      | 25% | Lowest grade dropped |
+        | Lecture quiz | 10% | Participation-based; can drop three |
+        | Midterms  | 20% | |
+        | Final     | 25% | Comprehensive |
 
         ### Absence Policy
 
