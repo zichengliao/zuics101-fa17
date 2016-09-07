@@ -35,6 +35,7 @@ chunks:
         | [Lecture #2:  literals, variables](repocur:lectures/lec02.pdf) | 2016-08-24 | [Notebook](repocur:lectures/lec02.ipynb) |
         | [Lecture #3:  data types (`int`, `float`, `str`)](repocur:lectures/lec03.pdf) | 2016-08-29 |  |
         | [Lecture #4:  string formatting, functions](repocur:lectures/lec04.pdf) | 2016-08-31 | [Python session](repocur:lectures/lec04.txt) |
+        | [Lecture #5:  methods, coding](repocur:lectures/lec05.pdf) | 2016-09-07 | [Notebook](repocur:lectures/lec05.ipynb) |
 
 
         ##  Homework
@@ -89,10 +90,18 @@ chunks:
 
         ##  Office Hours
 
-        In-person office hours will become available several weeks into the
-        class.  Until then, please rely on the
+        In-person office hours will begin the week of September 12.  Until then, please rely on the
         [class forum](https://piazza.com/class/ipzxix9y8ou155) for help.
 
+        All office hours will be held in [0222](http://ada.fs.illinois.edu/0563PLANB.html) [Siebel Center](http://ada.fs.illinois.edu/0563.html).
+
+        | Office Hours    |
+        | --------------- |
+        | Mon 11h00–13h00 |
+        | Wed 11h00–16h00 |
+        | Fri 13h00–16h00 |
+
+        <a href="http://davis68.web.engr.illinois.edu:8889/" target="_blank" role="button" class="btn btn-info">Office hours queue &raquo;</a>
 
         ##  Policies
 
