@@ -6,7 +6,7 @@
 import os
 class_semester = 'cs101-fa16'
 main_path = '/class/cs101/grading'
-if not os.path.isdir(exchange_path):
+if not os.path.isdir(main_path):
     print('Path %s not found or not accessible---check permissions.'%exchange_path)
 
 import argparse
