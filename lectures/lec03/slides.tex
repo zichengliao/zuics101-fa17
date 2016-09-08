@@ -3,8 +3,10 @@
 
 \usepackage{amsfonts}
 \usepackage{amsmath}
+\usepackage{amssymb}
 \usepackage{blindtext}
 \usepackage{enumitem}
+\usepackage{fancyvrb}
 
 \usetheme{SaoPaulo}
 
@@ -35,11 +37,51 @@
   \frametitle{Administrivia}
   \Enlarge
   \begin{itemize}
-  \myitem  Register your i>clickers on the course Compass page.
-  \myitem  Complete Homework \#1 before Wednesday at 5:00 p.m.
+  \myitem  \texttt{go.illinois.edu/cs101} \pause
+  \myitem  Register your i>clickers on the course Compass page (only). \pause
+  \mysubitem  Will send notice today of registration. \pause
+  \myitem  Complete Homework \#1 before Wednesday at 6:00 p.m. \pause
+  \mysubitem  Only Homework \#1!  (\#2--\#6 will be later.) \pause
+  \mysubitem  Final answer counts. \pause
+  \mysubitem  You \emph{do} have to buy access to complete the homework. \pause
+  \mysubitem  If having trouble, use campus computer lab. \pause
+  \mysubitem  Answers will be released 18 hours later.
   %\myitem  Homework \#2 will be assigned on Tuesday, due Friday Sep.\ 9.
-  \myitem  Lab \#2 this week, no lab next week (Labor Day).
   \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+  \frametitle{Administrivia}
+  \Enlarge
+  \begin{itemize}
+  \myitem  Lab \#2 this week, no lab next week (Labor Day). \pause
+  \myitem  Exam dates posted on course website. \pause
+  \myitem  Where can you get help in this class?
+    \begin{itemize}
+    \mysubitem  Piazza forum (allow 24 hours)
+    \mysubitem  TAs in labs and office hours (soon)
+    \end{itemize} \pause
+  \myitem  You don't need to install Python---but if you do, use Python 3. \pause
+  \myitem  This is not a ``weeder'' class---you can succeed!
+  \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Quick Review \& A Bit New}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{How Assignment Works}
+  \Enlarge
+
+  \begin{semiverbatim}
+x = 10 \pause
+y = x * x \pause
+x * x = y \pause
+
+x,y = y,x  # a neat trick
+  \end{semiverbatim}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -153,12 +195,37 @@ x = 5
   \Enlarge
 
   \texttt{01001000 01000101 01001100 01001100} \\
-  What does this binary data value represent?
+  What does a binary data value like this represent?
   \begin{itemize}
-  \myitem  What does this binary data represent? \pause
-  \myitem  How does the processor know? \pause
+  \myitem  What does binary data represent? \pause
+  \myitem  How does the processor know?
+  \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+  \frametitle{Our execution model}
+  \includegraphics[width=\textwidth]{./img/computer-process-raw.png}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+  \frametitle{What is an \textbf{encoding}?}
+  \Enlarge
+
+  \texttt{01001000 01000101 01001100 01001100} \\
+  What does a binary data value like this represent?
+  \begin{itemize}
+  \myitem  What does binary data represent?
+  \myitem  How does the processor know?
   \myitem  The \textbf{encoding} interprets the value.
   \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+  \frametitle{Our execution model}
+  \includegraphics[width=\textwidth]{./img/computer-process.png}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -226,9 +293,9 @@ x = 5
   \begin{itemize}
   \myitem  Evaluating an expression of integers will generally result in an integer answer
     \begin{itemize}
-    \mysubitem  \texttt{3 + 5}
+    \mysubitem  \texttt{3 + 5} \pause
     \mysubitem  \textcolor{red}{EXCEPTION:  DIVISION!} \pause
-    \mysubitem  \texttt{3 / 4 $\rightarrow$ 0.75}
+    \mysubitem  \texttt{3 / 4 $\rightarrow$ 0.75} \pause
     \mysubitem  \texttt{3 // 4 $\rightarrow$ 0} (floor division)
     \end{itemize}
   \end{itemize}
@@ -240,12 +307,12 @@ x = 5
   \Enlarge
 
   \begin{itemize}
-  \myitem  Floating-point numbers include a fractional part. \\
+  \myitem  Floating-point numbers include a fractional part. \pause \\
     \textcolor{CS101GradBot}{(Anything with a decimal point---\texttt{2.4}, \texttt{3.0}.)} \pause
   \myitem  What are limits? \pause
     \begin{itemize}
     \mysubitem  Overflow/underflow
-    \mysubitem  Arbitrary precision ($\pi$, $\mathbb{e}$)
+    \mysubitem  Arbitrary precision ($\pi$, $e$)
     \end{itemize}
   \end{itemize}
 \end{frame}
@@ -258,8 +325,8 @@ x = 5
   \begin{itemize}
   \myitem  Evaluating an expression of floating-point values will result in a floating-point answer. \pause
     \begin{itemize}
-    \mysubitem  \texttt{3.0 + 5.5 $\rightarrow$ 8.5}
-    \mysubitem  \texttt{3.0 + 5.0 $\rightarrow$ 8.0}
+    \mysubitem  \texttt{3.0 + 5.5 $\rightarrow$ 8.5} \pause
+    \mysubitem  \texttt{3.0 + 5.0 $\rightarrow$ 8.0} \pause
     \mysubitem  \texttt{3   + 5.5 $\rightarrow$ ?} (what happens here?)
     \end{itemize} \pause
   \myitem  Engineers and scientists need to think carefully about the precision of answers.
@@ -290,7 +357,7 @@ y = 3 + 1j
 z = 33.3333
 print( x + y + z )
   \end{semiverbatim}
-  What is printed to the screen?
+  What is printed to the screen? \pause
   \begin{enumerate}[label=\Alph*]
   \item  \texttt{40}
   \item  \texttt{40.3333}
@@ -306,9 +373,10 @@ print( x + y + z )
 
   \begin{itemize}
   \myitem  Reaches inside of a value to access part of its data (called an attribute). \pause
-  \myitem  Extracts special variables stored “inside” the type.
+  \myitem  Extracts special variables stored ``inside'' of the type.
     \begin{semiverbatim}
 print(x.real)
+
 print(x.imag)
     \end{semiverbatim} \pause
   \myitem  Both of these components are floats.
@@ -325,7 +393,7 @@ x = (3.5 + 1j)
 y = 1
 z = x + y
   \end{semiverbatim}
-  What is the value of \texttt{z.imag}?
+  What is the value of \texttt{z.imag}? \pause
   \begin{enumerate}[label=\Alph*]
   \item  \texttt{4.5 + 1j}
   \item  \texttt{4.5}
@@ -343,7 +411,7 @@ z = x + y
   \Enlarge
 
   \begin{itemize}
-  \myitem  Each symbol is stored individually, one byte long:
+  \myitem  Each symbol is stored individually, one byte long: \\
     \begin{tabular}{*{27}{l}}
       \texttt{01001000} & 72 \\
       \texttt{01000101} & 69 \\
@@ -358,25 +426,10 @@ z = x + y
 \begin{frame}
   \frametitle{ASCII encoding table}
   \Enlarge
-  \includegraphics[width=\textwidth]{./img/ascii-table.png}
-\end{frame}
+  \includegraphics[width=\textwidth]{./img/ascii-table.png} \pause
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-  \frametitle{ASCII encoding table}
-  \Enlarge
-  \includegraphics[width=\textwidth]{./img/ascii-table.png}
+  \texttt{72 69 76 76 79} = \texttt{H E L L O} \pause
 
-  \texttt{72 69 76 76 79} = ?
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-  \frametitle{ASCII encoding table}
-  \Enlarge
-  \includegraphics[width=\textwidth]{./img/ascii-table.png}
-
-  \texttt{72 69 76 76 79} = \texttt{H E L L O}
   \texttt{'HELLO'}
 \end{frame}
 
@@ -442,14 +495,19 @@ print(s)
   \frametitle{Example}
   \Enlarge
 
-  \begin{semiverbatim}
+  \begin{Verbatim}[commandchars=\\\{\}]
 name = "Neal"
 grade = 2 / 3
-m1 = "Hello, %s!"" % name
-m2 = "Your grade is:  %f" % grade
+m1 = "Hello, %s!" % name
+m2 = "Your grade is:  %f." % grade
 print(m1)
-print(m2)
-  \end{semiverbatim}
+print(m2) \pause
+
+\textcolor{CS101PureBase}{
+Hello, Neal!}
+\textcolor{CS101PureBase}{
+Your grade is 0.66667.}
+  \end{Verbatim}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

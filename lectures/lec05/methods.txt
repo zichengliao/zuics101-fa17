@@ -1,0 +1,51 @@
+count(...)
+    S.count(sub[, start[, end]]) -> int
+
+    Return the number of non-overlapping occurrences of substring sub in
+    string S[start:end].  Optional arguments start and end are
+    interpreted as in slice notation.
+
+find(...)
+    S.find(sub[, start[, end]]) -> int
+
+    Return the lowest index in S where substring sub is found,
+    such that sub is contained within S[start:end].  Optional
+    arguments start and end are interpreted as in slice notation.
+
+    Return -1 on failure.
+
+replace(...)
+    S.replace(old, new[, count]) -> str
+
+    Return a copy of S with all occurrences of substring
+    old replaced by new.  If the optional argument count is
+    given, only the first count occurrences are replaced.
+
+strip(...)
+    S.strip([chars]) -> str
+
+    Return a copy of the string S with leading and trailing
+    whitespace removed.
+    If chars is given and not None, remove characters in chars instead.
+
+title(...)
+    S.title() -> str
+
+    Return a titlecased version of S, i.e. words start with title case
+    characters, all remaining cased characters have lower case.
+
+swapcase(...)
+    S.swapcase() -> str
+
+    Return a copy of S with uppercase characters converted to lowercase
+    and vice versa.
+
+upper(...)
+    S.upper() -> str
+
+    Return a copy of S converted to uppercase.
+
+lower(...)
+    S.lower() -> str
+
+    Return a copy of the string S converted to lowercase.

@@ -35,9 +35,12 @@
   \frametitle{Administrivia}
   \Enlarge
   \begin{itemize}
-  \myitem  Register your i>clickers on the course Compass page---attendance counts from today!
-  \myitem  Complete Homework \#1 before 5:00 p.m. today.
-  \myitem  Homework \#2 is due Friday Sep.\ 9.
+  \myitem  Register your i>clickers on the course Compass page---attendance counts from today! \pause
+    \begin{itemize}
+    \mysubitem  Don't panic! \pause
+    \end{itemize}
+  \myitem  Complete Homework \#1 before 6:00 p.m. today. \pause
+  \myitem  Homework \#2 is due Friday Sep.\ 9. \pause
   \myitem  No lab next week (Labor Day).
   \end{itemize}
 \end{frame}
@@ -88,7 +91,7 @@ r = c.real + i
   \frametitle{Question \#3}
   \Enlarge
 
-  Which of these expressions will cause an \textbf{overflow}?
+  Which of these expressions is most likely to cause an \textbf{overflow}?
   \begin{enumerate}[label=\Alph*]
   \item  \texttt{10 ** 100000}
   \item  \texttt{"10" * 100000}
@@ -118,7 +121,20 @@ print( (x+y) % 2)
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Strings Redux}
+\section{Data Types---A Few Points}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+  \frametitle{Complex numbers, $\mathbb{C}$}
+  \Enlarge
+
+  \begin{itemize}
+  \myitem  Represent numbers with an imaginary component.
+  \myitem  Use \texttt{j} for $i$: \\
+    \textcolor{CS101GradBot}{\texttt{z = 1.0 + 1j}} \pause
+  \myitem  \texttt{z.real + z.imag * 1j}
+  \end{itemize}
+\end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
@@ -202,9 +218,10 @@ print( "A string:    \%s" \% 'seven' )
 a = "FIRE"
 a[0]
 \end{semiverbatim}
-  \myitem  The integer is the index.
-  \myitem  \textcolor{red}{We count from zero!}
-  \myitem  If negative, counts down from end.
+  \myitem  The integer is the index. \pause
+  \myitem  \textcolor{red}{We count from zero!} \pause
+  \myitem  If negative, counts down from end. \pause
+  \myitem  Does this work on other data types like \texttt{int}?
   \end{itemize}
 \end{frame}
 
@@ -293,9 +310,9 @@ x = alpha[1:3]
   \myitem  Functions can return a value.  (fruitful) \pause
   \myitem  Return values are the output of a function. \pause
     \begin{itemize}
-    \mysubitem  \texttt{print('10')}
-    \mysubitem  \texttt{len('Rex Kwon Do')}
-    \mysubitem  \texttt{abs(-123)}
+    \mysubitem  \texttt{print('10')} \pause
+    \mysubitem  \texttt{len('Rex Kwon Do')} \pause
+    \mysubitem  \texttt{abs(-123)} \pause
     \end{itemize}
   \end{itemize}
 \end{frame}
@@ -306,7 +323,7 @@ x = alpha[1:3]
   \Enlarge
 
   \begin{itemize}
-  \myitem  \emph{Arguments} are values passed to a function. \pause
+  \myitem  \emph{Arguments} are values passed \emph{to} a function. \pause
   \myitem  A function can accept zero to many arguments. \pause
   \myitem  Multiple arguments are separated by commas:
     \begin{itemize}

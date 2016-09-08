@@ -57,7 +57,7 @@ Students need to run the following command the first time they log in:
 
 This interactive script will ask for the student's section so that they are able to access the correct repository for fetching and submitting assignments.  (This step is not necessary for guest account users.)
 
-Students then access notebooks via the command line by typing `jupyter-notebook`.  Submitted assignments will be automatically retrieved at the hour ending a lab session, so students should submit promptly.
+Students then access notebooks via the command line by typing `jupyter-notebook`.  Submitted assignments will be automatically retrieved at the hour ending a lab session, so students should submit promptly.  [Walk through this process.]
 
 Labs will be made available to TAs one week beforehand.  You should review and understand the labs, as well as report any difficulties or errors as soon as possible for correction prior to release to students.  Collect hard copies of worksheets from the instructor beforehand.
 
@@ -95,9 +95,9 @@ TAs have the following resources available to them:
 
 -   A lab help queue, online at [go.illinois.edu/cs101-labq](go.illinois.edu/cs101-labq).  The password to clear this queue or remove single students after they have been helped is `101score`.  If the server goes down, it should restart automatically within a minute unless EWS itself is under preventative maintenance or an outage.
 
--   A script to reset Firefox if the system crashes and the browser locks, `reset_firefox` should be available on all student systems.
-
 -   Guest accounts `cs101-01` through `cs101-05`.  These will be cleared regularly, so encourage students to save work they wish to keep to their own device or upload the work to Box.  Students will additionally have to run `/class/cs101/startup` for the current section.  The password is `PlsChgMe` and should *not* be told to students.
+
+-   Computers may be logged out by pressing `Ctrl`+`Alt`+`Backspace` if students leave without logging off.
 
 
 ##  Office Hours

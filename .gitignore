@@ -13,3 +13,5 @@ thumbnail.db
 *.snm
 *.toc
 *.vrb
+labs/*/*.pdf
+lectures/*/*.pdf
