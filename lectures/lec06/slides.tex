@@ -48,17 +48,17 @@
   \frametitle{Question \#1}
   \Enlarge
 
-  \begin{semiverbatim}
+  \begin{Verbatim}[commandchars=\\\{\},commentchar=\%]
 s = "74.125.21.147"
 i = s.find( "." )
 x = s[i+1:i+3]
 x = x * 2
-  \end{semiverbatim}
+  \end{Verbatim}
   What is the value of \texttt{x}?
   \begin{enumerate}[label=\Alph*]
   \item  \texttt{"125125"}
   \item  \texttt{250}
-  \item  \texttt{"1212"}
+  \item  \texttt{"1212"}  $\star$
   \item  \texttt{24}
   \end{enumerate}
 \end{frame}
@@ -71,11 +71,11 @@ x = x * 2
   \frametitle{Example:  Defining functions}
   \Enlarge
 
-  \begin{semiverbatim}
+  \begin{Verbatim}[commandchars=\\\{\},commentchar=\%]
 def pow(a, b):
     y = a ** b
     return y
-  \end{semiverbatim}
+  \end{Verbatim}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -101,7 +101,7 @@ def pow(a, b):
 
   \begin{columns}
   \begin{column}{0.75\textwidth}
-\begin{semiverbatim}
+\begin{Verbatim}[commandchars=\\\{\},commentchar=\%]
 def greetings():
     print("Bom dia!")
     print("Bonjour!")
@@ -111,7 +111,7 @@ def greetings():
     print("Guten tag!")
     print("Konichiwa!")
     print("As-salamu alaykum!")
-\end{semiverbatim}
+\end{Verbatim}
   \end{column}
   \begin{column}{0.25\textwidth}
     header \\ ~ \\ ~ \\ ~ \\ ~ body \\ ~ \\ ~ \\ ~ \\ ~ \\
@@ -125,14 +125,14 @@ def greetings():
   \Enlarge
 
   \begin{itemize}
-  \myitem  A section of code grouped together. \pause
-  \myitem  Begins with a \texttt{:}. \pause
+  \myitem  A section of code grouped together. %\pause
+  \myitem  Begins with a \texttt{:}. %\pause
   \myitem  Contents of the block are indented:
   \end{itemize}
-  \begin{semiverbatim}
+  \begin{Verbatim}[commandchars=\\\{\},commentchar=\%]
 def hello():
     print('hello')
-  \end{semiverbatim}
+  \end{Verbatim}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -141,8 +141,8 @@ def hello():
   \Enlarge
 
   \begin{itemize}
-  \myitem  Variables defined inside of a block are \emph{independent} of variables outside of the block. \pause
-  \myitem  Variables inside a block \emph{do not exist} outside of the block. \pause
+  \myitem  Variables defined inside of a block are \emph{independent} of variables outside of the block. %\pause
+  \myitem  Variables inside a block \emph{do not exist} outside of the block. %\pause
   \myitem  Blocks are isolated from the rest of the code!
   \end{itemize}
 \end{frame}
@@ -152,7 +152,7 @@ def hello():
   \frametitle{Example:  Defining functions}
   \Enlarge
 
-  \begin{Verbatim}[commandchars=\\\{\}]
+  \begin{Verbatim}[commandchars=\\\{\},commentchar=\%]
 \textcolor{CS101AltDark}{
 a = 5}
 \textcolor{CS101AltDark}{
@@ -162,9 +162,9 @@ def fun():}
 \textcolor{CS101PureBase}{
     b = 4}
 \textcolor{CS101PureBase}{
-    a = a + b } \pause
+    a = a + b } %\pause
 \textcolor{CS101AltDark}{
-fun()} \pause
+fun()} %\pause
 \textcolor{CS101AltDark}{
 print(a)}
   \end{Verbatim}
@@ -176,17 +176,17 @@ print(a)}
   \Enlarge
 
   \begin{itemize}
-  \myitem  Functions can return values with the keyword \texttt{return}. \pause
-    \begin{semiverbatim}
+  \myitem  Functions can return values with the keyword \texttt{return}. %\pause
+    \begin{Verbatim}[commandchars=\\\{\},commentchar=\%]
 def three():
     return 3
-    \end{semiverbatim} \pause
-  \myitem  \texttt{return} immediately exits a function. \pause
-    \begin{semiverbatim}
+    \end{Verbatim}
+  \myitem  %\pause \texttt{return} immediately exits a function. %\pause
+    \begin{Verbatim}[commandchars=\\\{\},commentchar=\%]
 def zero():
   return 0
   print('0')
-    \end{semiverbatim}
+    \end{Verbatim}
   \end{itemize}
 \end{frame}
 
@@ -196,14 +196,14 @@ def zero():
   \Enlarge
 
   \begin{itemize}
-  \myitem  Functions can accept values as parameters (input, arguments). \pause
-  \myitem  These variables are declared in the function header. \pause
-  \myitem  Multiple parameters are separated by commas. \pause
+  \myitem  Functions can accept values as parameters (input, arguments). %\pause
+  \myitem  These variables are declared in the function header. %\pause
+  \myitem  Multiple parameters are separated by commas. %\pause
   \end{itemize}
-  \begin{semiverbatim}
+  \begin{Verbatim}[commandchars=\\\{\},commentchar=\%]
 def print_message( msg ):
     print( msg )
-  \end{semiverbatim}
+  \end{Verbatim}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -211,18 +211,18 @@ def print_message( msg ):
   \frametitle{Example}
   \Enlarge
 
-  \begin{semiverbatim}
+  \begin{Verbatim}[commandchars=\\\{\},commentchar=\%]
 def fun(a):
     return a+2
 
 x = fun(2) * fun(3)
-  \end{semiverbatim}
+  \end{Verbatim}
   What is the value of \texttt{x}?
   \begin{enumerate}[label=\Alph*]
   \item  \texttt{6}
   \item  \texttt{8}
   \item  \texttt{24}
-  \item  None of the above.
+  \item  None of the above.  $\star$
   \end{enumerate}
 \end{frame}
 
@@ -231,16 +231,16 @@ x = fun(2) * fun(3)
   \frametitle{Example}
   \Enlarge
 
-  \begin{semiverbatim}
+  \begin{Verbatim}[commandchars=\\\{\},commentchar=\%]
 def fun(m):
     return m.title().swapcase()
 
 x = fun( "abb") + fun( "acab" )
-  \end{semiverbatim}
+  \end{Verbatim}
   What is the value of \texttt{x}?
   \begin{enumerate}[label=\Alph*]
   \item  \texttt{'AbbAcab'}
-  \item  \texttt{'aBBaCAB'}
+  \item  \texttt{'aBBaCAB'}  $\star$
   \item  \texttt{'abbacab'}
   \item  \texttt{'ABBACAB'}
   \end{enumerate}
@@ -251,18 +251,18 @@ x = fun( "abb") + fun( "acab" )
   \frametitle{Example}
   \Enlarge
 
-  \begin{semiverbatim}
+  \begin{Verbatim}[commandchars=\\\{\},commentchar=\%]
 def fun(a,b):
     c = ((a + ' ') * len(b)).title()
 
 x = fun( "ab", "caa" )
-  \end{semiverbatim}
+  \end{Verbatim}
   What is the value of \texttt{x}?
   \begin{enumerate}[label=\Alph*]
-  \item  \texttt{'ab ab ab'}
-  \item  \texttt{'Ab Ab Ab'}
-  \item  \texttt{'AB AB AB'}
-  \item  None of the above.
+  \item  \texttt{'ab ab ab '}
+  \item  \texttt{'Ab Ab Ab '}
+  \item  \texttt{'AB AB AB '}
+  \item  None of the above.  $\star$
   \end{enumerate}
 \end{frame}
 
@@ -271,18 +271,18 @@ x = fun( "ab", "caa" )
   \frametitle{Example}
   \Enlarge
 
-  \begin{semiverbatim}
+  \begin{Verbatim}[commandchars=\\\{\},commentchar=\%]
 def fun(a,b):
     c = ((a + ' ') * len(b)).title()
     return c
 
 x = fun( "ab", "caa" )
-  \end{semiverbatim}
+  \end{Verbatim}
   What is the value of \texttt{x}?
   \begin{enumerate}[label=\Alph*]
-  \item  \texttt{'ab ab ab'}
-  \item  \texttt{'Ab Ab Ab'}
-  \item  \texttt{'AB AB AB'}
+  \item  \texttt{'ab ab ab '}
+  \item  \texttt{'Ab Ab Ab '}  $\star$
+  \item  \texttt{'AB AB AB '}
   \end{enumerate}
 \end{frame}
 
@@ -299,9 +299,9 @@ x = fun( "ab", "caa" )
     \begin{itemize}
     \mysubitem  \texttt{True}
     \mysubitem  \texttt{False}
-    \end{itemize} \pause
+    \end{itemize} %\pause
   \myitem  We use these to make decisions.
-  \myitem  Their logic is based on Boolean algebra. \pause
+  \myitem  Their logic is based on Boolean algebra. %\pause
   \myitem  Operators:
     \begin{itemize}
     \mysubitem  \texttt{and}
@@ -380,16 +380,16 @@ x = fun( "ab", "caa" )
   \frametitle{Example}
   \Enlarge
 
-  \begin{semiverbatim}
+  \begin{Verbatim}[commandchars=\\\{\},commentchar=\%]
 def fun():
     return True and False
 
 x = fun() and not (True or False)
-  \end{semiverbatim}
+  \end{Verbatim}
   What is the value of \texttt{x}?
   \begin{enumerate}[label=\Alph*]
   \item  \texttt{True}
-  \item  \texttt{False}
+  \item  \texttt{False}  $\star$
   \end{enumerate}
 \end{frame}
 
@@ -416,16 +416,16 @@ x = fun() and not (True or False)
   \frametitle{Example}
   \Enlarge
 
-  \begin{semiverbatim}
+  \begin{Verbatim}[commandchars=\\\{\},commentchar=\%]
 a = 5
 b = 3
 
 x = (a < 5) and ((b <= 5) or (a != b))
-  \end{semiverbatim}
+  \end{Verbatim}
   What is the value of \texttt{x}?
   \begin{enumerate}[label=\Alph*]
   \item  \texttt{True}
-  \item  \texttt{False}
+  \item  \texttt{False}  $\star$
   \end{enumerate}
 \end{frame}
 
@@ -434,16 +434,16 @@ x = (a < 5) and ((b <= 5) or (a != b))
   \frametitle{Example}
   \Enlarge
 
-  \begin{semiverbatim}
+  \begin{Verbatim}[commandchars=\\\{\},commentchar=\%]
 a = 'URSA MAJOR'
 b = 'GEMINI'
 
 x = a < b and a[1] != b[-2]
-  \end{semiverbatim}
+  \end{Verbatim}
   What is the value of \texttt{x}?
   \begin{enumerate}[label=\Alph*]
   \item  \texttt{True}
-  \item  \texttt{False}
+  \item  \texttt{False}  $\star$
   \end{enumerate}
 \end{frame}
 
@@ -452,17 +452,17 @@ x = a < b and a[1] != b[-2]
   \frametitle{Example}
   \Enlarge
 
-  \begin{semiverbatim}
+  \begin{Verbatim}[commandchars=\\\{\},commentchar=\%]
 def fun(a,b):
     return a<b
 a = 3
 b = 4
 x = fun(b,a)
-  \end{semiverbatim}
+  \end{Verbatim}
   What is the value of \texttt{x}?
   \begin{enumerate}[label=\Alph*]
   \item  \texttt{True}
-  \item  \texttt{False}
+  \item  \texttt{False}  $\star$
   \end{enumerate}
 \end{frame}
 
@@ -475,7 +475,7 @@ x = fun(b,a)
   \Enlarge
 
   \begin{itemize}
-  \myitem  \emph{Control flow} represents actual sequence of lines executed by processor. \pause
+  \myitem  \emph{Control flow} represents actual sequence of lines executed by processor. %\pause
   \myitem  \emph{Conditional execution} lets you execute (or not) a block of code based on logical comparison.
   \end{itemize}
 \end{frame}
@@ -485,11 +485,11 @@ x = fun(b,a)
   \frametitle{Example:  \texttt{if} statement}
   \Enlarge
 
-  \begin{semiverbatim}
+  \begin{Verbatim}[commandchars=\\\{\},commentchar=\%]
 ans = input( "Enter a number:" )
 if float(ans) < 0:
     print( "The number was negative." )
-  \end{semiverbatim}
+  \end{Verbatim}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -513,7 +513,7 @@ if float(ans) < 0:
   \Enlarge
 
   \begin{itemize}
-  \myitem  This lets us make decisions in the program! \pause
+  \myitem  This lets us make decisions in the program! %\pause
   \myitem  We can change program behavior as it executes.
   \end{itemize}
 \end{frame}
@@ -523,7 +523,7 @@ if float(ans) < 0:
   \frametitle{Example:  \texttt{if} statements}
   \Enlarge
 
-  \begin{semiverbatim}
+  \begin{Verbatim}[commandchars=\\\{\},commentchar=\%]
 ans = input( "Enter a number:" )
 if float(ans) < 0:
     print( "The number was negative." )
@@ -531,7 +531,7 @@ if float(ans) > 0:
     print( "The number was positive." )
 if float(ans) == 0:
     print( "The number was zero." )
-  \end{semiverbatim}
+  \end{Verbatim}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -544,7 +544,6 @@ if float(ans) == 0:
 
   \begin{itemize}
   \myitem  Homework \#3 is due Friday Sep.\ 16.
-  \myitem  Labs resume next week.
   \end{itemize}
 \end{frame}
 
