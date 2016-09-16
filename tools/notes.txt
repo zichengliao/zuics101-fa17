@@ -1,0 +1,21 @@
+for i in {1..5}; do
+  scp ~/.ssh/id_rsa.pub cs101-0$i@remlnx.ews.illinois.edu:
+done
+mkdir -p .ssh; cat id_rsa.pub >> .ssh/authorized_keys; chmod 700 .ssh; exit
+for i in {1..5}; do
+  ssh cs101-0$i@remlnx.ews.illinois.edu "rm id_rsa.pub"
+done
+
+for i in {2..5}; do
+  scp clearguest.py cs101-0$i@remlnx.ews.illinois.edu:
+done
+
+clearguests.sh:
+#!/bin/bash
+for i in {1..5}; do
+  ssh cs101-0$i@remlnx.ews.illinois.edu "python clearguest.py"
+done
+
+for i in $(seq -w 13); do
+  mv "lab$i/lab$i-source" lab$i/source
+done

@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# Accept a value from the command line.  Search for it
+# as a feature of a student in CS 101.
+
+# todo: make a list of admin/ dirs
+
+COURSE_DIR="/home/davis68/teaching/cs101-fa16"
+
+cat $COURSE_DIR/admin/rpt_all_students.csv | grep $1
+cat $COURSE_DIR/admin/ta-assignments.txt | grep $1
+#cat $COURSE_DIR/admin/ta-notes.txt | grep $1
