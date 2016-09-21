@@ -25,7 +25,7 @@ chunks:
         | **Class URL**        | [`go.illinois.edu/cs101/`](http://go.illinois.edu/cs101/) |
         | **Class forum**      | <a href="https://piazza.com/illinois/fall2016/cs101/home" target="_blank" role="button" class="btn btn-info">Piazza &raquo;</a> <a href="https://piazza.com/illinois/fall2016/cs101" target="_blank" role="button" class="btn btn-default">Enroll (one time) &raquo;</a> |
         | **Instructor email** | [`cs101admin@cs.illinois.edu`](mailto:cs101admin@cs.illinois.edu) |
-        | Python | <a href="https://repl.it/languages/python3" target="_blank" role="button" class="btn btn-info">Run online &raquo;</a> |
+        | **Python** | <a href="https://repl.it/languages/python3" target="_blank" role="button" class="btn btn-info">Run online &raquo;</a> |
 
 
         ##  Lectures
@@ -40,6 +40,7 @@ chunks:
         | [Lecture #6:  functions, conditionals](repocur:lectures/lec06.pdf) | 2016-09-12 |  |
         | [Lecture #7:  lists, `while` loops](repocur:lectures/lec07.pdf) | 2016-09-14 | [Python session](repocur:lectures/lec07.txt) |
         | [Lecture #8:  branched conditionals, `for` loops, range](repocur:lectures/lec08.pdf) | 2016-09-19 | [Python session + homework commentary](repocur:lectures/lec08-hw.txt) |
+        | [Lecture #9:  mutability, list and string methods](repocur:lectures/lec09.pdf) | 2016-09-21 | [Python session](repocur:lectures/lec09.txt) |
 
 
         ##  Homework
@@ -87,11 +88,13 @@ chunks:
 
         ##  Examinations
 
+        Please bring your I-Card and arrive early.  Consider visiting the location ahead of time so you know where you'll be taking the exam.  (Locations TBA.)
+
         | Exam | Date |
         | ---- | ---- |
-        | Midterm #1 | Monday, October 3 (7:00–9:00 p.m.) |
-        | Midterm #2 | Monday, November 14 (7:00–9:00 p.m.) |
-        | Final | TBD by registrar's office |
+        | Midterm #1 | Monday, October 3 (7:00–9:00 p.m.) (Begins sharply at 7:00!) |
+        | Midterm #2 | Monday, November 14 (7:00–9:00 p.m.) (Begins sharply at 7:00!) |
+        | Final | [TBD by registrar's office](https://registrar.illinois.edu/fall2016schedulingguidelinespublic) |
 
         Conflict exams are available for students with approved exceptions (such as another exam at the same time).
 

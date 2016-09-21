@@ -1,0 +1,164 @@
+In [1]: for i in range(10):
+   ...:     print(i ** 2)
+   ...:     
+0
+1
+4
+9
+16
+25
+36
+49
+64
+81
+
+In [2]: for i in range(2,10):
+   ...:     print(i ** 2)
+   ...:     
+4
+9
+16
+25
+36
+49
+64
+81
+
+In [3]: for i in range(2,10,3):
+   ...:     print(i ** 2)
+   ...:     
+4
+25
+64
+
+In [4]: x = 'abcdefghijklmnop'
+
+In [5]: x[5:10]
+Out[5]: 'fghij'
+
+In [6]: x[5:10:2]
+Out[6]: 'fhj'
+
+In [7]: x = [1,2,3]
+
+In [8]: y=x
+
+In [9]: y[0] = 6
+
+In [10]: x
+Out[10]: [6, 2, 3]
+
+In [11]: t = ( 1, 2, 3 )
+
+In [12]: t
+Out[12]: (1, 2, 3)
+
+In [13]: type(t)
+Out[13]: tuple
+
+In [14]: u = 1,2,3
+
+In [15]: u
+Out[15]: (1, 2, 3)
+
+In [16]: x=1
+
+In [17]: y=2
+
+In [18]: x,y = y,x
+
+In [19]: x
+Out[19]: 2
+
+In [20]: y
+Out[20]: 1
+
+In [21]: x = [ 4,1,2,3 ]
+
+In [22]: x.append(5)
+
+In [23]: x
+Out[23]: [4, 1, 2, 3, 5]
+
+In [24]: x * 3
+Out[24]: [4, 1, 2, 3, 5, 4, 1, 2, 3, 5, 4, 1, 2, 3, 5]
+
+In [25]: x + x
+Out[25]: [4, 1, 2, 3, 5, 4, 1, 2, 3, 5]
+
+In [26]: x + 5
+---------------------------------------
+TypeErrorTraceback (most recent call last)
+<ipython-input-26-057023a07318> in <module>()
+----> 1 x + 5
+
+TypeError: can only concatenate list (not "int") to list
+
+In [27]: x + [5]
+Out[27]: [4, 1, 2, 3, 5, 5]
+
+In [28]: x
+Out[28]: [4, 1, 2, 3, 5]
+
+In [29]: x.sort()
+
+In [30]: x
+Out[30]: [1, 2, 3, 4, 5]
+
+In [31]: x.reverse()
+
+In [32]: x
+Out[32]: [5, 4, 3, 2, 1]
+
+In [33]: x = x.sort()
+
+In [34]: x
+
+In [35]: x is None
+Out[35]: True
+
+In [36]: type(x)
+Out[36]: NoneType
+
+In [37]: x
+
+In [38]: x = [ 1 , 5, 6]
+
+In [39]: x.index(1)
+Out[39]: 0
+
+In [40]: max(x)
+Out[40]: 6
+
+In [41]: x.append('6')
+
+In [42]: x
+Out[42]: [1, 5, 6, '6']
+
+In [43]: max(x)
+---------------------------------------
+TypeErrorTraceback (most recent call last)
+<ipython-input-43-8a606acc727f> in <module>()
+----> 1 max(x)
+
+TypeError: unorderable types: str() > int()
+
+In [44]: s = 'x,y,z'
+
+In [45]: s.split(',')
+Out[45]: ['x', 'y', 'z']
+
+In [46]: s.split('+')
+Out[46]: ['x,y,z']
+
+In [47]: t = 'asdf asdf  jkjl j'
+
+In [48]: t.split()
+Out[48]: ['asdf', 'asdf', 'jkjl', 'j']
+
+In [49]: range(10)
+Out[49]: range(0, 10)
+
+In [50]: list(range(10))
+Out[50]: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
