@@ -50,7 +50,7 @@ chunks:
         |            |          |          |
         | ---------- | -------- | -------- |
         | [![](repocur:img/banner-hw01.png)](flow:hw01) <br/> **Due** 2016-08-31 | [![](repocur:img/banner-hw02.png)](flow:hw02) <br/> **Due** 2016-09-09 | [![](repocur:img/banner-hw03.png)](flow:hw03) <br/> **Due** 2016-09-16 |
-        | [![](repocur:img/banner-hw04.png)](flow:hw04) <br/> **Due** 2016-09-23 | ![](repocur:img/banner-blank.png) | ![](repocur:img/banner-blank.png) |
+        | [![](repocur:img/banner-hw04.png)](flow:hw04) <br/> **Due** 2016-09-23 | [![](repocur:img/banner-hw05.png)](flow:hw05) <br/> **Due** 2016-09-30 | ![](repocur:img/banner-blank.png) |
 
 
 
@@ -88,15 +88,23 @@ chunks:
 
         ##  Examinations
 
-        Please bring your I-Card and arrive early.  Consider visiting the location ahead of time so you know where you'll be taking the exam.  (Locations TBA.)
+        Please bring your I-Card and arrive early.  Consider visiting the location ahead of time so you know where you'll be taking the exam.
 
-        | Exam | Date |
-        | ---- | ---- |
-        | Midterm #1 | Monday, October 3 (7:00–9:00 p.m.) (Begins sharply at 7:00!) |
-        | Midterm #2 | Monday, November 14 (7:00–9:00 p.m.) (Begins sharply at 7:00!) |
-        | Final | [TBD by registrar's office](https://registrar.illinois.edu/fall2016schedulingguidelinespublic) |
+        | Exam | Date | Supporting Resources |
+        | ---- | ---- | -------------------- |
+        | Midterm #1 | Monday, October 3 (7:00–9:00 p.m.) (Begins sharply at 7:00!) | [Practice midterm](repocur:lectures/practice-midterm-updated.pdf); locations below |
+        | Midterm #2 | Monday, November 14 (7:00–9:00 p.m.) (Begins sharply at 7:00!) | |
+        | Final | [To be determined by registrar's office](https://registrar.illinois.edu/fall2016schedulingguidelinespublic) | |
 
-        Conflict exams are available for students with approved exceptions (such as another exam at the same time).
+        | Room | Lab Section |
+        | ---- | ----------- |
+        | [114](http://ada.fs.illinois.edu/0054Plan1.html) [David Kinley Hall](http://ada.fs.illinois.edu/0054.html) | AYA, AYB, AYC |
+        | [1404](http://ada.fs.illinois.edu/0563Plan1.html) [Siebel Center](http://ada.fs.illinois.edu/0563.html) | AYD, AYE, AYF |
+        | [66](http://ada.fs.illinois.edu/0041PLANB.html) [Main Library](http://ada.fs.illinois.edu/0041.html) | AYG, AYH, AYI |
+        | [141](http://ada.fs.illinois.edu/0159Plan1.html) [Wohlers Hall](http://ada.fs.illinois.edu/0159.html) | AYJ, AYK, AYL, AYM |
+        | [112](http://ada.fs.illinois.edu/0043Plan1.html) [Gregory Hall](http://ada.fs.illinois.edu/0043.html) | AYN, AYO, AYP, AYQ, AYR |
+
+        Conflict exams are available for students with approved exceptions (such as another exam at the same time).  Email course administration *prior* to the date of the midterm for more information.
 
 
         ##  Office Hours
@@ -107,7 +115,7 @@ chunks:
         | --------------- |
         | Mon 11h00–13h00 |
         | Wed 11h00–16h00 |
-        | Fri 13h00–16h00 |
+        | Fri 13h00–15h00 |
 
         <a href="http://davis68.web.engr.illinois.edu:8889/" target="_blank" role="button" class="btn btn-info">Office hours queue &raquo;</a>
 
