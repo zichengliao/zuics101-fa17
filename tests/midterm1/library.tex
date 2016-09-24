@@ -1,0 +1,1526 @@
+\documentclass{article}
+\usepackage{amsmath,amssymb,listings,upquote}
+\usepackage[margin=3cm]{geometry}
+\usepackage{graphicx,color}
+\lstset{language=Python}
+\usepackage{enumerate}
+
+
+\newcounter{zone}
+\setcounter{zone}{0}
+\newcommand{\zone}{\clearpage\refstepcounter{zone}\section*{Zone \arabic{zone}}}
+\newcounter{question}
+\setcounter{question}{0}
+\newcounter{variant}
+\newcounter{questionpoints}
+\newcommand{\question}[1]{\newpage \refstepcounter{question} \setcounter{variant}{0} \setcounter{questionpoints}{#1}}
+\newcommand{\variant}{\vspace{4em}\refstepcounter{variant}\noindent \arabic{question}/\arabic{variant}. (\arabic{questionpoints} point\ifnum \thequestionpoints > 1 s\fi) }
+\newenvironment{answers}{\begin{enumerate}}{\end{enumerate}}
+\newcommand{\answer}{\item }
+\newcommand{\correctanswer}{\item $\bigstar$ }
+\renewcommand{\theenumi}{\Alph{enumi}}
+\newenvironment{solution}{{\bf Solution.} }{\vspace*{.3in}\hrule}
+
+\begin{document}
+
+\begin{center}
+%\textbf{\Large CS 101 Midterm \#1}
+%
+\includegraphics[width=2in]{../img/midterm1-header.png}
+\end{center}
+
+\bigskip
+\noindent
+\begin{itemize}
+\item \textbf{Be sure to enter your \underline{NetID} and \underline{the code below} on your Scantron}.
+\item Do not turn this page until instructed to do so.
+\item There are 30 questions, worth 1 point each.
+\item Each question has only \textbf{one} correct answer.
+\item You must not communicate with other students during this test.
+\item No books, notes, or electronic devices are permitted.
+\item This is a 60-minute exam.
+\item There are several different versions of this exam.
+\end{itemize}
+
+\bigskip\bigskip
+\noindent
+\textbf{\Large 1. Fill in your information:}
+
+\bigskip
+{\Large\bf
+\begin{tabular}{ll}
+Full Name: & \underbar{\hskip 8cm} \\[0.5em]
+UIN (Student Number): & \underbar{\hskip 8cm} \\[0.5em]
+NetID: & \underbar{\hskip 8cm}
+\end{tabular}
+}
+
+\bigskip
+\bigskip
+\noindent
+\textbf{\Large 2. Fill in the following answers on the Scantron form:}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\zone
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{1}
+\variant
+Consider the following program:
+\begin{verbatim}
+s="G+R+A+I+L"
+x=s.split("+")[1:-2]
+\end{verbatim}
+What is the \textbf{value} of \texttt{x} after this program is executed?
+\begin{answers}
+\answer \begin{verbatim}3\end{verbatim}
+\answer \begin{verbatim}'RAI'\end{verbatim}
+\correctanswer \begin{verbatim}['R','A']\end{verbatim}
+\answer \begin{verbatim}None\end{verbatim}
+\answer \begin{verbatim}False\end{verbatim}
+\end{answers}
+\begin{solution}
+\end{solution}
+\variant
+Consider the following program:
+\begin{verbatim}
+s="-B-O-R-S-"
+x=s.split("-")[2:-2]
+\end{verbatim}
+What is the \textbf{value} of \texttt{x} after this program is executed?
+\begin{answers}
+\answer \begin{verbatim}''\end{verbatim}
+\answer \begin{verbatim}None\end{verbatim}
+\correctanswer \begin{verbatim}['O', 'R']\end{verbatim}
+\answer \begin{verbatim}False\end{verbatim}
+\answer \begin{verbatim}'ORS'\end{verbatim}
+\end{answers}
+\begin{solution}
+\end{solution}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{1}
+\variant
+Consider the following program:
+\begin{verbatim}
+s="ECTOR"
+t="GAWAIN"
+x=(len(s)+len(t)) < 4 and s in t
+\end{verbatim}
+What is the \textbf{type} of \texttt{x} after this program is executed?
+\begin{answers}
+\answer \begin{verbatim}String\end{verbatim}
+\answer \begin{verbatim}Integer\end{verbatim}
+\correctanswer \begin{verbatim}Boolean\end{verbatim}
+\answer \begin{verbatim}Float\end{verbatim}
+\answer \begin{verbatim}None\end{verbatim}
+\end{answers}
+\begin{solution}
+\end{solution}
+\variant
+Consider the following program:
+\begin{verbatim}
+s="ECTOR"
+t="GAWAIN"
+x=len(str(s.isupper()))-t.find("A")
+\end{verbatim}
+What is the \textbf{type} of \texttt{x} after this program is executed?
+\begin{answers}
+\answer \begin{verbatim}String\end{verbatim}
+\correctanswer \begin{verbatim}Integer\end{verbatim}
+\answer \begin{verbatim}Boolean\end{verbatim}
+\answer \begin{verbatim}Float\end{verbatim}
+\answer \begin{verbatim}None\end{verbatim}
+\end{answers}
+\begin{solution}
+\end{solution}
+\variant
+Consider the following program:
+\begin{verbatim}
+s="ECTOR"
+t="GAWAIN"
+x=(len(s)/(len(t)-1))+1
+\end{verbatim}
+What is the \textbf{type} of \texttt{x} after this program is executed?
+\begin{answers}
+\answer \begin{verbatim}String\end{verbatim}
+\answer \begin{verbatim}Integer\end{verbatim}
+\answer \begin{verbatim}Boolean\end{verbatim}
+\correctanswer \begin{verbatim}Float\end{verbatim}
+\answer \begin{verbatim}None\end{verbatim}
+\end{answers}
+\begin{solution}
+\end{solution}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{1}
+\variant
+Consider the following program:
+\begin{verbatim}
+s="TRIS %i"
+t="ISEU"
+x=s % len(t)
+\end{verbatim}
+What is the \textbf{type} of \texttt{x} after this program is executed?
+\begin{answers}
+\correctanswer \begin{verbatim}String\end{verbatim}
+\answer \begin{verbatim}Integer\end{verbatim}
+\answer \begin{verbatim}Boolean\end{verbatim}
+\answer \begin{verbatim}Float\end{verbatim}
+\answer \begin{verbatim}None\end{verbatim}
+\end{answers}
+\begin{solution}
+\end{solution}
+\variant
+Consider the following program:
+\begin{verbatim}
+s="TRIS %i"
+t="ISEU"
+x=len(s) % len(t[2:-1])
+\end{verbatim}
+What is the \textbf{type} of \texttt{x} after this program is executed?
+\begin{answers}
+\answer \begin{verbatim}String\end{verbatim}
+\correctanswer \begin{verbatim}Integer\end{verbatim}
+\answer \begin{verbatim}Boolean\end{verbatim}
+\answer \begin{verbatim}Float\end{verbatim}
+\answer \begin{verbatim}None\end{verbatim}
+\end{answers}
+\begin{solution}
+\end{solution}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{1}
+\variant
+Consider the following program.
+\begin{verbatim}
+kay = 2
+wart = 3
+
+def knight(kay,wart):
+    wart += 2
+    kay += 3
+    return wart + kay
+
+kay = knight(wart, kay) + knight(kay, wart)
+\end{verbatim}
+After it is run, what is the final \textbf{value} of \texttt{kay}?
+\begin{answers}
+\answer \begin{verbatim}2\end{verbatim}
+\answer \begin{verbatim}3\end{verbatim}
+\answer \begin{verbatim}5\end{verbatim}
+\correctanswer None of the other answers are correct.
+\end{answers}
+\begin{solution}
+\end{solution}
+\variant
+Consider the following program.
+\begin{verbatim}
+kay = 2
+wart = 3
+
+def knight(kay,wart):
+    wart += 2
+    kay += 3
+    return wart + kay
+
+wart = knight(kay, kay) + knight(wart, wart)
+\end{verbatim}
+After it is run, what is the final \textbf{value} of \texttt{wart}?
+\begin{answers}
+\answer \begin{verbatim}2\end{verbatim}
+\answer \begin{verbatim}3\end{verbatim}
+\answer \begin{verbatim}5\end{verbatim}
+\correctanswer None of the other answers are correct.
+\end{answers}
+\begin{solution}
+\end{solution}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{1}
+\variant
+Consider the following program.
+\begin{verbatim}
+def artificing(s):
+    return s*2
+    return s+"%i" % 2
+    return s
+
+s=artificing("MERLIN")
+\end{verbatim}
+After it is run, what is the final \textbf{value} of s?
+\begin{answers}
+\answer \begin{verbatim}"MERLIN"\end{verbatim}
+\correctanswer \begin{verbatim}"MERLINMERLIN"\end{verbatim}
+\answer \begin{verbatim}"MERLIN2"\end{verbatim}
+\answer \begin{verbatim}12\end{verbatim}
+\answer \begin{verbatim}None\end{verbatim}
+\end{answers}
+\begin{solution}
+\end{solution}
+\variant
+Consider the following program.
+\begin{verbatim}
+def artificing(s):
+    return s+"%i" % 2
+    return s*2
+    return s
+
+s=artificing("MERLIN")
+\end{verbatim}
+After it is run, what is the final \textbf{value} of s?
+\begin{answers}
+\answer \begin{verbatim}"MERLIN%i"\end{verbatim}
+\correctanswer \begin{verbatim}"MERLIN2"\end{verbatim}
+\answer \begin{verbatim}"MERLINMERLIN"\end{verbatim}
+\answer \begin{verbatim}0\end{verbatim}
+\answer \begin{verbatim}None\end{verbatim}
+\end{answers}
+\begin{solution}
+\end{solution}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{1}
+\variant
+Consider the following program.
+\begin{verbatim}
+s="ABCBA"
+x=0
+y=len(s)-1
+while s[x]==s[y] and x<y:
+    x+=1
+    y-=1
+\end{verbatim}
+After it is run, what is the final \textbf{value} of \texttt{x}?
+\begin{answers}
+\answer \begin{verbatim}0\end{verbatim}
+\answer \begin{verbatim}1\end{verbatim}
+\correctanswer \begin{verbatim}2\end{verbatim}
+\answer \begin{verbatim}3\end{verbatim}
+\answer \begin{verbatim}4\end{verbatim}
+\end{answers}
+\begin{solution}
+\end{solution}
+\variant
+Consider the following program.
+\begin{verbatim}
+s="ABCBA"
+x=0
+y=len(s)-1
+while s[x]==s[y] and x<=y:
+    x+=1
+    y-=1
+\end{verbatim}
+After it is run, what is the final \textbf{value} of \texttt{x}?
+\begin{answers}
+\answer \begin{verbatim}0\end{verbatim}
+\answer \begin{verbatim}1\end{verbatim}
+\answer \begin{verbatim}2\end{verbatim}
+\correctanswer \begin{verbatim}3\end{verbatim}
+\answer \begin{verbatim}4\end{verbatim}
+\end{answers}
+\begin{solution}
+\end{solution}
+\variant
+Consider the following program.
+\begin{verbatim}
+s="BBCAA"
+x=0
+y=len(s)-1
+while s[x]!=s[y] and x<len(s):
+    x+=1
+    y-=1
+\end{verbatim}
+After it is run, what is the final \textbf{value} of \texttt{x}?
+\begin{answers}
+\answer \begin{verbatim}0\end{verbatim}
+\answer \begin{verbatim}1\end{verbatim}
+\correctanswer \begin{verbatim}2\end{verbatim}
+\answer \begin{verbatim}3\end{verbatim}
+\answer \begin{verbatim}4\end{verbatim}
+\end{answers}
+\begin{solution}
+\end{solution}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{1}
+\variant
+Consider the following program.
+\begin{verbatim}
+x=[]
+for j in range(0,5):
+    if (j%3)==0:
+        x.append("-")
+    if (j%4)==0:
+        x.append("*")
+\end{verbatim}
+After it is run, what is the final \textbf{value} of \texttt{x}?
+\begin{answers}
+\answer \begin{verbatim}["-","*"]\end{verbatim}
+\answer \begin{verbatim}["*","-","*"]\end{verbatim}
+\answer \begin{verbatim}["*","-","*"]\end{verbatim}
+\correctanswer \begin{verbatim}["-","*","-","*"]\end{verbatim}
+\answer None of the other answers are correct.
+\end{answers}
+\begin{solution}
+\end{solution}
+\variant
+Consider the following program.
+\begin{verbatim}
+x=[]
+for j in range(0,5):
+    if (j%2)==0:
+        x.append("-")
+    if (j%5)==0:
+        x.append("*")
+\end{verbatim}
+After it is run, what is the final \textbf{value} of \texttt{x}?
+\begin{answers}
+\answer \begin{verbatim}["-","-","*"]\end{verbatim}
+\answer \begin{verbatim}["-","*","-"]\end{verbatim}
+\answer \begin{verbatim}["*","-","*","*"]\end{verbatim}
+\correctanswer \begin{verbatim}["-","*","-","-"]\end{verbatim}
+\answer None of the other answers are correct.
+\end{answers}
+\begin{solution}
+\end{solution}
+\variant
+Consider the following program.
+\begin{verbatim}
+x=[]
+for j in range(0,5):
+    if (j%4)==0:
+        x.append("-")
+    if (j%5)==0:
+        x.append("*")
+\end{verbatim}
+After it is run, what is the final \textbf{value} of \texttt{x}?
+\begin{answers}
+\answer \begin{verbatim}["-","-","*"]\end{verbatim}
+\correctanswer \begin{verbatim}["-","*","-"]\end{verbatim}
+\answer \begin{verbatim}["-","*"]\end{verbatim}
+\answer \begin{verbatim}["-","*","*"]\end{verbatim}
+\answer None of the other answers are correct.
+\end{answers}
+\begin{solution}
+\end{solution}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{1}
+\variant
+Consider the following program.
+\begin{verbatim}
+x=0
+i=1
+while(i*i)<=9:
+    x=x+(i*i)
+    i=i+1
+\end{verbatim}
+After it is run, what is the final \textbf{value} of \texttt{x}?
+\begin{answers}
+\correctanswer \begin{verbatim}14\end{verbatim}
+\answer \begin{verbatim}5\end{verbatim}
+\answer \begin{verbatim}30\end{verbatim}
+\answer \begin{verbatim}4\end{verbatim}
+\answer \begin{verbatim}3\end{verbatim}
+\end{answers}
+\begin{solution}
+\end{solution}
+\variant
+Consider the following program.
+\begin{verbatim}
+x=1
+i=0
+while(x*x)<=9:
+    i=i+(x*x)
+    x=x+1
+\end{verbatim}
+After it is run, what is the final \textbf{value} of \texttt{x}?
+\begin{answers}
+\answer \begin{verbatim}14\end{verbatim}
+\answer \begin{verbatim}5\end{verbatim}
+\answer \begin{verbatim}3\end{verbatim}
+\answer \begin{verbatim}30\end{verbatim}
+\correctanswer \begin{verbatim}4\end{verbatim}
+\end{answers}
+\begin{solution}
+\end{solution}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{1}
+\variant
+Consider the following incomplete Python program.
+\begin{verbatim}
+s="".join(["0","1","2","1"])
+x=0
+for i in range(len(s)-1):
+    x+=int(???)
+\end{verbatim}
+What should replace the three question marks so the resulting value of \texttt{x} is 34?
+\begin{answers}
+\correctanswer \begin{verbatim}s[i:i+2]\end{verbatim}
+\answer \begin{verbatim}s[i:i+1]\end{verbatim}
+\answer \begin{verbatim}s[i:i-1]\end{verbatim}
+\answer \begin{verbatim}s[i+1:i+2]\end{verbatim}
+\end{answers}
+\begin{solution}
+\end{solution}
+\variant
+Consider the following incomplete Python program.
+\begin{verbatim}
+s="".join(["2","2","0","1"])
+x=0
+for i in range(len(s)-1):
+    x+=int(???)
+\end{verbatim}
+What should replace the three question marks so the resulting value of \texttt{x} is 43?
+\begin{answers}
+\correctanswer \begin{verbatim}s[i:i+2]\end{verbatim}
+\answer \begin{verbatim}s[i:i+1]\end{verbatim}
+\answer \begin{verbatim}s[i:i-1]\end{verbatim}
+\answer \begin{verbatim}s[i+1:i+2]\end{verbatim}
+\end{answers}
+\begin{solution}
+\end{solution}
+\variant
+Consider the following incomplete Python program.
+\begin{verbatim}
+s="".join(["1","0","2","1"])
+x=0
+for i in range(len(s)-1):
+    x+=int(???)
+\end{verbatim}
+What should replace the three question marks so the resulting value of \texttt{x} is 33?
+\begin{answers}
+\correctanswer \begin{verbatim}s[i:i+2]\end{verbatim}
+\answer \begin{verbatim}s[i:i+1]\end{verbatim}
+\answer \begin{verbatim}s[i:i-1]\end{verbatim}
+\answer \begin{verbatim}s[i+1:i+2]\end{verbatim}
+\end{answers}
+\begin{solution}
+\end{solution}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{1}
+\variant
+Consider the following Python program.
+\begin{verbatim}
+e=[1,3,5,7,9,11]
+d=[0,0,0]
+for i in range(0,len(e)):
+    d[i%3]+=e[i]
+x=d[1]
+\end{verbatim}
+After it is run, what is the final \textbf{value} of \texttt{x}?
+\begin{answers}
+\answer \begin{verbatim}3\end{verbatim}
+\answer \begin{verbatim}0\end{verbatim}
+\answer \begin{verbatim}16\end{verbatim}
+\answer \begin{verbatim}8\end{verbatim}
+\correctanswer \begin{verbatim}12\end{verbatim}
+\end{answers}
+\begin{solution}
+\end{solution}
+\variant
+Consider the following Python program.
+\begin{verbatim}
+e=[1,3,5,7,9,11]
+d=[0,0,0]
+for i in range(0,len(e)):
+    d[i%3]+=e[i]
+x=d[2]
+\end{verbatim}
+After it is run, what is the final \textbf{value} of \texttt{x}?
+\begin{answers}
+\answer \begin{verbatim}7\end{verbatim}
+\answer \begin{verbatim}0\end{verbatim}
+\answer \begin{verbatim}12\end{verbatim}
+\answer \begin{verbatim}8\end{verbatim}
+\correctanswer \begin{verbatim}16\end{verbatim}
+\end{answers}
+\begin{solution}
+\end{solution}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{1}
+\variant
+Consider the following incomplete function.
+\begin{verbatim}
+def ismultiple(m,n):
+    if ???:
+        return False
+    else:
+        return True
+\end{verbatim}
+The function is intended to return True if the input parameter m is a multiple of parameter n and False otherwise. For example, \verb|ismultiple(4,2)| should return \verb|True|, but \verb|ismultiple(5,3)| should return \verb|False|. What should replace the three question marks to complete the function?
+\begin{answers}
+\correctanswer  \begin{verbatim}(m % n) != 0 \end{verbatim}
+\answer  \begin{verbatim}(n // m) == 0 \end{verbatim}
+\answer  \begin{verbatim}(n % m) == 0 \end{verbatim}
+\answer  \begin{verbatim}(m // n) != 0 \end{verbatim}
+\end{answers}
+\begin{solution}
+\end{solution}
+\variant
+Consider the following incomplete function.
+\begin{verbatim}
+def isdivisible(m,n):
+    if ???:
+        return False
+    else:
+        return True
+\end{verbatim}
+The function is intended to return True if the input parameter m is evenly divisible by the parameter n and False otherwise. For example, \verb|isdivisible(4,2)| should return \verb|True|, but \verb|isdivisible(5,3)| should return \verb|False|. What should replace the three question marks to complete the function?
+\begin{answers}
+\answer  \begin{verbatim}(n % m) == 0 \end{verbatim}
+\answer  \begin{verbatim}(n // m) == 0 \end{verbatim}
+\correctanswer  \begin{verbatim}(m % n) != 0 \end{verbatim}
+\answer  \begin{verbatim}(m // n) != 0 \end{verbatim}
+\end{answers}
+\begin{solution}
+\end{solution}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{1}
+\variant
+Consider the following incomplete program.
+\begin{verbatim}
+sum=0
+???:
+    sum=sum+i
+
+\end{verbatim}
+The program is intended to sum all of the integers between 1 and 100 (inclusive). What should replace the three question marks to complete the program?
+\begin{answers}
+\answer  \begin{verbatim}for i in range(0,100)\end{verbatim}
+\answer  \begin{verbatim}while i<=100 \end{verbatim}
+\correctanswer  \begin{verbatim}for i in range(1,101) \end{verbatim}
+\answer  \begin{verbatim}while i in range(100)\end{verbatim}
+\end{answers}
+\begin{solution}
+\end{solution}
+\variant
+Consider the following incomplete program.
+\begin{verbatim}
+sum=0
+for i in range(0,100):
+    ???
+
+\end{verbatim}
+The program is intended to sum all of the integers between 1 and 100 (inclusive). What should replace the three question marks to complete the program?
+\begin{answers}
+\answer  \begin{verbatim}sum=sum+1\end{verbatim}
+\answer  \begin{verbatim}sum+1=sum \end{verbatim}
+\answer  \begin{verbatim}sum=sum+i \end{verbatim}
+\correctanswer  \begin{verbatim}sum=sum+i+1 \end{verbatim}
+\end{answers}
+\begin{solution}
+\end{solution}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{1}
+\variant
+For this problem, you should compose a function which accomplishes a given task using the available code blocks arranged in the correct functional order.  \emph{We ignore indentation for this problem.}
+
+\texttt{find\_max} should accept a \texttt{list} and return the value of the maximum item in the \texttt{list}.  (\texttt{None} is always the lowest value in any numeric comparison, so you may use it as an initializer.)
+
+\begin{verbatim}
+def find_max(my_list):
+\end{verbatim}
+
+\begin{enumerate}[1]
+\item \texttt{max\_val = i}
+\item \texttt{max\_val = None}
+\item \texttt{for i in range(len(my\_list)):}
+\item \texttt{if i > max\_val:}
+\item \texttt{max\_val = my\_list[i]}
+\item \texttt{return max\_val}
+\item \texttt{for i in range(my\_list):}
+\item \texttt{if my\_list[i] > max\_val:}
+\item \texttt{print(max\_val)}
+\end{enumerate}
+
+\begin{answers}
+\answer  2, 3, 4, 1, 6
+\answer  3, 2, 8, 5, 9
+\correctanswer  2, 3, 8, 5, 6
+\answer  2, 7, 4, 5, 6
+\answer  2, 3, 8, 1, 6
+\end{answers}
+\begin{solution}
+\end{solution}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{1}
+\variant
+Evaluate the following expression:
+\begin{verbatim}
+[1,2]+[len("3")]
+\end{verbatim}
+What value is produced?
+\begin{answers}
+\correctanswer \begin{verbatim}[1,2,1]\end{verbatim}
+\answer \begin{verbatim}[1,2,3]\end{verbatim}
+\answer \begin{verbatim}[1,2,"3"]\end{verbatim}
+\answer \begin{verbatim}[1,2,1,2,1,2]\end{verbatim}
+\end{answers}
+\begin{solution}
+\end{solution}
+\variant
+Evaluate the following expression:
+\begin{verbatim}
+[1,2]*len("3")
+\end{verbatim}
+What value is produced?
+\begin{answers}
+\correctanswer \begin{verbatim}[1,2]\end{verbatim}
+\answer \begin{verbatim}[1,2,3]\end{verbatim}
+\answer \begin{verbatim}[1,2,1]\end{verbatim}
+\answer \begin{verbatim}[1,2,1,2,1,2]\end{verbatim}
+\end{answers}
+\begin{solution}
+\end{solution}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{1}
+\variant
+Evaluate the following expression:
+\begin{verbatim}
+len("ABCD"[0:3])
+\end{verbatim}
+What value is produced?
+\begin{answers}
+\answer 1
+\answer 2
+\correctanswer 3
+\answer 4
+\end{answers}
+\begin{solution}
+\end{solution}
+\variant
+Evaluate the following expression:
+\begin{verbatim}
+len("ABCDE"[1:4])
+\end{verbatim}
+What value is produced?
+\begin{answers}
+\answer 1
+\answer 5
+\correctanswer 3
+\answer 4
+\end{answers}
+\begin{solution}
+\end{solution}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{1}
+\variant
+Consider the following program:
+\begin{verbatim}
+a=3
+b=4
+if a==3:
+    b=a
+elif a==4:
+    a=5
+else:
+    a=b
+\end{verbatim}
+What is the \textbf{value} of a after this program is executed?
+\begin{answers}
+\correctanswer \begin{verbatim}3\end{verbatim}
+\answer \begin{verbatim}4\end{verbatim}
+\answer \begin{verbatim}5\end{verbatim}
+\answer \begin{verbatim}7\end{verbatim}
+\answer None of the other answers are correct.
+\end{answers}
+\begin{solution}
+\end{solution}
+\variant
+Consider the following program:
+\begin{verbatim}
+a=3
+b=4
+if a==3:
+    a=b
+elif a==4:
+    a=5
+else:
+    b=a
+\end{verbatim}
+What is the \textbf{value} of a after this program is executed?
+\begin{answers}
+\answer \begin{verbatim}3\end{verbatim}
+\correctanswer \begin{verbatim}4\end{verbatim}
+\answer \begin{verbatim}5\end{verbatim}
+\answer \begin{verbatim}7\end{verbatim}
+\answer None of the other answers are correct.
+\end{answers}
+\begin{solution}
+\end{solution}
+\variant
+Consider the following program:
+\begin{verbatim}
+a=3
+b=4
+if a!=b:
+    a=b
+elif a==4:
+    a=5
+else:
+    b=a
+\end{verbatim}
+What is the \textbf{value} of a after this program is executed?
+\begin{answers}
+\answer \begin{verbatim}3\end{verbatim}
+\correctanswer \begin{verbatim}4\end{verbatim}
+\answer \begin{verbatim}5\end{verbatim}
+\answer \begin{verbatim}7\end{verbatim}
+\answer None of the other answers are correct.
+\end{answers}
+\begin{solution}
+\end{solution}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{1}
+\variant
+Consider the following program:
+\begin{verbatim}
+a=["A","C","C","I","O"]
+a.sort()
+a[0]=a[-1]
+x=""
+for e in a:
+    x=x+e
+\end{verbatim}
+What is the \textbf{value} of \texttt{x} after this program is executed?
+\begin{answers}
+\correctanswer \begin{verbatim}"OCCIO"\end{verbatim}
+\answer \begin{verbatim}"ACCOA"\end{verbatim}
+\answer \begin{verbatim}"ACCIA"\end{verbatim}
+\answer \begin{verbatim}"ICCOI"\end{verbatim}
+\answer None of the other answers are correct.
+\end{answers}
+\begin{solution}
+\end{solution}
+\variant
+Consider the following program:
+\begin{verbatim}
+a=["S","T","U","P","E","F","Y"]
+a=a[0:4]
+a.sort()
+x=""
+for e in a:
+    x=e+x
+\end{verbatim}
+What is the \textbf{value} of \texttt{x} after this program is executed?
+\begin{answers}
+\answer \begin{verbatim}"PSTU"\end{verbatim}
+\correctanswer \begin{verbatim}"UTSP"\end{verbatim}
+\answer \begin{verbatim}"STUP"\end{verbatim}
+\answer \begin{verbatim}"PUST"\end{verbatim}
+\answer None of the other answers are correct.
+\end{answers}
+\begin{solution}
+\end{solution}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{1}
+\variant
+Consider the following program:
+\begin{verbatim}
+x=str("1"*3)
+\end{verbatim}
+What is the \textbf{value} of \texttt{x} after this program is executed?
+\begin{answers}
+\answer \begin{verbatim}111\end{verbatim}
+\answer \begin{verbatim}"3"\end{verbatim}
+\correctanswer \begin{verbatim}"111"\end{verbatim}
+\answer \begin{verbatim}3\end{verbatim}
+\answer None of the other answers are correct.
+\end{answers}
+\begin{solution}
+\end{solution}
+\variant
+Consider the following program:
+\begin{verbatim}
+x=str(1.2)*2
+\end{verbatim}
+What is the \textbf{value} of \texttt{x} after this program is executed?
+\begin{answers}
+\answer \begin{verbatim}2.4\end{verbatim}
+\answer \begin{verbatim}"2.4"\end{verbatim}
+\correctanswer \begin{verbatim}"1.21.2"\end{verbatim}
+\answer \begin{verbatim}"1.2*2"\end{verbatim}
+\answer None of the other answers are correct.
+\end{answers}
+\begin{solution}
+\end{solution}
+\variant
+\begin{verbatim}
+x=str(3)+"str(3)"
+\end{verbatim}
+What is the \textbf{value} of \texttt{x} after this program is executed?
+\begin{answers}
+\answer \begin{verbatim}"33"\end{verbatim}
+\answer \begin{verbatim}33\end{verbatim}
+\correctanswer \begin{verbatim}"3str(3)"\end{verbatim}
+\answer \begin{verbatim}"333"\end{verbatim}
+\answer None of the other answers are correct.
+\end{answers}
+\begin{solution}
+\end{solution}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{1}
+\variant
+Consider the following program:
+\begin{verbatim}
+x=3
+a=5
+if (a%3)==2:
+    x=x**3
+elif(a%3)==1:
+    x=x**2
+else:
+    x=x**1
+\end{verbatim}
+What is the \textbf{value} of \texttt{x} after this program is executed?
+\begin{answers}
+\answer \begin{verbatim}3\end{verbatim}
+\answer \begin{verbatim}9\end{verbatim}
+\correctanswer \begin{verbatim}27\end{verbatim}
+\answer \begin{verbatim}1\end{verbatim}
+\answer None of the other answers are correct.
+\end{answers}
+\begin{solution}
+\end{solution}
+\variant
+Consider the following program:
+\begin{verbatim}
+x=2
+a=6
+if (a%3)==2:
+    x=x**3
+elif(a%3)==1:
+    x=x**2
+else:
+    x=x**1
+\end{verbatim}
+What is the \textbf{value} of \texttt{x} after this program is executed?
+\begin{answers}
+\answer \begin{verbatim}4\end{verbatim}
+\answer \begin{verbatim}16\end{verbatim}
+\answer \begin{verbatim}8\end{verbatim}
+\correctanswer \begin{verbatim}2\end{verbatim}
+\answer None of the other answers are correct.
+\end{answers}
+\begin{solution}
+\end{solution}
+\variant
+Consider the following program:
+\begin{verbatim}
+x=3
+a=7
+if (a%3)==2:
+    x=x**2
+elif(a%3)==1:
+    x=x**1
+else:
+    x=x**0
+\end{verbatim}
+What is the \textbf{value} of \texttt{x} after this program is executed?
+\begin{answers}
+\answer \begin{verbatim}1\end{verbatim}
+\answer \begin{verbatim}9\end{verbatim}
+\answer \begin{verbatim}7\end{verbatim}
+\correctanswer \begin{verbatim}3\end{verbatim}
+\answer None of the other answers are correct.
+\end{answers}
+\begin{solution}
+\end{solution}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{1}
+\variant
+Consider the following program:
+\begin{verbatim}
+x="KING ARTHUR-MORGANA LEFAY-SIR BEDIVERE".split("-")
+y=x[:]
+y.reverse()
+\end{verbatim}
+What is the \textbf{value} of \texttt{x} after this program is executed?
+\begin{answers}
+\answer \begin{verbatim}['SIR BEDIVERE', 'MORGANA LEFAY', 'KING ARTHUR']\end{verbatim}
+\correctanswer \begin{verbatim}['KING ARTHUR', 'MORGANA LEFAY', 'SIR BEDIVERE']\end{verbatim}
+\answer \begin{verbatim}['BEDIVERE', 'LEFAY-SIR', 'ARTHUR-MORGANA', 'KING']\end{verbatim}
+\answer \begin{verbatim}['KING', 'ARTHUR-MORGANA', 'LEFAY-SIR', 'BEDIVERE']\end{verbatim}
+\answer \begin{verbatim}None\end{verbatim}
+\end{answers}
+\begin{solution}
+\end{solution}
+
+\variant
+Consider the following program:
+\begin{verbatim}
+x="KING ARTHUR-MORGANA LEFAY-SIR BEDIVERE".split("-")
+y=x
+y.reverse()
+\end{verbatim}
+What is the \textbf{value} of \texttt{x} after this program is executed?
+\begin{answers}
+\correctanswer \begin{verbatim}['SIR BEDIVERE', 'MORGANA LEFAY', 'KING ARTHUR']\end{verbatim}
+\answer \begin{verbatim}['KING ARTHUR', 'MORGANA LEFAY', 'SIR BEDIVERE']\end{verbatim}
+\answer \begin{verbatim}['BEDIVERE', 'LEFAY-SIR', 'ARTHUR-MORGANA', 'KING']\end{verbatim}
+\answer \begin{verbatim}['KING', 'ARTHUR-MORGANA', 'LEFAY-SIR', 'BEDIVERE']\end{verbatim}
+\answer \begin{verbatim}None\end{verbatim}
+\end{answers}
+\begin{solution}
+\end{solution}
+
+\variant
+Consider the following program:
+\begin{verbatim}
+x="KING ARTHUR-MORGANA LEFAY-SIR BEDIVERE".split("-")
+y=x
+x=y.reverse()
+\end{verbatim}
+What is the \textbf{value} of \texttt{x} after this program is executed?
+\begin{answers}
+\answer \begin{verbatim}['SIR BEDIVERE', 'MORGANA LEFAY', 'KING ARTHUR']\end{verbatim}
+\answer \begin{verbatim}['KING ARTHUR', 'MORGANA LEFAY', 'SIR BEDIVERE']\end{verbatim}
+\answer \begin{verbatim}['BEDIVERE', 'LEFAY-SIR', 'ARTHUR-MORGANA', 'KING']\end{verbatim}
+\answer \begin{verbatim}['KING', 'ARTHUR-MORGANA', 'LEFAY-SIR', 'BEDIVERE']\end{verbatim}
+\correctanswer \begin{verbatim}None\end{verbatim}
+\end{answers}
+\begin{solution}
+\end{solution}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{1}
+\variant
+Consider the following program:
+\begin{verbatim}
+a=["merlin","sir agravaine","king pellinore"]
+b=[ ]
+for i in range(1,3):
+    b.append(a[0-i].title())
+\end{verbatim}
+What is the \textbf{value} of b after this program is executed?
+\begin{answers}
+\correctanswer \begin{verbatim}['King Pellinore', 'Sir Agravaine']\end{verbatim}
+\answer \begin{verbatim}['Sir Agravaine', 'King Pellinore']\end{verbatim}
+\answer \begin{verbatim}['King Pellinore', 'Sir Agravaine', 'Merlin']\end{verbatim}
+\answer \begin{verbatim}[ ]\end{verbatim}
+\answer \begin{verbatim}['Merlin', 'King Pellinore', 'Sir Agravaine']\end{verbatim}
+\end{answers}
+\begin{solution}
+\end{solution}
+\variant
+Consider the following program:
+\begin{verbatim}
+a=["merlin","sir agravaine","king pellinore"]
+b=[ ]
+for i in range(0,3):
+    b.append(a[0-i].title())
+\end{verbatim}
+What is the \textbf{value} of b after this program is executed?
+\begin{answers}
+\answer \begin{verbatim}['King Pellinore', 'Sir Agravaine']\end{verbatim}
+\answer \begin{verbatim}['Sir Agravaine', 'King Pellinore']\end{verbatim}
+\answer \begin{verbatim}['King Pellinore', 'Sir Agravaine', 'Merlin']\end{verbatim}
+\answer \begin{verbatim}[ ]\end{verbatim}
+\correctanswer \begin{verbatim}['Merlin', 'King Pellinore', 'Sir Agravaine']\end{verbatim}
+\end{answers}
+\begin{solution}
+\end{solution}
+\variant
+Consider the following program:
+\begin{verbatim}
+a=["merlin","sir agravaine","king pellinore"]
+b=[ ]
+for i in range(0,4):
+    b.append(a[0-i].title())
+\end{verbatim}
+What is the \textbf{value} of b after this program is executed?
+\begin{answers}
+\answer \begin{verbatim}['Merlin', 'Sir Agravaine', 'King Pellinore', 'Merlin']\end{verbatim}
+\correctanswer \begin{verbatim}['Merlin', 'King Pellinore', 'Sir Agravaine', 'Merlin']\end{verbatim}
+\answer \begin{verbatim}['King Pellinore', 'Sir Agravaine', 'Merlin']\end{verbatim}
+\answer \begin{verbatim}[ ]\end{verbatim}
+\answer \begin{verbatim}['Merlin', 'King Pellinore', 'Sir Agravaine']\end{verbatim}
+\end{answers}
+\begin{solution}
+\end{solution}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{1}
+\variant
+Consider the following program:
+\begin{verbatim}
+x=0
+for i in range(2,8):
+    if i%3==0:
+        x+=3
+    elif i%2==0:
+        x+=2
+    else:
+        x+=1
+\end{verbatim}
+What is the \textbf{value} of \texttt{x} after this program is executed?
+\begin{answers}
+\correctanswer \begin{verbatim}12\end{verbatim}
+\answer \begin{verbatim}14\end{verbatim}
+\answer \begin{verbatim}10\end{verbatim}
+\answer \begin{verbatim}11\end{verbatim}
+\answer \begin{verbatim}13\end{verbatim}
+\end{answers}
+\begin{solution}
+\end{solution}
+\variant
+Consider the following program:
+\begin{verbatim}
+x=0
+for i in range(4,10):
+    if i%3==0:
+        x+=3
+    elif i%2==0:
+        x+=2
+    else:
+        x+=1
+\end{verbatim}
+What is the \textbf{value} of \texttt{x} after this program is executed?
+\begin{answers}
+\correctanswer \begin{verbatim}12\end{verbatim}
+\answer \begin{verbatim}14\end{verbatim}
+\answer \begin{verbatim}10\end{verbatim}
+\answer \begin{verbatim}11\end{verbatim}
+\answer \begin{verbatim}13\end{verbatim}
+\end{answers}
+\begin{solution}
+\end{solution}
+\variant
+Consider the following program:
+\begin{verbatim}
+x=0
+for i in range(2,7):
+    if i%3==0:
+        x+=3
+    elif i%2==0:
+        x+=2
+    else:
+        x+=1
+\end{verbatim}
+What is the \textbf{value} of \texttt{x} after this program is executed?
+\begin{answers}
+\answer \begin{verbatim}12\end{verbatim}
+\answer \begin{verbatim}14\end{verbatim}
+\answer \begin{verbatim}10\end{verbatim}
+\correctanswer \begin{verbatim}11\end{verbatim}
+\answer \begin{verbatim}13\end{verbatim}
+\end{answers}
+\begin{solution}
+\end{solution}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{1}
+\variant
+How can the following mathematical equation be implemented as a Python expression? Assume \verb|a|, \verb|b|, and \verb|cos| have already been defined.
+$$a^b \cos(a - b)$$
+\begin{answers}
+\answer None of the other answers are correct.
+\answer \begin{verbatim}(a**b)cos(a-b)\end{verbatim}
+\answer \begin{verbatim}(b^a)cos(a-b)\end{verbatim}
+\answer \begin{verbatim}(a^b)*cos(a-b)\end{verbatim}
+\correctanswer \begin{verbatim}(a**b)*cos(a-b)\end{verbatim}
+\end{answers}
+\begin{solution}
+\end{solution}
+\variant
+How can the following mathematical equation be implemented as a Python expression? Assume \verb|a|, \verb|b|, and \verb|sin| have already been defined.
+$$a \sin(a^b - b)$$
+\begin{answers}
+\answer None of the other answers are correct.
+\answer \begin{verbatim}a sin(a**b - b)\end{verbatim}
+\answer \begin{verbatim}a*sin(a^b - b)\end{verbatim}
+\answer \begin{verbatim}a*sin(b^a - b)\end{verbatim}
+\correctanswer \begin{verbatim}a*sin(a**b - b)\end{verbatim}
+\end{answers}
+\begin{solution}
+\end{solution}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{1}
+\variant
+Consider the following program:
+\begin{verbatim}
+i=2
+x=3
+while i < 7:
+    x+=i
+    i+=2
+\end{verbatim}
+What is the \textbf{value} of \texttt{x} after this program is executed?
+\begin{answers}
+\answer \begin{verbatim}12\end{verbatim}
+\answer \begin{verbatim}14\end{verbatim}
+\correctanswer \begin{verbatim}15\end{verbatim}
+\answer \begin{verbatim}11\end{verbatim}
+\answer \begin{verbatim}13\end{verbatim}
+\end{answers}
+\begin{solution}
+\end{solution}
+\variant
+Consider the following program:
+\begin{verbatim}
+i=3
+x=2
+while i < 7:
+    x+=i
+    i+=2
+\end{verbatim}
+What is the \textbf{value} of \texttt{x} after this program is executed?
+\begin{answers}
+\answer \begin{verbatim}12\end{verbatim}
+\answer \begin{verbatim}14\end{verbatim}
+\correctanswer \begin{verbatim}10\end{verbatim}
+\answer \begin{verbatim}11\end{verbatim}
+\answer \begin{verbatim}13\end{verbatim}
+\end{answers}
+\begin{solution}
+\end{solution}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{1}
+\variant
+Consider the following program:
+\begin{verbatim}
+s="Hobbes"
+i=0
+x=-1
+while i<len(s):
+    if s[i]=='b':
+        x=i
+    i+=1
+\end{verbatim}
+What is the \textbf{value} of \texttt{x} after this program is executed?
+\begin{answers}
+\answer \begin{verbatim}-1\end{verbatim}
+\answer \begin{verbatim}2\end{verbatim}
+\correctanswer \begin{verbatim}3\end{verbatim}
+\answer \begin{verbatim}4\end{verbatim}
+\answer \begin{verbatim}5\end{verbatim}
+\end{answers}
+\begin{solution}
+\end{solution}
+\variant
+Consider the following program:
+\begin{verbatim}
+s="Calvin"
+i=0
+x=-1
+while i<len(s):
+    if s[i]=='b':
+        x=i
+    i+=1
+\end{verbatim}
+What is the \textbf{value} of \texttt{x} after this program is executed?
+\begin{answers}
+\correctanswer \begin{verbatim}-1\end{verbatim}
+\answer \begin{verbatim}0\end{verbatim}
+\answer \begin{verbatim}3\end{verbatim}
+\answer \begin{verbatim}6\end{verbatim}
+\answer \begin{verbatim}5\end{verbatim}
+\end{answers}
+\begin{solution}
+\end{solution}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{1}
+\variant
+Consider the following program:
+\begin{verbatim}
+pi="3.14159"
+e="2.71828"
+x=(float(e)**float(pi)-float(pi)) == 20
+\end{verbatim}
+What is the \textbf{type} of \texttt{x} after this program is executed?
+\begin{answers}
+\answer \begin{verbatim}String\end{verbatim}
+\answer \begin{verbatim}Integer\end{verbatim}
+\correctanswer \begin{verbatim}Boolean\end{verbatim}
+\answer \begin{verbatim}Float\end{verbatim}
+\answer \begin{verbatim}None\end{verbatim}
+\end{answers}
+\begin{solution}
+\end{solution}
+\variant
+Consider the following program:
+\begin{verbatim}
+pi="3.14159"
+e="2.71828"
+x=pi*len(e)+pi
+\end{verbatim}
+What is the \textbf{type} of \texttt{x} after this program is executed?
+\begin{answers}
+\correctanswer \begin{verbatim}String\end{verbatim}
+\answer \begin{verbatim}Integer\end{verbatim}
+\answer \begin{verbatim}Boolean\end{verbatim}
+\answer \begin{verbatim}Float\end{verbatim}
+\answer \begin{verbatim}None\end{verbatim}
+\end{answers}
+\begin{solution}
+\end{solution}
+\variant
+Consider the following program:
+\begin{verbatim}
+pi="3.14159"
+e="2.71828"
+x=pi in pi*len(e)
+\end{verbatim}
+What is the \textbf{type} of \texttt{x} after this program is executed?
+\begin{answers}
+\answer \begin{verbatim}String\end{verbatim}
+\answer \begin{verbatim}Integer\end{verbatim}
+\correctanswer \begin{verbatim}Boolean\end{verbatim}
+\answer \begin{verbatim}Float\end{verbatim}
+\answer \begin{verbatim}None\end{verbatim}
+\end{answers}
+\begin{solution}
+\end{solution}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{1}
+\variant
+Consider the following program:
+\begin{verbatim}
+x=[1,2,3,4,5,6,7,8,9]
+x=x[2:-2]
+i=1
+while i < 3:
+    x[i]+=1
+    i+=1
+\end{verbatim}
+What is the \textbf{value} of \texttt{x} after this program is executed?
+\begin{answers}
+\correctanswer \begin{verbatim}[3, 5, 6, 6, 7]\end{verbatim}
+\answer \begin{verbatim}[3, 5, 6, 6]\end{verbatim}
+\answer \begin{verbatim}[3, 5, 6, 6, 7, 8]\end{verbatim}
+\answer \begin{verbatim}[2, 4, 5, 5, 6, 7]\end{verbatim}
+\answer \begin{verbatim}[2, 4, 5, 6, 6, 7]\end{verbatim}
+\end{answers}
+\begin{solution}
+\end{solution}
+\variant
+Consider the following program:
+\begin{verbatim}
+x=[1,2,3,4,5,6,7,8,9]
+x=x[2:-2]
+i=1
+while i <= 3:
+    x[i]+=1
+    i+=1
+\end{verbatim}
+What is the \textbf{value} of \texttt{x} after this program is executed?
+\begin{answers}
+\correctanswer \begin{verbatim}[3, 5, 6, 7, 7]\end{verbatim}
+\answer \begin{verbatim}[3, 5, 7, 7]\end{verbatim}
+\answer \begin{verbatim}[3, 5, 6, 7, 7, 8]\end{verbatim}
+\answer \begin{verbatim}[2, 4, 5, 5, 7, 7]\end{verbatim}
+\answer \begin{verbatim}[2, 4, 5, 6, 7, 7]\end{verbatim}
+\end{answers}
+\begin{solution}
+\end{solution}
+\variant
+Consider the following program:
+\begin{verbatim}
+x=[2,3,4,5,6,7,8,9]
+x=x[2:-2]
+i=1
+while i <= 3:
+    x[i]+=1
+    i+=1
+\end{verbatim}
+What is the \textbf{value} of \texttt{x} after this program is executed?
+\begin{answers}
+\correctanswer \begin{verbatim}[4, 6, 7, 8]\end{verbatim}
+\answer \begin{verbatim}[4, 6, 7]\end{verbatim}
+\answer \begin{verbatim}[4, 6, 7, 7]\end{verbatim}
+\answer \begin{verbatim}[3, 4, 6, 7, 8]\end{verbatim}
+\answer \begin{verbatim}[2, 4, 6, 6]\end{verbatim}
+\end{answers}
+\begin{solution}
+\end{solution}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{1}
+\variant
+What is the result of the following expression?
+\begin{verbatim}
+[ 1, 2, 3 ] * 3
+\end{verbatim}
+\begin{answers}
+\answer \begin{verbatim}[1.0, 2.0, 3.0, 1.0, 2.0, 3.0, 1.0, 2.0, 3.0]\end{verbatim}
+\correctanswer \begin{verbatim}[1, 2, 3, 1, 2, 3, 1, 2, 3]\end{verbatim}
+\answer \begin{verbatim}[3.0, 6.0, 9.0]\end{verbatim}
+\answer \begin{verbatim}[3, 6, 9]\end{verbatim}
+\answer \begin{verbatim}(3, 6, 9)\end{verbatim}
+\end{answers}
+\begin{solution}
+\end{solution}
+\variant
+What is the result of the following expression?
+\begin{verbatim}
+[ 1, 2, 3 ] * 3.0
+\end{verbatim}
+\begin{answers}
+\answer \begin{verbatim}[1.0, 2.0, 3.0, 1.0, 2.0, 3.0, 1.0, 2.0, 3.0]\end{verbatim}
+\correctanswer \begin{verbatim}[1, 2, 3, 1, 2, 3, 1, 2, 3]\end{verbatim}
+\answer \begin{verbatim}[3.0, 6.0, 9.0]\end{verbatim}
+\answer \begin{verbatim}[3, 6, 9]\end{verbatim}
+\answer \begin{verbatim}None of the above.\end{verbatim}
+\end{answers}
+\begin{solution}
+\end{solution}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{1}
+\variant
+Consider the following program:
+\begin{verbatim}
+x=[1,2,3]
+def f(a):
+    s=""
+    a.reverse()
+    for i in a:
+        s+=str(i)
+    return s
+
+x.append(f(x))
+\end{verbatim}
+What is the \textbf{value} of \texttt{x} after this program is executed?
+\begin{answers}
+\correctanswer \begin{verbatim}[3, 2, 1, '321']\end{verbatim}
+\answer \begin{verbatim}[1, 2, 3, '321']\end{verbatim}
+\answer \begin{verbatim}[1, 2, 3]\end{verbatim}
+\answer \begin{verbatim}[3, 2, 1]\end{verbatim}
+\answer \begin{verbatim}[1, 2, 3, 6]\end{verbatim}
+\end{answers}
+\begin{solution}
+\end{solution}
+\variant
+Consider the following program:
+\begin{verbatim}
+x=[1,2,3]
+def f(a):
+    s=""
+    a.append(4)
+    for i in a:
+        s+=str(i)
+    return s
+
+x.append(f(x))
+\end{verbatim}
+What is the \textbf{value} of \texttt{x} after this program is executed?
+\begin{answers}
+\correctanswer \begin{verbatim}[1, 2, 3, 4, '1234']\end{verbatim}
+\answer \begin{verbatim}[1, 2, 3, '1234']\end{verbatim}
+\answer \begin{verbatim}[1, 2, 3, '123']\end{verbatim}
+\answer \begin{verbatim}[1, 2, 3]\end{verbatim}
+\answer \begin{verbatim}[1, 2, 3, 10]\end{verbatim}
+\end{answers}
+\begin{solution}
+\end{solution}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{1}
+\variant
+Consider the following program:
+\begin{verbatim}
+def fix(s):
+    a=list(s)
+    a.sort()
+    return ''.join(a)
+
+x=["one","two","eleven","twelve"]
+s1=fix(x[0]+x[-1])
+s2=fix(x[1]+x[-2])
+
+if s1<s2:
+    x.sort()
+elif s1>s2:
+    x.reverse()
+else:
+    x.append("six")
+\end{verbatim}
+What is the \textbf{value} of \texttt{x} after this program is executed?
+\begin{answers}
+\answer \begin{verbatim}['one', 'two', 'eleven', 'twelve']\end{verbatim}
+\answer \begin{verbatim}['eleven', 'one', 'twelve', 'two']\end{verbatim}
+\answer \begin{verbatim}['twelve', 'eleven', 'two', 'one']\end{verbatim}
+\correctanswer \begin{verbatim}['one', 'two', 'eleven', 'twelve', 'six']\end{verbatim}
+\answer \begin{verbatim}['two', 'twelve', 'one', 'eleven', 'six']\end{verbatim}
+\end{answers}
+\begin{solution}
+\end{solution}
+\variant
+Consider the following program:
+\begin{verbatim}
+def fix(s):
+    a=list(s)
+    a.sort()
+    return ''.join(a)
+
+x=["one","two","eleven","twelve"]
+s1=fix(x[0]+x[-1])
+s2=fix(x[1]+x[-2])
+
+if s1<s2:
+    x.sort()
+elif s1==s2:
+    x.reverse()
+else:
+    x.append("six")
+\end{verbatim}
+What is the \textbf{value} of \texttt{x} after this program is executed?
+\begin{answers}
+\answer \begin{verbatim}['one', 'two', 'eleven', 'twelve']\end{verbatim}
+\answer \begin{verbatim}['eleven', 'one', 'twelve', 'two']\end{verbatim}
+\correctanswer \begin{verbatim}['twelve', 'eleven', 'two', 'one']\end{verbatim}
+\answer \begin{verbatim}['one', 'two', 'eleven', 'twelve', 'six']\end{verbatim}
+\answer \begin{verbatim}['two', 'twelve', 'one', 'eleven', 'six']\end{verbatim}
+\end{answers}
+\begin{solution}
+\end{solution}
+\variant
+Consider the following program:
+\begin{verbatim}
+def fix(s):
+    a=list(s)
+    a.sort()
+    return ''.join(a)
+
+x=["one","two","eleven","twelve"]
+s1=fix(x[0]+x[-1])
+s2=fix(x[1]+x[-2])
+
+if s1==s2:
+    x.sort()
+elif s1<s2:
+    x.reverse()
+else:
+    x.append("six")
+\end{verbatim}
+What is the \textbf{value} of \texttt{x} after this program is executed?
+\begin{answers}
+\answer \begin{verbatim}['one', 'two', 'eleven', 'twelve']\end{verbatim}
+\correctanswer \begin{verbatim}['eleven', 'one', 'twelve', 'two']\end{verbatim}
+\answer \begin{verbatim}['twelve', 'eleven', 'two', 'one']\end{verbatim}
+\answer \begin{verbatim}['one', 'two', 'eleven', 'twelve', 'six']\end{verbatim}
+\answer \begin{verbatim}['two', 'twelve', 'one', 'eleven', 'six']\end{verbatim}
+\end{answers}
+\begin{solution}
+\end{solution}
+
+
+\end{document}

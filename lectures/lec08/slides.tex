@@ -5,6 +5,7 @@
 \usepackage{amsmath}
 \usepackage{blindtext}
 \usepackage{enumitem}
+\usepackage{fancyvrb}
 
 \usetheme{SaoPaulo}
 
@@ -59,7 +60,7 @@ while i < 8:
   What is the final value of \texttt{t}?
   \begin{enumerate}[label=\Alph*]
   \item  \texttt{"ACEG"}
-  \item  \texttt{"BDFH"}
+  \item  \texttt{"BDFH"}  $\star$
   \item  \texttt{"ABCDEF"}
   \item  \texttt{"ABEF"}
   \end{enumerate}
@@ -85,10 +86,95 @@ while i < 5:
   \begin{enumerate}[label=\Alph*]
   \item  \texttt{"92143"}
   \item  \texttt{"103254"}
-  \item  \texttt{"10325"}
+  \item  \texttt{"10325"}  $\star$
   \item  \texttt{"921436"}
   \item  None (loop doesn't terminate)
   \end{enumerate}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Question \#3}
+  \Enlarge
+
+  \begin{semiverbatim}
+z = [ 1.2, 0.6, 0.5, 0.3 ]
+z = z.sort()
+  \end{semiverbatim}
+  What is the final value of \texttt{z[1]}?
+  \begin{enumerate}[label=\Alph*]
+  \item  \texttt{0.6}
+  \item  \texttt{0.5}
+  \item  \texttt{None}  $\star$
+  \item  None of the above.
+  \end{enumerate}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Review Item}
+  \Enlarge
+
+  What are two changes this code needs to be executable?
+  \begin{semiverbatim}
+if x < 1.5:
+    x = x + 1
+ if x == (1.5 or 2.0):
+     x = x - 1
+  \end{semiverbatim}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Review Item}
+  \Enlarge
+
+  What are two changes this code needs to be executable?
+  \begin{semiverbatim}
+if x < 1.5:
+    x = x + 1
+if x == 1.5 or x == 2.0:
+    x = x - 1
+  \end{semiverbatim}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Homework}
+  \Enlarge
+
+  \includegraphics[width=0.8\textwidth]{./img/hw03-grades.png} %\pause
+  \begin{enumerate}
+  \myitem  Go to office hours! %\pause
+  \myitem  I'll hw03 move to basis out of 70 (instead of 74). %\pause
+  \myitem  Will be some opportunity for extra credit later.
+  \end{enumerate}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Homework}
+  \Enlarge
+
+  Clunker Motors Inc. is recalling all vehicles in its Extravagant line from model years 1999-2002 as well all vehicles in its Guzzler line from model years 2004-2007.
+
+  Given variables \texttt{modelYear} and \texttt{modelName} write a statement that assigns \texttt{True} to \texttt{recalled} if the values of \texttt{modelYear} and \texttt{modelName} match the recall details and assigns \texttt{False} otherwise.
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Homework}
+  \Enlarge
+
+  Clunker Motors Inc. is recalling all vehicles in its Extravagant line from model years 1999-2002. Given a variable \texttt{modelYear} and a string \texttt{modelName} write a statement that prints the message \texttt{"RECALL"} to standard output if the values of \texttt{modelYear} and \texttt{modelName} match the recall details.
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Homework}
+  \Enlarge
+
+  Assume that \texttt{x} is a string variable which has been given a value. Write an expression whose value is \texttt{True} if and only if \texttt{x} is alphanumeric, that is, either a letter or a decimal digit.
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -112,7 +198,7 @@ if float(ans) < 0:
   \Enlarge
 
   \begin{itemize}
-  \myitem  \emph{Control flow} represents actual sequence of lines executed by processor. \pause
+  \myitem  \emph{Control flow} represents actual sequence of lines executed by processor. %\pause
   \myitem  \emph{Conditional execution} lets you execute (or not) a block of code based on logical comparison.
   \end{itemize}
 \end{frame}
@@ -123,7 +209,7 @@ if float(ans) < 0:
   \Enlarge
 
   \begin{itemize}
-  \myitem  We often need to make decisions with \emph{several} options. \pause
+  \myitem  We often need to make decisions with \emph{several} options. %\pause
   \myitem  \emph{Branched conditional execution} lets you execute one of several blocks of code.
   \end{itemize}
 \end{frame}
@@ -161,42 +247,13 @@ def absolute(x):
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}[fragile]
-  \frametitle{String comparison methods}
-  \Enlarge
-
-  \begin{itemize}
-  \myitem  These produce Boolean output.
-    \begin{tabular}{ll}
-    \texttt{isdigit()} & Does a string contain only numbers?
-    \texttt{isalpha()} & Does a string contain only text?
-    \texttt{islower()} & Does a string contain only lower-case letters?
-    \texttt{isupper()} & Does a string contain only upper-case letters?
-    \end{tabular}
-  \end{itemize}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}[fragile]
-  \frametitle{Example:  String comparison methods}
-  \Enlarge
-
-  \begin{semiverbatim}
-answer = input( 'How do you feel?  ' )
-if not answer.isalpha():
-    print( "I don't understand." )
-else:
-    print( "Ah, you feel %s." % answer )
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}[fragile]
   \frametitle{Sequence operators}
   \Enlarge
 
   \begin{itemize}
   \myitem  These produce Boolean output.
     \begin{tabular}{ll}
-    \texttt{in}     & Is one string inside of the other?
+    \texttt{in}     & Is one string inside of the other? \\
     \texttt{not in} & Is one string not inside of the other?
     \end{tabular}
   \end{itemize}
@@ -216,7 +273,7 @@ x = fun( "sam" ) and fun( "AS" )
   What is the value of \texttt{x}?
   \begin{enumerate}[label=\Alph*]
   \item  \texttt{True}
-  \item  \texttt{False}
+  \item  \texttt{False}  $\star$
   \end{enumerate}
 \end{frame}
 
@@ -226,15 +283,16 @@ x = fun( "sam" ) and fun( "AS" )
   \Enlarge
 
   \begin{itemize}
-  \myitem  Sometimes we need to make more than one decision. \pause
-  \myitem  We can \emph{nest} blocks. \pause
+  \myitem  Sometimes we need to make more than one decision. %\pause
+  \myitem  We can \emph{nest} blocks. %\pause
     \begin{Verbatim}
 word = input( 'Enter a Scrabble word:  ' )
 if not word.isalpha():
-    print( 'There are only letters in Scrabble!' ) \pause
+    print( 'There are only letters in Scrabble!' ) %\pause
 else:
-    if not word.isupper():      # why wouldn't `word.islower()` work?
-        word = answer.upper()
+    if not word.isupper():      # why not
+                                # `word.islower()`?
+        word = word.upper()
     print( 'You entered %s.' % word )
     \end{Verbatim}
   \end{itemize}
@@ -258,17 +316,17 @@ else:
   \Enlarge
 
   \begin{semiverbatim}
-  def evenpos(x):
-if x >= 0:
-    if (x%2) == 0:
-        return x
+def evenpos(x):
+    if x >= 0:
+        if (x%2) == 0:
+            return x
+        else:
+            return x + 1
     else:
-        return x + 1
-else:
-    if (x%2) == 0:
-        return -x
-    else:
-        return (-x) + 1
+        if (x%2) == 0:
+            return -x
+        else:
+            return (-x) + 1
   \end{semiverbatim}
 \end{frame}
 
@@ -366,7 +424,8 @@ else:
   \Enlarge
 
   \begin{semiverbatim}
-colors = [ 'red', 'yellow', 'blue', 'jale', 'ulfire' ]
+colors = [ 'red', 'yellow', 'blue',
+           'jale', 'ulfire' ]
 for color in colors:
     print( color )
   \end{semiverbatim}
@@ -374,100 +433,66 @@ for color in colors:
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}[fragile]
-  \frametitle{\texttt{list} data type}
+  \frametitle{Defining loops:  \texttt{for}}
   \Enlarge
 
   \begin{itemize}
-  \myitem  The \texttt{list} type represents an ordered collection of items. \pause
-  \myitem  \texttt{list} is an \emph{iterable} and a \emph{container}. \pause
-  \myitem  Containers hold values of any type (doesn't have to be the same).
-  \end{itemize}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}[fragile]
-  \frametitle{\texttt{list} statement}
-  \Enlarge
-
-  \begin{itemize}
-  \myitem  We create a \texttt{list} as follows:
+  \myitem  A \texttt{for} loop requires:
     \begin{itemize}
-    \mysubitem  opening bracket \texttt{[}
-    \mysubitem  one or more comma-separated data values
-    \mysubitem  closing bracket \texttt{]}
+    \mysubitem  the keyword \texttt{for}
+    \mysubitem  a loop variable
+    \mysubitem  the keyword \texttt{in}
+    \mysubitem  a set of values
+    \mysubitem  a \textbf{block} of code
     \end{itemize}
+  \myitem  \texttt{for} loops iterate over \emph{iterable} types one at a time.
   \end{itemize}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}[fragile]
-  \frametitle{\texttt{list} statement}
+  \frametitle{Example}
   \Enlarge
 
-  \begin{itemize}
-  \myitem  \texttt{list}s work a bit like strings:
-    \begin{semiverbatim}
-x = [ 10, 3.14, "Ride" ]
-
-print( x[1] )
-print( x[1:3] )
-print( len(x) )
-
-for i in x:
-    print(i)
-    \end{semiverbatim}
-  \end{itemize}
+  \begin{semiverbatim}
+s = 'abcdefg'
+t = ''
+for c in s:
+    t = c + t
+  \end{semiverbatim}
+  What is the value of \texttt{t}?
+  \begin{enumerate}[label=\Alph*]
+  \item  \texttt{'abcdefg'}
+  \item  \texttt{'gfedcba'}
+  \item  \texttt{'a'}
+  \item  \texttt{'g'}
+  \end{enumerate}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}[fragile]
-  \frametitle{\texttt{list} statement}
+  \frametitle{Exercise}
   \Enlarge
 
-  \begin{itemize}
-  \myitem  But strings are \emph{immutable} (we can't change contents without creating a new string): \pause
-  \end{itemize}
-  \begin{columns}
-  \begin{column}{0.6\textwidth}
-    \begin{semiverbatim}
-s = "good advise"
-s[9] = 'c'                 # nope
+  Write a function to sum all of the digits in a number.  \emph{I.e.},
 
-s = s[:9] + 'c' + s[9:]    # this way
-    \end{semiverbatim}
-  \end{column}
-  \begin{column}{0.4\textwidth}
-  ~ \\
-  \textcolor{red}{$\leftarrow$ disallowed!}
-  ~ \\
-  \end{column}
-  \end{columns}
+  \begin{center}
+  \texttt{12145} $\rightarrow$ \texttt{1 + 2 + 1 + 4 + 5} $\rightarrow$ \texttt{13}
+  \end{center}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}[fragile]
-  \frametitle{\texttt{list} statement}
+  \frametitle{Solution (\texttt{for})}
   \Enlarge
 
-  \begin{itemize}
-  \myitem  We \emph{can} change \texttt{list} content---they are \emph{mutable}. \pause
-  \end{itemize}
-  \begin{columns}
-  \begin{column}{0.6\textwidth}
-    \begin{semiverbatim}
-    x = [ 4,1,2,3 ]
-    x[3] = -2
-    x.append(5)
-    del x[1]
-    x.sort()
-    \end{semiverbatim}
-  \end{column}
-  \begin{column}{0.4\textwidth}
-  ~ \\
-  \textcolor{red}{$\leftarrow$ item assignment}
-  ~ \\ ~ \\ ~ \\ ~ \\
-  \end{column}
-  \end{columns}
+  \begin{semiverbatim}
+def sum_digits( n ):
+    result = 0
+    for letter in str( n ):
+        result += int( letter )
+    return result
+  \end{semiverbatim}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -487,8 +512,8 @@ for i in range(10):
   \Enlarge
 
   \begin{itemize}
-  \myitem  The \texttt{range} function returns an \texttt{iterator} containing integers: \pause
-  \myitem  \texttt{range} can be cast as a \texttt{list}. \pause
+  \myitem  The \texttt{range} function returns an \texttt{iterator} containing integers. %\pause
+  \myitem  \texttt{range} can be cast as a \texttt{list}. %\pause
   \myitem  Two arguments:
     \begin{itemize}
     \mysubitem  (optional) the starting value of the range (inclusive)

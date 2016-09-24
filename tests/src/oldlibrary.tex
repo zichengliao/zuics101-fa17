@@ -1,0 +1,1090 @@
+\documentclass{article}
+\usepackage{amsmath,amssymb,listings,upquote}
+\usepackage[margin=3cm]{geometry}
+\usepackage{graphicx,color}
+\lstset{language=Python}
+
+
+\newcounter{zone}
+\setcounter{zone}{0}
+\newcommand{\zone}{\clearpage\refstepcounter{zone}\section*{Zone \arabic{zone}}}
+\newcounter{question}
+\setcounter{question}{0}
+\newcounter{variant}
+\newcounter{questionpoints}
+\newcommand{\question}[1]{\newpage \refstepcounter{question} \setcounter{variant}{0} \setcounter{questionpoints}{#1}}
+\newcommand{\variant}{\vspace{4em}\refstepcounter{variant}\noindent \arabic{question}/\arabic{variant}. (\arabic{questionpoints} point\ifnum \thequestionpoints > 1 s\fi) }
+\newenvironment{answers}{\begin{enumerate}}{\end{enumerate}}
+\newcommand{\answer}{\item }
+\newcommand{\correctanswer}{\item $\bigstar$ }
+\renewcommand{\theenumi}{\Alph{enumi}}
+\newenvironment{solution}{{\bf Solution.} }{\vspace*{.3in}\hrule}
+
+\begin{document}
+
+\begin{center}
+\textbf{\Large CS101 Midterm 1}
+\end{center}
+
+\bigskip
+\noindent
+\begin{itemize}
+\item \textbf{Be sure to enter your \underline{NetID} and \underline{the code below} on your Scantron}.
+\item Do not turn this page until instructed to.
+\item There are 25 questions worth 1 point each.
+\item Each question has only \textbf{one} correct answer.
+\item You must not communicate with other students during this test.
+\item No books, notes, or electronic devices allowed.
+\item This is a 45 minute exam.
+\item There are several different versions of this exam.
+\end{itemize}
+
+\bigskip\bigskip
+\noindent
+\textbf{\Large 1. Fill in your information:}
+
+\bigskip
+{\Large\bf
+\begin{tabular}{ll}
+Full Name: & \underbar{\hskip 8cm} \\[0.5em]
+UIN (Student Number): & \underbar{\hskip 8cm} \\[0.5em]
+NetID: & \underbar{\hskip 8cm}
+\end{tabular}
+}
+
+\bigskip
+\bigskip
+\noindent
+\textbf{\Large 2. Fill in the following answers on the Scantron form:}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\zone
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{1}
+\variant
+What do we call a set of instructions a computer executes to achieve a goal?
+\begin{answers}
+\correctanswer a program
+\answer a process
+\answer a prologue 
+\answer a protest
+\answer None of the other answers are correct.
+\end{answers}
+\begin{solution}
+\end{solution}
+\variant
+What do we call information stored in a computer (usually represented in binary?)
+\begin{answers}
+\correctanswer data
+\answer date
+\answer dave
+\answer dance
+\answer None of the other answers are correct.
+\end{answers}
+\begin{solution}
+\end{solution}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{1}
+\variant
+What do we call a grouping of 8 bits?
+\begin{answers}
+\correctanswer a byte
+\answer a bill
+\answer a board
+\answer a brush
+\answer None of the other answers are correct.
+\end{answers}
+\begin{solution}
+\end{solution}
+\variant
+How many bits are grouped together to form a byte?
+\begin{answers}
+\correctanswer 8
+\answer 16
+\answer 4
+\answer 2
+\answer None of the other answers are correct.
+\end{answers}
+\begin{solution}
+\end{solution}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{1}
+\variant
+Which of the following statements is true of Python?
+\begin{answers}
+\answer It is a high level language.
+\answer It is an interpreted language.
+\answer It has both syntax and semantics.
+\correctanswer All of the other answers are correct.
+\end{answers}
+\begin{solution}
+\end{solution}
+\variant
+Which of the following statements is \emph{not} true of Python?
+\begin{answers}
+\answer It is a low level language.
+\answer It has syntax, but not semantics.
+\answer It has semantics, but not syntax.
+\correctanswer All of the other answers are correct.
+\end{answers}
+\begin{solution}
+\end{solution}
+\variant
+Which of the following statements is true of Python?
+\begin{answers}
+\answer It is a low level language.
+\correctanswer It is an interpreted language.
+\answer It has semantics, but not syntax.
+\answer All of the other answers are correct.
+\end{answers}
+\begin{solution}
+\end{solution}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{1}
+\variant
+Consider the following program:
+\begin{verbatim}
+s="KVOTHE"
+x=s[1:3]
+\end{verbatim}
+What is the \textbf{value} of x after this program is executed?
+\begin{answers}
+\answer \begin{verbatim}"KV"\end{verbatim}
+\answer \begin{verbatim}"KVO"\end{verbatim}
+\correctanswer \begin{verbatim}"VO"\end{verbatim}
+\answer \begin{verbatim}"VOT"\end{verbatim}
+\answer None of the other answers are correct.
+\end{answers}
+\begin{solution}
+\end{solution}
+\variant
+Consider the following program:
+\begin{verbatim}
+s="DANNY RAND"
+x=s[5:-1]
+\end{verbatim}
+What is the \textbf{value} of x after this program is executed?
+\begin{answers}
+\correctanswer \begin{verbatim}" RAN"\end{verbatim}
+\answer \begin{verbatim}"RAND"\end{verbatim}
+\answer \begin{verbatim}"RAN"\end{verbatim}
+\answer \begin{verbatim}" RAND"\end{verbatim}
+\answer None of the other answers are correct.
+\end{answers}
+\begin{solution}
+\end{solution}
+\variant
+Consider the following program:
+\begin{verbatim}
+s="ARYA STARK"
+x=s[3:5]
+\end{verbatim}
+What is the \textbf{value} of x after this program is executed?
+\begin{answers}
+\correctanswer \begin{verbatim}"A "\end{verbatim}
+\answer \begin{verbatim}"YA"\end{verbatim}
+\answer \begin{verbatim}"AS"\end{verbatim}
+\answer \begin{verbatim}"YA S"\end{verbatim}
+\answer None of the other answers are correct.
+\end{answers}
+\begin{solution}
+\end{solution}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{1}
+\variant
+Consider the following program:
+\begin{verbatim}
+a=1
+def fun():
+    a=2
+    return a+1
+fun()
+print a
+\end{verbatim}
+What is printed out by this program?
+\begin{answers}
+\correctanswer 1
+\answer 2
+\answer 3
+\answer 4
+\answer None of the other answers. This code is not valid.
+\end{answers}
+\begin{solution}
+\end{solution}
+\variant
+Consider the following program:
+\begin{verbatim}
+a=1
+def fun(a):
+    a=2
+    return a+1
+    a=4
+a=fun(a)
+print a
+\end{verbatim}
+What is printed out by this program?
+\begin{answers}
+\answer 1
+\answer 2
+\correctanswer 3
+\answer 4
+\answer None of the other answers. This code is not valid.
+\end{answers}
+\begin{solution}
+\end{solution}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{1}
+\variant
+Consider the following program:
+\begin{verbatim}
+def fun(a,b):
+    if a<b and a==4:
+        return a
+    else:
+        return b
+a=5
+b=4
+print fun(b,a)
+\end{verbatim}
+What is printed out by this program?
+\begin{answers}
+\answer False
+\correctanswer 4
+\answer 5
+\answer True
+\answer None of the other answers. This code is not valid.
+\end{answers}
+\begin{solution}
+\end{solution}
+\variant
+Consider the following program:
+\begin{verbatim}
+def fun(a,b):
+    if a<b or a==5:
+        return a
+    else:
+        return b
+a=5
+b=4
+print fun(b,a)
+\end{verbatim}
+What is printed out by this program?
+\begin{answers}
+\answer False
+\correctanswer 4
+\answer 5
+\answer True
+\answer None of the other answers. This code is not valid.
+\end{answers}
+\begin{solution}
+\end{solution}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{1}
+\variant
+Evaluate the following expression:
+\begin{verbatim}
+(True and 3!=4) or not (3<5 and True)
+\end{verbatim}
+What value is produced?
+\begin{answers}
+\answer False
+\correctanswer True
+\end{answers}
+\begin{solution}
+\end{solution}
+\variant
+Evaluate the following expression:
+\begin{verbatim}
+(True or 3==4) or ((not 3>5) and True)
+\end{verbatim}
+What value is produced?
+\begin{answers}
+\answer False
+\correctanswer True
+\end{answers}
+\begin{solution}
+\end{solution}
+\variant
+Evaluate the following expression:
+\begin{verbatim}
+(False or 3==4) and (False != True)
+\end{verbatim}
+What value is produced?
+\begin{answers}
+\correctanswer False
+\answer True
+\end{answers}
+\begin{solution}
+\end{solution}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{1}
+\variant
+Consider the following program.
+\begin{verbatim}
+x=False
+for i in range(0,3):
+    x=x and not x
+\end{verbatim}
+After it is run, what is the final \textbf{value} of x?
+\begin{answers}
+\correctanswer False
+\answer True
+\end{answers}
+\begin{solution}
+\end{solution}
+\variant
+Consider the following program.
+\begin{verbatim}
+y=1
+for i in range(0,3):
+    y=y+(2*y)
+x=y>10
+\end{verbatim}
+After it is run, what is the final \textbf{value} of x?
+\begin{answers}
+\answer False
+\correctanswer True
+\end{answers}
+\begin{solution}
+\end{solution}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{1}
+\variant
+Consider the following program.
+\begin{verbatim}
+x=[]
+for j in range(0,4):
+    if (j%3)==0:
+        x.append("*")
+\end{verbatim}
+After it is run, what is the final \textbf{value} of x?
+\begin{answers}
+\correctanswer \begin{verbatim}["*","*"]\end{verbatim}
+\answer \begin{verbatim}["*","*","*"]\end{verbatim}
+\answer \begin{verbatim}["*"]\end{verbatim}
+\answer None of the other answers are correct.
+\end{answers}
+\begin{solution}
+\end{solution}
+\variant
+Consider the following program.
+\begin{verbatim}
+x=[]
+for j in range(2,7):
+    if (j%2)==0:
+        x.append("*")
+\end{verbatim}
+After it is run, what is the final \textbf{value} of x?
+\begin{answers}
+\answer \begin{verbatim}["*","*"]\end{verbatim}
+\correctanswer \begin{verbatim}["*","*","*"]\end{verbatim}
+\answer \begin{verbatim}["*"]\end{verbatim}
+\answer None of the other answers are correct.
+\end{answers}
+\begin{solution}
+\end{solution}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{1}
+\variant
+Consider the following program.
+\begin{verbatim}
+x=0
+i=1
+while(i*i)<=5:
+    x=x+(i*i)
+    i=i+1
+\end{verbatim}
+After it is run, what is the final \textbf{value} of x?
+\begin{answers}
+\correctanswer \begin{verbatim}5\end{verbatim}
+\answer \begin{verbatim}10\end{verbatim}
+\answer \begin{verbatim}13\end{verbatim}
+\answer None of the other answers are correct.
+\end{answers}
+\begin{solution}
+\end{solution}
+\variant
+Consider the following program.
+\begin{verbatim}
+x=0
+i=1
+while(i*i)<9:
+    x=x+(i*i)
+    i=i+1
+\end{verbatim}
+After it is run, what is the final \textbf{value} of x?
+\begin{answers}
+\correctanswer \begin{verbatim}5\end{verbatim}
+\answer \begin{verbatim}10\end{verbatim}
+\answer \begin{verbatim}13\end{verbatim}
+\answer None of the other answers are correct.
+\end{answers}
+\begin{solution}
+\end{solution}
+\variant
+Consider the following program.
+\begin{verbatim}
+x=0
+i=1
+while(i*i)<8:
+    x=x+(i*i)
+    i=i+1
+\end{verbatim}
+After it is run, what is the final \textbf{value} of x?
+\begin{answers}
+\correctanswer \begin{verbatim}5\end{verbatim}
+\answer \begin{verbatim}10\end{verbatim}
+\answer \begin{verbatim}13\end{verbatim}
+\answer None of the other answers are correct.
+\end{answers}
+\begin{solution}
+\end{solution}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{1}
+\variant
+Consider the following program.
+\begin{verbatim}
+x=0
+n=[3,1,2,4]
+n.append(0)
+n.sort()
+if n[0]==1:
+    del n[1]
+elif n[0]==0:
+    del n[0]
+else:
+    del n[-1]
+for i in n:
+    x=x+i
+\end{verbatim}
+After it is run, what is the final \textbf{value} of x?
+\begin{answers}
+\correctanswer \begin{verbatim}10\end{verbatim}
+\answer \begin{verbatim}9\end{verbatim}
+\answer \begin{verbatim}7\end{verbatim}
+\answer \begin{verbatim}6\end{verbatim}
+\end{answers}
+\begin{solution}
+\end{solution}
+\variant
+Consider the following program.
+\begin{verbatim}
+x=0
+n=[1,3,5]
+n.append(4)
+n.sort()
+if n[0]==4:
+    del n[1]
+elif n[2]==3:
+    del n[0]
+else:
+    del n[-1]
+for i in n:
+    x=x+i
+\end{verbatim}
+After it is run, what is the final \textbf{value} of x?
+\begin{answers}
+\answer \begin{verbatim}10\end{verbatim}
+\correctanswer \begin{verbatim}8\end{verbatim}
+\answer \begin{verbatim}12\end{verbatim}
+\answer \begin{verbatim}9\end{verbatim}
+\answer None of the other answers are correct.
+\end{answers}
+\begin{solution}
+\end{solution}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{1}
+\variant
+Consider the following program:
+\begin{verbatim}
+x=3
+a=5
+if (a%3)==2:
+    x=x**3
+elif(a%3)==1:
+    x=x**2
+else:
+    x=x**1
+\end{verbatim}
+What is the \textbf{value} of x after this program is executed?
+\begin{answers}
+\answer \begin{verbatim}3\end{verbatim}
+\answer \begin{verbatim}9\end{verbatim}
+\correctanswer \begin{verbatim}27\end{verbatim}
+\answer \begin{verbatim}1\end{verbatim}
+\answer None of the other answers are correct.
+\end{answers}
+\begin{solution}
+\end{solution}
+\variant
+Consider the following program:
+\begin{verbatim}
+x=2
+a=6
+if (a%3)==2:
+    x=x**3
+elif(a%3)==1:
+    x=x**2
+else:
+    x=x**1
+\end{verbatim}
+What is the \textbf{value} of x after this program is executed?
+\begin{answers}
+\answer \begin{verbatim}4\end{verbatim}
+\answer \begin{verbatim}16\end{verbatim}
+\answer \begin{verbatim}8\end{verbatim}
+\correctanswer \begin{verbatim}2\end{verbatim}
+\answer None of the other answers are correct.
+\end{answers}
+\begin{solution}
+\end{solution}
+\variant
+Consider the following program:
+\begin{verbatim}
+x=3
+a=7
+if (a%3)==2:
+    x=x**2
+elif(a%3)==1:
+    x=x**1
+else:
+    x=x**0
+\end{verbatim}
+What is the \textbf{value} of x after this program is executed?
+\begin{answers}
+\answer \begin{verbatim}1\end{verbatim}
+\answer \begin{verbatim}9\end{verbatim}
+\answer \begin{verbatim}7\end{verbatim}
+\correctanswer \begin{verbatim}3\end{verbatim}
+\answer None of the other answers are correct.
+\end{answers}
+\begin{solution}
+\end{solution}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{1}
+\variant
+Consider the following program:
+\begin{verbatim}
+x=str(3*0.4)
+\end{verbatim}
+What is the \textbf{value} of x after this program is executed?
+\begin{answers}
+\answer \begin{verbatim}1.2\end{verbatim}
+\answer \begin{verbatim}0\end{verbatim}
+\correctanswer \begin{verbatim}"1.2"\end{verbatim}
+\answer \begin{verbatim}"0"\end{verbatim}
+\answer None of the other answers are correct.
+\end{answers}
+\begin{solution}
+\end{solution}
+\variant
+Consider the following program:
+\begin{verbatim}
+x=str(1.2)*2
+\end{verbatim}
+What is the \textbf{value} of x after this program is executed?
+\begin{answers}
+\answer \begin{verbatim}2.4\end{verbatim}
+\answer \begin{verbatim}"2.4"\end{verbatim}
+\correctanswer \begin{verbatim}"1.21.2"\end{verbatim}
+\answer \begin{verbatim}"1.2*2"\end{verbatim}
+\answer None of the other answers are correct.
+\end{answers}
+\begin{solution}
+\end{solution}
+\variant
+\begin{verbatim}
+x=str(3)+"str(3)"
+\end{verbatim}
+What is the \textbf{value} of x after this program is executed?
+\begin{answers}
+\answer \begin{verbatim}"33"\end{verbatim}
+\answer \begin{verbatim}33\end{verbatim}
+\correctanswer \begin{verbatim}"3str(3)"\end{verbatim}
+\answer \begin{verbatim}"333"\end{verbatim}
+\answer None of the other answers are correct.
+\end{answers}
+\begin{solution}
+\end{solution}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{1}
+\variant
+Consider the following program:
+\begin{verbatim}
+a=["A","C","C","I","O"]
+a.sort()
+a[0]=a[-1]
+x=""
+for e in a:
+    x=x+e
+\end{verbatim}
+What is the \textbf{value} of x after this program is executed?
+\begin{answers}
+\correctanswer \begin{verbatim}"OCCIO"\end{verbatim}
+\answer \begin{verbatim}"ACCOA"\end{verbatim}
+\answer \begin{verbatim}"ACCIA"\end{verbatim}
+\answer \begin{verbatim}"ICCOI"\end{verbatim}
+\answer None of the other answers are correct.
+\end{answers}
+\begin{solution}
+\end{solution}
+\variant
+Consider the following program:
+\begin{verbatim}
+a=["S","T","U","P","E","F","Y"]
+a=a[0:4]
+a.sort()
+x=""
+for e in a:
+    x=e+x
+\end{verbatim}
+What is the \textbf{value} of x after this program is executed?
+\begin{answers}
+\answer \begin{verbatim}"PSTU"\end{verbatim}
+\correctanswer \begin{verbatim}"UTSP"\end{verbatim}
+\answer \begin{verbatim}"STUP"\end{verbatim}
+\answer \begin{verbatim}"PUST"\end{verbatim}
+\answer None of the other answers are correct.
+\end{answers}
+\begin{solution}
+\end{solution}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{1}
+\variant
+Consider the following program:
+\begin{verbatim}
+a=3
+b=4
+if a==3:
+    b=a
+elif a==4:
+    a=5
+else:
+    a=b
+\end{verbatim}
+What is the \textbf{value} of a after this program is executed?
+\begin{answers}
+\correctanswer \begin{verbatim}3\end{verbatim}
+\answer \begin{verbatim}4\end{verbatim}
+\answer \begin{verbatim}5\end{verbatim}
+\answer \begin{verbatim}7\end{verbatim}
+\answer None of the other answers are correct.
+\end{answers}
+\begin{solution}
+\end{solution}
+\variant
+Consider the following program:
+\begin{verbatim}
+a=3
+b=4
+if a==3:
+    a=b
+elif a==4:
+    a=5
+else:
+    b=a
+\end{verbatim}
+What is the \textbf{value} of a after this program is executed?
+\begin{answers}
+\answer \begin{verbatim}3\end{verbatim}
+\correctanswer \begin{verbatim}4\end{verbatim}
+\answer \begin{verbatim}5\end{verbatim}
+\answer \begin{verbatim}7\end{verbatim}
+\answer None of the other answers are correct.
+\end{answers}
+\begin{solution}
+\end{solution}
+\variant
+Consider the following program:
+\begin{verbatim}
+a=3
+b=4
+if a!=b:
+    a=b
+elif a==4:
+    a=5
+else:
+    b=a
+\end{verbatim}
+What is the \textbf{value} of a after this program is executed?
+\begin{answers}
+\answer \begin{verbatim}3\end{verbatim}
+\correctanswer \begin{verbatim}4\end{verbatim}
+\answer \begin{verbatim}5\end{verbatim}
+\answer \begin{verbatim}7\end{verbatim}
+\answer None of the other answers are correct.
+\end{answers}
+\begin{solution}
+\end{solution}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{1}
+\variant
+Evaluate the following expression:
+\begin{verbatim}
+len("ABCD"[0:3])
+\end{verbatim}
+What value is produced?
+\begin{answers}
+\answer 1
+\answer 2
+\correctanswer 3
+\answer 4
+\end{answers}
+\begin{solution}
+\end{solution}
+\variant
+Evaluate the following expression:
+\begin{verbatim}
+len("ABCDE"[1:4])
+\end{verbatim}
+What value is produced?
+\begin{answers}
+\answer 1
+\answer 5
+\correctanswer 3
+\answer 4
+\end{answers}
+\begin{solution}
+\end{solution}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{1}
+\variant
+Evaluate the following expression:
+\begin{verbatim}
+(1/2)*2.0
+\end{verbatim}
+What value is produced?
+\begin{answers}
+\answer 1.0
+\correctanswer 0.0
+\answer 0.5
+\answer 20.0
+\end{answers}
+\begin{solution}
+\end{solution}
+\variant
+Evaluate the following expression:
+\begin{verbatim}
+(1*1.0)/2
+\end{verbatim}
+What value is produced?
+\begin{answers}
+\answer 1.0
+\answer 0.0
+\correctanswer 0.5
+\answer 20.0
+\end{answers}
+\begin{solution}
+\end{solution}
+\variant
+Evaluate the following expression:
+\begin{verbatim}
+1.0*(1/2)
+\end{verbatim}
+What value is produced?
+\begin{answers}
+\correctanswer 0.0
+\answer 1.0
+\answer 0.5
+\answer 20.0
+\end{answers}
+\begin{solution}
+\end{solution}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{1}
+\variant
+Evaluate the following expression:
+\begin{verbatim}
+[1,2]+[len("3")]
+\end{verbatim}
+What value is produced?
+\begin{answers}
+\correctanswer \begin{verbatim}[1,2,1]\end{verbatim}
+\answer \begin{verbatim}[1,2,3]\end{verbatim}
+\answer \begin{verbatim}[1,2,"3"]\end{verbatim}
+\answer \begin{verbatim}[1,2,1,2,1,2]\end{verbatim}
+\end{answers}
+\begin{solution}
+\end{solution}
+\variant
+Evaluate the following expression:
+\begin{verbatim}
+[1,2]*len("3")
+\end{verbatim}
+What value is produced?
+\begin{answers}
+\correctanswer \begin{verbatim}[1,2]\end{verbatim}
+\answer \begin{verbatim}[1,2,3]\end{verbatim}
+\answer \begin{verbatim}[1,2,1]\end{verbatim}
+\answer \begin{verbatim}[1,2,1,2,1,2]\end{verbatim}
+\end{answers}
+\begin{solution}
+\end{solution}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{1}
+\variant
+Examine the following program:
+\begin{verbatim}
+def fun(x):
+    return 1
+fun(3)
+\end{verbatim}
+What do we call x?
+\begin{answers}
+\correctanswer A parameter
+\answer An argument
+\answer A function
+\answer A scope
+\end{answers}
+\begin{solution}
+\end{solution}
+\variant
+Examine the following program:
+\begin{verbatim}
+def fun(x):
+    return 1
+fun(3)
+\end{verbatim}
+What do we call 3?
+\begin{answers}
+\answer A parameter
+\correctanswer An argument
+\answer A function
+\answer A scope
+\end{answers}
+\begin{solution}
+\end{solution}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{1}
+\variant
+Consider the following incomplete program.
+\begin{verbatim}
+sum=0
+i=1
+while ???<=1000:
+    sum=sum+i*i
+    i=i+1
+print sum
+\end{verbatim}
+The program is intended to sum all of the perfect squares from 1 to 1000 (inclusive) and print the result. What should replace the three question marks to complete the program?
+\begin{answers}
+\correctanswer  \begin{verbatim}(i*i) \end{verbatim}
+\answer  \begin{verbatim}(i**0.5) \end{verbatim}
+\answer  \begin{verbatim}i % n \end{verbatim}
+\answer  \begin{verbatim}i % sum \end{verbatim}
+\end{answers}
+\begin{solution}
+\end{solution}
+\variant
+Consider the following incomplete program.
+\begin{verbatim}
+prime=True
+for i in range(2,n):
+    if ???:
+       prime=False
+if prime:
+    print "n is prime."
+\end{verbatim}
+The program is intended to print a message if an integer n is prime. What should replace the three question marks to complete the program?
+\begin{answers}
+\correctanswer  \begin{verbatim}(n % i)==0 \end{verbatim}
+\answer  \begin{verbatim}i*i < n \end{verbatim}
+\answer  \begin{verbatim}i**.5 < n \end{verbatim}
+\answer  \begin{verbatim}(i / n) == 0 \end{verbatim}
+\end{answers}
+\begin{solution}
+\end{solution}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{1}
+\variant
+Consider the following incomplete function.
+\begin{verbatim}
+def only_vowel(s):
+    for c in s:
+        if ???:
+            return False
+    return True
+\end{verbatim}
+The function is intended to return True if and only if the input string s consists entirely of characters representing lower case vowels. For example, \texttt{only\_vowels("iaou")} should return True, but \texttt{only\_vowels("eAo2i")} should return False, because A is not lower case and 2 is not a vowel. What should replace the three question marks to complete the function?
+\begin{answers}
+\answer  \begin{verbatim} c in "aeiou" \end{verbatim}
+\answer  \begin{verbatim} c.lower() in "aeiou" \end{verbatim}
+\answer  \begin{verbatim} c.lower() not in "aeiou" \end{verbatim}
+\correctanswer  \begin{verbatim}  c not in "aeiou" \end{verbatim}
+\end{answers}
+\begin{solution}
+\end{solution}
+\question{1}
+\variant
+Consider the following incomplete function.
+\begin{verbatim}
+def no_evens(s):
+    for c in s:
+        if ???:
+            return False
+    return True
+\end{verbatim}
+The function is intended to return True if and only if the input string s contains \textbf{no} characters representing even digits. For example, \texttt{no\_even("AB13")} should return True, but \texttt{no\_even("132")} should return False, because 2 is not an even digit. What should replace the three question marks to complete the function?
+\begin{answers}
+\correctanswer  \begin{verbatim} (int(c)%2)!=0 and c in "0123456789" \end{verbatim}
+\answer  \begin{verbatim} c not in "02468" \end{verbatim}
+\answer  \begin{verbatim} (int(c)%2)!=0 or c in "0123456789" \end{verbatim}
+\answer  \begin{verbatim}  c in "13579" \end{verbatim}
+\end{answers}
+\begin{solution}
+\end{solution}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{1}
+\variant
+Consider the following incomplete program.
+\begin{verbatim}
+sum=0
+???:
+    sum=sum+i
+
+\end{verbatim}
+The program is intended to sum all of the integers between 1 and 100 (inclusive). What should replace the three question marks to complete the program?
+\begin{answers}
+\answer  \begin{verbatim}for i in range(0,100)\end{verbatim}
+\answer  \begin{verbatim}while i<=100 \end{verbatim}
+\correctanswer  \begin{verbatim}for i in range(1,101) \end{verbatim}
+\answer  \begin{verbatim}while i*i <=100 \end{verbatim}
+\end{answers}
+\begin{solution}
+\end{solution}
+\variant
+Consider the following incomplete program.
+\begin{verbatim}
+sum=0
+for i in range(0,100):
+    ???
+
+\end{verbatim}
+The program is intended to sum all of the integers between 1 and 100 (inclusive). What should replace the three question marks to complete the program?
+\begin{answers}
+\answer  \begin{verbatim}sum=sum+1\end{verbatim}
+\answer  \begin{verbatim}sum+1=sum \end{verbatim}
+\answer  \begin{verbatim}sum=sum+i \end{verbatim}
+\correctanswer  \begin{verbatim}sum=sum+i+1 \end{verbatim}
+\end{answers}
+\begin{solution}
+\end{solution}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{1}
+\variant
+Assume the variable x is a string. Which of the following expressions will retrieve the third character in the string?
+\begin{answers}
+\answer  \begin{verbatim}[3]x\end{verbatim}
+\answer  \begin{verbatim}x*3 \end{verbatim}
+\correctanswer  \begin{verbatim}x[2] \end{verbatim}
+\answer  \begin{verbatim}x[3]\end{verbatim}
+\answer  \begin{verbatim}x+3\end{verbatim}
+\end{answers}
+\begin{solution}
+\end{solution}
+\variant
+Assume the variable x is a string. Which of the following expressions will retrieve the last character in the string?
+\begin{answers}
+\correctanswer  \begin{verbatim}x[-1]\end{verbatim}
+\answer  \begin{verbatim}[0]x \end{verbatim}
+\answer  \begin{verbatim}x[:-1] \end{verbatim}
+\answer  \begin{verbatim}x[1] \end{verbatim}
+\answer  \begin{verbatim}[1]x\end{verbatim}
+\end{answers}
+\begin{solution}
+\end{solution}
+\variant
+Assume the variable x is a string. Which of the following expressions will retrieve the first character in the string?
+\begin{answers}
+\answer  \begin{verbatim}[1]x\end{verbatim}
+\answer  \begin{verbatim}[-1]x \end{verbatim}
+\correctanswer  \begin{verbatim}x[0*-1] \end{verbatim}
+\answer  \begin{verbatim}x[-1]\end{verbatim}
+\end{answers}
+\begin{solution}
+\end{solution}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{1}
+\variant
+If we evaluate the following expressions, which one will produce a value of type integer?
+\begin{answers}
+\answer  \begin{verbatim}"ABCD".lower()\end{verbatim}
+\answer  \begin{verbatim}str(333)[3] \end{verbatim}
+\correctanswer  \begin{verbatim}len("ABCD")\end{verbatim}
+\answer  \begin{verbatim}"3"*3\end{verbatim}
+\end{answers}
+\begin{solution}
+\end{solution}
+\variant
+If we evaluate the following expressions, which one will produce a value of type string?
+\begin{answers}
+\answer  \begin{verbatim}len("33"+"33")\end{verbatim}
+\correctanswer  \begin{verbatim}["1","2","3"][1] \end{verbatim}
+\answer  \begin{verbatim}["A","B","C"].sort()\end{verbatim}
+\answer  \begin{verbatim}(1+3+5)%4 \end{verbatim}
+\end{answers}
+\begin{solution}
+\end{solution}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{1}
+\variant
+Consider the following program:
+\begin{verbatim}
+x=["tick","tock"]
+x[0]="tick" in x
+if x[0]:
+    x=1
+\end{verbatim}
+What is the \textbf{type} of x after the program is run?
+\begin{answers}
+\answer None
+\correctanswer Integer
+\answer List
+\answer String
+\answer None of the other answers are correct.
+\end{answers}
+\begin{solution}
+\end{solution}
+\variant
+Consider the following program:
+\begin{verbatim}
+x=["tick","tock"]
+x[0]=len(x[1])
+if x[0]<4:
+    x="A"
+\end{verbatim}
+What is the \textbf{type} of x after the program is run?
+\begin{answers}
+\answer None
+\answer Integer
+\correctanswer List
+\answer String
+\answer None of the other answers are correct.
+\end{answers}
+\begin{solution}
+\end{solution}
+
+
+\end{document}

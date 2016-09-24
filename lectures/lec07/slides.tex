@@ -9,7 +9,7 @@
 \usetheme{SaoPaulo}
 
 \title{Python Basics!}
-\subtitle{loops, iteration}
+\subtitle{lists and loops}
 \author{CS101 Lecture \#7}
 \date{2016-09-14}
 
@@ -36,7 +36,7 @@
   \Enlarge
   \begin{itemize}
   \myitem  Homework \#3 is due Friday Sep.\ 16.
-  \myitem  Midterm \#1 will be Monday Oct.\ 3.  (evening)
+  \myitem  Midterm \#1 will be Monday Oct.\ 3, covering through Lecture \#11.  (evening)
   \end{itemize}
 \end{frame}
 
@@ -57,7 +57,7 @@ a = fun( a,a ) + a
   What is the final value of \texttt{a}?
   \begin{enumerate}[label=\Alph*]
   \item  \texttt{2}
-  \item  \texttt{3}
+  \item  \texttt{3}  $\star$
   \item  \texttt{4}
   \end{enumerate}
 \end{frame}
@@ -92,7 +92,7 @@ if (x != 10) or ((x**2) <= 144):
   \item  \texttt{10}
   \item  \texttt{12}
   \item  \texttt{20}
-  \item  \texttt{24}
+  \item  \texttt{24}  $\star$
   \end{enumerate}
 \end{frame}
 
@@ -112,7 +112,7 @@ x = fun(True) or fun(False)
   What is the final value of \texttt{x}?
   \begin{enumerate}[label=\Alph*]
   \item  \texttt{True}
-  \item  \texttt{False}
+  \item  \texttt{False}  $\star$
   \end{enumerate}
 \end{frame}
 
@@ -131,10 +131,10 @@ x = fun("abc","def") + fun("gh","ij")
   \end{semiverbatim}
   What is the final value of \texttt{x}?
   \begin{enumerate}[label=\Alph*]
-  \item  \texttt{'abcdefijgh4'}
-  \item  \texttt{'defabcghij4'}
+  \item  \texttt{'abcdefijgh2'}
+  \item  \texttt{'defabcghij2'}
   \item  \texttt{'abcdeijgh'}
-  \item  None of the above.
+  \item  \texttt{'abcdeijgh2'}  $\star$
   \end{enumerate}
 \end{frame}
 
@@ -150,13 +150,115 @@ def fun(x):
         return x+1
     return x
   \end{semiverbatim}
-  What should replace the \texttt{???} to complete the code?
+  What should replace the \texttt{???} to complete the code?  Assume \texttt{x} is an integer.
   \begin{enumerate}[label=\Alph*]
   \item  \texttt{x.string(3) == '0'}
-  \item  \texttt{str(x)[-3] == '0'}
-  \item  \texttt{((x/100) \% 10) == 0}
+  \item  \texttt{str(x)[-3] == '0'}  $\star$
+  \item  \texttt{((x//100) \% 10) == 0}  $\star$
   \item  None of the above.
   \end{enumerate}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Container Data Types}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Example}
+  \Enlarge
+
+  \begin{semiverbatim}
+colors = [ 'red', 'yellow', 'blue',
+           'jale', 'ulfire' ]
+for color in colors:
+    print( color.title() )
+  \end{semiverbatim}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{\texttt{list} data type}
+  \Enlarge
+
+  \begin{itemize}
+  \myitem  The \texttt{list} type represents an ordered collection of items. %%\pause
+  \myitem  \texttt{list} is an \emph{iterable} and a \emph{container}. %%\pause
+  \myitem  Containers hold values of any type (doesn't have to be the same).
+  \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{\texttt{list} statement}
+  \Enlarge
+
+  \begin{itemize}
+  \myitem  We create a \texttt{list} as follows:
+    \begin{itemize}
+    \mysubitem  opening bracket \texttt{[}
+    \mysubitem  one or more comma-separated data values
+    \mysubitem  closing bracket \texttt{]}
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{\texttt{list} statement}
+  \Enlarge
+
+  \begin{itemize}
+  \myitem  \texttt{list}s work a bit like strings:
+    \begin{semiverbatim}
+x = [ 10, 3.14, "Ride" ]
+
+print( x[1] )
+print( x[1:3] )
+print( len(x) )
+    \end{semiverbatim}
+  \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{\texttt{list} statement}
+  \Enlarge
+
+  \begin{itemize}
+  \myitem  But strings are \emph{immutable} (we can't change contents without creating a new string): %%\pause
+  \end{itemize}
+  \begin{semiverbatim}
+s = "good advise"
+s[9] = 'c'                 # nope
+
+s = s[:9] + 'c' + s[9:]    # this way
+  \end{semiverbatim}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{\texttt{list} statement}
+  \Enlarge
+
+  \begin{itemize}
+  \myitem  We \emph{can} change \texttt{list} content---they are \emph{mutable}. %%\pause
+  \end{itemize}
+  \begin{columns}
+  \begin{column}{0.6\textwidth}
+    \begin{semiverbatim}
+    x = [ 4,1,2,3 ]
+    x[3] = -2
+    x.append(5)
+    del x[1]
+    x.sort()
+    \end{semiverbatim}
+  \end{column}
+  \begin{column}{0.4\textwidth}
+  ~ \\
+  \textcolor{red}{$\leftarrow$ item assignment}
+  ~ \\ ~ \\ ~ \\ ~ \\
+  \end{column}
+  \end{columns}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -168,7 +270,7 @@ def fun(x):
   \Enlarge
 
   \begin{itemize}
-  \myitem  We frequently need to process each value in a set of values. \pause
+  \myitem  We frequently need to process each value in a set of values. %%\pause
   \myitem  Two kinds:  \texttt{while} and \texttt{for}
   \end{itemize}
 \end{frame}
@@ -212,7 +314,7 @@ print('Blast off!')
 x = 3
 while x > 0:
     print("Hello")
-x -= 1
+    x -= 1
   \end{semiverbatim}
   How many times is \texttt{'Hello'} printed?
   \begin{enumerate}[label=\Alph*]
@@ -222,6 +324,40 @@ x -= 1
   \item  thrice
   \item  four times
   \end{enumerate}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{String comparison methods}
+  \Enlarge
+
+  \begin{itemize}
+  \myitem  These produce Boolean output.
+    \begin{tabular}{ll}
+    \texttt{isdigit()} & Does a string contain \\
+    & only numbers? \\
+    \texttt{isalpha()} & Does a string contain \\
+    & only text? \\
+    \texttt{islower()} & Does a string contain \\
+    & only lower-case letters? \\
+    \texttt{isupper()} & Does a string contain \\
+    & only upper-case letters?
+    \end{tabular}
+  \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Example:  String comparison methods}
+  \Enlarge
+
+  \begin{semiverbatim}
+answer = input( 'How do you feel?  ' )
+if not answer.isalpha():
+    print( "I don't understand." )
+else:
+    print( "Ah, you feel %s." % answer )
+  \end{semiverbatim}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -251,7 +387,7 @@ print("Your password is valid.")
   \Enlarge
 
   \begin{itemize}
-  \myitem  Make sure that your code always has a way to end! \pause
+  \myitem  Make sure that your code always has a way to end! %%\pause
   \begin{semiverbatim}
 while True:
     print('Hello!')
@@ -280,8 +416,8 @@ while True:
   \Enlarge
 
   \begin{itemize}
-  \myitem  \emph{Design patterns} are common structures we encounter in writing code. \pause
-  \myitem  The \emph{accumulator} pattern uses an accumulator variable to track a result inside of a loop: \pause
+  \myitem  \emph{Design patterns} are common structures we encounter in writing code. %%\pause
+  \myitem  The \emph{accumulator} pattern uses an accumulator variable to track a result inside of a loop: %%\pause
   \begin{semiverbatim}
 i = 0
 sum = 0
@@ -340,7 +476,7 @@ while i < 7:
   \frametitle{Exercise}
   \Enlarge
 
-  Write a function to sum all of the digits in a number.  \pause \emph{I.e.},
+  Write a function to sum all of the digits in a number.  %%\pause \emph{I.e.},
 
   \begin{center}
   \texttt{12145} $\rightarrow$ \texttt{1 + 2 + 1 + 4 + 5} $\rightarrow$ \texttt{13}
@@ -365,81 +501,6 @@ def sum_digits( n ):
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}[fragile]
-  \frametitle{Example:  Loop}
-  \Enlarge
-
-  \begin{semiverbatim}
-for number in 1,2,3,4,5:
-    print(number)
-  \end{semiverbatim}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}[fragile]
-  \frametitle{Defining loops:  \texttt{for}}
-  \Enlarge
-
-  \begin{itemize}
-  \myitem  A \texttt{for} loop requires:
-    \begin{itemize}
-    \mysubitem  the keyword \texttt{for}
-    \mysubitem  a loop variable
-    \mysubitem  the keyword \texttt{in}
-    \mysubitem  a set of values
-    \mysubitem  a \textbf{block} of code
-    \end{itemize}
-  \myitem  \texttt{for} loops iterate over \emph{iterable} types one at a time.
-  \end{itemize}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}[fragile]
-  \frametitle{Example}
-  \Enlarge
-
-  \begin{semiverbatim}
-s = 'abcdefg'
-t = ''
-for c in s:
-    t = c + t
-  \end{semiverbatim}
-  What is the value of \texttt{t}?
-  \begin{enumerate}[label=\Alph*]
-  \item  \texttt{'abcdefg'}
-  \item  \texttt{'gfedcba'}
-  \item  \texttt{'a'}
-  \item  \texttt{'g'}
-  \end{enumerate}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}[fragile]
-  \frametitle{Exercise}
-  \Enlarge
-
-  Write a function to sum all of the digits in a number.  \emph{I.e.},
-
-  \begin{center}
-  \texttt{12145} $\rightarrow$ \texttt{1 + 2 + 1 + 4 + 5} $\rightarrow$ \texttt{13}
-  \end{center}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}[fragile]
-  \frametitle{Solution (\texttt{for})}
-  \Enlarge
-
-  \begin{semiverbatim}
-def sum_digits( n ):
-    result = 0
-    for letter in str( n ):
-        result += int( letter )
-    return result
-  \end{semiverbatim}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Reminders}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -449,7 +510,7 @@ def sum_digits( n ):
 
   \begin{itemize}
   \myitem  Homework \#3 is due Friday Sep.\ 16.
-  \myitem  Midterm \#1 will be Monday Oct.\ 3.  (evening)
+  \myitem  Midterm \#1 will be Monday Oct.\ 3. (evening)
   \end{itemize}
 \end{frame}
 

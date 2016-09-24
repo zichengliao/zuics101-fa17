@@ -1,0 +1,956 @@
+\documentclass{article}
+\usepackage{amsmath,amssymb,listings,upquote}
+\usepackage[margin=3cm]{geometry}
+\usepackage{graphicx,color}
+\lstset{language=Python}
+\usepackage{enumerate}
+
+\newcounter{zone}
+\setcounter{zone}{0}
+\newcommand{\zone}{\clearpage\refstepcounter{zone}\section*{Zone \arabic{zone}}}
+\newcounter{question}
+\setcounter{question}{0}
+\newcounter{variant}
+\newcounter{questionpoints}
+\newcommand{\question}[1]{\newpage \refstepcounter{question} \setcounter{variant}{0} \setcounter{questionpoints}{#1}}
+\newcommand{\variant}{\vspace{4em}\refstepcounter{variant}\noindent \arabic{question}/\arabic{variant}. (\arabic{questionpoints} point\ifnum \thequestionpoints > 1 s\fi) }
+\newenvironment{answers}{\begin{enumerate}}{\end{enumerate}}
+\newcommand{\answer}{\item }
+\newcommand{\correctanswer}{\item $\bigstar$ }
+\renewcommand{\theenumi}{\Alph{enumi}}
+\newenvironment{solution}{{\bf Solution.} }{\vspace*{.3in}\hrule}
+
+
+
+\begin{document}
+
+\newcount\maxrawpages
+\newcount\maxpadpages
+\newcount\minpadpages
+\maxrawpages=0
+\maxpadpages=0
+\minpadpages=1000000
+\newcount\padcount
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\cleardoublepage
+% Exam number 1
+
+\message{Exam 1/1}
+\setcounter{page}{1}
+
+
+\begin{center}
+\textbf{\Large CS101 Practice Midterm 1}
+\end{center}
+
+\bigskip
+\noindent
+\begin{itemize}
+\item \textbf{Be sure to enter your \underline{NetID} and \underline{the code below} on your Scantron}.
+\item Do not turn this page until instructed to.
+\item There are 25 questions worth 1 point each.
+\item Each question has only \textbf{one} correct answer.
+\item You must not communicate with other students during this test.
+\item No books, notes, or electronic devices allowed.
+\item This is a 45 minute exam.
+\item There are several different versions of this exam.
+\end{itemize}
+
+\bigskip\bigskip
+\noindent
+\textbf{\Large 1. Fill in your information:}
+
+\bigskip
+{\Large\bf
+\begin{tabular}{ll}
+Full Name: & \underbar{\hskip 8cm} \\[0.5em]
+UIN (Student Number): & \underbar{\hskip 8cm} \\[0.5em]
+NetID: & \underbar{\hskip 8cm}
+\end{tabular}
+}
+
+\bigskip
+\bigskip
+\noindent
+\textbf{\Large 2. Fill in the following answers on the Scantron form:}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{enumerate}
+\item[95.] D
+\item[96.] C
+\end{enumerate}
+
+\newpage
+
+% Zone 1
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\noindent
+\begin{minipage}{\textwidth}
+1. (1 point)
+Evaluate the following expression:
+\begin{verbatim}
+"ABC".join(["A","B","C"])
+\end{verbatim}
+What value is produced?
+
+\begin{enumerate}
+\item[(A)]
+\begin{verbatim}"AAABBBCCC"\end{verbatim}
+
+\item[(B)]
+\begin{verbatim}"ABCABCABC"\end{verbatim}
+
+\item[(C)]
+None of the other answers are correct.
+
+\item[(D)]
+\begin{verbatim}"AABCBABCC"\end{verbatim}
+
+\end{enumerate}
+\end{minipage}
+\vspace{10em}
+\filbreak\vfil\penalty-200\vfilneg
+
+\noindent
+\begin{minipage}{\textwidth}
+2. (1 point)
+Consider the following program.
+\begin{verbatim}
+x=0
+i=1
+while(i*i)<=49:
+    if (i%2)==1:
+        x+=1
+    i=i+1
+\end{verbatim}
+After it is run, what is the final \textbf{value} of x?
+
+\begin{enumerate}
+\item[(A)]
+\begin{verbatim}4\end{verbatim}
+
+\item[(B)]
+\begin{verbatim}5\end{verbatim}
+
+\item[(C)]
+\begin{verbatim}3\end{verbatim}
+
+\item[(D)]
+None of the other answers are correct.
+
+\end{enumerate}
+\end{minipage}
+\vspace{10em}
+\filbreak\vfil\penalty-200\vfilneg
+
+\noindent
+\begin{minipage}{\textwidth}
+3. (1 point)
+Consider the following program:
+\begin{verbatim}
+s="MEWTWO"
+x=""
+for i in range(0,len(s)):
+    if (i>1) and (i<3):
+        x+=s[i:i+3]
+
+\end{verbatim}
+What is the \textbf{value} of x after this program is executed?
+
+\begin{enumerate}
+\item[(A)]
+\begin{verbatim}"WTW"\end{verbatim}
+
+\item[(B)]
+None of the other answers are correct.
+
+\item[(C)]
+\begin{verbatim}"EWT"\end{verbatim}
+
+\item[(D)]
+\begin{verbatim}"WTWO"\end{verbatim}
+
+\item[(E)]
+\begin{verbatim}"EWTW"\end{verbatim}
+
+\end{enumerate}
+\end{minipage}
+\vspace{10em}
+\filbreak\vfil\penalty-200\vfilneg
+
+\noindent
+\begin{minipage}{\textwidth}
+4. (1 point)
+Consider the following program:
+\begin{verbatim}
+s="SQUIRTLE"
+x=""
+for i in range(0,len(s)):
+    if (i>4) and (i<7):
+        x+=s[i:i+2]
+\end{verbatim}
+What is the \textbf{value} of x after this program is executed?
+
+\begin{enumerate}
+\item[(A)]
+\begin{verbatim}"RT"\end{verbatim}
+
+\item[(B)]
+\begin{verbatim}"RTTLLE"\end{verbatim}
+
+\item[(C)]
+\begin{verbatim}"TLLE"\end{verbatim}
+
+\item[(D)]
+None of the other answers are correct.
+
+\item[(E)]
+\begin{verbatim}"RTTL"\end{verbatim}
+
+\end{enumerate}
+\end{minipage}
+\vspace{10em}
+\filbreak\vfil\penalty-200\vfilneg
+
+\noindent
+\begin{minipage}{\textwidth}
+5. (1 point)
+Consider the following program:
+\begin{verbatim}
+s="A,E,I,O,U".split(",")
+s=s[0:3]
+s=s.sort()
+\end{verbatim}
+What is the \textbf{value} of s after this program is executed?
+
+\begin{enumerate}
+\item[(A)]
+\begin{verbatim}['A', 'E', 'I']\end{verbatim}
+
+\item[(B)]
+None of the other answers are correct.
+
+\item[(C)]
+\begin{verbatim}['A', 'E', 'I','O']\end{verbatim}
+
+\item[(D)]
+\begin{verbatim}"AEI"\end{verbatim}
+
+\item[(E)]
+\begin{verbatim}"AEIO"\end{verbatim}
+
+\end{enumerate}
+\end{minipage}
+\vspace{10em}
+\filbreak\vfil\penalty-200\vfilneg
+
+\noindent
+\begin{minipage}{\textwidth}
+6. (1 point)
+Consider the following incomplete function.
+\begin{verbatim}
+def pal(s):
+    a=list(s)
+    if ???:
+        return True
+    else:
+        return False
+\end{verbatim}
+The function is intended to return True if and only if the input string s is a palindrome. A palindrome is a string that reads the same forward and backward, like ``ABBA'' or ``RACECAR''. What should replace the three question marks to complete the function?
+
+\begin{enumerate}
+\item[(A)]
+\begin{verbatim}(len(a) % 2) == 0 \end{verbatim}
+
+\item[(B)]
+\begin{verbatim} a + a == a * 2 \end{verbatim}
+
+\item[(C)]
+\begin{verbatim}None of the other answers are correct. \end{verbatim}
+
+\item[(D)]
+\begin{verbatim}a.reverse()==a \end{verbatim}
+
+\end{enumerate}
+\end{minipage}
+\vspace{10em}
+\filbreak\vfil\penalty-200\vfilneg
+
+\noindent
+\begin{minipage}{\textwidth}
+7. (1 point)
+Consider the following program:
+\begin{verbatim}
+def fun(a,b):
+     for i in range(a,b):
+        if (i%3)==0:
+            return i
+     return a==b
+
+a=4
+b=6
+print fun(a,b)
+\end{verbatim}
+What is printed out by this program?
+
+\begin{enumerate}
+\item[(A)]
+6
+
+\item[(B)]
+True
+
+\item[(C)]
+None of the other answers. This code is not valid.
+
+\item[(D)]
+False
+
+\item[(E)]
+3
+
+\end{enumerate}
+\end{minipage}
+\vspace{10em}
+\filbreak\vfil\penalty-200\vfilneg
+
+\noindent
+\begin{minipage}{\textwidth}
+8. (1 point)
+Consider the following program:
+\begin{verbatim}
+x=["tick","tock"]
+x[0]=x.reverse()
+x=x[-2]
+\end{verbatim}
+What is the \textbf{type} of x after the program is run?
+
+\begin{enumerate}
+\item[(A)]
+String
+
+\item[(B)]
+None of the other answers are correct.
+
+\item[(C)]
+List
+
+\item[(D)]
+Tuple
+
+\item[(E)]
+None
+
+\end{enumerate}
+\end{minipage}
+\vspace{10em}
+\filbreak\vfil\penalty-200\vfilneg
+
+\noindent
+\begin{minipage}{\textwidth}
+9. (1 point)
+Consider the following program:
+\begin{verbatim}
+x=["tick","tock"]
+x[0]=len(list(x[-1]))
+x=x[-2]
+\end{verbatim}
+What is the \textbf{type} of x after the program is run?
+
+\begin{enumerate}
+\item[(A)]
+None of the other answers are correct.
+
+\item[(B)]
+None
+
+\item[(C)]
+String
+
+\item[(D)]
+Integer
+
+\item[(E)]
+List
+
+\end{enumerate}
+\end{minipage}
+\vspace{10em}
+\filbreak\vfil\penalty-200\vfilneg
+
+\noindent
+\begin{minipage}{\textwidth}
+10. (1 point)
+Consider the following program.
+\begin{verbatim}
+x=0
+i=1
+while(i*i)<=36:
+    if ((i*i)%2)==0:
+        x+=1
+    i=i+1
+\end{verbatim}
+After it is run, what is the final \textbf{value} of x?
+
+\begin{enumerate}
+\item[(A)]
+None of the other answers are correct.
+
+\item[(B)]
+\begin{verbatim}5\end{verbatim}
+
+\item[(C)]
+\begin{verbatim}3\end{verbatim}
+
+\item[(D)]
+\begin{verbatim}4\end{verbatim}
+
+\end{enumerate}
+\end{minipage}
+\vspace{10em}
+\filbreak\vfil\penalty-200\vfilneg
+
+\noindent
+\begin{minipage}{\textwidth}
+11. (1 point)
+Consider the following program:
+\begin{verbatim}
+s="GABE&TYCHO"
+x=s[3:6]
+\end{verbatim}
+What is the \textbf{value} of x after this program is executed?
+
+\begin{enumerate}
+\item[(A)]
+\begin{verbatim}"E&T"\end{verbatim}
+
+\item[(B)]
+None of the other answers are correct.
+
+\item[(C)]
+\begin{verbatim}"E&"\end{verbatim}
+
+\item[(D)]
+\begin{verbatim}"BE&"\end{verbatim}
+
+\item[(E)]
+\begin{verbatim}"BE"\end{verbatim}
+
+\end{enumerate}
+\end{minipage}
+\vspace{10em}
+\filbreak\vfil\penalty-200\vfilneg
+
+\noindent
+\begin{minipage}{\textwidth}
+12. (1 point)
+Which of the following represents a single valid string?
+
+\begin{enumerate}
+\item[(A)]
+\begin{verbatim}'"I'll not hold my tongue!" I said. "Let the door remain shut, and be quiet!"'\end{verbatim}
+
+\item[(B)]
+None of the other answers form a single valid string.
+
+\item[(C)]
+\begin{verbatim}''What's your business here?' he demanded, grimly. 'Who are you?''\end{verbatim}
+
+\item[(D)]
+\begin{verbatim}'"I'll keep him out five minutes," he exclaimed. "You won't object?"'\end{verbatim}
+
+\item[(E)]
+\begin{verbatim}"'What has Heathcliff done to you?' I asked. 'In what has he wronged you?'"\end{verbatim}
+
+\end{enumerate}
+\end{minipage}
+\vspace{10em}
+\filbreak\vfil\penalty-200\vfilneg
+
+\noindent
+\begin{minipage}{\textwidth}
+13. (1 point)
+Consider the following program:
+\begin{verbatim}
+x=["tick","tock"]
+x[-1]=list(x[0])
+x=x[1],x[0]
+\end{verbatim}
+What is the \textbf{type} of x after the program is run?
+
+\begin{enumerate}
+\item[(A)]
+None
+
+\item[(B)]
+Tuple
+
+\item[(C)]
+None of the other answers are correct.
+
+\item[(D)]
+List
+
+\item[(E)]
+String
+
+\end{enumerate}
+\end{minipage}
+\vspace{10em}
+\filbreak\vfil\penalty-200\vfilneg
+
+\noindent
+\begin{minipage}{\textwidth}
+14. (1 point)
+Consider the following program:
+\begin{verbatim}
+x=["tick","tock"]
+x[0]=(len(list(x[-1])),x[1])
+x=x[1]
+\end{verbatim}
+What is the \textbf{type} of x after the program is run?
+
+\begin{enumerate}
+\item[(A)]
+String
+
+\item[(B)]
+List
+
+\item[(C)]
+Integer
+
+\item[(D)]
+None of the other answers are correct.
+
+\item[(E)]
+None
+
+\end{enumerate}
+\end{minipage}
+\vspace{10em}
+\filbreak\vfil\penalty-200\vfilneg
+
+\noindent
+\begin{minipage}{\textwidth}
+15. (1 point)
+Consider the following program.
+\begin{verbatim}
+def fun(a,b):
+    return a-b
+x=0
+for i in range(2,5):
+    x=x+fun(i,x)
+    print x
+\end{verbatim}
+After it is run, what is the final \textbf{value} of x?
+
+\begin{enumerate}
+\item[(A)]
+\begin{verbatim}5\end{verbatim}
+
+\item[(B)]
+\begin{verbatim}4\end{verbatim}
+
+\item[(C)]
+\begin{verbatim}3\end{verbatim}
+
+\item[(D)]
+None of the other answers are correct.
+
+\end{enumerate}
+\end{minipage}
+\vspace{10em}
+\filbreak\vfil\penalty-200\vfilneg
+
+\noindent
+\begin{minipage}{\textwidth}
+16. (1 point)
+Evaluating which of the following expressions will produce a value of type list?
+
+\begin{enumerate}
+\item[(A)]
+\begin{verbatim}["1","2","3"]+["4"] \end{verbatim}
+
+\item[(B)]
+\begin{verbatim}len([3333])\end{verbatim}
+
+\item[(C)]
+\begin{verbatim}list("ABC").append("D")\end{verbatim}
+
+\item[(D)]
+\begin{verbatim}str(["A","B"]).lower() \end{verbatim}
+
+\end{enumerate}
+\end{minipage}
+\vspace{10em}
+\filbreak\vfil\penalty-200\vfilneg
+
+\noindent
+\begin{minipage}{\textwidth}
+17. (1 point)
+Consider the following program.
+\begin{verbatim}
+def fun(a,b):
+    return a-b
+x=0
+for i in range(-1,3):
+    x=x+fun(i,x)
+    print x
+\end{verbatim}
+After it is run, what is the final \textbf{value} of x?
+
+\begin{enumerate}
+\item[(A)]
+None of the other answers are correct.
+
+\item[(B)]
+\begin{verbatim}2\end{verbatim}
+
+\item[(C)]
+\begin{verbatim}3\end{verbatim}
+
+\item[(D)]
+\begin{verbatim}4\end{verbatim}
+
+\end{enumerate}
+\end{minipage}
+\vspace{10em}
+\filbreak\vfil\penalty-200\vfilneg
+
+\noindent
+\begin{minipage}{\textwidth}
+18. (1 point)
+Consider the following program:
+\begin{verbatim}
+a=list("ACCIO")
+a.reverse()
+a[1],a[2]=a[2],a[3]
+x=""
+for e in a:
+    x=x+e
+\end{verbatim}
+What is the \textbf{value} of x after this program is executed?
+
+\begin{enumerate}
+\item[(A)]
+\begin{verbatim}"AIICC"\end{verbatim}
+
+\item[(B)]
+None of the other answers are correct.
+
+\item[(C)]
+\begin{verbatim}"ACCCO"\end{verbatim}
+
+\item[(D)]
+\begin{verbatim}"OIICC"\end{verbatim}
+
+\item[(E)]
+\begin{verbatim}"OCCCA"\end{verbatim}
+
+\end{enumerate}
+\end{minipage}
+\vspace{10em}
+\filbreak\vfil\penalty-200\vfilneg
+
+\noindent
+\begin{minipage}{\textwidth}
+19. (1 point)
+Evaluate the following expression:
+\begin{verbatim}
+len("ABCD"[1:3])
+\end{verbatim}
+What value is produced?
+
+\begin{enumerate}
+\item[(A)]
+1
+
+\item[(B)]
+4
+
+\item[(C)]
+3
+
+\item[(D)]
+2
+
+\end{enumerate}
+\end{minipage}
+\vspace{10em}
+\filbreak\vfil\penalty-200\vfilneg
+
+\noindent
+\begin{minipage}{\textwidth}
+20. (1 point)
+Consider the following program:
+\begin{verbatim}
+s="CHARIZARD"
+x=""
+for i in range(0,len(s)):
+    if (i>3) and (i<6):
+        x+=s[i:i+2]
+\end{verbatim}
+What is the \textbf{value} of x after this program is executed?
+
+\begin{enumerate}
+\item[(A)]
+\begin{verbatim}"RI"\end{verbatim}
+
+\item[(B)]
+None of the other answers are correct.
+
+\item[(C)]
+\begin{verbatim}"IZZA"\end{verbatim}
+
+\item[(D)]
+\begin{verbatim}"ZA"\end{verbatim}
+
+\item[(E)]
+\begin{verbatim}"RIIZ"\end{verbatim}
+
+\end{enumerate}
+\end{minipage}
+\vspace{10em}
+\filbreak\vfil\penalty-200\vfilneg
+
+\noindent
+\begin{minipage}{\textwidth}
+21. (1 point)
+Evaluate the following expression:
+\begin{verbatim}
+"+".join("ABABABA".split("A"))
+\end{verbatim}
+What value is produced?
+
+\begin{enumerate}
+\item[(A)]
+\begin{verbatim}"ABABABA"\end{verbatim}
+
+\item[(B)]
+\begin{verbatim}"B+B+B"\end{verbatim}
+
+\item[(C)]
+None of the other answers are correct.
+
+\item[(D)]
+\begin{verbatim}"+B+B+B+"\end{verbatim}
+
+\end{enumerate}
+\end{minipage}
+\vspace{10em}
+\filbreak\vfil\penalty-200\vfilneg
+
+\noindent
+\begin{minipage}{\textwidth}
+22. (1 point)
+For this problem, you should compose a function which accomplishes a given task using the available code blocks arranged in the correct functional order.  \emph{We ignore indentation for this problem.}
+
+\texttt{find\_min} should accept a \texttt{list} and return the value of the \emph{minimum item} in the \texttt{list}.  (We use a large value to initialize our comparison in \texttt{min\_val}.)
+
+\begin{verbatim}
+def find_min(my_list):
+\end{verbatim}
+
+\begin{enumerate}[1]
+\item \texttt{min\_val = i}
+\item \texttt{min\_val = 1e300}
+\item \texttt{for i in range(len(my\_list)):}
+\item \texttt{if i < min\_val:}
+\item \texttt{min\_val = my\_list[i]}
+\item \texttt{return min\_val}
+\item \texttt{if my\_list[i] < min\_val:}
+\item \texttt{for i in range(my\_list):}
+\item \texttt{print(min\_val)}
+\end{enumerate}
+
+
+\begin{enumerate}
+\item[(A)]
+2, 8, 4, 5, 6
+
+\item[(B)]
+2, 3, 7, 5, 6
+
+\item[(C)]
+3, 2, 7, 5, 9
+
+\item[(D)]
+2, 3, 4, 1, 6
+
+\item[(E)]
+2, 3, 7, 1, 6
+
+\end{enumerate}
+\end{minipage}
+\vspace{10em}
+\filbreak\vfil\penalty-200\vfilneg
+
+\noindent
+\begin{minipage}{\textwidth}
+23. (1 point)
+Consider the following program:
+\begin{verbatim}
+def fun(a,b):
+    if a>b and a!=4:
+        return b==5
+    else:
+        return a==3
+a=5
+b=4
+print fun(a,b)
+\end{verbatim}
+What is printed out by this program?
+
+\begin{enumerate}
+\item[(A)]
+False
+
+\item[(B)]
+True
+
+\item[(C)]
+None of the other answers. This code is not valid.
+
+\item[(D)]
+5
+
+\item[(E)]
+4
+
+\end{enumerate}
+\end{minipage}
+\vspace{10em}
+\filbreak\vfil\penalty-200\vfilneg
+
+\noindent
+\begin{minipage}{\textwidth}
+24. (1 point)
+Consider the following program:
+\begin{verbatim}
+a=list("REDUCIO")
+a.sort()
+a[0],a[1]=a[-2],a[-1]
+x=""
+for e in a:
+    x=x+e
+\end{verbatim}
+What is the \textbf{value} of x after this program is executed?
+
+\begin{enumerate}
+\item[(A)]
+\begin{verbatim}"UREIORU"\end{verbatim}
+
+\item[(B)]
+None of the other answers are correct.
+
+\item[(C)]
+\begin{verbatim}"OIDUCIO"\end{verbatim}
+
+\item[(D)]
+\begin{verbatim}"IODUCIO"\end{verbatim}
+
+\item[(E)]
+\begin{verbatim}"RUEIORU"\end{verbatim}
+
+\end{enumerate}
+\end{minipage}
+\vspace{10em}
+\filbreak\vfil\penalty-200\vfilneg
+
+\noindent
+\begin{minipage}{\textwidth}
+25. (1 point)
+Consider the following program:
+\begin{verbatim}
+x=["tick","tock"]
+x[0]=x.sort()
+x=x[-2]
+\end{verbatim}
+What is the \textbf{type} of x after the program is run?
+
+\begin{enumerate}
+\item[(A)]
+None of the other answers are correct.
+
+\item[(B)]
+List
+
+\item[(C)]
+Tuple
+
+\item[(D)]
+None
+
+\item[(E)]
+String
+
+\end{enumerate}
+\end{minipage}
+\vspace{10em}
+\filbreak\vfil\penalty-200\vfilneg
+
+\noindent
+\begin{minipage}{\textwidth}
+26. (1 point)
+Consider the following program.
+\begin{verbatim}
+def fun(a,b):
+    return a-b
+x=0
+for i in range(1,4):
+    x=x+fun(i,x)
+\end{verbatim}
+After it is run, what is the final \textbf{value} of x?
+
+\begin{enumerate}
+\item[(A)]
+\begin{verbatim}3\end{verbatim}
+
+\item[(B)]
+\begin{verbatim}4\end{verbatim}
+
+\item[(C)]
+\begin{verbatim}5\end{verbatim}
+
+\item[(D)]
+None of the other answers are correct.
+
+\end{enumerate}
+\end{minipage}
+\vspace{10em}
+\filbreak\vfil\penalty-200\vfilneg
+
+
+\ifnum\maxrawpages<\thepage \maxrawpages=\thepage\fi
+
+\ifnum\thepage<16
+\loop
+\newpage \ \par \vspace*{\fill}\centerline{This page is intentionally left blank.}\vspace*{\fill}
+\ifnum \thepage<16
+\repeat
+\fi
+
+\ifnum\maxpadpages<\thepage \maxpadpages=\thepage\fi
+
+\ifnum\minpadpages>\thepage \minpadpages=\thepage\fi
+
+
+\cleardoublepage
+\message{Max raw (unpadded) length: \the\maxrawpages.}
+\message{Max padded length: \the\maxpadpages.}
+\message{Min padded length: \the\minpadpages.}
+\ifnum\maxpadpages>\minpadpages \message{WARNING: exams are not all the same length.}
+\else\message{Exams are all the same length.}\fi
+
+\end{document}
