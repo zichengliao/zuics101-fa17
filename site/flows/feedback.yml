@@ -58,7 +58,7 @@ groups:
             
             - 1 (Not at all)
             - 2
-            - 3
+            - ~CORRECT~ 3
             - 4
             - 5 (Very much)
 
@@ -76,7 +76,7 @@ groups:
             
             - 1 (Too fast)
             - 2
-            - 3 (Just right)
+            - ~CORRECT~ 3 (Just right)
             - 4
             - 5 (Too slow)
 
@@ -94,7 +94,7 @@ groups:
             
             - 1 (Not at all)
             - 2
-            - 3
+            - ~CORRECT~ 3
             - 4
             - 5 (Very much)
 
@@ -110,7 +110,7 @@ groups:
 
         choices:
             
-            - Lecture content
+            - ~CORRECT~ Lecture content
             - Lecture quizzes
             - Labs
             - Homework
@@ -128,7 +128,7 @@ groups:
 
         choices:
 
-            - Lecture content
+            - ~CORRECT~ Lecture content
             - Lecture quizzes
             - Labs
             - Homework
@@ -146,7 +146,7 @@ groups:
 
         choices:
 
-            - Live coding demonstrations
+            - ~CORRECT~ Live coding demonstrations
             - Documentation of concepts
             - Example code of concepts
             - Access to professor
@@ -165,7 +165,7 @@ groups:
         choices: |
 
             - Earlier than 6:00 p.m.
-            - What it is.
+            - ~CORRECT~ What it is.
             - Later than 6:00 p.m.  (Consider the effect this may have on your nightlife if you're inclined to procrastinate.)
 
     -
