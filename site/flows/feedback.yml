@@ -1,0 +1,183 @@
+title: "Mid-Semester Feedback"
+description: |
+    # Mid-Semester Feedback
+
+rules:
+  start:
+  -
+      if_has_role: [student, ta, instructor]
+      if_before: 2016-09-30 18:05 
+      permissions: [view]
+
+  access:
+  -
+      permissions: [view, modify, submit_answer, end_session]
+
+  grade_identifier: feedback_xc
+
+  grading:
+  -   credit_percent: 100
+
+groups:
+ - id: intro
+   pages:
+   -
+        type: Page
+        id: overview
+        content: |
+
+            # Mid-Semester Feedback
+            
+            As part of our process of making the course more effective for you, we would like to know about your experience in the course.
+
+            Please answer the following questions on a five-point scale, from 1 (Never) to 5 (Always).
+
+-
+    id: questions
+    shuffle: False
+    pages:
+
+    -
+        type: ChoiceQuestion
+        id: homework
+        value: 1
+        prompt: |
+            
+            # Homework
+
+            I feel that completing the homework has increased my understanding of the concepts.
+
+        choices: |
+            
+            - 1 (Not at all)
+            - 2
+            - 3
+            - 4
+            - 5 (Very much)
+
+    -
+        type: ChoiceQuestion
+        id: pacing
+        value: 1
+        prompt: |
+            
+            # Pacing
+
+            I feel that the pace of the course is ...
+
+        choices: |
+            
+            - 1 (Too fast)
+            - 2
+            - 3 (Just right)
+            - 4
+            - 5 (Too slow)
+
+    -
+        type: ChoiceQuestion
+        id: labs
+        value: 1
+        prompt: |
+            
+            # Labs
+
+            I feel that completing the labs has increased my understanding of the concepts.
+
+        choices: |
+            
+            - 1 (Not at all)
+            - 2
+            - 3
+            - 4
+            - 5 (Very much)
+
+    -
+        type: ChoiceQuestion
+        id: highval
+        value: 1
+        prompt: |
+            
+            # High Value
+
+            I feel that the *most* helpful part of the class so far has been...
+
+        choices: |
+            
+            - Lecture content
+            - Lecture quizzes
+            - Labs
+            - Homework
+            - Office hours
+
+    -
+        type: ChoiceQuestion
+        id: lowval
+        value: 1
+        prompt: |
+
+            # Low Value
+
+            I feel that the *least* helpful part of the class so far has been...
+
+        choices: |
+
+            - Lecture content
+            - Lecture quizzes
+            - Labs
+            - Homework
+            - Office hours
+
+    -
+        type: ChoiceQuestion
+        id: needsmore
+        value: 1
+        prompt: |
+
+            # What to Add
+
+            I feel that there should be more...
+
+        choices: |
+
+            - Live coding demonstrations
+            - Documentation of concepts
+            - Example code of concepts
+            - Access to professor
+            - Office hours
+
+    -
+        type: ChoiceQuestion
+        id: hwdeadline
+        value: 1
+        prompt: |
+
+            # When It's Due
+
+            I feel that the homework deadline should be...
+
+        choices: |
+
+            - Earlier than 6:00 p.m.
+            - What it is.
+            - Later than 6:00 p.m.  (Consider the effect this may have on your nightlife if you're inclined to procrastinate.)
+
+    -
+        type: HumanGradedTextQuestion
+        id: change
+        value: 1
+        prompt: |
+
+            # What Can We Change?
+
+            What would you change to make the course better?  (Keep it short---I have more than 700 of these to look at!)
+
+        rubric: |
+
+            (None yet)
+
+completion_text: |
+
+    # Thanks
+    
+    We will take your feedback into consideration for the rest of the semester.
+
