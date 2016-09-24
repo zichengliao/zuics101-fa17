@@ -54,7 +54,7 @@ groups:
 
             I feel that completing the homework has increased my understanding of the concepts.
 
-        choices: |
+        choices:
             
             - 1 (Not at all)
             - 2
@@ -72,7 +72,7 @@ groups:
 
             I feel that the pace of the course is ...
 
-        choices: |
+        choices:
             
             - 1 (Too fast)
             - 2
@@ -90,7 +90,7 @@ groups:
 
             I feel that completing the labs has increased my understanding of the concepts.
 
-        choices: |
+        choices:
             
             - 1 (Not at all)
             - 2
@@ -108,7 +108,7 @@ groups:
 
             I feel that the *most* helpful part of the class so far has been...
 
-        choices: |
+        choices:
             
             - Lecture content
             - Lecture quizzes
@@ -126,7 +126,7 @@ groups:
 
             I feel that the *least* helpful part of the class so far has been...
 
-        choices: |
+        choices:
 
             - Lecture content
             - Lecture quizzes
@@ -144,7 +144,7 @@ groups:
 
             I feel that there should be more...
 
-        choices: |
+        choices:
 
             - Live coding demonstrations
             - Documentation of concepts
@@ -156,7 +156,7 @@ groups:
         type: ChoiceQuestion
         id: hwdeadline
         value: 1
-        prompt: |
+        prompt:
 
             # When It's Due
 
