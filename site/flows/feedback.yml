@@ -19,9 +19,10 @@ rules:
   -   credit_percent: 100
 
 groups:
- - id: intro
-   pages:
-   -
+- 
+    id: intro
+    pages:
+    -
         type: Page
         id: overview
         content: |
