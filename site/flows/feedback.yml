@@ -19,6 +19,7 @@ rules:
         permissions: [view, submit_answer, end_session]
 
     grade_identifier: feedback_xc
+    grade_aggregation_strategy: use_latest
 
     grading:
     -   credit_percent: 100
