@@ -47,6 +47,7 @@ groups:
     -
         type: ChoiceQuestion
         id: homework
+        title: Homework
         value: 1
         prompt: |
             
@@ -65,6 +66,7 @@ groups:
     -
         type: ChoiceQuestion
         id: pacing
+        title: Pacing
         value: 1
         prompt: |
             
@@ -83,6 +85,7 @@ groups:
     -
         type: ChoiceQuestion
         id: labs
+        title: Labs
         value: 1
         prompt: |
             
@@ -101,6 +104,7 @@ groups:
     -
         type: ChoiceQuestion
         id: highval
+        title: HighValue
         value: 1
         prompt: |
             
@@ -119,6 +123,7 @@ groups:
     -
         type: ChoiceQuestion
         id: lowval
+        title: LowValue
         value: 1
         prompt: |
 
@@ -137,6 +142,7 @@ groups:
     -
         type: ChoiceQuestion
         id: needsmore
+        title: WhatElse
         value: 1
         prompt: |
 
@@ -155,6 +161,7 @@ groups:
     -
         type: ChoiceQuestion
         id: hwdeadline
+        title: Homework
         value: 1
         prompt:
 
