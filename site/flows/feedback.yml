@@ -3,15 +3,20 @@ description: |
     # Mid-Semester Feedback
 
 rules:
-  start:
-  -
-      if_has_role: [student, ta, instructor]
-      if_before: 2016-09-30 18:05 
-      permissions: [view]
+    start:
+    -
+        if_has_role: [student, ta, instructor]
+        if_before: 2016-09-30 18:05 
+        may_start_new_session: True
 
-  access:
-  -
-      permissions: [view, modify, submit_answer, end_session]
+    -
+        may_start_new_session: False
+        may_list_existing_sessions: False
+
+    access:
+    -
+        if_before: 2016-09-30 18:05
+        permissions: [view, submit_answer, end_session]
 
   grade_identifier: feedback_xc
 
