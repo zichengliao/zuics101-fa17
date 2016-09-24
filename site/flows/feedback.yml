@@ -162,7 +162,7 @@ groups:
 
             I feel that the homework deadline should be...
 
-        choices: |
+        choices:
 
             - Earlier than 6:00 p.m.
             - ~CORRECT~ What it is.
