@@ -21,7 +21,7 @@ chunks:
         | What                 | When and Where |
         | -------------------- | -------------- |
         | **Lectures**         | Mon/Wed 09h00–09h50; [A-0426](http://intlcampus.zju.edu.cn/en/content/campus-visit) |
-        | **Labs**             | Per-section, [see below](#labs); [A-0418](http://intlcampus.zju.edu.cn/en/content/campus-visit) [Digital Computer Laboratory](http://ada.fs.illinois.edu/0210.html) |
+        | **Labs**             | Per-section, [see below](#labs); [A-0418](http://intlcampus.zju.edu.cn/en/content/campus-visit) |
         | **Class URL**        | [`https://relate.cs.illinois.edu/course/zuics101fa16/`](https://relate.cs.illinois.edu/course/zuics101fa16/) |
         | **Class forum**      | <a href="https://c.zju.edu.cn/" target="_blank" role="button" class="btn btn-info">Blackboard &raquo;</a> |
         | **Instructor email** | [`taoxie@illinois.edu`](mailto:taoxie@illinois.edu) |
@@ -53,10 +53,10 @@ chunks:
         You should attend your own lab section to complete and submit
         assignments.  Exceptions must be approved in advance.
 
-        | Section | Lab Time        | TA                |
+        | Section | Lab Time        | TA/instructor                |
         | ------- | --------------- | ----------------- |
-        | A1     | Mon 08h00–09h50  | TBD               |
-        | B1     | Mon 10h00–11h50  | TBD               |
+        | A1     | Mon 08h00–09h50  | Zicheng Liao/Tao Xie          |
+        | B1     | Mon 10h00–11h50  | Zicheng Liao/Tao Xie          |
       
 
 
@@ -66,18 +66,11 @@ chunks:
 
         | Exam | Date | Supporting Resources |
         | ---- | ---- | -------------------- |
-        | Midterm #1 | Monday, October 3 (7:00–9:00 p.m.) (Begins sharply at 7:00!) | [Practice midterm](repocur:lectures/midterm1-practice-updated.pdf); locations below |
-        | Midterm #2 | Monday, November 14 (7:00–9:00 p.m.) (Begins sharply at 7:00!) | |
-        | Final | [To be determined by registrar's office](https://registrar.illinois.edu/fall2016schedulingguidelinespublic) | |
+        | Midterm #1 | To be determined; approximately on the day of the 12th lecture | [Practice midterm](repocur:lectures/midterm1-practice-updated.pdf) |
+        | Midterm #2 | Monday, November 14 (7:00–9:00 p.m.)  | |
+        | Final | To be determined| |
 
-        | Room | Lab Section |
-        | ---- | ----------- |
-        | [114](http://ada.fs.illinois.edu/0054Plan1.html) [David Kinley Hall](http://ada.fs.illinois.edu/0054.html) | AYA, AYB, AYC |
-        | [1404](http://ada.fs.illinois.edu/0563Plan1.html) [Siebel Center](http://ada.fs.illinois.edu/0563.html) | AYD, AYE, AYF |
-        | [66](http://ada.fs.illinois.edu/0041PLANB.html) [Main Library](http://ada.fs.illinois.edu/0041.html) | AYG, AYH, AYI |
-        | [141](http://ada.fs.illinois.edu/0159Plan1.html) [Wohlers Hall](http://ada.fs.illinois.edu/0159.html) | AYJ, AYK, AYL, AYM |
-        | [112](http://ada.fs.illinois.edu/0043Plan1.html) [Gregory Hall](http://ada.fs.illinois.edu/0043.html) | AYN, AYO, AYP, AYQ, AYR |
-
+       
         Conflict exams are available for students with approved exceptions (such as another exam at the same time).  Email course administration *prior* to the date of the midterm for more information.
 
 
@@ -88,6 +81,21 @@ chunks:
         | Office Hours    |
         | --------------- |
         | Wed 10h00–12h00 |
+        
+        
+        ## Text book 
+        
+        There is no text book for this course. However, you may find this book on 
+         
+        * [CodeAcademy] (https://www.codecademy.com/en/tracks/python)
+        * Book: [Introduction to Computation and Programming Using Python] (https://mitpress.mit.edu/books/introduction-computation-and-programming-using-python-0) ([a Chinese edition] (http://product.dangdang.com/1483202832.html)). 
+        * [Think Python] (http://www.greenteapress.com/thinkpython/)
+        * [Learning Python the Hard Way] (http://learnpythonthehardway.org/book/)
+        * [A Byte of Python] (http://www.swaroopch.com/notes/python/)
+        * [How to Think Like a Computer Scientist] (http://interactivepython.org/runestone/static/thinkcspy/toc.html#t-o-c)
+        * [Non-Programmers Tutorial for Python] (https://en.wikibooks.org/wiki/Non-Programmer%27s_Tutorial_for_Python_3)
+        * [The Python Tutorial] (https://docs.python.org/3/tutorial/)
+    
     
         ##  Policies
 
@@ -100,6 +108,12 @@ chunks:
         | Lecture quiz | 10% | Participation-based; can drop three |
         | Midterms  | 20% | |
         | Final     | 25% | Comprehensive |
+        
+        
+        ## References
+        
+        There is no physical textbook to buy for this course. Below, you will find references that will help you. Some are online textbooks. Others are interactive tutorials. They are listed here in order of quality. If you feel confused or lost, start with Code Academy.
+        
 
         ### Absence Policy
 
