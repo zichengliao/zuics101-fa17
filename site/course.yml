@@ -82,20 +82,6 @@ chunks:
         | --------------- |
         | Wed 10h00–12h00 |
         
-        
-        ## Text book 
-        
-        There is no text book for this course. However, you may find this book on 
-         
-        * [CodeAcademy] (https://www.codecademy.com/en/tracks/python)
-        * Book: [Introduction to Computation and Programming Using Python] (https://mitpress.mit.edu/books/introduction-computation-and-programming-using-python-0) ([a Chinese edition] (http://product.dangdang.com/1483202832.html)). 
-        * [Think Python] (http://www.greenteapress.com/thinkpython/)
-        * [Learning Python the Hard Way] (http://learnpythonthehardway.org/book/)
-        * [A Byte of Python] (http://www.swaroopch.com/notes/python/)
-        * [How to Think Like a Computer Scientist] (http://interactivepython.org/runestone/static/thinkcspy/toc.html#t-o-c)
-        * [Non-Programmers Tutorial for Python] (https://en.wikibooks.org/wiki/Non-Programmer%27s_Tutorial_for_Python_3)
-        * [The Python Tutorial] (https://docs.python.org/3/tutorial/)
-    
     
         ##  Policies
 
@@ -114,6 +100,15 @@ chunks:
         
         There is no physical textbook to buy for this course. Below, you will find references that will help you. Some are online textbooks. Others are interactive tutorials. They are listed here in order of quality. If you feel confused or lost, start with Code Academy.
         
+        * [CodeAcademy] (https://www.codecademy.com/en/tracks/python)
+        * Book: [Introduction to Computation and Programming Using Python] (https://mitpress.mit.edu/books/introduction-computation-and-programming-using-python-0) ([a Chinese edition] (http://product.dangdang.com/1483202832.html)). 
+        * [Think Python] (http://www.greenteapress.com/thinkpython/)
+        * [Learning Python the Hard Way] (http://learnpythonthehardway.org/book/)
+        * [A Byte of Python] (http://www.swaroopch.com/notes/python/)
+        * [How to Think Like a Computer Scientist] (http://interactivepython.org/runestone/static/thinkcspy/toc.html#t-o-c)
+        * [Non-Programmers Tutorial for Python] (https://en.wikibooks.org/wiki/Non-Programmer%27s_Tutorial_for_Python_3)
+        * [The Python Tutorial] (https://docs.python.org/3/tutorial/)
+    
 
         ### Absence Policy
 
