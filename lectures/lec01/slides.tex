@@ -12,26 +12,41 @@
 
 \hypersetup{pdfborder = {0 0 0}}
 
-\usetheme{SaoPaulo}
+%\usetheme{SaoPaulo}  %commented by Tao to avoid error; replace it with the line below
+\usetheme{Warsaw}
+
+
+
 
 \title{Welcome to CS \emph{101}!}
 \subtitle{Introduction to Programming}
 \author{CS101 Lecture \#1}
-\date{2016-08-22}
+\date{2016-09-26}
 
-\setcounter{showSlideNumbers}{1}
+%\setcounter{showSlideNumbers}{1} %commented by Tao to avoid error
 
 \begin{document}
-  \setcounter{showProgressBar}{0}
-  \setcounter{showSlideNumbers}{0}
+%  \setcounter{showProgressBar}{0}  %commented by Tao to avoid error
+%  \setcounter{showSlideNumbers}{0}  %commented by Tao to avoid error
+
+%Tao added below to avoid errors
+\newcommand{\Enlarge}{\large}
+\newcommand{\CSBase}{blue}
+\newcommand{\CSGradBot}{orange}
+\newcommand{\CSAltDark}{black}
+\newcommand{\CSPureBase}{blue}
+
+\newcommand{\myitem}{\item}
+\newcommand{\mysubitem}{\item}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \frame{\titlepage}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \setcounter{framenumber}{0}
-\setcounter{showProgressBar}{1}
-\setcounter{showSlideNumbers}{1}
+%\setcounter{showProgressBar}{1}  %commented by Tao to avoid error
+%\setcounter{showSlideNumbers}{1}  %commented by Tao to avoid error
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Class Structure}
@@ -39,10 +54,11 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}[plain,c]
   \frametitle{Class Website}
-  \Enlarge
+  \Enlarge 
 
   \begin{center}
-    \textcolor{CS101Base}{\Huge \texttt{go.illinois.edu/cs101}}
+    %\textcolor{CS101Base}{\Huge \texttt{go.illinois.edu/cs101}}%commented by Tao to avoid error; replace it with the line below
+    \textcolor{\CSBase}{\Huge \texttt{https://relate.cs.illinois.edu/course/zuics101fa16/}}
   \end{center}
 \end{frame}
 
@@ -63,12 +79,14 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
   \frametitle{Required Supplies}
-  \Enlarge
+  %\Enlarge %commented by Tao to avoid error
 
   \begin{itemize}
-    \myitem i>clicker \\ \textcolor{CS101GradBot}{\footnotesize\hspace{1em} Grades count starting Wed 08-31} \pause
-    \myitem CodeLab account \\ \textcolor{CS101GradBot}{\footnotesize\hspace{1em} Instructions in \texttt{hw01}} \pause
-    \myitem No textbook!
+    %\myitem i>clicker \\ \textcolor{\CSGradBot}{\footnotesize\hspace{1em} Grades count starting Wed 08-31} \pause  %commented by Tao to avoid error
+    %\myitem CodeLab account \\ \textcolor{\CSGradBot}{\footnotesize\hspace{1em} Instructions in \texttt{hw01}} \pause %commented by Tao to avoid error
+    %\myitem No textbook! %commented by Tao to avoid error
+    \item CodeLab account \\ \textcolor{\CSGradBot}{\footnotesize\hspace{1em} Instructions in \texttt{hw01}} %\pause %commented by Tao to avoid error
+     %\myitem No textbook! %commented by Tao to avoid error
   \end{itemize}
 \end{frame}
 
@@ -80,8 +98,8 @@
   \begin{itemize}
     \myitem No late homework submissions. \pause
     \myitem All machine-generated grades are final. \pause
-    \myitem Late registrants should keep up with work. \\ \textcolor{CS101GradBot}{\footnotesize\hspace{1em} Corollary:  No extensions or exceptions for late registration.} \pause
-    \myitem Get help at Piazza forum. \\ \textcolor{CS101GradBot}{\footnotesize\hspace{1em} Be civil to staff and peers. \\ All posts containing solutions should be marked as private.}
+    \myitem Late registrants should keep up with work. \\ \textcolor{\CSGradBot}{\footnotesize\hspace{1em} Corollary:  No extensions or exceptions for late registration.} \pause
+    \myitem Get help at Blackboard forum. \\ \textcolor{\CSGradBot}{\footnotesize\hspace{1em} Be civil to staff and peers. \\ All posts containing solutions should be marked as private.}
   \end{itemize}
 \end{frame}
 
@@ -91,7 +109,7 @@
   \Enlarge
 
   \begin{center}
-    \textcolor{CS101Base}{\Huge Lab \#1 begins today!}
+    \textcolor{\CSBase}{\Huge Lab \#1 this Friday!}
   \end{center}
 \end{frame}
 
@@ -99,76 +117,76 @@
 \section{Programming}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}[fragile]
-  \frametitle{Early mathematics}
+%\begin{frame}[fragile]
+%  \frametitle{Early mathematics}
 
-  \begin{tabular}{cc}
-  \includegraphics[height=0.75\textheight]{./img/ybc7289.jpg}
-  \includegraphics[height=0.375\textheight]{./img/ybc7289-schematic.jpg}
-  \end{tabular}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}[fragile]
-  \frametitle{Early mathematics}
-
-  \begin{tabular}{cc}
-  \includegraphics[height=0.75\textheight]{./img/pentagon.png}
-  \end{tabular}
-\end{frame}
+%  \begin{tabular}{cc}
+%  \includegraphics[height=0.75\textheight]{./img/ybc7289.jpg}
+%  \includegraphics[height=0.375\textheight]{./img/ybc7289-schematic.jpg}
+%  \end{tabular}
+%\end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}[fragile]
-  \frametitle{Early calculation}
+%\begin{frame}[fragile]
+%  \frametitle{Early mathematics}
 
-  \includegraphics[height=0.25\textheight]{./img/abacus.jpg} \\
-  \includegraphics[width=0.75\textwidth]{./img/pascal.jpg}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}[fragile]
-  \frametitle{Early calculation}
-
-  \includegraphics[height=0.75\textheight]{./img/al-khwarizmi.png}
-\end{frame}
+%  \begin{tabular}{cc}
+%  \includegraphics[height=0.75\textheight]{./img/pentagon.png}
+%  \end{tabular}
+%\end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}[fragile]
-  \frametitle{Characteristica universalis}
+%\begin{frame}[fragile]
+%  \frametitle{Early calculation}
 
-  \begin{tabular}{cc}
-  \includegraphics[height=0.75\textheight]{./img/wilkins.jpg}
-  \includegraphics[width=0.5\textwidth]{./img/llull.png}
-  \end{tabular}
-\end{frame}
+%  \includegraphics[height=0.25\textheight]{./img/abacus.jpg} \\
+%  \includegraphics[width=0.75\textwidth]{./img/pascal.jpg}
+%\end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}[fragile]
-  \frametitle{Modern calculation}
+%\begin{frame}[fragile]
+%  \frametitle{Early calculation}
 
-  \includegraphics[height=0.75\textheight]{./img/babbage-1.jpg}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}[fragile]
-  \frametitle{Modern calculation}
-
-  \includegraphics[height=0.75\textheight]{./img/jacquard.jpg}
-\end{frame}
+%  \includegraphics[height=0.75\textheight]{./img/al-khwarizmi.png}
+%\end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}[fragile]
-  \frametitle{Modern calculation}
+%\begin{frame}[fragile]
+%  \frametitle{Characteristica universalis}
 
-  \includegraphics[height=0.75\textheight]{./img/babbage-2.png}
-\end{frame}
+%  \begin{tabular}{cc}
+%  \includegraphics[height=0.75\textheight]{./img/wilkins.jpg}
+%  \includegraphics[width=0.5\textwidth]{./img/llull.png}
+%  \end{tabular}
+%\end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}[fragile]
-  \frametitle{Modern calculation}
+%\begin{frame}[fragile]
+%  \frametitle{Modern calculation}
 
-  \includegraphics[height=0.75\textheight]{./img/babbage-3.jpg}
-\end{frame}
+%  \includegraphics[height=0.75\textheight]{./img/babbage-1.jpg}
+%\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\begin{frame}[fragile]
+%  \frametitle{Modern calculation}
+
+%  \includegraphics[height=0.75\textheight]{./img/jacquard.jpg}
+%\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\begin{frame}[fragile]
+%  \frametitle{Modern calculation}
+
+%  \includegraphics[height=0.75\textheight]{./img/babbage-2.png}
+%\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\begin{frame}[fragile]
+%  \frametitle{Modern calculation}
+
+%  \includegraphics[height=0.75\textheight]{./img/babbage-3.jpg}
+%\end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}[fragile]
@@ -253,18 +271,18 @@
   \Enlarge
 %TODO
   \begin{Verbatim}[commandchars=\\\{\}]
-\textcolor{CS101AltDark}{
+\textcolor{\CSAltDark}{
 depth * area = volume} \pause
 
-\textcolor{CS101AltDark}{
+\textcolor{\CSAltDark}{
 volume of rain / volume per raindrop}
-\textcolor{CS101AltDark}{
+\textcolor{\CSAltDark}{
 \hspace{2cm}= number of raindrops} \pause
 
-\textcolor{CS101PureBase}{
+\textcolor{\CSPureBase}{
 volume_rain = area * depth} \pause
 
-\textcolor{CS101PureBase}{
+\textcolor{\CSPureBase}{
 n_raindrops = volume_rain / volume_raindrop}
   \end{Verbatim}
 \end{frame}
@@ -329,11 +347,11 @@ n_raindrops = volume_rain / volume_raindrop}
   \frametitle{Reminders}
   \Enlarge
 
-  \begin{itemize}
-  \myitem i>clicker \\ \textcolor{CS101GradBot}{\footnotesize\hspace{1em} Grades count starting Wed 08-31}
-  \end{itemize}
+  %\begin{itemize}
+ % \myitem i>clicker \\ \textcolor{\CSGradBot}{\footnotesize\hspace{1em} Grades count starting Wed 08-31}
+  %\end{itemize}
   \begin{center}
-    \textcolor{CS101Base}{\Huge \texttt{go.illinois.edu/cs101}}
+    \textcolor{\CSBase}{\Small \texttt{https://relate.cs.illinois.edu/course/zuics101fa16/}}
   \end{center}
 \end{frame}
 
