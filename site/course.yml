@@ -25,7 +25,9 @@ chunks:
         | **Class URL**        | [`https://relate.cs.illinois.edu/course/zuics101fa16/`](https://relate.cs.illinois.edu/course/zuics101fa16/) |
         | **Class forum**      | <a href="https://c.zju.edu.cn/" target="_blank" role="button" class="btn btn-info">Blackboard &raquo;</a> |
         | **Instructor email** | [`taoxie@illinois.edu`](mailto:taoxie@illinois.edu) |
-        | **Python** | <a href="https://repl.it/languages/python3" target="_blank" role="button" class="btn btn-info">Run online &raquo;</a> |
+        | **TA email**         | [`zliao@zju.edu.cn`](mailto: zliao@zju.edu.cn) |
+        | **repl.it Python** | <a href="https://repl.it/languages/python3" target="_blank" role="button" class="btn btn-info">Run online &raquo;</a> |
+        | **Online Python Tutor** | <a href="http://www.pythontutor.com/" target="_blank" role="button" class="btn btn-info">Debug/visualize online &raquo;</a> |
 
 
         ##  Lectures
@@ -38,7 +40,7 @@ chunks:
 
         ##  Homework
 
-        Homework assignments are due at 6:00 p.m. on the due date.
+        Homework assignments are due at 6:00 p.m. on the due date. Many homework assignments are from [the CodeLab site](http://www.tcgo1.com/)
 
         |            |          |          |
         | ---------- | -------- | -------- |
@@ -62,13 +64,13 @@ chunks:
 
         ##  Examinations
 
-        Please bring your I-Card and arrive early.  Consider visiting the location ahead of time so you know where you'll be taking the exam.
+        Please bring your campus card and arrive early.  Consider visiting the location ahead of time so you know where you'll be taking the exam.
 
         | Exam | Date | Supporting Resources |
         | ---- | ---- | -------------------- |
         | Midterm #1 | To be determined; approximately on the day of the 12th lecture | [Practice midterm](repocur:lectures/midterm1-practice-updated.pdf) |
-        | Midterm #2 | Monday, November 14 (7:00–9:00 p.m.)  | |
-        | Final | To be determined| |
+        | Midterm #2 | To be determined; approximately six weeks after Midterm #1 | |
+        | Final | To be determined; during 2017-01-16 till 2017-01-22 | |
 
        
         Conflict exams are available for students with approved exceptions (such as another exam at the same time).  Email course administration *prior* to the date of the midterm for more information.
@@ -76,7 +78,7 @@ chunks:
 
         ##  Office Hours
 
-        All office hours will be held in [0222](http://ada.fs.illinois.edu/0563PLANB.html) [Siebel Center](http://ada.fs.illinois.edu/0563.html).
+        All office hours will be held in [Office 410 Arts and Science Building](http://intlcampus.zju.edu.cn/en/content/campus-visit).
 
         | Office Hours    |
         | --------------- |
@@ -101,7 +103,7 @@ chunks:
         There is no physical textbook to buy for this course. Below, you will find references that will help you. Some are online textbooks. Others are interactive tutorials. They are listed here in order of quality. If you feel confused or lost, start with Code Academy.
         
         * [CodeAcademy](https://www.codecademy.com/en/tracks/python)
-        * Book: [Introduction to Computation and Programming Using Python](https://mitpress.mit.edu/books/introduction-computation-and-programming-using-python-0) ([a Chinese edition](http://product.dangdang.com/1483202832.html))
+        * Book: [Introduction to Computation and Programming Using Python](https://mitpress.mit.edu/books/introduction-computation-and-programming-using-python-0) ([a Chinese edition](http://product.dangdang.com/1483202832.html)), [archive.org](https://archive.org/details/IntroductionToComputationAndProgrammingUsingPythonRevisedGuttagJohnV.)
         * [Think Python](http://www.greenteapress.com/thinkpython/)
         * [Learning Python the Hard Way](http://learnpythonthehardway.org/book/)
         * [A Byte of Python](http://www.swaroopch.com/notes/python/)
@@ -112,13 +114,13 @@ chunks:
 
         ### Absence Policy
 
-        Students should attend the lecture and lab section for which they registered, or they will receive a zero for that lecture attendance or lab. Permitted absences require proof of overriding considerations. Official proof of absence need to be in forms of doctor's note or letter provided by an authority that clearly states that the purpose of the letter is to prove absence; examples include a doctor's note, travel proof from an athletic team, etc. Special events might be taken into consideration only if it was contacted at least 72 hours in advance. To request for absence, students shall email course administration [cs101admin@cs.illinois.edu](mailto:cs101admin@cs.illinois.edu). If the request is for a lab absence, the TA of the lab section should also be cc'd.
+        Students should attend the lecture and lab section for which they registered, or they will receive a zero for that lecture attendance or lab. Permitted absences require proof of overriding considerations. Official proof of absence need to be in forms of doctor's note or letter provided by an authority that clearly states that the purpose of the letter is to prove absence; examples include a doctor's note, travel proof from an athletic team, etc. Special events might be taken into consideration only if it was contacted at least 72 hours in advance. To request for absence, students shall email course administration [taoxie@illinois.edu](mailto: taoxie@illinois.edu). If the request is for a lab absence, the TA of the lab section should also be cc'd.
 
         When a student has a permitted absence for lab, make-up labs will be arranged. Make-up labs will be held in office hours under supervision of a course TA.
 
         ### Academic Integrity
 
-        Cheating not only robs you of an opportunity to learn, it also devalues your peers' hard work. Because of this, we take cheating very seriously in this course. The first case of cheating will result in a zero on the assignment or exam. The second case of cheating will result in a zero for the course. We will also report instances of cheating to the college and to your department. You'll find the official university policies on academic integrity [here](http://studentcode.illinois.edu/article1_part4_1-402.html). You can learn more about the Computer Science Department's stance [here](https://wiki.illinois.edu//wiki/display/undergradProg/Honor+Code).
+        Cheating not only robs you of an opportunity to learn, it also devalues your peers' hard work. Because of this, we take cheating very seriously in this course. The first case of cheating will result in a zero on the assignment or exam. The second case of cheating will result in a zero for the course. We will also report instances of cheating to the college and to your department. You'll find the official UIUC university policies on academic integrity [here](http://studentcode.illinois.edu/article1_part4_1-402.html). You can learn more about the UIUC Computer Science Department's stance [here](https://wiki.illinois.edu//wiki/display/undergradProg/Honor+Code).
 
         Plagiarism is also very easy to detect in a programming class. Do not take shortcuts. Always do your own work. Note that we encourage discussion on course content. However, please write answers/codes to homework and lab assignments on your own (unless in some labs when you are instructed by your TA to complete assignments in pairs or groups).
 
