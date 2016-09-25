@@ -1,0 +1,374 @@
+{% macro indented_include(filename, n) -%}{%- filter indent(n) -%}{%- include filename -%}{%- endfilter %}{%- endmacro %}
+
+{# {{{ homework rules #}
+
+{% macro hw_header(nr) -%}
+title: "Homework {{nr}}"
+description: |
+
+    # Homework {{nr}}
+
+completion_text: |
+
+    # All done!
+
+    You have successfully submitted your homework set {{nr}}.
+
+
+rules:
+  tags:
+    - main
+
+  start:
+    -
+      if_after: hw_due {{nr}} - 3 weeks
+      if_before: hw_due {{nr}}
+      if_has_role: [student, ta, instructor]
+      if_has_fewer_tagged_sessions_than: 1
+      tag_session: main
+      may_start_new_session: True
+      may_list_existing_sessions: True
+
+    -
+      may_start_new_session: False
+      may_list_existing_sessions: True
+
+  access:
+    -
+      if_has_tag: null
+      permissions: [view]
+
+    -
+      if_after: end_of_class
+      if_has_role: [student]
+      permissions: []
+
+    -
+      # Unfinished full-credit session marked 'end' after due date.
+      if_has_tag: main
+      if_in_progress: True
+      if_after: hw_due {{nr}}
+      if_expiration_mode: end
+      message: |
+        The due date has passed. If you have marked your session to
+        end at the deadline, it will receive full credit, but it
+        will end automatically fairly soon.
+      permissions: [view, submit_answer, see_correctness, change_answer]
+
+    -
+      # Unfinished Full-credit session before due date.
+      if_has_tag: main
+      if_in_progress: True
+      permissions: [view, submit_answer, end_session, see_correctness, change_answer]
+
+    -
+      # Full-credit session before due date. Don't show answer.
+      if_has_tag: main
+      if_before: hw_due {{nr}}
+      if_in_progress: False
+      permissions: [view, see_correctness]
+
+    -
+      # Full-credit session after due date? Reveal answer.
+      if_has_tag: main
+      if_after: hw_due {{nr}}
+      if_in_progress: False
+      permissions: [view, see_correctness, see_answer_before_submission, see_answer_after_submission]
+  
+  grade_identifier: "hw_{{nr}}"
+
+  grade_aggregation_strategy: max_grade
+
+  grading:
+
+    -
+      if_has_tag: main
+      credit_percent: 100
+      due: hw_due {{nr}}
+      description: "Full credit"
+
+    - 
+      credit_percent: 0
+      description: "Late"
+
+{%- endmacro %}
+
+{% macro hw_header_preview() -%}
+title: "Homework Preview"
+description: |
+
+    # Homework Preview
+
+completion_text: |
+
+    # All done!
+
+rules:
+  tags:
+    - main
+
+  start:
+    -
+      if_has_role: [ta, instructor]
+      if_has_fewer_sessions_than: 1
+      may_start_new_session: True
+      may_list_existing_sessions: True
+      tag_session: main
+
+    -
+      if_has_role: [ta, instructor]
+      may_start_new_session: False
+      may_list_existing_sessions: True
+
+  access:
+    -
+      if_has_role: [ta,instructor]
+      permissions: [view, submit_answer, end_session, see_correctness, see_answer_before_submission,
+        see_answer_after_submission, change_answer, set_roll_over_expiration_mode]
+
+  grading:
+    -
+      grade_identifier: null
+
+{%- endmacro %}
+
+{# }}} #}
+
+{# {{{ quiz rules #}
+
+{% macro quiz_header(nr, identifier, description, due_offset_hours=0) -%}
+title: "Quiz: {{description}}"
+description: |
+
+    # Quiz: {{description}}
+
+rules:
+  tags:
+    - regular
+    - practice
+
+  start:
+    -
+      if_has_role: [unenrolled]
+      may_start_new_session: True
+      may_list_existing_sessions: False
+
+    -
+      if_after: lecture_n {{nr}} - 4 weeks
+      if_before: lecture_n {{nr}} + 1 week
+      if_has_role: [student, ta, instructor]
+      if_has_fewer_sessions_than: 3
+      tag_session: regular
+      may_start_new_session: True
+      may_list_existing_sessions: True
+
+    -
+      if_has_role: [student, ta, instructor]
+      tag_session: practice
+      may_start_new_session: True
+      may_list_existing_sessions: True
+
+  access:
+
+    -
+      if_has_role: [unenrolled]
+      permissions: [view]
+
+    -
+      if_after: end_of_class
+      if_has_role: [student]
+      permissions: []
+
+    -
+      if_has_role: [student, instructor, ta]
+      if_in_progress: True
+      permissions: [view, submit_answer, end_session, see_correctness]
+
+    -
+      if_has_role: [student, instructor, ta]
+      if_in_progress: False
+      permissions: [view, see_correctness, see_answer_after_submission]
+
+  grading:
+
+    -
+      if_has_tag: practice
+      description: "Practice session"
+      grade_identifier: null
+
+    -
+      if_completed_before: lecture_n {{nr}} + {{due_offset_hours}} hours
+      description: "Graded session at full credit"
+      grade_identifier: "quiz_{{identifier}}"
+      grade_aggregation_strategy: max_grade
+      due: lecture_n {{nr}} + {{due_offset_hours}} hours
+
+    -
+      if_completed_before: lecture_n {{nr}} + 1 week
+      description: "Graded session at half credit"
+      credit_percent: 50
+      grade_identifier: "quiz_{{identifier}}"
+      grade_aggregation_strategy: max_grade
+      due: lecture_n {{nr}} + 1 week
+
+    -
+      grade_identifier: null
+
+completion_text: |
+
+    # Done
+
+    See you in class!
+
+{%- endmacro %}
+
+{# }}} #}
+
+{# {{{ quiz extra question #}
+
+{%- macro quiz_have_question() %}
+type: SurveyTextQuestion
+id: question
+title: Got a question?
+prompt: |
+
+    # Got a question?
+
+    If you'd like to suggest a question or some material that we should cover
+    at the beginning of next class, let me know below.
+
+    *   This is best for conceptual questions that fit (somewhat) with where
+        the lecture is currently. For example, unless very many people request
+        it, I'm not likely to dive into details of one homework problem or
+        another. (The discussion forum is a better spot for that.) But
+        if you couldn't figure out how to do some of the quiz problems, or if
+        something in the previous lecture or video was unclear, *please let me
+        know*.
+
+    *   I don't have a way to respond right here, so if you'd like
+        to be sure you get an answer, use our discussion forum, linked from
+        the class web page.
+
+    *Thanks for your help!*
+
+{%- endmacro %}
+
+{# }}} #}
+
+{# {{{ no-credit quizzes #}
+
+{%- macro no_credit_quiz_header(title) %}
+
+title: {{ title }}
+description: |
+
+    # {{ title }}
+
+rules:
+
+  access:
+    -
+      if_after: end_of_class
+      if_has_role: [student, unenrolled]
+      permissions: []
+
+    -
+      if_in_progress: True
+      if_has_role: [student, ta, instructor]
+      permissions: [view, submit_answer, end_session, see_correctness]
+
+    -
+      if_in_progress: True
+      if_has_role: [student, ta, instructor]
+      permissions: [view, see_correctness, see_answer_after_submission]
+
+  grading:
+    -
+      grade_identifier: null
+
+{%- endmacro %}
+
+{# }}} #}
+
+{# {{{ in-class quizzes #}
+
+{%- macro in_class_quiz_header(title) %}
+
+title: "In-class work: {{ title }}"
+description: |
+
+    # In-class work: {{ title }}
+
+rules:
+
+  start:
+    - may_start_new_session: True
+      may_list_existing_sessions: True
+
+  access:
+    -
+      if_after: end_of_class
+      if_has_role: [student]
+      permissions: []
+
+    -
+      if_in_progress: True
+      if_has_role: [student, ta, instructor, unenrolled]
+      permissions: [view, submit_answer, end_session, see_correctness]
+
+    -
+      if_in_progress: False
+      if_has_role: [student, ta, instructor]
+      permissions: [view, see_correctness, see_answer_after_submission]
+
+  grading:
+    -
+      grade_identifier: null
+
+completion_text: |
+
+    All done!
+
+    Enjoy the rest of the lecture.
+
+{%- endmacro %}
+
+{# }}} #}
+
+{# {{{ video flow #}
+
+{% macro video_flow(name, description, video_name=None) -%}
+
+title: {{description}}
+description: |
+
+    # Pre-lecture: {{description}}
+
+groups:
+ - id: video
+   pages:
+
+    -
+        type: Page
+        id: video
+        content: |
+
+            # {{description}}
+
+            {% from "content-macros.jinja" import video %}
+            {{ video(video_name or name)|indent(12) }}
+
+            {{ caller()|indent(12) }}
+
+completion_text: |
+
+    # Almost done!
+
+    <a href="flow:quiz-{{name}}" role="button"
+    class="btn btn-primary">Quiz &raquo;</a>
+
+{%- endmacro %}
+
+{# }}} #}
+
+# vim: filetype=yaml:foldmethod=marker

@@ -1,0 +1,147 @@
+chunks:
+
+-
+    title: "CS 101 Fall 2016"
+    id: welcome
+    rules:
+    -
+        if_after: 2016-08-19 00:00:00
+        if_before: 2016-12-31 00:00:00
+        weight: 100
+
+    -
+        weight: 0
+
+    content: |
+
+        #   CS 101—Introduction to Computing for Engineering and Science
+
+        ##  Resources
+
+        | What                 | When and Where |
+        | -------------------- | -------------- |
+        | **Lectures**         | Mon/Wed 09h00–09h50; [Foellinger Auditorium](http://ada.fs.illinois.edu/0007.html) |
+        | **Labs**             | Per-section, [see below](#labs); [L416](http://ada.fs.illinois.edu/0210PLANB.html) [Digital Computer Laboratory](http://ada.fs.illinois.edu/0210.html) |
+        | **Class URL**        | [`go.illinois.edu/cs101/`](http://go.illinois.edu/cs101/) |
+        | **Class forum**      | <a href="https://piazza.com/illinois/fall2016/cs101/home" target="_blank" role="button" class="btn btn-info">Piazza &raquo;</a> <a href="https://piazza.com/illinois/fall2016/cs101" target="_blank" role="button" class="btn btn-default">Enroll (one time) &raquo;</a> |
+        | **Instructor email** | [`cs101admin@cs.illinois.edu`](mailto:cs101admin@cs.illinois.edu) |
+        | **Python** | <a href="https://repl.it/languages/python3" target="_blank" role="button" class="btn btn-info">Run online &raquo;</a> |
+
+
+        ##  Lectures
+
+        | Lecture | Date       | Supporting Resources |
+        | ------- | ---------- | -------------------- |
+        | [Lecture #1:  introduction](repocur:lectures/lec01.pdf) | 2016-08-22 |  |
+        | [Lecture #2:  literals, variables](repocur:lectures/lec02.pdf) | 2016-08-24 | [Notebook](https://github.com/UI-CS101/cs101-fa16/blob/master/lec02.ipynb) |
+        | [Lecture #3:  data types (`int`, `float`, `str`)](repocur:lectures/lec03.pdf) | 2016-08-29 |  |
+        | [Lecture #4:  string formatting, functions](repocur:lectures/lec04.pdf) | 2016-08-31 | [Python session](repocur:lectures/lec04.txt) |
+        | [Lecture #5:  methods, coding](repocur:lectures/lec05.pdf) | 2016-09-07 | [Notebook](https://github.com/UI-CS101/cs101-fa16/blob/master/lec05.ipynb) |
+        | [Lecture #6:  functions, conditionals](repocur:lectures/lec06.pdf) | 2016-09-12 |  |
+        | [Lecture #7:  lists, `while` loops](repocur:lectures/lec07.pdf) | 2016-09-14 | [Python session](repocur:lectures/lec07.txt) |
+        | [Lecture #8:  branched conditionals, `for` loops, range](repocur:lectures/lec08.pdf) | 2016-09-19 | [Python session + homework commentary](repocur:lectures/lec08-hw.txt) |
+        | [Lecture #9:  mutability, list and string methods](repocur:lectures/lec09.pdf) | 2016-09-21 | [Python session](repocur:lectures/lec09.txt) |
+
+
+        ##  Homework
+
+        Homework assignments are due at 6:00 p.m. on the due date.
+
+        |            |          |          |
+        | ---------- | -------- | -------- |
+        | [![](repocur:img/banner-hw01.png)](flow:hw01) <br/> **Due** 2016-08-31 | [![](repocur:img/banner-hw02.png)](flow:hw02) <br/> **Due** 2016-09-09 | [![](repocur:img/banner-hw03.png)](flow:hw03) <br/> **Due** 2016-09-16 |
+        | [![](repocur:img/banner-hw04.png)](flow:hw04) <br/> **Due** 2016-09-23 | [![](repocur:img/banner-hw05.png)](flow:hw05) <br/> **Due** 2016-09-30 | [![](repocur:img/banner-feedback.png)](flow:feedback) <br/> **Due** 2016-09-30 |
+
+
+        ##  Labs
+        <a name="labs"></a>
+
+        All labs meet in [L416](http://ada.fs.illinois.edu/0210PLANB.html) [Digital Computer Laboratory](http://ada.fs.illinois.edu/0210.html).
+
+        You should attend your own lab section to complete and submit
+        assignments.  Exceptions must be approved in advance.
+
+        | Section | Lab Time        | TA                |
+        | ------- | --------------- | ----------------- |
+        | AYA     | Mon 11h00–12h50 | Ritwika Ghosh     |
+        | AYB     | Mon 13h00–14h50 | Wajih Ul Hassan   |
+        | AYC     | Mon 15h00–16h50 | Ritwika Ghosh     |
+        | AYD     | Tue 09h00–10h50 | Siddharth Atreya  |
+        | AYE     | Tue 11h00–12h50 | Neetesh Sharma    |
+        | AYF     | Tue 13h00–14h50 | Neetesh Sharma    |
+        | AYG     | Tue 15h00–16h50 | Chaoqun Liu       |
+        | AYH     | Wed 11h00–12h50 | Lunan Li          |
+        | AYI     | Wed 13h00–14h50 | Hong Cheng        |
+        | AYJ     | Wed 15h00–16h50 | Lunan Li          |
+        | AYK     | Thu 09h00–10h50 | Anusri Pampari    |
+        | AYL     | Thu 11h00–12h50 | Wajih Ul Hassan   |
+        | AYM     | Thu 13h00–14h50 | Siddharth Atreya  |
+        | AYN     | Thu 15h00–16h50 | Chaoqun Liu       |
+        | AYO     | Fri 09h00–10h50 | Anusri Pampari    |
+        | AYP     | Fri 11h00–12h50 | Anand Bhattad     |
+        | AYQ     | Fri 13h00–14h50 | Hong Cheng        |
+        | AYR     | Fri 15h00–16h50 | Anand Bhattad     |
+
+        <a href="http://davis68.web.engr.illinois.edu:8888/" target="_blank" role="button" class="btn btn-info">Lab queue &raquo;</a>
+
+
+        ##  Examinations
+
+        Please bring your I-Card and arrive early.  Consider visiting the location ahead of time so you know where you'll be taking the exam.
+
+        | Exam | Date | Supporting Resources |
+        | ---- | ---- | -------------------- |
+        | Midterm #1 | Monday, October 3 (7:00–9:00 p.m.) (Begins sharply at 7:00!) | [Practice midterm](repocur:lectures/midterm1-practice-updated.pdf); locations below |
+        | Midterm #2 | Monday, November 14 (7:00–9:00 p.m.) (Begins sharply at 7:00!) | |
+        | Final | [To be determined by registrar's office](https://registrar.illinois.edu/fall2016schedulingguidelinespublic) | |
+
+        | Room | Lab Section |
+        | ---- | ----------- |
+        | [114](http://ada.fs.illinois.edu/0054Plan1.html) [David Kinley Hall](http://ada.fs.illinois.edu/0054.html) | AYA, AYB, AYC |
+        | [1404](http://ada.fs.illinois.edu/0563Plan1.html) [Siebel Center](http://ada.fs.illinois.edu/0563.html) | AYD, AYE, AYF |
+        | [66](http://ada.fs.illinois.edu/0041PLANB.html) [Main Library](http://ada.fs.illinois.edu/0041.html) | AYG, AYH, AYI |
+        | [141](http://ada.fs.illinois.edu/0159Plan1.html) [Wohlers Hall](http://ada.fs.illinois.edu/0159.html) | AYJ, AYK, AYL, AYM |
+        | [112](http://ada.fs.illinois.edu/0043Plan1.html) [Gregory Hall](http://ada.fs.illinois.edu/0043.html) | AYN, AYO, AYP, AYQ, AYR |
+
+        Conflict exams are available for students with approved exceptions (such as another exam at the same time).  Email course administration *prior* to the date of the midterm for more information.
+
+
+        ##  Office Hours
+
+        All office hours will be held in [0222](http://ada.fs.illinois.edu/0563PLANB.html) [Siebel Center](http://ada.fs.illinois.edu/0563.html).
+
+        | Office Hours    |
+        | --------------- |
+        | Mon 11h00–13h00 |
+        | Wed 11h00–16h00 |
+        | Fri 13h00–15h00 |
+
+        <a href="http://davis68.web.engr.illinois.edu:8889/" target="_blank" role="button" class="btn btn-info">Office hours queue &raquo;</a>
+
+        ##  Policies
+
+        ### Grading
+
+        | Component | Fraction of Total | Notes |
+        | --------- | ----------------- | ----- |
+        | Homework  | 20% | Lowest grade dropped |
+        | Labs      | 25% | Lowest grade dropped |
+        | Lecture quiz | 10% | Participation-based; can drop three |
+        | Midterms  | 20% | |
+        | Final     | 25% | Comprehensive |
+
+        ### Absence Policy
+
+        Students should attend the lecture and lab section for which they registered, or they will receive a zero for that lecture attendance or lab. Permitted absences require proof of overriding considerations. Official proof of absence need to be in forms of doctor's note or letter provided by an authority that clearly states that the purpose of the letter is to prove absence; examples include a doctor's note, travel proof from an athletic team, etc. Special events might be taken into consideration only if it was contacted at least 72 hours in advance. To request for absence, students shall email course administration [cs101admin@cs.illinois.edu](mailto:cs101admin@cs.illinois.edu). If the request is for a lab absence, the TA of the lab section should also be cc'd.
+
+        When a student has a permitted absence for lab, make-up labs will be arranged. Make-up labs will be held in office hours under supervision of a course TA.
+
+        ### Academic Integrity
+
+        Cheating not only robs you of an opportunity to learn, it also devalues your peers' hard work. Because of this, we take cheating very seriously in this course. The first case of cheating will result in a zero on the assignment or exam. The second case of cheating will result in a zero for the course. We will also report instances of cheating to the college and to your department. You'll find the official university policies on academic integrity [here](http://studentcode.illinois.edu/article1_part4_1-402.html). You can learn more about the Computer Science Department's stance [here](https://wiki.illinois.edu//wiki/display/undergradProg/Honor+Code).
+
+        Plagiarism is also very easy to detect in a programming class. Do not take shortcuts. Always do your own work. Note that we encourage discussion on course content. However, please write answers/codes to homework and lab assignments on your own (unless in some labs when you are instructed by your TA to complete assignments in pairs or groups).
+
+        Our philosophy in this course is based on the fact that (in real life) most of the time you have access to many resources: websites, peers, mentors, books, and others' source code. Your competence will be greatly increased by the resources you can use without recourse to external references, but when learning it only makes sense to let you function in a realistic manner. Thus, for lab exercises and assignments, you should work alone unless told otherwise, but you may consult outside sources of information. Any consultation is subject to the following restrictions: (1) you may not copy that source's work verbatim (i.e., ALWAYS write YOUR OWN code!); and (2) you must cite all sources used and the contribution they made to your work. This policy is designed to protect you against plagiarism.
+
+        You must also protect your own work from plagiarism. If you allow your peers to copy your work, you could end up with academic dishonesty. Do not send solutions to your peers. Do not show them your solution. Do not give out your account passwords. Do not leave your login sessions active.

@@ -1,0 +1,117 @@
+{# Make sure to avoid 4-spaces-deep (or deeper) indentation outside of HTML #}
+
+{# The results get of Jinja expansion get fed into Markdown, which #}
+{# may do undesired things with such indented content. #}
+
+{% macro video(basename, id="course_video") -%}
+ <video id="{{ id }}" class="video-js vjs-default-skin"
+   controls preload="auto" width="800" height="600"
+   poster="/video/cs357/encoded/{{ basename }}.jpeg"
+   data-setup='{"playbackRates": [1, 1.3, 1.6, 2, 4]}'>
+   <source src="/video/cs357/encoded/{{ basename }}.webm" type='video/webm' />
+   <source src="/video/cs357/encoded/{{ basename }}.mp4" type='video/mp4' />
+  <p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a></p>
+</video>
+{%- endmacro %}
+
+{% macro cue(hours, minutes, seconds, link_text, id="course_video") -%}
+  <a href="#" onclick='videojs("{{ id }}").currentTime((({{ hours }})*60 + ({{ minutes }}))*60 + ({{seconds }})).play()'>{{ link_text }}</a>
+  ({{ hours }}:{{ "%02d"|format(minutes) }}:{{ "%02d"|format(seconds) }})
+{%- endmacro %}
+
+{% macro collapsible(title, id="collapsery") -%}
+<div class="panel panel-default" markdown="block"><div class="panel-heading" markdown="span">
+  <h4 class="panel-title" markdown="span">
+  <a data-toggle="collapse" href="#{{ id }}" markdown="span">
+  {{ title }}
+  <span style="font-size:x-small">(click to view)</span>
+  </a>
+  </h4>
+  </div>
+
+  <div id="{{ id }}" class="panel-collapse collapse" markdown="block">
+   <div class="panel-body" markdown="block">
+   {{ caller() }}
+   </div>
+  </div>
+</div>
+{%- endmacro %}
+
+{% macro moodle(id) -%}
+  <div class="well" markdown="1">
+  Please submit your response to this written problem as a PDF file under
+  [this Moodle assignment](https://learn.illinois.edu/mod/assign/view.php?id={{ id }}).
+  You may do either of the following:
+
+  * write your response out by hand, scan it, and upload it as a PDF.
+
+    We will not accept unprocessed pictures taken with your phone.
+
+    If you decide to use your phone for scanning, make sure to use an app such
+    as [CamScanner](https://www.camscanner.com/) to get a readable PDF.
+    Alternatively, there's a fast and convenient scanner in the Engineering IT
+    office in 2302 Siebel that can just email you a PDF. (It's the
+    Fax-machine-looking thing--not the scanner that's attached to one of the
+    computers.)
+
+  * create the PDF using software.
+
+    If you're looking for an easy-ish way to type math, check out
+    [TeXmacs](http://texmacs.org/) or [LyX](http://www.lyx.org/). Both are
+    installed in the virtual machine.  (Under "Applications / Accessories / GNU
+    TeXmacs editor" and "Applications / Office / LyX document processor"
+    respectively.)
+
+  Submit your response to all problems in this homework set in a single PDF file.
+  </div>
+{%- endmacro %}
+
+{% macro written_response_tidy() -%}
+<div class="well" markdown="1">
+
+Please submit your response to this written problem as a PDF file below.
+You may do either of the following:
+
+*   write your response out by hand, scan it, and upload it as a PDF.
+
+    We will not accept unprocessed pictures taken with your phone.
+
+    If you decide to use your phone for scanning, make sure to use an app such
+    as [CamScanner](https://www.camscanner.com/) to get a readable PDF.
+    Alternatively, there's a fast and convenient scanner in the Engineering IT
+    office in 2302 Siebel that can just email you a PDF. (It's the
+    Fax-machine-looking thing--not the scanner that's attached to one of the
+    computers.)
+
+*   create the PDF using software.
+
+    If you're looking for an easy-ish way to type math, check out
+    [TeXmacs](http://texmacs.org/) or [LyX](http://www.lyx.org/). Both are
+    installed in the virtual machine.  (Under "Applications / Accessories / GNU
+    TeXmacs editor" and "Applications / Office / LyX document processor"
+    respectively.)
+
+Submit your response to each problems in this homework as a separate PDF.
+If you have multiple PDFs that you need to merge into one, try
+[PDF Split and Merge](http://www.pdfsam.org/download/).
+
+**NOTE:** Please make sure your solutions are legible and easy to follow. If
+they are not, we may deduct up to five points *per problem*.
+</div>
+{%- endmacro %}
+
+{% macro embed_pdf(url) -%}
+<object data="{{ url }}" type="application/pdf" width="100%" height="800px" align="middle">
+  <p>(Your browser reported itself unable to render PDFs inline.)</p>
+</object>
+{%- endmacro %}
+
+{% macro declare_alphalist() -%}
+<style type="text/css">
+    .alphalist ol { list-style: lower-alpha; }
+</style>
+{%- endmacro %}
+
+{% macro notes_link(sec_nr, sec_name) -%}[Notes Section {{sec_nr}}](http://andreask.cs.illinois.edu/cs357-s15/public/notes/{{"%02d"|format(sec_nr)}}-{{sec_name}}.pdf){%- endmacro %}
+
+

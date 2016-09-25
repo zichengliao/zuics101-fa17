@@ -1,0 +1,31 @@
+title: "Homework 4"
+description: |
+    # Homework 4
+
+rules:
+  access:
+    -
+      if_has_role: [student, ta, instructor]
+      permissions: [view]
+
+  grade_identifier: null
+
+  grading:
+    -   generates_grade: false
+
+groups:
+ - id: intro
+   pages:
+
+    -
+        type: Page
+        id: overview
+        content: |
+
+            # Instructions
+            For your fourth homework assignment, we have again selected a series of CodeLab exercises for you to start working on. Please log in and complete "Homework 4 - Looping".
+
+completion_text: |
+
+    # The End
+    Follow the instructions on CodeLab and work your way through the exercises. If you have any questions, be sure to ask on Piazza.

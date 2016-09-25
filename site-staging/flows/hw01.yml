@@ -1,0 +1,63 @@
+title: "Homework #1"
+description: |
+    # Homework 1
+
+rules:
+  access:
+    -
+      if_has_role: [student, ta, instructor]
+      permissions: [view]
+
+  grade_identifier: null
+
+  grading:
+    -   generates_grade: false
+
+groups:
+ - id: intro
+   pages:
+
+    -
+        type: Page
+        id: overview
+        content: |
+
+            #   Homework Assignments
+
+            For the first several homework assignments, you will work on the
+            CodeLab platform.  This requires you to register an account with the
+            CodeLab service.
+
+            <div class="alert alert-warning">
+            **Warning!**  Register using your university email address!
+            </div>
+
+            Click `Next` for registration instructions.
+
+    -
+        type: Page
+        id: registration
+        content: |
+
+            #   Register for CodeLab.
+
+            1.  Navigate to [the CodeLab site](http://www.tcgo1.com).
+            2.  Click `Register for CodeLab`.
+            3.  Enter your University of Illinois email address and real first
+                and last names (these show up in the course roster).  Verify and
+                submit.
+            4.  After you receive the verification email, go ahead and complete
+                your registration.
+            5.  Next, you need to enroll in the CS 101 course.  When you have
+                logged in, click `Add a course` at the upper left.
+            6.  Select `I am in a course that uses CodeLab` and enter the
+                section access code `UIUC-24959-CKXV-30`.  `Continue`.
+            7.  Accept the license agreement and finish any forms.
+
+completion_text: |
+
+    #   Finish the assignment.
+
+    Follow the instructions on CodeLab and work your way through the exercises
+    for `hw01`.  If you have any questions, ask on Piazza—remember to NOT post
+    answers (partial or complete) without marking your question as private.
