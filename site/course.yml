@@ -25,7 +25,7 @@ chunks:
         | **Class URL**        | [`https://relate.cs.illinois.edu/course/zuics101fa16/`](https://relate.cs.illinois.edu/course/zuics101fa16/) |
         | **Class forum**      | <a href="https://c.zju.edu.cn/" target="_blank" role="button" class="btn btn-info">Blackboard &raquo;</a> |
         | **Instructor email** | [`taoxie@illinois.edu`](mailto:taoxie@illinois.edu) |
-        | **TA email**         | [`zliao@zju.edu.cn`](mailto: zliao@zju.edu.cn) |
+        | **Co-Instructor email**         | [`zliao@zju.edu.cn`](mailto: zliao@zju.edu.cn) |
         | **repl.it Python** | <a href="https://repl.it/languages/python3" target="_blank" role="button" class="btn btn-info">Run online &raquo;</a> |
         | **Online Python Tutor** | <a href="http://www.pythontutor.com/" target="_blank" role="button" class="btn btn-info">Debug/visualize online &raquo;</a> |
 
@@ -55,10 +55,10 @@ chunks:
         You should attend your own lab section to complete and submit
         assignments.  Exceptions must be approved in advance.
 
-        | Section | Lab Time        | TA/instructor                |
+        | Section | Lab Time        | Istructor                |
         | ------- | --------------- | ----------------- |
-        | A1     | Mon 08h00–09h50  | Zicheng Liao/Tao Xie          |
-        | B1     | Mon 10h00–11h50  | Zicheng Liao/Tao Xie          |
+        | A1     | Mon 08h00–09h50  | Zicheng Liao          |
+        | B1     | Mon 10h00–11h50  | Zicheng Liao          |
       
 
 
