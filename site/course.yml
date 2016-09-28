@@ -20,7 +20,7 @@ chunks:
 
         | What                 | When and Where |
         | -------------------- | -------------- |
-        | **Lectures**         | Mon/Wed 09h00–09h50; [A-0426](http://intlcampus.zju.edu.cn/en/content/campus-visit) |
+        | **Lectures**         | Mon/Wed 09h00–09h50; [A-0425](http://intlcampus.zju.edu.cn/en/content/campus-visit) |
         | **Labs**             | Per-section, [see below](#labs); [A-0418](http://intlcampus.zju.edu.cn/en/content/campus-visit) |
         | **Class URL**        | [`https://relate.cs.illinois.edu/course/zuics101fa16/`](https://relate.cs.illinois.edu/course/zuics101fa16/) |
         | **Class forum**      | <a href="https://c.zju.edu.cn/" target="_blank" role="button" class="btn btn-info">Blackboard &raquo;</a> |
@@ -35,7 +35,7 @@ chunks:
         | Lecture | Date       | Supporting Resources |
         | ------- | ---------- | -------------------- |
         | [Lecture #1:  introduction](repocur:lectures/lec01.pdf) | 2016-09-26 |  |
-        | [Lecture #2:  literals, variables](repocur:lectures/lec02.pdf) | 2016-09-28 |  |
+        | [Lecture #2:  literals, variables](repocur:lectures/lec02.pdf) | 2016-09-28 | [Python session](repocur:lectures/lec02.html) |
      
 
         ##  Homework
