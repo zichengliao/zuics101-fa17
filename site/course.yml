@@ -44,7 +44,7 @@ chunks:
 
         |            |          |          |
         | ---------- | -------- | -------- |
-        | [![](repocur:img/banner-hw01.png)](flow:hw01) <br/> **Due** 2016-09-30 |
+        | [![](repocur:img/banner-hw01.png)](flow:hw01) <br/> **Due** 2016-10-01 |
 
 
         ##  Labs
@@ -62,11 +62,10 @@ chunks:
 
         Lab materials
 
-          | Lecture | Date       | Supporting Resources |
+          | Lab | Date       | Supporting Resources |
         | ------- | ---------- | -------------------- |
-        | [Lecture #1:  introduction](repocur:lectures/lec01.pdf) | 2016-09-26 |  |
-        | [Lecture #2:  literals, variables](repocur:lectures/lec02.pdf) | 2016-09-28 | [Python session](repocur:lectures/lec02notes.pdf) |
-     
+        | [Lab #1:  introduction](repocur:lectures/lec01.pdf) | 2016-09-30 |  |
+      
      
         ##  Examinations
 
