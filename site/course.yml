@@ -62,10 +62,12 @@ chunks:
 
         Lab materials
 
-       | Lab     | Date       | Supporting Resources |
-       | ------- | ---------- | -------------------- |
-       | [Lab #1: intro](repocur:labs/lab01/lab01.pdf) | 2016-09-30 | [GettingStarted](repocur:labs/lab01/getting-started.pdf) [lab01.ipynb](repocur:labs/lab01/lab01.ipynb) [rocket.py](repocur:labs/lab01/rocket.py) |
-
+          | Lecture | Date       | Supporting Resources |
+        | ------- | ---------- | -------------------- |
+        | [Lecture #1:  introduction](repocur:lectures/lec01.pdf) | 2016-09-26 |  |
+        | [Lecture #2:  literals, variables](repocur:lectures/lec02.pdf) | 2016-09-28 | [Python session](repocur:lectures/lec02notes.pdf) |
+     
+     
         ##  Examinations
 
         Please bring your campus card and arrive early.  Consider visiting the location ahead of time so you know where you'll be taking the exam.
