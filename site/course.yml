@@ -62,12 +62,9 @@ chunks:
 
         Lab materials
 
-       | Lab | Date       | Supporting Resources |
-        | ------- | ---------- | -------------------- |
-        | [Lab #1](repocur:labs/lab01/lab01.pdf) | 2016-09-30 | [GettingStarted](repocur:labs/lab01/getting-started.pdf) [lab01.ipynb](repocur:labs/lab01/lab01.ipynb) [rocket.py](repocur:labs/lab01/rocket.py) |
-           
-      
-
+       | Lab     | Date       | Supporting Resources |
+       | ------- | ---------- | -------------------- |
+       | [Lab #1](repocur:labs/lab01/lab01.pdf) | 2016-09-30 | [GettingStarted](repocur:labs/lab01/getting-started.pdf) [lab01.ipynb](repocur:labs/lab01/lab01.ipynb) [rocket.py](repocur:labs/lab01/rocket.py) |
 
         ##  Examinations
 
