@@ -2,7 +2,7 @@ chunks:
 
 -
     title: "ZUI CS 101 Fall 2016"
-    id: welcome
+    id: Welcome
     rules:
     -
         if_after: 2016-09-26 00:00:00
