@@ -36,7 +36,7 @@ chunks:
         | ------- | ---------- | -------------------- |
         | [Lecture #1:  introduction](repocur:lectures/lec01.pdf) | 2016-09-26 |  |
         | [Lecture #2:  literals, variables](repocur:lectures/lec02.pdf) | 2016-09-28 | [Python session](repocur:lectures/lec02notes.pdf) |
-        | [Lecture #3:  data types (`int`, `float`, `str`)](repocur:lectures/lec03.pdf) | 2016-10-08 |  |
+        | [Lecture #3:  data types (`int`, `float`, `str`)](repocur:lectures/lec03.pdf) | 2016-10-08 | [Floating point Overflow/Underflow](http://sites.cs.queensu.ca/courses/cisc121/Record/Week09/Arith.pdf) |
        
 
         ##  Homework
