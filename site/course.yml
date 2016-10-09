@@ -28,7 +28,7 @@ chunks:
         | **Co-Instructor email**         | [`zliao@zju.edu.cn`](mailto: zliao@zju.edu.cn) |
         | **repl.it Python** | <a href="https://repl.it/languages/python3" target="_blank" role="button" class="btn btn-info">Run online &raquo;</a> |
         | **Online Python Tutor** | <a href="http://www.pythontutor.com/" target="_blank" role="button" class="btn btn-info">Debug/visualize online &raquo;</a> |
-        | ** Online Jupyter Notebook** | | <a href="https://try.jupyter.org/" target="_blank" role="button" class="btn btn-info">Run online &raquo;</a> |
+        | ** Online Jupyter Notebook** | <a href="https://try.jupyter.org/" target="_blank" role="button" class="btn btn-info">Run online &raquo;</a> |
         | **Anaconda's latest Python 3.X version to run  Jupyter Notebook** | <a href="http://jupyter.readthedocs.io/en/latest/install.html#installing-jupyter-using-anaconda-and-conda" target="_blank" role="button" class="btn btn-info">Download and install &raquo;</a> |
 
 
