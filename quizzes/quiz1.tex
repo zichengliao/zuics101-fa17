@@ -1,0 +1,91 @@
+\documentclass[12pt]{article}
+
+\setlength{\topmargin}{-.9in} \addtolength{\textheight}{3.00in}
+\setlength{\oddsidemargin}{.00in} \addtolength{\textwidth}{1in}
+
+\usepackage{amsmath,color,graphicx}
+
+\usepackage{listings}      
+\lstset{language=Python}   
+
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{blindtext}
+\usepackage{enumitem}
+
+
+\nofiles
+
+\pagestyle{empty}
+
+\setlength{\parindent}{0in}
+
+
+\begin{document}
+
+\noindent {\sc {\bf {\Large Quiz 1}}
+            \hfill ZJUI CS 101, Fall 2016}
+%\bigskip
+
+\noindent {\sc  {\large Student ID:}
+            \hfill {\large Name:}
+             \hfill}
+\bigskip
+
+{\bf Question 1.} What does the following program print?
+\begin{lstlisting}[frame=single]
+   x = "6"
+   y = 10 % 3
+   print(x * y)
+\end{lstlisting}
+
+\begin{enumerate}[label=\Alph*]
+	\item  6
+	\item  1
+	\item  66
+	\item  61
+\end{enumerate}
+
+%Answer: A
+
+{\bf Question 2.}  What are the type and value of \texttt{r} in the program below, respectively?
+\begin{lstlisting}[frame=single]
+  	c = (20 + 5j)
+  	i = 25
+  	r = c.real + i
+\end{lstlisting}
+  
+   \begin{enumerate}[label=\Alph*]
+   	\item  \texttt{int}, \texttt{45}
+   	\item  \texttt{complex}, \texttt{45 + 5j}
+   	\item  \texttt{float}, \texttt{45.0}
+   	\item  \texttt{complex}, \texttt{45 + 0j}
+   \end{enumerate}
+
+%Answer: C
+
+{\bf Question 3.} Which of the following expressions is most likely to cause an \textbf{overflow}?
+ \begin{enumerate}[label=\Alph*]
+% 	\item  \texttt{10 ** 100000}
+ 	\item  \texttt{"10" * 100000}
+ 	\item  \texttt{10.0 ** 100000}
+ 	\item  \texttt{"10" ** 100000}
+% 	\item  None of the above
+ \end{enumerate}
+%Answer: B
+
+{\bf Question 4.} What does the following program print?
+\begin{lstlisting}[frame=single]
+	x = "45"
+	y = "%i"
+	print( (x+y) % 2)
+\end{lstlisting}
+\begin{enumerate}[label=\Alph*]
+	\item  \texttt{452}
+	\item  \texttt{4444}
+	\item  \texttt{4545}
+	\item  None of the above
+\end{enumerate}
+%Answer: A
+
+\end{document}
