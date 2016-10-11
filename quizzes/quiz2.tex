@@ -1,0 +1,96 @@
+\documentclass[12pt]{article}
+
+\setlength{\topmargin}{-1in} \addtolength{\textheight}{4.00in}
+\setlength{\oddsidemargin}{.00in} \addtolength{\textwidth}{1in}
+
+\usepackage{amsmath,color,graphicx}
+
+\usepackage{listings}      
+\lstset{language=Python}   
+
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{blindtext}
+\usepackage{enumitem}
+
+
+\nofiles
+
+\pagestyle{empty}
+
+\setlength{\parindent}{0in}
+
+
+\begin{document}
+
+\noindent {\sc {\bf {\Large Quiz 2}}
+            \hfill ZJUI CS 101, Fall 2016}
+%\bigskip
+
+\noindent {\sc  {\large Student ID:}
+            \hfill {\large Name:}
+             \hfill}
+%\bigskip
+
+{\bf Question 1.}  What is the value of \texttt{x} in the end of the program below?
+\begin{lstlisting}[frame=single]
+	s = '%' + 'f'
+	i = 4 / 8
+	x = float(s % i) * 3
+\end{lstlisting}
+\vspace{-0.5cm}
+\begin{enumerate}[label=\Alph*]
+	\item  \texttt{'0.50.50.5'}
+	\item  \texttt{'\%f\%f\%f'}
+	\item  \texttt{1.5}
+	\item  \texttt{'1.5'}
+\end{enumerate}
+%Answer: C
+
+{\bf Question 2.}    What is the value of \texttt{x} in the end of the program below?
+\begin{lstlisting}[frame=single]
+  	s = "WATER MAIN"[1:5]
+  	t = int(3.6)
+  	x = s[-1] + s[t-2]
+  \end{lstlisting}
+  \vspace{-0.5cm}
+  \begin{enumerate}[label=\Alph*]
+  	\item  \texttt{"WA"}
+  	\item  \texttt{"RA"}
+  	\item  \texttt{" T"}
+  	\item  \texttt{"RT"}
+  \end{enumerate} 
+
+%Answer: D
+
+{\bf Question 3.} What does the following program print?
+\begin{lstlisting}[frame=single]
+    x = "5"
+    y = "%i"
+    print( (x+y) % 3)
+\end{lstlisting}
+\vspace{-0.5cm}
+\begin{enumerate}[label=\Alph*]
+	\item  \texttt{535353}
+	\item  \texttt{555}
+	\item  \texttt{53}
+	\item  None of the above
+\end{enumerate}
+%Answer: C
+
+{\bf Question 4.} What is the value of \texttt{x} in the end of the following program?
+\begin{lstlisting}[frame=single]
+  	i = len("WATER MAIN")
+  	c = (1.0 + 2.0j) * (-i)
+  	x = abs(min(c.real, -5))
+  \end{lstlisting}
+  \vspace{-0.5cm}
+  \begin{enumerate}[label=\Alph*]
+  	\item  \texttt{10.0}
+  	\item  \texttt{11.0}
+  	\item  \texttt{12.0}
+  	\item  \texttt{13.0}
+  \end{enumerate}
+%Answer: A
+
+\end{document}

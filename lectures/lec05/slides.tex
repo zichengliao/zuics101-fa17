@@ -11,7 +11,7 @@
 \title{Python Basics!}
 \subtitle{arguments, parameters, methods, comments}
 \author{CS101 Lecture \#5}
-\date{2016-09-07}
+\date{2016-10-12}
 
 \setcounter{showSlideNumbers}{1}
 
@@ -35,87 +35,24 @@
   \frametitle{Administrivia}
   \Enlarge
   \begin{itemize}
-  \myitem  Homework \#2 is due Friday Sep.\ 9.
-  \myitem  Labs resume next week.
+  \myitem  Homework \#2 is due Wed Oct .\ 19.
+  \myitem  Labs this Friday.
   \end{itemize}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Warmup Quiz}
+%\section{Warmup Quiz}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}[fragile]
-  \frametitle{Question \#1}
-  \Enlarge
-
-  \begin{semiverbatim}
-s = '%' + 'f'
-i = 3 / 6
-x = float(s%i) * 2
-  \end{semiverbatim}
-  What is the value of \texttt{x}?
-  \begin{enumerate}[label=\Alph*]
-  \item  \texttt{'0.50.5'}
-  \item  \texttt{'\%f\%f'}
-  \item  \texttt{1.0}
-  \item  \texttt{'1.0'}
-  \end{enumerate}
-\end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}[fragile]
-  \frametitle{Question \#2}
-  \Enlarge
 
-  \begin{semiverbatim}
-s = "WATER MAIN"[2:6]
-t = int(3.7)
-x = s[-1] + s[t-2]
-  \end{semiverbatim}
-  What is the value of \texttt{x}?
-  \begin{enumerate}[label=\Alph*]
-  \item  \texttt{"NA"}
-  \item  \texttt{" E"}
-  \item  \texttt{" R"}
-  \item  \texttt{"ME"}
-  \end{enumerate}
-\end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}[fragile]
-  \frametitle{Question \#3 (Worked)}
-  \Enlarge
 
-  \begin{semiverbatim}
-s = "WATER MAIN"[2:6]
-    #0123456789
-s =   "TER "
-t = int(3.7)
-t = 3
-x = s[-1] + s[t-2]
-x = " "   + "E"
-x = " E"
-  \end{semiverbatim}
-\end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}[fragile]
-  \frametitle{Question \#4}
-  \Enlarge
 
-  \begin{semiverbatim}
-i = len("WATER MAIN")
-c = (1.0 + 2.0j) * (-i)
-x = abs( min( c.real,-13 ) )
-  \end{semiverbatim}
-  What is the value of \texttt{x}?
-  \begin{enumerate}[label=\Alph*]
-  \item  \texttt{0}
-  \item  \texttt{11}
-  \item  \texttt{12}
-  \item  \texttt{13}
-  \end{enumerate}
-\end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Functions Redux}
@@ -164,6 +101,24 @@ x = abs( min( c.real,-13 ) )
   \end{itemize}
 \end{frame}
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+	\frametitle{Type conversion.}
+	\Enlarge
+	
+	\begin{itemize}
+		\myitem  A set of built-in functions to convert data from one type to another. \pause
+		\begin{itemize}
+			\mysubitem  \texttt{float( "0.3" )}
+			\mysubitem  \texttt{str( 3 + 5j )}
+		\end{itemize} \pause
+		\myitem What is the value of  \texttt{int(3.7)}? 3 or 4? \pause
+		\myitem What is x's value after  \texttt{x = 1/2}? 0 or 0.5? \pause
+    	\myitem Is \texttt{float("\%i"  \% 10))} a legal expression?  \pause
+	\end{itemize}
+\end{frame}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
   \frametitle{Goal}
@@ -189,13 +144,10 @@ c = float( input( 'c: ' ) )
 
 root = ( b**2 - 4*a*c ) ** 0.5
 denom = 2 * a
-
 pos = (-b + root) / denom
 neg = (-b - root) / denom
-
 message1 = "%.2f + %.2fi" % (pos.real,pos.imag)
 message2 = "%.2f + %.2fi" % (neg.real,neg.imag)
-
 print("Solution 1: %s" % message1)
 print("Solution 2: %s" % message2)
   \end{semiverbatim}
@@ -294,8 +246,8 @@ or to temporarily hide blocks you don't want to run.
   \Enlarge
 
   \begin{itemize}
-  \myitem  Homework \#2 is due Friday Sep.\ 9.
-  \myitem  Labs resume next week.
+  \myitem  Homework \#2 is due Wed Oct .\ 19.
+  \myitem  Labs this Friday.
   \end{itemize}
 \end{frame}
 
