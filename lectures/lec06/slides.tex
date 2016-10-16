@@ -12,7 +12,7 @@
 \title{Python Basics!}
 \subtitle{scripting, logic, control}
 \author{CS101 Lecture \#6}
-\date{2016-09-12}
+\date{2016-10-17}
 
 \setcounter{showSlideNumbers}{1}
 
@@ -36,87 +36,89 @@
   \frametitle{Administrivia}
   \Enlarge
   \begin{itemize}
-  \myitem  Homework \#3 is due Friday Sep.\ 16.
+  \myitem  Homework \#2 is due Wed Oct.\ 19.
+  \myitem  Homework \#3 is due Wed Oct.\ 26.
   \end{itemize}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Warmup Quiz}
+\section{Warmup Question (No Quiz this lecture!)}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}[fragile]
-  \frametitle{Question \#1}
-  \Enlarge
-
-  \begin{Verbatim}[commandchars=\\\{\},commentchar=\%]
-s = "74.125.21.147"
-i = s.find( "." )
-x = s[i+1:i+3]
-x = x * 2
-  \end{Verbatim}
-  What is the value of \texttt{x}?
-  \begin{enumerate}[label=\Alph*]
-  \item  \texttt{"125125"}
-  \item  \texttt{250}
-  \item  \texttt{"1212"}  $\star$
-  \item  \texttt{24}
-  \end{enumerate}
+	\frametitle{Question \#1}
+	\Enlarge
+	
+	\begin{Verbatim}[commandchars=\\\{\},commentchar=\%]
+    s = "74.125.21.147"
+    i = s.find( "." )
+    x = s[i+1:i+3]
+    x = x * 2
+	\end{Verbatim}
+	What is the value of \texttt{x}?
+	\begin{enumerate}[label=\Alph*]
+		\item  \texttt{"125125"}
+		\item  \texttt{250}
+		\item  \texttt{"1212"} % $\star$
+		\item  \texttt{24}
+	\end{enumerate}
 \end{frame}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Composing Functions}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}[fragile]
-  \frametitle{Example:  Defining functions}
-  \Enlarge
-
-  \begin{Verbatim}[commandchars=\\\{\},commentchar=\%]
+	\frametitle{Example:  Defining functions}
+	\Enlarge
+	
+ \begin{Verbatim}[commandchars=\\\{\},commentchar=\%]
 def pow(a, b):
     y = a ** b
     return y
-  \end{Verbatim}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}[fragile]
-  \frametitle{Defining functions}
-  \Enlarge
-
-  \begin{itemize}
-  \myitem  We define a function with the following:
-    \begin{itemize}
-    \mysubitem  the keyword \texttt{def}
-    \mysubitem  the name of the function
-    \mysubitem  a pair of parentheses
-    \mysubitem  a \textbf{block} of code
-    \end{itemize}
-  \end{itemize}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}[fragile]
-  \frametitle{Example:  Defining functions}
-  \Enlarge
-
-  \begin{columns}
-  \begin{column}{0.75\textwidth}
-\begin{Verbatim}[commandchars=\\\{\},commentchar=\%]
-def greetings():
-    print("Bom dia!")
-    print("Bonjour!")
-    print("Ni hao!")
-    print("Hello!")
-    print("Shalom!")
-    print("Guten tag!")
-    print("Konichiwa!")
-    print("As-salamu alaykum!")
 \end{Verbatim}
-  \end{column}
-  \begin{column}{0.25\textwidth}
-    header \\ ~ \\ ~ \\ ~ \\ ~ body \\ ~ \\ ~ \\ ~ \\ ~ \\
-  \end{column}
-  \end{columns}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+	\frametitle{Defining functions}
+	\Enlarge
+	
+	\begin{itemize}
+		\myitem  We define a function with the following:
+		\begin{itemize}
+			\mysubitem  the keyword \texttt{def}
+			\mysubitem  the name of the function
+			\mysubitem  a pair of parentheses
+			\mysubitem  a \textbf{block} of code
+		\end{itemize}
+	\end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+	\frametitle{Example:  Defining functions}
+	\Enlarge
+	
+	\begin{columns}
+		\begin{column}{0.75\textwidth}
+			\begin{Verbatim}[commandchars=\\\{\},commentchar=\%]
+def greetings():
+   print("Bom dia!")
+   print("Bonjour!")
+   print("Ni hao!")
+   print("Hello!")
+   print("Shalom!")
+   print("Guten tag!")
+   print("Konichiwa!")
+   print("As-salamu alaykum!")
+			\end{Verbatim}
+		\end{column}
+		\begin{column}{0.25\textwidth}
+			header \\ ~ \\ ~ \\ ~ \\ ~ body \\ ~ \\ ~ \\ ~ \\ ~ \\
+		\end{column}
+	\end{columns}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -162,11 +164,9 @@ def fun():}
 \textcolor{CS101PureBase}{
     b = 4}
 \textcolor{CS101PureBase}{
-    a = a + b } %\pause
-\textcolor{CS101AltDark}{
-fun()} %\pause
-\textcolor{CS101AltDark}{
-print(a)}
+    a = a + b } 
+\textcolor{CS101AltDark}{fun()}
+\textcolor{CS101AltDark}{print(a)}
   \end{Verbatim}
 \end{frame}
 
@@ -187,6 +187,8 @@ def zero():
   return 0
   print('0')
     \end{Verbatim}
+   \myitem Does the above code face an error?\\
+   \myitme Does the print statement take effect if invoking the function? 
   \end{itemize}
 \end{frame}
 
@@ -222,7 +224,7 @@ x = fun(2) * fun(3)
   \item  \texttt{6}
   \item  \texttt{8}
   \item  \texttt{24}
-  \item  None of the above.  $\star$
+  \item  None of the above.   % $\star$
   \end{enumerate}
 \end{frame}
 
@@ -240,7 +242,7 @@ x = fun( "abb") + fun( "acab" )
   What is the value of \texttt{x}?
   \begin{enumerate}[label=\Alph*]
   \item  \texttt{'AbbAcab'}
-  \item  \texttt{'aBBaCAB'}  $\star$
+  \item  \texttt{'aBBaCAB'} % $\star$  
   \item  \texttt{'abbacab'}
   \item  \texttt{'ABBACAB'}
   \end{enumerate}
@@ -262,7 +264,7 @@ x = fun( "ab", "caa" )
   \item  \texttt{'ab ab ab '}
   \item  \texttt{'Ab Ab Ab '}
   \item  \texttt{'AB AB AB '}
-  \item  None of the above.  $\star$
+  \item  None of the above.   % $\star$
   \end{enumerate}
 \end{frame}
 
@@ -281,7 +283,7 @@ x = fun( "ab", "caa" )
   What is the value of \texttt{x}?
   \begin{enumerate}[label=\Alph*]
   \item  \texttt{'ab ab ab '}
-  \item  \texttt{'Ab Ab Ab '}  $\star$
+  \item  \texttt{'Ab Ab Ab '} % $\star$
   \item  \texttt{'AB AB AB '}
   \end{enumerate}
 \end{frame}
@@ -389,7 +391,7 @@ x = fun() and not (True or False)
   What is the value of \texttt{x}?
   \begin{enumerate}[label=\Alph*]
   \item  \texttt{True}
-  \item  \texttt{False}  $\star$
+  \item  \texttt{False}  %$\star$
   \end{enumerate}
 \end{frame}
 
@@ -425,7 +427,7 @@ x = (a < 5) and ((b <= 5) or (a != b))
   What is the value of \texttt{x}?
   \begin{enumerate}[label=\Alph*]
   \item  \texttt{True}
-  \item  \texttt{False}  $\star$
+  \item  \texttt{False} % $\star$
   \end{enumerate}
 \end{frame}
 
@@ -443,7 +445,7 @@ x = a < b and a[1] != b[-2]
   What is the value of \texttt{x}?
   \begin{enumerate}[label=\Alph*]
   \item  \texttt{True}
-  \item  \texttt{False}  $\star$
+  \item  \texttt{False}  % $\star$
   \end{enumerate}
 \end{frame}
 
@@ -462,7 +464,7 @@ x = fun(b,a)
   What is the value of \texttt{x}?
   \begin{enumerate}[label=\Alph*]
   \item  \texttt{True}
-  \item  \texttt{False}  $\star$
+  \item  \texttt{False} % $\star$
   \end{enumerate}
 \end{frame}
 
@@ -543,7 +545,8 @@ if float(ans) == 0:
   \Enlarge
 
   \begin{itemize}
-  \myitem  Homework \#3 is due Friday Sep.\ 16.
+  \myitem  Homework \#2 is due Wed Oct.\ 19.
+  \myitem  Homework \#3 is due Wed Oct.\ 26.
   \end{itemize}
 \end{frame}
 
