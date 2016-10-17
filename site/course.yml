@@ -42,7 +42,8 @@ chunks:
         | [Lecture #4:  string formatting, functions](repocur:lectures/lec04.pdf) | 2016-10-10 |  |
         | [Lecture #5:  methods, coding](repocur:lectures/lec05.pdf) | 2016-10-12 | [Python session](repocur:lectures/lec05.ipynb); [Python formatting codes](http://www.ucs.cam.ac.uk/docs/course-notes/unix-courses/archived/archived-python-courses/PythonProgIntro/files/formatting.pdf); [Python Integer Overflow](http://mortada.net/can-integer-operations-overflow-in-python.html) |
         | [Lecture #6:  functions, conditionals](repocur:lectures/lec06.pdf) | 2016-10-17 |[Python session](repocur:lectures/lec06.ipynb)  |
-         
+        | [Lecture #7:  lists, `while` loops](repocur:lectures/lec07.pdf) | 2016-10-19 |  |
+      
 
         ##  Homework
 

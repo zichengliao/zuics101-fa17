@@ -1,0 +1,101 @@
+\documentclass[12pt]{article}
+
+\setlength{\topmargin}{-1in} \addtolength{\textheight}{4.00in}
+\setlength{\oddsidemargin}{.00in} \addtolength{\textwidth}{1in}
+
+\usepackage{amsmath,color,graphicx}
+
+\usepackage{listings}      
+\lstset{language=Python}   
+
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{blindtext}
+\usepackage{enumitem}
+
+
+\nofiles
+
+\pagestyle{empty}
+
+\setlength{\parindent}{0in}
+
+
+\begin{document}
+
+\noindent {\sc {\bf {\Large Quiz 3}}
+            \hfill ZJUI CS 101, Fall 2016}
+%\bigskip
+
+\noindent {\sc  {\large Student ID:}
+            \hfill {\large Name:}
+             \hfill}
+%\bigskip
+
+{\bf Question 1.}   What is the final value of \texttt{a} in the end of the program below?
+\begin{lstlisting}[frame=single]
+  	a = 100
+  	def fun(a,b):
+  	   return a + b
+  	a = fun( a, 50 ) + a
+\end{lstlisting}
+\vspace{-0.5cm}
+  \begin{enumerate}[label=\Alph*]
+  	\item  \texttt{200}
+  	\item  \texttt{250} % $\star$
+  	\item  \texttt{300}
+  \end{enumerate}
+%Answer: B
+
+{\bf Question 2.}    What is the final value of \texttt{x} in the end of the program below?
+\begin{lstlisting}[frame=single]
+x = 20
+if ((x/2) < 5) or ((x%3) == 1):
+   x = x + 2
+if (x != 10) or ((x**2) <= 144):
+   x = x * 2
+  \end{lstlisting}
+  \vspace{-0.5cm}
+  \begin{enumerate}[label=\Alph*]
+  \item  \texttt{20}
+  \item  \texttt{22}
+  \item  \texttt{40}  % $\star$
+  \item  \texttt{42} 
+  \end{enumerate} 
+
+%Answer: C
+
+{\bf Question 3.}  What is the final value of \texttt{x}  in the end of the program below?
+\begin{lstlisting}[frame=single]
+def fun(x):
+   if x or x:
+       return not x
+   return x and x
+
+x = fun(True) or fun(False)
+\end{lstlisting}
+\vspace{-0.5cm}
+\begin{enumerate}[label=\Alph*]
+ \item  \texttt{True}
+ \item  \texttt{False}  %$\star$
+\end{enumerate}
+%Answer: B
+
+{\bf Question 4.} What is the value of \texttt{x} in the end of the following program?
+\begin{lstlisting}[frame=single]
+def fun(a,b):
+  if len(a)+len(b) > 5:
+     return (a+b)[0:5]
+  return (b+a)+str(len(a))
+  
+ x = fun("abc","de") + fun("fgh","ijk")
+  \end{lstlisting}
+  \vspace{-0.5cm}
+  \begin{enumerate}[label=\Alph*]
+   \item  \texttt{'deabc3ijkfgh3'}
+   \item  \texttt{'deabc3fghij'} %$\star$
+   \item  \texttt{'abcdefghij'}
+  \end{enumerate}
+%Answer: B
+
+\end{document}

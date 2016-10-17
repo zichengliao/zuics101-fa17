@@ -11,7 +11,7 @@
 \title{Python Basics!}
 \subtitle{lists and loops}
 \author{CS101 Lecture \#7}
-\date{2016-09-14}
+\date{2016-10-19}
 
 \setcounter{showSlideNumbers}{1}
 
@@ -35,129 +35,12 @@
   \frametitle{Administrivia}
   \Enlarge
   \begin{itemize}
-  \myitem  Homework \#3 is due Friday Sep.\ 16.
-  \myitem  Midterm \#1 will be Monday Oct.\ 3, covering through Lecture \#11.  (evening)
+  \myitem  Homework \#2 is due Wed Oct.\ 19 today.
+  \myitem  Homework \#3 is due Wed Oct.\ 26.
+  \myitem  Midterm \#1 will be on the day of the 12th lecture, covering through Lecture \#11.  
   \end{itemize}
 \end{frame}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Warmup Quiz}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}[fragile]
-  \frametitle{Question \#1}
-  \Enlarge
-
-  \begin{semiverbatim}
-a = 1
-def fun(a,b):
-    return a + b
-a = fun( a,a ) + a
-  \end{semiverbatim}
-  What is the final value of \texttt{a}?
-  \begin{enumerate}[label=\Alph*]
-  \item  \texttt{2}
-  \item  \texttt{3}  $\star$
-  \item  \texttt{4}
-  \end{enumerate}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}[fragile]
-  \frametitle{Question \#1 (Worked)}
-  \Enlarge
-
-  \begin{semiverbatim}
-a = 1
-def fun(c,b):
-    return c + b
-a = fun( a,a ) + a
-  \end{semiverbatim}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}[fragile]
-  \frametitle{Question \#2}
-  \Enlarge
-
-  \begin{semiverbatim}
-x = 10
-if ((x/2) < 5) or ((x%3) == 1):
-    x = x + 2
-if (x != 10) or ((x**2) <= 144):
-    x = x * 2
-  \end{semiverbatim}
-  What is the final value of \texttt{x}?
-  \begin{enumerate}[label=\Alph*]
-  \item  \texttt{10}
-  \item  \texttt{12}
-  \item  \texttt{20}
-  \item  \texttt{24}  $\star$
-  \end{enumerate}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}[fragile]
-  \frametitle{Question \#3}
-  \Enlarge
-
-  \begin{semiverbatim}
-def fun(x):
-    if x and x:
-        return not x
-    return x or x
-
-x = fun(True) or fun(False)
-  \end{semiverbatim}
-  What is the final value of \texttt{x}?
-  \begin{enumerate}[label=\Alph*]
-  \item  \texttt{True}
-  \item  \texttt{False}  $\star$
-  \end{enumerate}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}[fragile]
-  \frametitle{Question \#4}
-  \Enlarge
-
-  \begin{semiverbatim}
-def fun(a,b):
-    if len(a)+len(b)>5:
-        return (a+b)[0:5]
-  return (b+a)+str(len(a))
-
-x = fun("abc","def") + fun("gh","ij")
-  \end{semiverbatim}
-  What is the final value of \texttt{x}?
-  \begin{enumerate}[label=\Alph*]
-  \item  \texttt{'abcdefijgh2'}
-  \item  \texttt{'defabcghij2'}
-  \item  \texttt{'abcdeijgh'}
-  \item  \texttt{'abcdeijgh2'}  $\star$
-  \end{enumerate}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}[fragile]
-  \frametitle{Question \#5}
-  \Enlarge
-
-  The following code should increment \texttt{x} if the hundreds place contains a zero:
-  \begin{semiverbatim}
-def fun(x):
-    if x < 100 or ???:
-        return x+1
-    return x
-  \end{semiverbatim}
-  What should replace the \texttt{???} to complete the code?  Assume \texttt{x} is an integer.
-  \begin{enumerate}[label=\Alph*]
-  \item  \texttt{x.string(3) == '0'}
-  \item  \texttt{str(x)[-3] == '0'}  $\star$
-  \item  \texttt{((x//100) \% 10) == 0}  $\star$
-  \item  None of the above.
-  \end{enumerate}
-\end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Container Data Types}
@@ -225,7 +108,7 @@ print( len(x) )
   \Enlarge
 
   \begin{itemize}
-  \myitem  But strings are \emph{immutable} (we can't change contents without creating a new string): %%\pause
+  \myitem  But strings are \emph{immutable} (we cannot change contents without creating a new string): %%\pause
   \end{itemize}
   \begin{semiverbatim}
 s = "good advise"
@@ -309,7 +192,7 @@ print('Blast off!')
   \frametitle{Example}
   \Enlarge
 
-  The following code should increment \texttt{x} if the hundreds place contains a zero:
+%  The following code should increment \texttt{x} if the hundreds place contains a zero:
   \begin{semiverbatim}
 x = 3
 while x > 0:
@@ -335,13 +218,13 @@ while x > 0:
   \myitem  These produce Boolean output.
     \begin{tabular}{ll}
     \texttt{isdigit()} & Does a string contain \\
-    & only numbers? \\
+    & only numbers (digits); >= 1 character?\\
     \texttt{isalpha()} & Does a string contain \\
-    & only text? \\
+    & only text (alphabetic); >= 1 character? \\
     \texttt{islower()} & Does a string contain \\
-    & only lower-case letters? \\
+    & only lower-case letters; >= 1 character? \\
     \texttt{isupper()} & Does a string contain \\
-    & only upper-case letters?
+    & only upper-case letters; >= 1 character?
     \end{tabular}
   \end{itemize}
 \end{frame}
@@ -460,11 +343,11 @@ sum = 0
 while i < 7:
     if (i % 2) == 1:
         sum += i
-        i += 1
+    i += 1
   \end{semiverbatim}
   What is the value of \texttt{sum}?
   \begin{enumerate}[label=\Alph*]
-  \item  \texttt{9}
+  \item  \texttt{9} % answer
   \item  \texttt{12}
   \item  \texttt{16}
   \item  \texttt{21}
@@ -501,6 +384,30 @@ def sum_digits( n ):
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+	\frametitle{Example}
+	\Enlarge
+	
+	The following code should increment \texttt{x} if the hundreds place contains a zero:
+	\begin{semiverbatim}
+        def fun(x): 
+           if x < 100 or ???:
+              return x+1
+           return x 
+\end{semiverbatim}
+	What should replace the \texttt{???} to complete the code?  Assume \texttt{x} is an integer.
+	\begin{enumerate}[label=\Alph*]
+		\item  \texttt{x.string(3) == '0'}
+		\item  \texttt{str(x)[-3] == '0'}  %$\star$
+		\item  \texttt{((x//100) \% 10) == 0}  %$\star$
+		\item  None of the above.
+	\end{enumerate}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \section{Reminders}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -509,8 +416,9 @@ def sum_digits( n ):
   \Enlarge
 
   \begin{itemize}
-  \myitem  Homework \#3 is due Friday Sep.\ 16.
-  \myitem  Midterm \#1 will be Monday Oct.\ 3. (evening)
+  \myitem  Homework \#2 is due Wed Oct.\ 19 today.
+  \myitem  Homework \#3 is due Wed Oct.\ 26.
+  \myitem  Midterm \#1 will be on the day of the 12th lecture, covering through Lecture \#11.  
   \end{itemize}
 \end{frame}
 
