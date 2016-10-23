@@ -42,8 +42,9 @@ chunks:
         | [Lecture #4:  string formatting, functions](repocur:lectures/lec04.pdf) | 2016-10-10 |  |
         | [Lecture #5:  methods, coding](repocur:lectures/lec05.pdf) | 2016-10-12 | [Python session](repocur:lectures/lec05.ipynb); [Python formatting codes](http://www.ucs.cam.ac.uk/docs/course-notes/unix-courses/archived/archived-python-courses/PythonProgIntro/files/formatting.pdf); [Python Integer Overflow](http://mortada.net/can-integer-operations-overflow-in-python.html) |
         | [Lecture #6:  functions, conditionals](repocur:lectures/lec06.pdf) | 2016-10-17 |[Python session](repocur:lectures/lec06.ipynb)  |
-        | [Lecture #7:  lists, `while` loops](repocur:lectures/lec07.pdf) | 2016-10-19 |  |
-      
+        | [Lecture #7:  lists, `while` loops](repocur:lectures/lec07.pdf) | 2016-10-19 | [Python session](repocur:lectures/lec07.ipynb) |
+        | [Lecture #8:  branched conditionals, `for` loops, range](repocur:lectures/lec08.pdf) | 2016-10-24 |  |
+        
 
         ##  Homework
 
@@ -51,8 +52,8 @@ chunks:
 
         |            |          |          |
         | ---------- | -------- | -------- |
-        | [![](repocur:img/banner-hw01.png)](flow:hw01) <br/> **Due** 2016-10-01 |[![](repocur:img/banner-hw02.png)](flow:hw02) <br/> **Due** 2016-10-19 | [![](repocur:img/banner-hw03.png)](flow:hw03) <br/> **Due** 2016-10-26 |
-
+        | [![](repocur:img/banner-hw01.png)](flow:hw01) <br/> **Due** 2016-10-01 |[![](repocur:img/banner-hw02.png)](flow:hw02) <br/> **Due** 2016-10-19 | [![](repocur:img/banner-hw03.png)](flow:hw03) <br/> **Due** 2016-11-02 |
+        | [![](repocur:img/banner-hw04.png)](flow:hw04) <br/> **Due** 2016-09-23 |
 
         ##  Labs
         <a name="labs"></a>
