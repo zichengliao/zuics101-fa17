@@ -44,7 +44,7 @@ chunks:
         | [Lecture #6:  functions, conditionals](repocur:lectures/lec06.pdf) | 2016-10-17 |[Python session](repocur:lectures/lec06.ipynb)  |
         | [Lecture #7:  lists, `while` loops](repocur:lectures/lec07.pdf) | 2016-10-19 | [Python session](repocur:lectures/lec07.ipynb) |
         | [Lecture #8:  branched conditionals, `for` loops, range](repocur:lectures/lec08.pdf) | 2016-10-24 |  |
-        | [Lecture #9:  mutability, list and string methods](repocur:lectures/lec09.pdf) | 2016-10-26 |  |
+        | [Lecture #9:  mutability, list and string methods](repocur:lectures/lec09.pdf) | 2016-10-26 | [Python session](repocur:lectures/lec09.ipynb); [Floating Point Arithmetic: Issues and Limitations](https://docs.python.org/3/tutorial/floatingpoint.html)  |
                
 
         ##  Homework
@@ -77,7 +77,7 @@ chunks:
 
         | Exam | Date | Supporting Resources |
         | ---- | ---- | -------------------- |
-        | Midterm #1 | To be determined; approximately on the day of the 12th lecture | [Practice midterm](repocur:lectures/midterm1-practice-updated.pdf) |
+        | Midterm #1 | November 7, Monday 7pm-9pm -- as the day of the 12th lecture | [Practice midterm](repocur:lectures/midterm1-practice-updated.pdf) |
         | Midterm #2 | To be determined; approximately six weeks after Midterm #1 | |
         | Final | To be determined; during 2017-01-16 till 2017-01-22 | |
 
