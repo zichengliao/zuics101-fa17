@@ -1,0 +1,127 @@
+\documentclass[12pt]{article}
+
+\setlength{\topmargin}{-1in} \addtolength{\textheight}{4.00in}
+\setlength{\oddsidemargin}{.00in} \addtolength{\textwidth}{1in}
+
+\usepackage{amsmath,color,graphicx}
+
+\usepackage{listings}      
+\lstset{language=Python}   
+
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{blindtext}
+\usepackage{enumitem}
+
+
+\nofiles
+
+\pagestyle{empty}
+
+\setlength{\parindent}{0in}
+
+
+\begin{document}
+
+\noindent {\sc {\bf {\Large Quiz 4}}
+            \hfill ZJUI CS 101, Fall 2016}
+%\bigskip
+
+\noindent {\sc  {\large Student ID:}
+            \hfill {\large Name:}
+             \hfill}
+%\bigskip
+
+{\bf Question 1.}   What does the program below print?
+\begin{lstlisting}[frame=single]
+s = 'AcBd'
+if not s[0:2].isupper():
+   if s[0] == s[2]:
+      print( s[0] )
+   else:
+      print( s[1] )
+else:
+   if s[1] != s[2]:
+      print( s[-1] )
+   else:
+      print( s[-2] )
+\end{lstlisting}
+\vspace{-0.5cm}
+  \begin{enumerate}[label=\Alph*]
+  	\item  \texttt{'A'}
+  	\item  \texttt{'B'} 
+  	\item  \texttt{'c'} % $\star$
+  	\item  \texttt{'d'}
+  \end{enumerate}
+%Answer: C 
+
+{\bf Question 2.}   What does the program below print?
+\begin{lstlisting}[frame=single]
+s = 'AcABd'
+if not s[0:2].isupper():
+   if s[0] == s[2]:
+      print( s[0] )
+   else:
+      print( s[1] )
+else:
+   if s[1] != s[2]:
+      print( s[-1] )
+   else:
+      print( s[-2] )
+\end{lstlisting}
+\vspace{-0.5cm}
+\begin{enumerate}[label=\Alph*]
+	\item  \texttt{'A'} % $\star$
+	\item  \texttt{'B'} 
+	\item  \texttt{'c'} 
+	\item  \texttt{'d'}
+\end{enumerate}
+%Answer: A 
+
+!!!! See the reverse side for the 3th and 4th questions !!!!
+
+\pagebreak
+
+{\bf Question 3.}  What does the program below print?
+\begin{lstlisting}[frame=single]
+s = 'abcd'
+if not s.isalpha():
+   print( s[0] )
+elif s.isupper():
+   print( s[-1] )
+elif 'ab' in s:
+   print( s[-2] )
+else:
+   print( s[1] )
+\end{lstlisting}
+\vspace{-0.5cm}
+\begin{enumerate}[label=\Alph*]
+	\item  \texttt{'a'} 
+	\item  \texttt{'b'} 
+	\item  \texttt{'c'} % $\star$
+	\item  \texttt{'d'}
+\end{enumerate}
+%Answer: C
+
+{\bf Question 4.}  What does the program below print?
+\begin{lstlisting}[frame=single]
+s = 'ABCD'
+if not s.isalpha():
+   print( s[0] )
+elif s.isupper():
+   print( s[-1] )
+elif 'ab' in s:
+   print( s[-2] )
+else:
+   print( s[1] )
+\end{lstlisting}
+\vspace{-0.5cm}
+\begin{enumerate}[label=\Alph*]
+	\item  \texttt{'A'} 
+	\item  \texttt{'B'} 
+	\item  \texttt{'C'} 
+	\item  \texttt{'D'}% $\star$
+\end{enumerate}
+%Answer: D
+
+\end{document}

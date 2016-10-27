@@ -12,7 +12,7 @@
 \title{Python Basics!}
 \subtitle{branched control, range, lists}
 \author{CS101 Lecture \#8}
-\date{2016-09-19}
+\date{2016-10-24}
 
 \setcounter{showSlideNumbers}{1}
 
@@ -36,13 +36,14 @@
   \frametitle{Administrivia}
   \Enlarge
   \begin{itemize}
-  \myitem  Homework \#4 is due Friday Sep.\ 23.
-  \myitem  Midterm \#1 will be Monday Oct.\ 3.  (evening)
+  \myitem  Homework \#3 is due Wed Oct. 26.
+  \myitem  Homework \#4 is due Wed Nov.\ 4.
+  \myitem Midterm \#1 will be on the day of the 12th lecture (Nov. 7 Monday), covering through Lecture \#11. (evening)
   \end{itemize}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Warmup Quiz}
+\section{Warmup Questions (No quiz this lecture!)}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}[fragile]
@@ -60,7 +61,7 @@ while i < 8:
   What is the final value of \texttt{t}?
   \begin{enumerate}[label=\Alph*]
   \item  \texttt{"ACEG"}
-  \item  \texttt{"BDFH"}  $\star$
+  \item  \texttt{"BDFH"} % $\star$
   \item  \texttt{"ABCDEF"}
   \item  \texttt{"ABEF"}
   \end{enumerate}
@@ -86,7 +87,7 @@ while i < 5:
   \begin{enumerate}[label=\Alph*]
   \item  \texttt{"92143"}
   \item  \texttt{"103254"}
-  \item  \texttt{"10325"}  $\star$
+  \item  \texttt{"10325"} % $\star$
   \item  \texttt{"921436"}
   \item  None (loop doesn't terminate)
   \end{enumerate}
@@ -105,7 +106,7 @@ z = z.sort()
   \begin{enumerate}[label=\Alph*]
   \item  \texttt{0.6}
   \item  \texttt{0.5}
-  \item  \texttt{None}  $\star$
+  \item  \texttt{None} % $\star$
   \item  None of the above.
   \end{enumerate}
 \end{frame}
@@ -138,46 +139,7 @@ if x == 1.5 or x == 2.0:
   \end{semiverbatim}
 \end{frame}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}[fragile]
-  \frametitle{Homework}
-  \Enlarge
 
-  \includegraphics[width=0.8\textwidth]{./img/hw03-grades.png} %\pause
-  \begin{enumerate}
-  \myitem  Go to office hours! %\pause
-  \myitem  I'll hw03 move to basis out of 70 (instead of 74). %\pause
-  \myitem  Will be some opportunity for extra credit later.
-  \end{enumerate}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}[fragile]
-  \frametitle{Homework}
-  \Enlarge
-
-  Clunker Motors Inc. is recalling all vehicles in its Extravagant line from model years 1999-2002 as well all vehicles in its Guzzler line from model years 2004-2007.
-
-  Given variables \texttt{modelYear} and \texttt{modelName} write a statement that assigns \texttt{True} to \texttt{recalled} if the values of \texttt{modelYear} and \texttt{modelName} match the recall details and assigns \texttt{False} otherwise.
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}[fragile]
-  \frametitle{Homework}
-  \Enlarge
-
-  Clunker Motors Inc. is recalling all vehicles in its Extravagant line from model years 1999-2002. Given a variable \texttt{modelYear} and a string \texttt{modelName} write a statement that prints the message \texttt{"RECALL"} to standard output if the values of \texttt{modelYear} and \texttt{modelName} match the recall details.
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}[fragile]
-  \frametitle{Homework}
-  \Enlarge
-
-  Assume that \texttt{x} is a string variable which has been given a value. Write an expression whose value is \texttt{True} if and only if \texttt{x} is alphanumeric, that is, either a letter or a decimal digit.
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Conditional Execution}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -273,7 +235,7 @@ x = fun( "sam" ) and fun( "AS" )
   What is the value of \texttt{x}?
   \begin{enumerate}[label=\Alph*]
   \item  \texttt{True}
-  \item  \texttt{False}  $\star$
+  \item  \texttt{False} % $\star$
   \end{enumerate}
 \end{frame}
 
@@ -288,12 +250,12 @@ x = fun( "sam" ) and fun( "AS" )
     \begin{Verbatim}
 word = input( 'Enter a Scrabble word:  ' )
 if not word.isalpha():
-    print( 'There are only letters in Scrabble!' ) %\pause
+  print( 'There are only letters in Scrabble!' ) %\pause
 else:
-    if not word.isupper():      # why not
-                                # `word.islower()`?
-        word = word.upper()
-    print( 'You entered %s.' % word )
+  if not word.isupper():  # why not
+                          #`word.islower()`?
+      word = word.upper()
+  print( 'You entered %s.' % word )
     \end{Verbatim}
   \end{itemize}
 \end{frame}
@@ -531,8 +493,9 @@ for i in range(10):
   \Enlarge
 
   \begin{itemize}
-  \myitem  Homework \#4 is due Friday Sep.\ 23.
-  \myitem  Midterm \#1 will be Monday Oct.\ 3.  (evening)
+  \myitem  Homework \#3 is due Wed Oct. 26.
+  \myitem  Homework \#4 is due Wed Nov.\ 4.
+  \myitem Midterm \#1 will be on the day of the 12th lecture (Nov. 7 Monday), covering through Lecture \#11. (evening)
   \end{itemize}
 \end{frame}
 
