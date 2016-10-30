@@ -39,7 +39,7 @@
 		\myitem  Both Homeworks \#3 \& \#4 are due Wed Nov.\ 2.
 		\myitem  Homework \#5 is due Wed Nov.\ 9.
 		\myitem  Midterm \#1 will be Monday Nov.\ 7, 7pm-9pm.  (evening) in A-0414\\ \textcolor{CS101GradBot}{No lecture on Nov. 7 Monday but the instructor is available for office hour during the lecture time in Office 410 Arts and Science Building.}
-	   \myitem  Extra credit available on website this week (feedback)
+	   %\myitem  Extra credit available on website this week (feedback)
 	\end{itemize}
 \end{frame}
 
@@ -97,6 +97,50 @@ while i < 10:
         continue  # skip ONLY this loop iteration
     print(i)
   \end{semiverbatim}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Warmup Questions (Feedback Quiz this Lecture)}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+	\frametitle{Question \#1}
+	\Enlarge
+	
+	\begin{semiverbatim}
+# given a string `s`
+t = ''
+for c in s:
+  if c not in 'aeiou':
+    t += c
+    \end{semiverbatim}
+	What does this program do with string \texttt{s}?
+	\begin{enumerate}[label=\Alph*]
+		\item  Counts the vowels.
+		\item  Removes the vowels. % $\star$
+		\item  Counts the consonants.
+		\item  Removes the consonants.
+	\end{enumerate}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+	\frametitle{Question \#2}
+	\Enlarge
+	
+	\begin{semiverbatim}
+x = 0
+for i in [ 1,4950,99,100 ][ 0:-1 ]:
+   x = i
+   \end{semiverbatim}
+	What is the final value of \texttt{x}?
+	\begin{enumerate}[label=\Alph*]
+		\item  \texttt{0}
+		\item  \texttt{99}  % $\star$
+		\item  \texttt{100}
+		\item  \texttt{4950}
+	\end{enumerate}
 \end{frame}
 
 
@@ -413,7 +457,7 @@ assert sin(0.0) == 0.0 %\pause
  		\myitem  Both Homeworks \#3 \& \#4 are due Wed Nov.\ 2.
  		\myitem  Homework \#5 is due Wed Nov.\ 9.
  		\myitem  Midterm \#1 will be Monday Nov.\ 7, 7pm-9pm.  (evening) in A-0414\\ \textcolor{CS101GradBot}{No lecture on Nov. 7 Monday but the instructor is available for office hour during the lecture time in Office 410 Arts and Science Building.}
- 		\myitem  Extra credit available on website this week (feedback)
+ 	%	\myitem  Extra credit available on website this week (feedback)
  	\end{itemize}
 \end{frame}
 
