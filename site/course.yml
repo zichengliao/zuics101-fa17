@@ -45,7 +45,7 @@ chunks:
         | [Lecture #7:  lists, `while` loops](repocur:lectures/lec07.pdf) | 2016-10-19 | [Python session](repocur:lectures/lec07.ipynb) |
         | [Lecture #8:  branched conditionals, `for` loops, range](repocur:lectures/lec08.pdf) | 2016-10-24 |  |
         | [Lecture #9:  mutability, list and string methods](repocur:lectures/lec09.pdf) | 2016-10-26 | [Python session](repocur:lectures/lec09.ipynb); [Floating Point Arithmetic: Issues and Limitations](https://docs.python.org/3/tutorial/floatingpoint.html); [List/string length](http://www.hacksparrow.com/python-length-or-size-of-list-tuple-array.html); [Python built-in functions](https://docs.python.org/3/library/functions.html) |
-        | [Lecture #10:  multidimensional indexing, file operations](repocur:lectures/lec10.pdf) | 2016-10-31 | [`words.txt`](repocur:lectures/lec10/words.txt), [`numbers.txt`](repocur:lectures/lec10/numbers.txt) |
+        | [Lecture #10:  multidimensional indexing, file operations](repocur:lectures/lec10.pdf) | 2016-10-31 | [Python session](repocur:lectures/lec10.ipynb)； [`words.txt`](repocur:lectures/lec10/words.txt), [`numbers.txt`](repocur:lectures/lec10/numbers.txt) |
                        
 
         ##  Homework
