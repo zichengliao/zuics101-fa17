@@ -1,0 +1,97 @@
+\documentclass[12pt]{article}
+
+\setlength{\topmargin}{-1in} \addtolength{\textheight}{4.00in}
+\setlength{\oddsidemargin}{.00in} \addtolength{\textwidth}{1in}
+
+\usepackage{amsmath,color,graphicx}
+
+\usepackage{listings}      
+\lstset{language=Python}   
+
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{blindtext}
+\usepackage{enumitem}
+
+
+\nofiles
+
+\pagestyle{empty}
+
+\setlength{\parindent}{0in}
+
+
+\begin{document}
+
+\noindent {\sc {\bf {\Large Quiz 6}}
+            \hfill ZJUI CS 101, Fall 2016}
+%\bigskip
+
+\noindent {\sc  {\large Student ID:}
+            \hfill {\large Name:}
+             \hfill}
+%\bigskip
+
+{\bf Question 1.}    How would you refer to the value 9 below?
+\begin{lstlisting}[frame=single]
+a = [ [1,2,3],
+      [4,5,6],
+      [7,8,9] ]
+\end{lstlisting}
+\vspace{-0.5cm}
+  \begin{enumerate}[label=\Alph*]
+   \item  \texttt{a[2][2]} $\star$
+   \item  \texttt{a[1][2]}
+   \item  \texttt{a[2,3]}
+   \item  \texttt{a[2][1]}  
+  \end{enumerate}
+%Answer: A
+
+{\bf Question 2.}     What is the final value of \texttt{x}?
+\begin{lstlisting}[frame=single]
+x = [ 'a', 'b' ]
+y = [ 'c', 'd' ]
+def add_it( x,y ):
+    y.append( x )
+add_it( y,x )
+\end{lstlisting}
+\vspace{-0.5cm}
+\begin{enumerate}[label=\Alph*]
+  \item  \texttt{[ 'a', 'b', 'c', 'd' ]}
+  \item  \texttt{[ 'a', 'b' ]}
+  \item  \texttt{[ 'a', 'b', [ 'c', 'd' ] ]} % $\star$
+  \item  \texttt{[ 'c', 'd', [ 'a', 'b' ] ]}
+  \item  \texttt{None}
+\end{enumerate}
+%Answer: C
+
+{\bf Question 3.}  What is the final value of \texttt{myfileaslist}?
+\begin{lstlisting}[frame=single]
+myfile = open('words.txt')
+
+myfileasstring = myfile.read()
+myfileaslist = myfile.readlines()
+
+myfile.close()
+\end{lstlisting}
+\vspace{-0.5cm}
+\begin{enumerate}[label=\Alph*]
+	 \item  \texttt{[ ]} % $\star$
+	 \item  The contents of the file as a list of strings.
+	 \item  \texttt{None}
+\end{enumerate}
+%Answer: A
+
+{\bf Question 4.}   Do you agree with the following statement?
+\begin{lstlisting}[frame=single]
+Most scientists think of programming as a tax 
+they have to pay in order to do science. (Hannay et al., 2009)
+\end{lstlisting}
+\vspace{-0.5cm}
+\begin{enumerate}[label=\Alph*]
+  \item  Yes
+  \item  No
+\end{enumerate}
+%Answer: 
+
+\end{document}

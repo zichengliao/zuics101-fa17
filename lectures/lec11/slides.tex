@@ -15,7 +15,7 @@
 \title{Python Basics!}
 \subtitle{dictionaries, mutable arguments}
 \author{CS101 Lecture \#11}
-\date{2016-09-28}
+\date{2016-11-02}
 
 \setcounter{showSlideNumbers}{1}
 
@@ -40,28 +40,9 @@
   \Enlarge
 
   \begin{itemize}
-  \myitem  Homework \#5 is due Friday Sep.\ 30. \pause
-  \myitem  Midterm \#1 will be Monday Oct.\ 3.  (7 p.m.) \\ \pause \textcolor{CS101GradBot}{No class on Monday, \\ Labs WILL be held all week. \\ Contact \texttt{cs101admin@cs.illinois.edu} for conflict exam.}
+  \myitem  Homework \#5 is due Wed Nov.\ 9.
+  \myitem  Midterm \#1 will be Monday Nov.\ 7, 7pm-9pm.  (evening) in A-0414\\ \textcolor{CS101GradBot}{No lecture on Nov. 7 Monday but the instructor is available for office hour during the lecture time in Office 410 Arts and Science Building.}
   \end{itemize}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-  \frametitle{Administrivia}
-  \Enlarge
-
-  \begin{tabular}{ll}
-  \rowcolor{CS101Alt}
-  AYA AYB AYC AYD AYE & \href{http://ada.fs.illinois.edu/0043.html}{Gregory Hall 112} \\ % 369
-  \rowcolor{CS101White}
-  AYF AYG AYH AYI     & \href{http://ada.fs.illinois.edu/0159.html}{Wohlers Hall 141} \\ % 327
-  \rowcolor{CS101Alt}
-  AYJ AYK AYL         & \href{http://ada.fs.illinois.edu/0041.html}{Main Library 66} \\ % 216
-  \rowcolor{CS101White}
-  AYM AYN AYO         & \href{http://ada.fs.illinois.edu/0563.html}{Siebel Center 1404} \\ % 200
-  \rowcolor{CS101Alt}
-  AYP AYQ AYR         & \href{http://ada.fs.illinois.edu/0054.html}{David Kinley Hall 114} \\ % 280
-  \end{tabular}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -71,84 +52,38 @@
 
   \begin{itemize}
   \myitem  30 multiple-choice questions
-  \myitem  60 minutes \pause
-  \myitem  Requires NetID and University I-Card. \pause
+  \myitem  120 minutes (you typically can finish the exam within 60 minutes)
   \mysubitem  Exams are unique—omitting the exam code will dock one letter grade (10\%).
+  \myitem  Will cover all material except dictionaries and file operations.  Practice midterm is a good guide.
   \end{itemize}
 \end{frame}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Warmup Quiz}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}[fragile]
-  \frametitle{Question \#1}
-  \Enlarge
-
-  \begin{semiverbatim}
-a = [ [1,2,3], [4,5,6], [7,8,9] ]
-  \end{semiverbatim}
-  How would you refer to the value 8?
-  \begin{enumerate}[label=\Alph*]
-  \item  \texttt{a[2][3]}
-  \item  \texttt{a[1][2]}
-  \item  \texttt{a[2,3]}
-  \item  \texttt{a[2][1]}
-  \end{enumerate}
-\end{frame}
+\section{Library Functions}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}[fragile]
-  \frametitle{Question \#2}
+  \frametitle{\texttt{import}}
   \Enlarge
 
+  \begin{itemize}
+  \myitem  Python has built-in functions:
+    \begin{itemize}
+    \mysubitem  \texttt{abs}, \texttt{type}, \texttt{len}
+    \end{itemize} %\pause
+  \myitem  There are also specialized libraries:
+    \begin{itemize}
+    \mysubitem  \texttt{math}, \texttt{string}, \texttt{itertools}
+    \end{itemize} %\pause
+  \end{itemize}
   \begin{semiverbatim}
-x = [ 'a', 'b' ]
-y = [ 'c', 'd' ]
-def add_it( x,y ):
-    y.append( x )
-add_it( y,x )
-  \end{semiverbatim}
-  What is the final value of \texttt{x}?
-  \begin{enumerate}[label=\Alph*]
-  \item  \texttt{[ 'a', 'b', 'c', 'd' ]}
-  \item  \texttt{[ 'a', 'b' ]}
-  \item  \texttt{[ 'a', 'b', [ 'c', 'd' ] ]}
-  \item  \texttt{None}
-  \end{enumerate}
-\end{frame}
+# These are basically equivalent:
+import math
+math.sin( 5.4 * math.pi )
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}[fragile]
-  \frametitle{Question \#3}  %TODO:make file i/o question
-  \Enlarge
-
-  \begin{semiverbatim}
-x = [ 'a', 'b' ]
-y = [ 'c', 'd' ]
-def add_it( x,y ):
-    y.append( x )
-add_it( y,x )
-  \end{semiverbatim}
-  What is the final value of \texttt{x}?
-  \begin{enumerate}[label=\Alph*]
-  \item  \texttt{[ 'a', 'b', 'c', 'd' ]}
-  \item  \texttt{[ 'a', 'b' ]}
-  \item  \texttt{[ 'a', 'b', [ 'c', 'd' ] ]}
-  \item  \texttt{None}
-  \end{enumerate}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}[fragile]
-  \frametitle{Question \#1 (Worked)}
-  \Enlarge
-
-  \begin{semiverbatim}
-a = 1
-def fun(c,b):
-    return c + b
-a = fun( a,a ) + a
+from math import sin, pi
+sin( 5.4 * pi )
   \end{semiverbatim}
 \end{frame}
 
@@ -161,7 +96,7 @@ a = fun( a,a ) + a
   \Enlarge
 
   \begin{itemize}
-  \myitem  How do we index a \texttt{list}? \pause
+  \myitem  How do we index a \texttt{list}? %\pause
   \myitem  \texttt{list}s and \texttt{tuple}s are \emph{ordered}.
   \myitem  What else may make sense---how else could you organize data?
   \end{itemize}
@@ -180,9 +115,9 @@ a = fun( a,a ) + a
   \Enlarge
 
   \begin{itemize}
-  \myitem  The \texttt{dict} indexes data by \emph{any} value (\emph{unordered}). \pause
-  \myitem  Easy to think of as dictionary, but can use lots besides strings. \pause
-  \myitem  This container maps \emph{keys} to \emph{values}. \pause
+  \myitem  The \texttt{dict} indexes data by \emph{any} value (\emph{unordered}). %\pause
+  \myitem  Easy to think of as dictionary, but can use lots besides strings. %\pause
+  \myitem  This container maps \emph{keys} to \emph{values}. %\pause
   \end{itemize}
   \includegraphics[height=0.333\textheight]{./img/dict-02.png}
 \end{frame}
@@ -207,7 +142,7 @@ a = fun( a,a ) + a
     \mysubitem  \texttt{key : value} pairs, separated by commas
     \mysubitem  closing brace \texttt{\}}
     \end{itemize}
-  \end{itemize} \pause
+  \end{itemize} %\pause
   \begin{semiverbatim}
 model = \{
   'Civic': 'Honda',
@@ -270,7 +205,7 @@ for word in words:
   \item  \texttt{\{ 'red':3, 'orange':6, 'yellow':6 \}}
   \item  \texttt{\{ 'red':0, 'orange':2, 'yellow':2 \}}
   \item  \texttt{None}
-  \item  \texttt{\{'orange': 1, 'red': 0, 'yellow': 2\}}
+  \item  \texttt{\{'orange': 1, 'red': 0, 'yellow': 2\}}  %$\star$
   \end{enumerate}
 \end{frame}
 
@@ -281,7 +216,7 @@ for word in words:
 
   \begin{itemize}
   \myitem  Dictionaries can encode/decode data, or translate from one representation to another.
-  \end{itemize} \pause
+  \end{itemize} %\pause
   \begin{semiverbatim}
 x = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 y = 'BCDEFGHIJKLMNOPQRSTUVWXYZA'
@@ -320,7 +255,7 @@ for c in encoded:
   \Enlarge
 
   \begin{itemize}
-  \myitem  Encode all of the words in a file using a Caesar cipher.
+  \myitem  Encode all of the words in a file using a Caesar cipher (https://en.wikipedia.org/wiki/Caesar\_cipher).
   \myitem  Decode all of the words in the file.
   \end{itemize}
 \end{frame}
@@ -339,7 +274,7 @@ d = \{ \}
 for c in x:
     if c not in d:
         d[c] = 0
-        d[c] += 1
+    d[c] += 1
   \end{semiverbatim}
   \begin{itemize}
   \myitem  How would you reverse (decode) this?
@@ -373,7 +308,7 @@ city = \{ 60644: 'Chicago',
          41073: 'Cincinnati',
          63103: 'St. Louis' \}
 for name in zipcode:
-    print( name,city[zipcode[name]] )
+    print( name,city[ zipcode[ name ] ] )
   \end{semiverbatim}
 \end{frame}
 
@@ -395,7 +330,7 @@ x.append( 0 )
   \begin{enumerate}[label=\Alph*]
   \item  \texttt{[ 3,2,1 ]}
   \item  \texttt{[ 1,2,3 ]}
-  \item  \texttt{[ 1,2,3,0 ]}
+  \item  \texttt{[ 1,2,3,0 ]} % $\star$
   \item  \texttt{[ 0,1,2,3 ]}
   \end{enumerate}
 \end{frame}
@@ -406,9 +341,9 @@ x.append( 0 )
   \Enlarge
 
   \begin{itemize}
-  \myitem  Mutability causes \texttt{list}s to work differently in functions. \pause
-  \myitem  \texttt{list}s used as arguments \emph{can be changed} by the function. \pause
-  \myitem  This is very useful! \pause
+  \myitem  Mutability causes \texttt{list}s to work differently in functions. %\pause
+  \myitem  \texttt{list}s used as arguments \emph{can be changed} by the function. %\pause
+  \myitem  This is very useful! %\pause
   \end{itemize}
   \begin{semiverbatim}
 def fun(q):
@@ -447,9 +382,9 @@ def readfile(fname,a):
     for line in open(fname):
         a.append(line)
 
-all_lines = []
-for f in open(“filenames.txt”):
-    readfile(f,all_lines)
+all_lines = [ ]
+for f in open( "filenames.txt" ):
+    readfile( f,all_lines )
   \end{semiverbatim}
 \end{frame}
 
@@ -459,8 +394,8 @@ for f in open(“filenames.txt”):
   \Enlarge
 
   \begin{itemize}
-  \myitem  What if we \emph{want} a copy of a \texttt{list} (not an alias)? \pause
-  \myitem  Slice everything! \pause
+  \myitem  What if we \emph{want} a copy of a \texttt{list} (not an alias)? %\pause
+  \myitem  Slice everything! %\pause
   \end{itemize}
   \begin{semiverbatim}
 x = [ 3,2,1 ]
@@ -484,94 +419,18 @@ print( x == y )
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{String/List Methods}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}[fragile]
-  \frametitle{\texttt{string.split} method}
-  \Enlarge
-
-  \begin{itemize}
-  \myitem  \texttt{split} returns a \texttt{list}. \pause
-  \myitem  Takes a single string argument, the \emph{delimiter}. \pause
-  \end{itemize}
-  \begin{semiverbatim}
-name = 'Oliver Wendell Holmes'
-names = name.split(' ')
-print(m[-1])
-  \end{semiverbatim}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}[fragile]
-  \frametitle{Example}
+  \frametitle{\texttt{is} tests identity}
   \Enlarge
 
   \begin{semiverbatim}
-x = 'A+B+C'
-y = x.split('+')
+a = [ 1,2,3 ]
+b = a
+c = a[ : ]
+
+b is a  # True
+c is a  # False
   \end{semiverbatim}
-  What is the final value of \texttt{y}?
-  \begin{enumerate}[label=\Alph*]
-  \item  \texttt{'ABC'}
-  \item  \texttt{[ 'A','B','C' ]}
-  \item  \texttt{'A','B','C'}
-  \item  \texttt{None}
-  \end{enumerate}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}[fragile]
-  \frametitle{Example}
-  \Enlarge
-
-  \begin{semiverbatim}
-x = 'A+B+C'
-y = x.split('-')
-  \end{semiverbatim}
-  What is the final value of \texttt{y}?
-  \begin{enumerate}[label=\Alph*]
-  \item  \texttt{'A+B+C'}
-  \item  \texttt{[ 'A+B+C' ]}
-  \item  \texttt{( 'A+B+C' )}
-  \item  \texttt{None}
-  \end{enumerate}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}[fragile]
-  \frametitle{\texttt{string.join} method}
-  \Enlarge
-
-  \begin{itemize}
-  \myitem  \texttt{join} returns a \texttt{str}. \pause
-  \myitem  Takes a single \texttt{list} argument. \pause
-  \myitem  Returns the \texttt{list} elements joined as a string. \pause
-  \end{itemize}
-  \begin{semiverbatim}
-names = [ "Geoffrey", "Richard", "Aloysius", "Johnston", "Windsor", "Dean" ]
-','.join(names)     # note the odd syntax!
-  \end{semiverbatim}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}[fragile]
-  \frametitle{Example}
-  \Enlarge
-
-  \begin{semiverbatim}
-a = [ 'X', 'A', 'G' ]
-b = a[:]
-a.sort()
-x = ','.join(b)
-  \end{semiverbatim}
-  What is the final value of \texttt{x}?
-  \begin{enumerate}[label=\Alph*]
-  \item  \texttt{'XAG'}
-  \item  \texttt{[ 'X,A,G' ]}
-  \item  \texttt{'A,G,X'}
-  \item  \texttt{',A,G,X,'}
-  \end{enumerate}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -583,8 +442,8 @@ x = ','.join(b)
   \Enlarge
 
   \begin{itemize}
-  \myitem  Homework \#5 is due Friday Sep.\ 30.
-  \myitem  Midterm \#1 will be Monday Oct.\ 3.  (7 p.m.) \\ \textcolor{CS101GradBot}{No class on Monday, \\ Labs WILL be held all week. \\ Contact \texttt{cs101admin@cs.illinois.edu} for conflict exam.}
+  	\myitem  Homework \#5 is due Wed Nov.\ 9.
+  	\myitem  Midterm \#1 will be Monday Nov.\ 7, 7pm-9pm.  (evening) in A-0414\\ \textcolor{CS101GradBot}{No lecture on Nov. 7 Monday but the instructor is available for office hour during the lecture time in Office 410 Arts and Science Building.}
   \end{itemize}
 \end{frame}
 
