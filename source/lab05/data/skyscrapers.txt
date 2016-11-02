@@ -1,0 +1,20 @@
+Burj Khalifa,828
+Shanghai Tower,632
+Abraj Al-Bait Clock Tower,601
+Ping An Finance Centre,599
+Goldin Finance 117,596.5
+One World Trade Center,541.3
+CTF Finance Centre,530
+Taipei 101,509
+Shanghai World Financial Center,492
+International Commerce Centre,484
+Petronas Tower 1,452
+Petronas Tower 2,452
+Zifeng Towe,450
+Willis Tower,442 
+KK100,442
+Guangzhou International Finance Center,440
+Wuhan Center,438
+Marina 101,426.5
+432 Park Avenue,426
+Trump International Hotel and Tower,423
