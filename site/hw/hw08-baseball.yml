@@ -1,5 +1,5 @@
 type: PythonCodeQuestion
-title: More baseball statistics
+title: More Baseball Statistics
 id: graph
 value: 100
 timeout: 10
@@ -12,25 +12,25 @@ prompt: |
     # Introduction
     Once again, we will be using the Lahman Baseball Database in this week's assignment. We want to create a graph to visualize the relationship between how many RBIs a player has in a given year and their salary that same year. Unfortunately, Lahman provides the relevant data in two separate files. We will need to join the data to create the desired graph.
 
-    We have provided you with two CSV files named [batting.csv](repocur:pdfs/batting.csv) and [salaries.csv](repocur:pdfs/salaries.csv). The first, of course, contains the annual batting performance data from last week's assignment. The second contains salary data for all Major League Baseball players dating back to the year 1985. You should download both files and place them in the same directory as your Python code for this assignment. *Caution!* Your program should work with any similarly formatted csv files.
+    We have provided you with two CSV files named [batting.csv](repocur:media/batting.csv) and [salaries.csv](repocur:media/salaries.csv). The first, of course, contains the annual batting performance data from the last assignment. The second contains salary data for all Major League Baseball players dating back to the year 1985. You should download both files and place them in the same directory as your Python code for this assignment. *Caution!* Your program should work with any similarly formatted csv files.
 
     # Reading in the data
-    First, you will need to read in the data files. In batting.csv, We are interested in *three* columns this week: "playerID", "yearID" and "RBI". Your program should skip the header in the file and completely ignore any lines where the RBI column does not contain a digit. 
+    First, you will need to read in the data files. In batting.csv, We are interested in *three* columns this week: `"playerID"`, `"yearID"` and `"RBI"`. Your program should skip the header in the file and completely ignore any lines where the RBI column does not contain a digit.
 
-    You should create an accumulator dictionary called "playeryear2rbis" that maps a tuple of the playerID string and yearID string to an integer representing the number of RBIs for that player and year. Just like last week, as you iterate through input the file, you should update the "playeryear2rbis" dictionary. 
+    You should create an accumulator dictionary called `playeryear2rbis` that maps a tuple of the `"playerID"` string and `"yearID"` string to an integer representing the number of RBIs for that player and year. Just like last week, as you iterate through input the file, you should update the `playeryear2rbis` dictionary.
 
-    In salaries.csv, we are also interested in three columns: "playerID","yearID", and "salary". You should create a dictionary called "playeryear2salary" which maps a tuple of the playerID string and yearID string to an integer representing the player's salary for that year.
+    In `salaries.csv`, we are also interested in three columns: `"playerID"`, `"yearID"`, and `"salary"`. You should create a dictionary called `playeryear2salary` which maps a tuple of the `'playerID'` string and `'yearID'` string to an integer representing the player's salary for that year.
 
     # Preparing the data
-    After creating the two dictionaries, we need to join the data together and prepare it for plotting. We need to create two lists to hold the x and y values in our plot. We will call them "salaries" and "rbis". You should iterate over all of the keys of playeryear2salary and use these keys to find the salary and rbi data for each player and each year. You should skip any player,year combinations that are not represented in the playeryear2rbis dictionary (in other words, the data for that player and year must be in both dictionaries.)
+    After creating the two dictionaries, we need to join the data together and prepare it for plotting. We need to create two lists to hold the x and y values in our plot. We will call them `salaries` and `rbis`. You should iterate over all of the keys of `playeryear2salary` and use these keys to find the salary and rbi data for each player and each year. You should skip any `player,year` combinations that are not represented in the `playeryear2rbis` dictionary (in other words, the data for that player and year must be in both dictionaries.)
 
-    When you have the salary and rbi data for a given player and year, you should append them to the appropriate list. Once this loop is completed, you should end up with two lists of integers that have the exact same size. Each element in "salaries" will be an integer containing a player's salary for a certain year. The corresponding element in rbis (the one with the same index) will have the RBIs of that same player and year.
+    When you have the salary and RBI data for a given player and year, you should append them to the appropriate list. Once this loop is completed, you should end up with two lists of integers that have the exact same size. Each element in `salaries` will be an integer containing a player's salary for a certain year. The corresponding element in `rbis` (the one with the same index) will have the RBIs of that same player and year.
 
     # Plotting the data
-    Plot the data using the pyplot "plot" function. Make sure to import matplotlib.pyplot as plt. On the x axis, plot the "salaries". On the y axis, plot the "rbis." Use the format string "k.", to plot the points as black dots. Title your plot "Salary vs. RBIs in MLB". Label the X axis "Salary" and the Y axis "RBIs".
+    Plot the data using the pyplot `plot` function. Make sure to `import matplotlib.pyplot as plt`. On the x axis, plot the `salaries`. On the y axis, plot the `rbis`. Use the format string `'k.'` (to plot the points as black dots). Title your plot `"Salary vs. RBIs in MLB"`. Label the X axis `"Salary"` and the Y axis `"RBIs"`. In your submission, you should not run `plt.show()`.
 
     # Submitting your solution
-    After you finish writing your code, you can paste it into the box below and click "Submit answer for feedback." You can do this as many times as you like. DO NOT try to write your code here. Debugging it will be very difficult. You should write and test your code on your own computer. Once you are satisfied with your feedback, you can click "Submit assignment" above to finalize your assignment.
+    After you finish writing your code, you can paste it into the box below and click `"Submit answer for feedback"`. You can do this as many times as you like. DO NOT try to write your code here. Debugging it will be very difficult. You should write and test your code on your own computer. Once you are satisfied with your feedback, you can click `"Submit assignment"` above to finalize your assignment.
 
 setup_code: |
     def open(filename,mode="r"):
@@ -80,8 +80,8 @@ test_code: |
                 else:
                     player2RBI[playerid,year]+=int(rbi)
         f.close()
-        return player2RBI    
-    
+        return player2RBI
+
     def grade():
         if not type(playeryear2salary) is dict:
             feedback.finish(0,"playeryear2salary must be a dictionary.")
@@ -223,7 +223,7 @@ correct_code: |
                     player2salary[t]+=int(salary)
         f.close()
         return player2salary
-    
+
     def read_rbi(file_name):
         f=open(file_name)
         reader=csv.DictReader(f)
@@ -240,12 +240,12 @@ correct_code: |
                     player2RBI[t]+=int(rbi)
         f.close()
         return player2RBI
-        
+
     salaries=[]
     rbis=[]
     playeryear2salary=read_salary("Salaries.csv")
     playeryear2rbi=read_rbi("Batting.csv")
-    
+
     for playeryear in playeryear2salary:
         if playeryear not in playeryear2rbi:
             continue
@@ -253,7 +253,7 @@ correct_code: |
         rbi=playeryear2rbi[playeryear]
         salaries.append(salary)
         rbis.append(rbi)
-    
+
     plt.plot(salaries,rbis,'.')
     plt.xlabel("Salaries")
     plt.ylabel("RBIs")

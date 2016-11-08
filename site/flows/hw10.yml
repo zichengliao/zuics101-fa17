@@ -1,16 +1,16 @@
 [JINJA]
 {% from "yaml-macros.jinja" import indented_include %}
 
-title: "Homework #7"
+title: "Homework #10"
 description: |
 
-    # Homework #7
+    # Homework #10
 
 completion_text: |
 
     # All done!
 
-    You have successfully submitted Homework #7.
+    You have successfully submitted Homework #10.
 
 
 rules:
@@ -19,8 +19,8 @@ rules:
 
   start:
     -
-      if_after: 2016-11-08 10:00:00
-      if_before: 2016-11-25 18:05:00
+      if_after: 2016-11-02 09:00:00
+      if_before: 2016-11-11 18:05:00
       if_has_role: [student, ta, instructor]
       if_has_fewer_tagged_sessions_than: 1
       tag_session: main
@@ -37,7 +37,7 @@ rules:
       permissions: [view]
 
     -
-      if_after: 2017-01-25 12:59:59
+      if_after: 2016-12-31 12:59:59
       if_has_role: [student]
       permissions: []
 
@@ -45,7 +45,7 @@ rules:
       # Unfinished full-credit session marked 'end' after due date.
       if_has_tag: main
       if_in_progress: True
-      if_after: 2016-11-25 18:05:00
+      if_after: 2016-11-11 18:05:00
       if_expiration_mode: end
       message: |
         The due date has passed. If you have marked your session to
@@ -62,18 +62,18 @@ rules:
     -
       # Full-credit session before due date. Don't show answer.
       if_has_tag: main
-      if_before: 2016-11-25 18:05:00
+      if_before: 2016-11-11 18:05:00
       if_in_progress: False
       permissions: [view, see_correctness]
 
     -
       # Full-credit session after due date? Reveal answer.
       if_has_tag: main
-      if_after: 2016-11-25 18:05:00
+      if_after: 2016-11-11 18:05:00
       if_in_progress: False
       permissions: [view, see_correctness, see_answer_before_submission, see_answer_after_submission]
 
-  grade_identifier: "hw07"
+  grade_identifier: "hw10"
 
   grade_aggregation_strategy: max_grade
 
@@ -82,7 +82,7 @@ rules:
     -
       if_has_tag: main
       credit_percent: 100
-      due: 2016-11-25 18:05:00
+      due: 2016-11-11 18:05:00
       description: "Full credit"
 
     -
@@ -94,7 +94,7 @@ groups:
   - id: hw
     pages:
       -
-        {{ indented_include("hw/hw07-baseball.yml", 8) }}
+        {{ indented_include("hw/hw10-cannon.yml", 8) }}
 
 [/JINJA]
 

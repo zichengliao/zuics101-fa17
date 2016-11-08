@@ -1,0 +1,129 @@
+type: PythonCodeQuestion
+title: Simulating a bouncing ball
+id: simulate
+value: 100
+timeout: 10
+
+prompt: |
+    # Simulation
+    For this homework assignment, you will write a simplified model of a bouncing ball using numpy. Assume the ball is dropped on Venus under constant acceleration $g=8.87\frac{m}{s^2}$ from the limit of its atmosphere, a height of 250 km. Model the ball's motion for one hour and 15 minutes (include second 0 and second 4,500 in your data points). After the initial state, simulate 5,000 updates to the state (for a total of 5001 points.) Your simulation should use float64 numpy arrays for time (t) and height (y). Time should be represented in seconds and height should be represented in meters.
+
+    # Bouncing
+    To simulate bouncing, we'll make some simplifying assumptions (collision detection can be complicated.) If the ball's height is ever less than or equal to 0, we will assume that the ball hit the ground before the time step we are simulating and already started bouncing. You should instantly set its height to 0. Also, update its velocity to 90% (0.9) of its velocity from the *previous* time slice of the simulation. Be sure to change the direction of travel (up instead of down.) Count the number of times the ball bounces in an integer variable named "bounces". '
+
+    # Plotting
+    Plot the data using the pyplot "plot" function. Make sure to import matplotlib.pyplot as plt. On the x axis, plot time (t). On the y axis, plot the height of the ball (y). Use the format string "m:", to plot the points as magenta dots. Title your plot "Bouncing on Venus". Label the X axis "Time (s)" and the Y axis "Height (m)".
+
+setup_code: |
+
+names_for_user: []
+
+names_from_user: [t,y,bounces,plt]
+
+test_code: |
+    import numpy as np
+
+    n=5000          # number of data points to plot
+    start=0.0       # start time of simulation
+    end=4500.0      # ending time of simulation
+    g=-8.87         # acceleration of gravity
+
+    tc=np.linspace(start,end,n+1,dtype = np.float64)     # time in seconds
+    yc1=np.zeros(n+1,dtype = np.float64)                 # height in meters
+    yc2=np.zeros(n+1,dtype = np.float64)                 # height in meters
+    vc1=np.zeros(n+1,dtype = np.float64)                 # velocity in m/s
+    vc2=np.zeros(n+1,dtype = np.float64)                 # velocity in m/s
+    yc1[0]=250000.0                   # initialize height
+    yc2[0]=250000.0                   # initialize height
+
+    cbounces1=0
+    cbounces2=0
+    for i in range(1,n+1):
+            yc1[i]=yc1[i-1]+vc1[i-1]*(tc[i]-tc[i-1])
+            vc1[i]=vc1[i-1]+g*(tc[i]-tc[i-1])
+            vc2[i]=vc2[i-1]+g*(tc[i]-tc[i-1])
+            yc2[i]=yc2[i-1]+vc2[i-1]*(tc[i]-tc[i-1])
+            if yc1[i]<=0.0:
+                    cbounces1+=1
+                    yc1[i]=0.0
+                    vc1[i]=-1*.9*vc1[i-1]
+            if yc2[i]<=0.0:
+                    cbounces2+=1
+                    yc2[i]=0.0
+                    vc2[i]=-1*.9*vc2[i-1]
+    if not type(t) is np.ndarray or not type(y) is np.ndarray:
+        feedback.finish(0,"You must use numpy arrays for t and y.")
+    if t.shape!=(5001,) or y.shape!=(5001,):
+        feedback.finish(0,"Both t and y should be 1 dimensional and contain exactly 5,001 data points.")
+    if not np.allclose(t,tc,atol=.0001):
+        feedback.finish(0,"Your t values are incorrect.")
+    if not type(t[0]) is np.float64 or not type(y[0]) is np.float64:
+        feedback.finish(0,"Both t and y should be float64 arrays.")
+    if (not np.allclose(y,yc1,atol=.0001)) or (not np.allclose(y,yc2,atol=.0001)):
+        feedback.finish(0,"Your y values are incorrect.")
+    if np.isclose(y[-1], -95.86409194):
+        feedback.finish(0,"Your y values are incorrect.  Are you updating from the *previous* time step's velocity as specified?")
+    if bounces!=cbounces1 and bounces!=cbounces2:
+        feedback.finish(0,"Your count of bounces is incorrect.")
+
+    feedback.add_feedback("Your simulation data is correct.")
+
+    if not plt:
+        feedback.finish(0,"You have no plot.")
+    a=plt.gca()
+    xlab=a.get_xaxis().get_label_text()
+    ylab=a.get_yaxis().get_label_text()
+    tit=a.get_title()
+
+    if xlab=='Time (s)' and ylab=='Height (m)' and tit=="Bouncing on Venus":
+        feedback.add_feedback("Your axes and title are labeled correctly.")
+    else:
+        feedback.finish(0,"Your axes and/or title are labeled incorrectly.")
+
+    lines=a.get_lines()
+    if len(lines)!=1:
+        feedback.finish(0,"You should plot exactly 1 line.")
+    line=lines[0]
+    marker=line.get_marker()
+    color=line.get_color()
+    if marker==":" and color=="m":
+        feedback.add_feedback("Your plot marker is correct.")
+    d=line.get_data()
+    d[0].sort()
+    d[1].sort()
+    t.sort()
+    y.sort()
+    if np.all(d[0]==t) and np.all(d[1]==y):
+        feedback.add_feedback("You plotted the correct data.")
+    else:
+        feedback.finish(0,"You've plotted incorrect data.")
+
+    feedback.finish(1,"Congratulations! Your code passes all of our tests.")
+
+correct_code: |
+
+    import numpy as np
+
+    # Parameters of simulation
+    n=5000          # number of data points to plot
+    start=0.0       # start time of simulation
+    end=4500.0      # ending time of simulation
+    g=-8.87         # acceleration of gravity
+
+    # State variable initialization
+    t=np.linspace(start,end,n+1)    # time in seconds
+    y=np.zeros(n+1)                 # height in meters
+    v=np.zeros(n+1)                 # velocity in m/s
+    y[0]=250000.0                   # initialize height to 1.0
+
+    bounces=0
+    for i in range(1,n+1):
+            v[i]=v[i-1]+g*(t[i]-t[i-1])
+            y[i]=y[i-1]+v[i-1]*(t[i]-t[i-1])
+            if y[i]<=0.0:
+                    bounces+=1
+                    y[i]=0.0
+                    v[i]=-1*.9*v[i-1]
+
+    plt.plot(t,y,'m:')
+    plt.show()

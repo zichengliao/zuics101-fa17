@@ -1,0 +1,221 @@
+type: PythonCodeQuestion
+title: Optimization by brute force
+id: simulate2
+value: 100
+timeout: 10
+
+prompt: |
+    # Introduction
+    Callista "Cherry Bomb" Davidson is a world-famous stunt woman, and she is trying to achieve the long distance world record human cannonball. She needs your help, though, because she has no idea what angle is best to aim her cannon. You will need to simulate firing the cannon at all integer angles from `1` to `90` (inclusive.)
+
+    ![Callista](repo:media/shutterstock_212012782.jpg)
+
+    Her cannon will shoot her at a velocity of $70\frac{m}{s}$ at a starting height of $5m$. We will assume an acceleration of gravity $g = -9.8 \,\frac{m}{s^2}$. We will simulate her trajectory for 10 seconds in 1000 steps (so 1001 states including the initial state.) Create a 1D vector named `t` and 2D arrays named `vx`, `vy`, `x`, and `y` to hold the state variables ($90 \times 1001$).
+
+    # Angles
+    We will simulate 90 different angles. You will need to find the horizontal $x$ and vertical $y$ components of her initial velocity at each angle to simulate in two dimensions. $v_{x0} = v_0 cos(\theta)$ and $v_{y0} = v_0 sin(\theta)$. Note that you will need to convert from degrees to radians (`np.radians`) before using the numpy `sin` and `cos` functions. Store the angles as radians in a variable called `radians`. Use this to initialize the state variables for `vx` and `vy`.
+
+    # Drag
+    To ensure Callista goes as far as possible, we cannot neglect drag in both the vertical and horizontal dimensions. To simplify things a bit, we will assume her surface area is equal in both dimensions. We will need to make use of the drag equation, $F_D=-\frac{1}{2}\rho v^2C_DA$. Callista has a surface area of $A=.8m^2$ and a mass of $mass=65kg$. Her costume gives her a drag coeffienct of $C_D=1.4$. The mass density of the air is $\rho=1.225 \frac{kg}{m^3}$. This force will always act in the opposite direction of her travel, so she will experience an acceleration of $a_{drag}=-\frac{\rho C_D A}{2mass}v^2$. Remember that you will need to simulate this acceleration in both the x and y dimensions (both vertical and horizontal.) To simplify things a bit, compute this acceleration in the x and y dimensions independently.
+
+    # Simulation
+    When Callista hits the ground, she stops. To simulate this, if her altitude is ever less than 0, set her velocity in all directions to zero, her height to zero, and her x location to its previous value. Her x location should then remain the same until the end of the simulation. In other words, when she hits the ground, she stops moving until the 10 seconds we are simulating are over.
+
+    For each angle, you will need to simulate all 1000 time steps. Each time you update the state variables, first compute her acceleration (using her previous speed to compute the drag,) then her velocity (using her current acceleration,) then her location (using her current velocity.)
+
+    # Final answer
+    After the simulation is complete, we are not yet finished. Callista needs to know the optimum angle in integer degrees (being a cannonball not a mathematician). Find this and store the result in a variable named `best_angle`.
+
+    # Help
+    To help you debug your program, we are supplying you with a `csv` file containing the simulation output for a 45 degree angle. If you run into trouble, you can compare your results to these: [`45.csv`](repo:media/45.csv).
+
+    Also note that fractional credit is available for completion of each portion of the above process.
+
+    # Extra fun
+    Once you have the model finished, you can have fun with it. Plotting her trajectory at each angle produces a striking graph. You can also try changing the parameters to ridiculous values. How far would she travel if the cannon shot her at 1,000 meters per second? How hard would she hit the ground?
+
+setup_code: |
+
+names_for_user: []
+
+names_from_user: [radians,t,vx,vy,x,y,best_angle]
+
+test_code: |
+    import numpy as np
+    # get answers
+    def correct():
+        n=1000                  # number of time steps to simulate
+        m=90                    # number of angles
+        rho=1.225               # kg/m^3
+        g=-9.8                  # m/s^2
+        start=0.0               # seconds
+        end=10                  # seconds
+        initial_velocity=70     # meters/second
+        initial_height=5
+
+        # object
+        A=.8            # surface area m^2
+        C=1.4           # drag coefficient
+        mass=65         # mass of object in kg
+
+        # parameters of simulation
+        angles=np.array([i for i in range(1,m+1)])
+        radians=np.radians(angles)
+
+        #initalize variables
+        t=np.linspace(start,end,n+1)
+        vx=np.zeros((m,n+1))
+        vy=np.zeros((m,n+1))
+        x=np.zeros((m,n+1))
+        y=np.zeros((m,n+1))
+
+        for i in range(m):
+                y[i][0]=initial_height
+                vx[i][0]=initial_velocity*np.cos(radians[i])
+                vy[i][0]=initial_velocity*np.sin(radians[i])
+
+        for i in range(m):
+                for j in range(1,n+1):
+                        if y[i][j-1]<=0:
+                                vx[i][j]=0
+                                vy[i][j]=0
+                                y[i][j]=0
+                                x[i][j]=x[i][j-1]
+                        else:
+                                ax=-(.5*rho*C*A/mass)*vx[i][j-1]**2
+                                if vy[i][j-1]>0:
+                                    ay=g-(.5*rho*C*A/mass)*vy[i][j-1]**2
+                                else:
+                               	    ay=g+(.5*rho*C*A/mass)*vy[i][j-1]**2
+                                dt=t[j]-t[j-1]
+                                vx[i][j]=vx[i][j-1]+ax*dt
+                                vy[i][j]=vy[i][j-1]+ay*dt
+                                x[i][j]=x[i][j-1]+vx[i][j]*dt
+                                y[i][j]=y[i][j-1]+vy[i][j]*dt
+                                if y[i][j]<=0:
+                                        y[i][j]=0
+                                        x[i][j]=x[i][j-1]
+                                        vy[i][j]=0
+                                        vx[i][j]=0
+        best_d=0
+        best_a=0
+        for i in range(m):
+                if x[i][-1]>best_d:
+                        best_d=x[i][-1]
+                        best_a=angles[i]
+        return best_a,radians,t,vx,vy,x,y
+    cbest_angle,cradians,ct,cvx,cvy,cx,cy=correct()
+    # test type of arrays and dimensions
+    if not type(t) is np.ndarray:
+        feedback.finish(0,"You must use a numpy array for t.")
+    if t.shape!=(1001,):
+        feedback.finish(0,"t should be a one dimensional array with 1001 points.")
+    if not type(radians) is np.ndarray:
+        feedback.finish(0,"You must use a numpy array for radians.")
+    if radians.shape!=(90,):
+        feedback.finish(0,"radians should be a one dimensional array with 90 points.")
+    if not type(vx) is np.ndarray or not type(vy) is np.ndarray:
+        feedback.finish(0,"You must use a numpy array for velocity.")
+    if vx.shape!=(90,1001) or vy.shape!=(90,1001) :
+        feedback.finish(0,"vx and vy should be 90x1001.")
+    if not type(x) is np.ndarray or not type(y) is np.ndarray:
+        feedback.finish(0,"You must use a numpy array for position.")
+    if x.shape!=(90,1001) or y.shape!=(90,1001) :
+        feedback.finish(0,"x and y should be 90x1001.")
+    # test angles and time
+    if not np.allclose(radians,cradians,atol=.0001):
+        feedback.finish(.5,"Your values for radians are incorrect.")
+    if not np.allclose(t,ct,atol=.0001):
+        feedback.finish(.5,"Your values for t are incorrect.")
+    # test initial state of each variable
+    if not np.allclose(vx[:,0],cvx[:,0],atol=.0001):
+        feedback.finish(.7,"Your initial x velocities are incorrect.")
+    if not np.allclose(vy[:,0],cvy[:,0],atol=.0001):
+        feedback.finish(.7,"Your initial y velocities are incorrect.")
+    if not np.allclose(y[:,0],cy[:,0],atol=.0001):
+        feedback.finish(.7,"Your initial y positions are incorrect.")
+    if not np.allclose(x[:,0],cx[:,0],atol=.0001):
+        feedback.finish(.7,"Your initial x positions are incorrect.")
+    # test simulation
+    if not np.allclose(vy,cvy,atol=.0001):
+        feedback.finish(.8,"Your simulated y velocities are incorrect.")
+    if not np.allclose(vx,cvx,atol=.0001):
+        feedback.finish(.8,"Your simulated x velocities are incorrect.")
+    if not np.allclose(y,cy,atol=.0001):
+        feedback.finish(.8,"Your simulated y positions are incorrect.")
+    if not np.allclose(x,cx,atol=.0001):
+        feedback.finish(.8,"Your simulated x positions are incorrect.")
+    # test answer
+    if not type(best_angle) is int:
+        feedback.finish(.9,"Your best angle should be an integer.")
+    if best_angle!=cbest_angle:
+        feedback.finish(.9,"Your best angle is incorrect.")
+    feedback.finish(1.0,"You found the best angle. Callista will be so happy!")
+
+
+correct_code: |
+
+    import numpy as np
+
+    # constants
+    n=1000                  # number of time steps to simulate
+    m=90                    # number of angles
+    rho=1.225               # kg/m^3
+    g=-9.8                  # m/s^2
+    start=0.0               # seconds
+    end=10                  # seconds
+    initial_velocity=70     # meters/second
+    initial_height=5
+
+    # object
+    A=.8            # surface area m^2
+    C=1.4           # drag coefficient
+    mass=65         # mass of object in kg
+
+    # parameters of simulation
+    angles=np.array([i for i in range(1,m+1)])
+    radians=np.radians(angles)
+
+    #initalize state variables
+    t=np.linspace(start,end,n+1)
+    vx=np.zeros((m,n+1))
+    vy=np.zeros((m,n+1))
+    x=np.zeros((m,n+1))
+    y=np.zeros((m,n+1))
+
+    for i in range(m):
+            y[i][0]=initial_height
+            vx[i][0]=initial_velocity*np.cos(radians[i])
+            vy[i][0]=initial_velocity*np.sin(radians[i])
+
+    # begin simulation
+    for i in range(m):
+        for j in range(1,n+1):
+                if y[i][j-1]<=0:
+                        vx[i][j]=0
+                        vy[i][j]=0
+                        y[i][j]=0
+                        x[i][j]=x[i][j-1]
+                else:
+                        ax=-(.5*rho*C*A/mass)*vx[i][j-1]**2
+                        if vy[i][j-1]>0:
+                            ay=g-(.5*rho*C*A/mass)*vy[i][j-1]**2
+                        else:
+                            ay=g+(.5*rho*C*A/mass)*vy[i][j-1]**2
+                        dt=t[j]-t[j-1]
+                        vx[i][j]=vx[i][j-1]+ax*dt
+                        vy[i][j]=vy[i][j-1]+ay*dt
+                        x[i][j]=x[i][j-1]+vx[i][j]*dt
+                        y[i][j]=y[i][j-1]+vy[i][j]*dt
+                        if y[i][j]<=0:
+                                y[i][j]=0
+                                x[i][j]=x[i][j-1]
+                                vx[i][j]=0
+                                vy[i][j]=0
+
+    best_distance=0
+    best_angle=0
+    for i in range(m):
+            if x[i][-1]>best_distance:
+                    best_distance=x[i][-1]
+                    best_angle=i+1
