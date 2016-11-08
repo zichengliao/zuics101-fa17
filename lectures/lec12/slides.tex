@@ -1,0 +1,340 @@
+%!TEX program = xelatex
+\documentclass[11pt]{beamer}
+
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{blindtext}
+\usepackage{enumitem}
+\usepackage{fancyvrb}
+
+\usetheme{SaoPaulo}
+
+\title{Python Applications}
+\subtitle{workflow, data sources, \texttt{requests}}
+\author{CS101 Lecture \#12}
+\date{2016-11-09}
+
+\setcounter{showSlideNumbers}{1}
+
+\begin{document}
+  \setcounter{showProgressBar}{0}
+  \setcounter{showSlideNumbers}{0}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\frame{\titlepage}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setcounter{framenumber}{0}
+\setcounter{showProgressBar}{1}
+\setcounter{showSlideNumbers}{1}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Administrivia}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+  \frametitle{Administrivia}
+  \Enlarge
+
+  \begin{itemize}
+ % \myitem  Midterm \& feedback will be discussed next week.
+  \myitem  Homework \#6 is due Weds, Nov.\ 16.
+  \myitem  Homework \#7 is due Friday, Nov.\ 25.
+  \end{itemize}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Workflow}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Imperative programming}
+  \Enlarge
+
+  \begin{itemize}
+  \myitem  Every program tells a story. %\pause
+    \begin{itemize}
+    \mysubitem  Beginning %\pause = Input    = Preprocessing %\pause
+    \mysubitem  Middle %\pause    = Analysis = Processing %\pause
+    \mysubitem  End %\pause       = Output   = Postprocessing %\pause
+    \end{itemize}
+  \myitem  A good way to write a program is to make this explicit! %\pause
+  \myitem  Everything else we do in this class will follow this pattern.
+  \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Imperative programming}
+  \Enlarge
+
+  \begin{itemize}
+  \myitem  This structure applies at every level.
+    \begin{itemize}
+    \mysubitem  expressions \\
+    \mysubitem  statements \\
+    \mysubitem  blocks \\
+    \mysubitem  programs
+    \end{itemize} %\pause
+  \myitem  This is one reason why return type is so critical!
+  \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Input Sources}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Input sources}
+  \Enlarge
+
+  \begin{itemize}
+  \myitem  The user:  %\pause \texttt{input} %\pause
+  \myitem  The hard drive:  %\pause \texttt{open} (files) %\pause
+    \begin{itemize}
+    \mysubitem  plain text files \\
+    \mysubitem  comma-separated value files (\texttt{csv}) \\
+    \end{itemize} %\pause
+  \myitem  The Internet:  %\pause \texttt{requests}
+  \end{itemize}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Review:  User \texttt{input}}
+  \Enlarge
+
+  \begin{itemize}
+  \myitem  \texttt{input}:
+    \begin{itemize}
+    \mysubitem  accepts as argument a message
+    \mysubitem  \emph{blocks} (pauses) for the user
+    \mysubitem  \texttt{return}s a \texttt{str}ing
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Review:  Files/\texttt{open}}
+  \Enlarge
+
+  \begin{itemize}
+  \myitem  \texttt{open}:
+    \begin{itemize}
+    \mysubitem  accepts as argument a file name
+    \mysubitem  \texttt{return}s a \texttt{file} data type
+    \end{itemize}
+    \myitem  \texttt{file} has three useful methods: %\pause
+      \begin{itemize}
+      \mysubitem  \texttt{read} \texttt{return}s a \texttt{str}ing
+      \mysubitem  \texttt{readlines} \texttt{return}s a \texttt{list}
+      \mysubitem  \texttt{close}
+      \end{itemize}
+  \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Files/\texttt{csv}}
+  \Enlarge
+
+  \begin{itemize}
+  \myitem  \texttt{csv} files look like spreadsheets with columns separated by commas.
+  \end{itemize}
+  \begin{semiverbatim}
+Year,Make,Model,Price
+2007,Chevrolet,Camaro,5000.00
+2010,Ford,F150,8000.00
+  \end{semiverbatim}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Example:  \texttt{plankton.csv}}
+  \Enlarge
+
+  \begin{itemize}
+  \myitem  Given a field report on plankton populations, determine the largest plankton and the most common (at any location and during any season).
+  \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Files/\texttt{csv}}
+  \Enlarge
+
+  \begin{itemize}
+  \myitem  \texttt{csv} files look like spreadsheets with columns separated by commas.
+  \end{itemize}
+  \begin{semiverbatim}
+Year,Make,Model,Price
+2007,Chevrolet,Camaro,5000.00
+2010,Ford,F150,8000.00
+  \end{semiverbatim}
+  \begin{itemize}
+  \myitem  There are two ways to read them: %\pause
+    \begin{itemize}
+    \mysubitem  \emph{tokenize} (\texttt{split}) the line into components %\pause
+    \mysubitem  use the \texttt{csv.DictReader} tool to access components
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Files/\texttt{csv}}
+  \Enlarge
+
+  \begin{semiverbatim}
+# assuming that we have a file autos.csv
+myfile = open( 'autos.csv' )
+rows = myfile.readlines()
+for row in rows:
+    print( row[ 0 ], row[ 1 ] )
+  \end{semiverbatim}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Files/\texttt{csv}}
+  \Enlarge
+
+  \begin{semiverbatim}
+# assuming that we have a file autos.csv
+from csv import DictReader
+reader = DictReader( open( 'autos.csv' ) )
+for row in reader:
+    print( row[ 'Make' ], row[ 'Price' ] )
+  \end{semiverbatim} %\pause
+  \begin{itemize}
+  \myitem  So how would our \texttt{plankton.csv} example look?
+  \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Review:  Internet data/\texttt{requests}}
+  \Enlarge
+
+  \begin{itemize}
+  \myitem  \texttt{requests} is a module to \\ access server-based resources %\pause
+    \begin{itemize}
+    \mysubitem  This is a complex process!
+    \mysubitem  \texttt{get} \texttt{return}s a \texttt{Response} data type \\
+    (but you don't need to know this) %\pause
+    \mysubitem  The ONLY thing you need is \\ the \texttt{text} attribute (NOT method).
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Internet data/\texttt{requests}}
+  \Enlarge
+
+  \begin{itemize}
+  \myitem  The \texttt{text} attribute is a \texttt{str}ing. %\pause
+  \myitem  But websites are HTML! %\pause
+    \begin{itemize}
+    \mysubitem  We will only access plain-text resources. %\pause
+    \mysubitem  HTML requires \emph{parsing}, which we won't cover. %\pause
+    \mysubitem  Another possible approach is to inspect the page for structure.
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Internet data/\texttt{requests}}
+
+  \begin{semiverbatim}
+import requests
+url = 'http://www.nws.noaa.gov/mdl/gfslamp/lavlamp.shtml'
+website = requests.get( url )
+offset = website.text.find( 'KCMI' )+169
+temperature_string = website.text[ offset:offset+3 ]
+temperature = float( temperature_string )
+  \end{semiverbatim}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Question}
+  \Enlarge
+%[commandchars=\\\{\},commentchar=\%]
+  \begin{semiverbatim}
+import requests
+text = requests.get( 'mydataurl.com/data' )
+data = ???
+  \end{semiverbatim}
+  This code should produce a \texttt{list} containing the comma-separated numbers at the URL.  What should replace the ??? ?
+  \begin{enumerate}[label=\Alph*]
+  \item  \texttt{text.split(',')}
+  \item  \texttt{text.text.split(',')}
+  \item  \texttt{text().split(',')}
+  \item  \texttt{text.text().split(',')}
+  \end{enumerate}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Question}
+  \Enlarge
+%[commandchars=\\\{\},commentchar=\%]
+  \begin{semiverbatim}
+import requests
+text = requests.get( 'mydataurl.com/data' )
+data = \textcolor{CS101Alt}{text.text.split(',')}
+  \end{semiverbatim}
+  This code should produce a \texttt{list} containing the comma-separated numbers at the URL.  What should replace the ??? ?
+  \begin{enumerate}[label=\Alph*]
+  \item  \texttt{text.split(',')}
+  \item  \texttt{text.text.split(',')}  $\star$
+  \item  \texttt{text().split(',')}
+  \item  \texttt{text.text().split(',')}
+  \end{enumerate}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Sorting a \texttt{dict} by value}
+
+  \begin{semiverbatim}
+def sortDictAsList( d ):
+    items = list( d.items() )
+    items.sort( key=lambda x:x[1] )
+    return items
+  \end{semiverbatim}
+  This is MAGIC.  Don't worry AT ALL about understanding it in 101. \\
+  \begin{semiverbatim}
+d = \{ 'a':2, 'b':1, 'c':-1, 'd':14 \}
+sortDictAsList( d )
+  \end{semiverbatim}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Sorting a \texttt{dict} by value}
+
+  Given a dictionary \texttt{d}, create a new dictionary that reverses the keys and values of \texttt{d}.  Thus, the keys of \texttt{d} become the values of the new dictionary and the values of \texttt{d} become the keys of the new dictionary.  You may assume \texttt{d} contains no duplicate values (that is, no two keys map to the same values).  Associate the new dictionary with the variable \texttt{inverse}.
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Reminders}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+  \frametitle{Reminders}
+  \Enlarge
+
+  \begin{itemize}
+  \myitem  Homework \#6 is due Weds, Nov.\ 16.
+  \myitem  Homework \#7 is due Friday, Nov.\ 25.
+  \mysubitem  Use the \texttt{read().split(',')} approach.
+  \end{itemize}
+\end{frame}
+
+\end{document}

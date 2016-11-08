@@ -7,4 +7,4 @@ unenrolled:
 - "*.ipynb"
 - "*.py"
 - "*.pyc"
-- "*.xlsx"
+- "*.csv"
