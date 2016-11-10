@@ -1,5 +1,5 @@
 type: PythonCodeQuestion
-title: Baseball statistics
+title: Baseball Statistics
 id: graph
 value: 100
 timeout: 10
@@ -8,25 +8,31 @@ data_files:
     - "media/batting.csv"
 
 prompt: |
-    # Introduction
-    The Lahman Baseball Database is a comprehensive database of Major League baseball statistics. The journalist Sean Lahman provides all of this data freely to the public. We will make use of some of his data in this assignment. If you want to learn more about the database, you can click [here](http://www.seanlahman.com/baseball-archive/statistics/)
+    ### Introduction
+    The Lahman Baseball Database is a comprehensive database of Major League baseball statistics. The journalist Sean Lahman provides all of this data freely to the public. We will make use of some of his data in this assignment. If you would like to learn more about the database, you can [visit his website](http://www.seanlahman.com/baseball-archive/statistics/).
 
-    We have provided you with a CSV file named [batting.csv](repocur:pdfs/batting.csv) that contains the annual batting performance data for all Major League Baseball players dating back to the year 1871. The first row in the file is a header indicating what data is stored in each column of the file. For example, column 12 is labeled "HR" and contains the home runs the player hit that year. Each of the next 99,846 lines contains a comma separated list of the data for that player and year. For example, the fifth line in the file indicates that a player with the id allisdo01 hit 2 homeruns in 1871.
+    We have provided you with a CSV file named [`batting.csv`](repocur:media/batting.csv) that contains the annual batting performance data for all Major League Baseball players dating back to the year 1871. The first row in the file is a header indicating what data is stored in each column of the file. For example, column 12 is labeled `"HR"` and contains the number of home runs the player hit that year. Each of the next 99,846 lines contains a comma separated list of the data for that player and year. For example, the fifth line in the file indicates that a player with the id `allisdo01` hit 2 home runs in 1871.
 
-    You should download [batting.csv](repocur:pdfs/batting.csv) and place it in the same directory as your Python code. Your job will be to write a Python program that finds the player id of the player with the highest total career RBIs of all time. *Caution!* Your program should work with any similarly formatted csv file.
+    You should download [`batting.csv`](repocur:media/batting.csv) and place it in the same directory as your Python code. Your job will be to write a Python program that finds the player id of the player with the highest total career RBIs of all time. *Caution!* Your program should work with any similarly formatted CSV file.
 
-    # Reading in the data
-    First, you will need to read in the data file. You can do this by opening the file and iterating through each line using the "open" function. To parse the data contained in each line, you will need to use the "split" method. We are interested in two columns "playerID" and "RBI". Note: your program should skip the header in the file and completely ignore any lines where the RBI column does not contain a digit.
+    ### Data Input:  Opening the file
+    First, you will need to read in the data file. You can do this by opening the file using the `open` function and iterating through each line. To parse the data contained in each line, you will need to use the `split` method. We are interested in two columns, `'playerID'` and `'RBI'`. (Your program should skip the header in the file and completely ignore any lines where the RBI column does not contain a digit.)
 
-    You should create an accumulator dictionary called "career_rbis" that maps each player id string to an integer representing the total number of RBIs for that player. As you iterate through input the file, you should update the "career_rbis" dictionary.
+    You should create an accumulator dictionary called `"career_rbis"` that maps each player id string to an integer representing the total number of RBIs for that player. As you iterate through input the file, you should update the `"career_rbis"` dictionary.
 
-    # Finding the most RBIs
-    After reading in the data and generating the "career_rbis" dictionary, you can now iterate through the dictionary to find the player with the most career RBIs. *Hint:* You will need two accumulator variables to track both the most RBIs you've seen so far AND the player having that many RBIs. 
+    ### Data Processing:  Finding the most RBIs
+    After reading in the data and generating the `"career_rbis"` dictionary, you can now iterate through the dictionary to find the player with the most career RBIs. *Hint:* You will need two accumulator variables to track both the most RBIs you've seen so far AND the player having that many RBIs.
 
-    Store an integer representing the highest number of RBIs in a variable named "max_rbis" and the corresponding player id string in a variable named "max_player".
+    Store an integer representing the highest number of RBIs in a variable named `max_rbis` and the corresponding player id string in a variable named `max_player`.
 
-    # Submitting your solution
-    After you finish writing your code, you can paste it into the box below and click "Submit answer for feedback." You can do this as many times as you like. DO NOT try to write your code here. Debugging it will be very difficult. You should write and test your code on your own computer. Once you are satisfied with your feedback, you can click "Submit assignment" above to finalize your assignment.
+    ### Data Output:  Submitting your solution
+    After you finish writing your code, you can paste it into the box below and click "Submit answer for feedback." You can do this as many times as you like. DO NOT try to write your code here. Debugging it here will be very difficult. You should write and test your code on your own computer. Once you are satisfied with your feedback, you can click "Submit assignment" above to finalize your assignment.
+
+    ### Using files and directories
+    Although when you submit code here, you should use `open('batting.csv')` with no directory path, on your own machine things may behave differently.  Briefly, the *best* thing to do is to figure out where Python is running and move your file `batting.csv` there.  Otherwise you can try to find out where your file is located and refer to it directly using the code shared at the end of lecture #13.
+
+    ### One more note...
+    You will find it much more intuitive to change the editor mode for the code box below.  Click *user profile* beneath the box and set your *Editor mode* to `Sublime text` (a common code editing program).  You should only need to fix this once.
 
 setup_code: |
     def open(filename,mode="r"):
@@ -98,7 +104,7 @@ test_code: |
 
         if max_player != "aaronha01":
             feedback.finish(0,"max_players has an incorrect value.")
-            
+
         feedback.add_feedback("max_rbis and max_players are correct.")
 
         feedback.finish(1,"Congratulations! Your code passes all of our tests.")
@@ -126,4 +132,4 @@ correct_code: |
     for batter in career_rbis:
         if career_rbis[batter]>max_rbis:
             max_player=batter
-            max_rbis=career_rbis[batter] 
+            max_rbis=career_rbis[batter]

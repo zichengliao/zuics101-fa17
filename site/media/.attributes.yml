@@ -1,0 +1,10 @@
+
+public:
+- "*.pdf"
+- "*.csv"
+- "*.html"
+- "*.txt"
+- "*.jpg"
+- "*.zip"
+- "*.ipynb"
+- "*"

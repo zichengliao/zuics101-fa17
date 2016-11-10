@@ -265,12 +265,12 @@ def fun(a,b):
         return a==3
 a=5
 b=4
-print fun(a,b)
+print(fun(a,b))
 \end{verbatim}
 What is printed out by this program?
 \begin{answers}
-\answer False
-\correctanswer 4
+\correctanswer False
+\answer 4
 \answer 5
 \answer True
 \answer None of the other answers. This code is not valid.
@@ -293,9 +293,9 @@ def pal(s):
 The function is intended to return True if and only if the input string s is a palindrome. A palindrome is a string that reads the same forward and backward, like ``ABBA'' or ``RACECAR''. What should replace the three question marks to complete the function?
 \begin{answers}
 \answer  \begin{verbatim} a + a == a * 2 \end{verbatim}
-\correctanswer  \begin{verbatim}a.reverse()==a \end{verbatim}
+\answer  \begin{verbatim} a.reverse()==a \end{verbatim}
 \answer  \begin{verbatim}(len(a) % 2) == 0 \end{verbatim}
-\answer  \begin{verbatim}None of the other answers are correct. \end{verbatim}
+\correctanswer  None of the other answers are correct.
 \end{answers}
 \begin{solution}
 \end{solution}
@@ -374,7 +374,7 @@ def fun(a,b):
 x=0
 for i in range(2,5):
     x=x+fun(i,x)
-    print x
+    print(x)
 \end{verbatim}
 After it is run, what is the final \textbf{value} of x?
 \begin{answers}
@@ -395,7 +395,7 @@ def fun(a,b):
 x=0
 for i in range(-1,3):
     x=x+fun(i,x)
-    print x
+    print(x)
 \end{verbatim}
 After it is run, what is the final \textbf{value} of x?
 \begin{answers}
@@ -514,7 +514,7 @@ def fun(a,b):
 
 a=4
 b=6
-print fun(a,b)
+print(fun(a,b))
 \end{verbatim}
 What is printed out by this program?
 \begin{answers}

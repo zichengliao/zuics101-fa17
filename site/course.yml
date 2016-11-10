@@ -46,8 +46,10 @@ chunks:
         | [Lecture #8:  branched conditionals, `for` loops, range](repocur:lectures/lec08.pdf) | 2016-10-24 |  |
         | [Lecture #9:  mutability, list and string methods](repocur:lectures/lec09.pdf) | 2016-10-26 | [Python session](repocur:lectures/lec09.ipynb); [Floating Point Arithmetic: Issues and Limitations](https://docs.python.org/3/tutorial/floatingpoint.html); [List/string length](http://www.hacksparrow.com/python-length-or-size-of-list-tuple-array.html); [Python built-in functions](https://docs.python.org/3/library/functions.html) |
         | [Lecture #10:  multidimensional indexing, file operations](repocur:lectures/lec10.pdf) | 2016-10-31 | [Python session](repocur:lectures/lec10.ipynb)； [`words.txt`](repocur:lectures/lec10/words.txt), [`numbers.txt`](repocur:lectures/lec10/numbers.txt) |
-        | [Lecture #11:  dictionaries, mutable arguments](repocur:lectures/lec11.pdf) | 2016-09-28 | [Jeopardy example](repocur:lectures/lec11/jeopardy-example.py), [`jeopardy.csv`](repocur:lectures/lec11/jeopardy.csv) |
-        | **Python Applications** | | |                      
+        | [Lecture #11:  dictionaries, mutable arguments](repocur:lectures/lec11.pdf) | 2016-11-02 | [Jeopardy example](repocur:lectures/lec11/jeopardy-example.py), [`jeopardy.csv`](repocur:lectures/lec11/jeopardy.csv) |
+        | **Python Applications** | | |
+        | [Lecture #12:  workflow, `csv`, `requests`](repocur:lectures/lec12.pdf) | 2016-11-09 | [plankton example](repocur:lectures/lec12/plankton-example.py) · [`plankton.csv`](repocur:lectures/lec12/plankton.csv) · [`autos.csv`](repocur:lectures/lec12/autos.csv) · [`odyssey.txt`](repocur:lectures/lec12/odyssey.txt) <br/> [`csv` module](https://github.com/UI-CS101/cs101-fa16/wiki/Input-&-Output#csv) · [`requests` module](https://github.com/UI-CS101/cs101-fa16/wiki/Input-&-Output#requests) · [sorting `dict`s](https://github.com/UI-CS101/cs101-fa16/wiki/Basic-data-types#dict) |
+                             
 
         ##  Homework
 
@@ -56,8 +58,13 @@ chunks:
         |            |          |          |
         | ---------- | -------- | -------- |
         | [![](repocur:img/banner-hw01.png)](flow:hw01) <br/> **Due** 2016-10-01 |[![](repocur:img/banner-hw02.png)](flow:hw02) <br/> **Due** 2016-10-19 | [![](repocur:img/banner-hw03.png)](flow:hw03) <br/> **Due** 2016-10-26 |
-        | [![](repocur:img/banner-hw04.png)](flow:hw04) <br/> **Due** 2016-11-02 | [![](repocur:img/banner-hw05.png)](flow:hw05) <br/> **Due** 2016-11-09 |
+        | [![](repocur:img/banner-hw04.png)](flow:hw04) <br/> **Due** 2016-11-02 | [![](repocur:img/banner-hw05.png)](flow:hw05) <br/> **Due** 2016-11-09 | [![](repocur:img/banner-hw06.png)](flow:hw06) <br/> **Due** 2016-11-16 |
+        | [![](repocur:img/banner-hw07.png)](flow:hw07) <br/> **Due** 2016-11-25 |
+        
+        ### Python Installation
+        Although we can't provide technical support in setting up your personal machine, if you decide to install Python we warmly recommend using [Anaconda Python](https://www.continuum.io/downloads) 3.5.
 
+        
         ##  Labs
         <a name="labs"></a>
         Instructor: Zicheng Liao
@@ -80,7 +87,7 @@ chunks:
 
         | Exam | Date | Supporting Resources |
         | ---- | ---- | -------------------- |
-        | Midterm #1 | November 7, Monday 7pm-9pm in A-0414 -- as the day of the 12th lecture | [Practice midterm](repocur:lectures/midterm1-practice-updated.pdf) |
+        | Midterm #1 | November 7, Monday 7pm-9pm in A-0414 -- as the day of the 12th lecture | [Practice midterm](repocur:lectures/midterm1-practice-updated.pdf); [Midterm solution](repocur:lectures/midterm1-solution.pdf); [Midterm question statistics](repocur:lectures/zjui-midterm1-questiongrades.pdf)|
         | Midterm #2 | To be determined; approximately six weeks after Midterm #1 | |
         | Final | To be determined; during 2017-01-16 till 2017-01-22 | |
 

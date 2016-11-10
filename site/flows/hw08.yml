@@ -1,6 +1,94 @@
 [JINJA]
-{% from "yaml-macros.jinja" import hw_header, indented_include %}
-{{ hw_header(8) }}
+{% from "yaml-macros.jinja" import indented_include %}
+
+title: "Homework #8"
+description: |
+
+    # Homework #8
+
+completion_text: |
+
+    # All done!
+
+    You have successfully submitted Homework #8.
+
+
+rules:
+  tags:
+    - main
+
+  start:
+    -
+      if_after: 2016-10-12 10:00:00
+      if_before: 2016-10-24 18:05:00
+      if_has_role: [student, ta, instructor]
+      if_has_fewer_tagged_sessions_than: 1
+      tag_session: main
+      may_start_new_session: True
+      may_list_existing_sessions: True
+
+    -
+      may_start_new_session: False
+      may_list_existing_sessions: True
+
+  access:
+    -
+      if_has_tag: null
+      permissions: [view]
+
+    -
+      if_after: 2016-12-31 12:59:59
+      if_has_role: [student]
+      permissions: []
+
+    -
+      # Unfinished full-credit session marked 'end' after due date.
+      if_has_tag: main
+      if_in_progress: True
+      if_after: 2016-10-24 18:05:00
+      if_expiration_mode: end
+      message: |
+        The due date has passed. If you have marked your session to
+        end at the deadline, it will receive full credit, but it
+        will end automatically fairly soon.
+      permissions: [view, submit_answer, see_correctness, change_answer]
+
+    -
+      # Unfinished Full-credit session before due date.
+      if_has_tag: main
+      if_in_progress: True
+      permissions: [view, submit_answer, end_session, see_correctness, change_answer]
+
+    -
+      # Full-credit session before due date. Don't show answer.
+      if_has_tag: main
+      if_before: 2016-10-24 18:05:00
+      if_in_progress: False
+      permissions: [view, see_correctness]
+
+    -
+      # Full-credit session after due date? Reveal answer.
+      if_has_tag: main
+      if_after: 2016-10-24 18:05:00
+      if_in_progress: False
+      permissions: [view, see_correctness, see_answer_before_submission, see_answer_after_submission]
+
+  grade_identifier: "hw08"
+
+  grade_aggregation_strategy: max_grade
+
+  grading:
+
+    -
+      if_has_tag: main
+      credit_percent: 100
+      due: 2016-10-24 18:05:00
+      description: "Full credit"
+
+    -
+      credit_percent: 0
+      description: "Late"
+
 
 groups:
   - id: hw
