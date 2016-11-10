@@ -70,9 +70,10 @@ chunks:
         Instructor: Zicheng Liao
         
         All labs meet in [A-0418](http://intlcampus.zju.edu.cn/en/content/campus-visit). A1: **Fri 08h00–09h5**; B1: **Fri 10h00–11h50**
-
+        
         You should attend your own lab section to complete and submit assignments. Exceptions must be approved in advance.
         
+        Late Policy: late submission made by Friday 12pm will receive 50% credit; 25% credit by the weekend (Sunday 12pm). No further extension is accepted.
         | Session     | Date       | Supporting Resources | 
         | ------- | ---------- | -------------------- |
         | [Lab#01:  python & Linux handson](repocur:labs/lab01.pdf) | 2016-09-30 | [lab01.ipynb](repocur:labs/lab01.ipynb) |
