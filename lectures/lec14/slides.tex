@@ -1,0 +1,601 @@
+%!TEX program = xelatex
+\documentclass[11pt]{beamer}
+
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{blindtext}
+\usepackage{enumitem}
+\usepackage{fancyvrb}
+\usepackage{tikz}
+
+\usetheme{SaoPaulo}
+
+\title{Python Applications}
+\subtitle{debugging code, solving problems}
+\author{CS101 Lecture \#14}
+\date{2016-10-12}
+
+\setcounter{showSlideNumbers}{1}
+
+\newcommand{\correctstar}{\textcolor{red}{$\star$}}
+
+\begin{document}
+  \setcounter{showProgressBar}{0}
+  \setcounter{showSlideNumbers}{0}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\frame{\titlepage}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setcounter{framenumber}{0}
+\setcounter{showProgressBar}{1}
+\setcounter{showSlideNumbers}{1}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Administrivia}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+  \frametitle{Administrivia}
+  \Enlarge
+
+  \begin{itemize}
+  \myitem  Homework \#7 is due Monday, Oct.\ 17.
+  \myitem  Midterm reflection exercise on website for extra credit (through Friday).
+  \myitem  Office hours will change from Wed to Thu next week (check website).
+  \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Brief Note on Directories}
+  \Enlarge
+
+  \begin{itemize}
+  \myitem  Directories are written before the file name:
+    \begin{Verbatim}
+'/Users/davis68/cs101/hw07/batting.csv'
+'C:/cs101/hw07/batting.csv'  # note / not \
+    \end{Verbatim}
+  \myitem  These are \emph{absolute} paths (where the file is on the machine)---these always begin with \texttt{/} (Linux/Mac) or \texttt{X:} (Windows).
+  \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Brief Note on Directories}
+  \Enlarge
+
+  \begin{itemize}
+  \myitem  Relative paths are often more convenient:
+    \begin{Verbatim}
+'batting.csv'
+'./batting.csv'  # . is current directory
+'../hw07/batting.csv'  # .. is parent dir
+    \end{Verbatim}
+  \myitem  For 101, we recommend putting the file in the same directory (use the code from last time).
+  \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Warmup Quiz}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Question \#1}
+  \Enlarge
+
+  \begin{Verbatim}
+a = [ 'alpha','beta','gamma' ]
+b = [ 2,3,4 ]
+for i,j in enumerate( a ):
+    print( i,j )
+  \end{Verbatim}
+
+  Which of the following answers is a possible output of the above code?
+
+  \begin{enumerate}[label=\Alph*]
+  \item  \texttt{4 gamma}
+  \item  \texttt{2 gamma}
+  \item  \texttt{gamma 4}
+  \item  \texttt{gamma 2}
+  \end{enumerate}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Question \#1}
+  \Enlarge
+
+  \begin{Verbatim}
+a = [ 'alpha','beta','gamma' ]
+b = [ 2,3,4 ]
+for i,j in enumerate( a ):
+    print( i,j )
+  \end{Verbatim}
+
+  Which of the following answers is a possible output of the above code?
+
+  \begin{enumerate}[label=\Alph*]
+  \item  \texttt{4 gamma}
+  \item  \texttt{2 gamma}  \correctstar
+  \item  \texttt{gamma 4}
+  \item  \texttt{gamma 2}
+  \end{enumerate}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Question \#2}
+  \Enlarge
+
+  \begin{Verbatim}
+a = [ 'alpha','beta','gamma' ]
+b = [ 2,3,4 ]
+for i,j in zip( a,b ):
+    print( i,j )
+  \end{Verbatim}
+
+  Which of the following answers is a possible output of the above code?
+
+  \begin{enumerate}[label=\Alph*]
+  \item  \texttt{4 gamma}
+  \item  \texttt{2 gamma}
+  \item  \texttt{gamma 4}
+  \item  \texttt{gamma 2}
+  \end{enumerate}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Question \#2}
+  \Enlarge
+
+  \begin{Verbatim}
+a = [ 'alpha','beta','gamma' ]
+b = [ 2,3,4 ]
+for i,j in zip( a,b ):
+    print( i,j )
+  \end{Verbatim}
+
+  Which of the following answers is a possible output of the above code?
+
+  \begin{enumerate}[label=\Alph*]
+  \item  \texttt{4 gamma}
+  \item  \texttt{2 gamma}
+  \item  \texttt{gamma 4}  \correctstar
+  \item  \texttt{gamma 2}
+  \end{enumerate}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{When Things Go Wrong}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% full-slide image
+{ \setbeamertemplate{navigation symbols}{}
+    \begin{frame}[plain]
+        \begin{tikzpicture}[remember picture,overlay]
+            \node[at=(current page.center)] {
+                \includegraphics[height=\paperheight]{./img/despair.jpg}
+            };
+        \end{tikzpicture}
+        My code doesn’t work.
+     \end{frame}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Debugging}
+  \Enlarge
+
+  \begin{enumerate}
+  \myitem  How do I know it isn’t working?
+  \myitem  What do I expect it to do?
+  \myitem  What is my code doing instead? Why?
+  \end{enumerate}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% full-slide image
+{ \setbeamertemplate{navigation symbols}{}
+    \begin{frame}[plain]
+        \begin{tikzpicture}[remember picture,overlay]
+            \node[at=(current page.center)] {
+                \includegraphics[height=\paperheight]{./img/basil.jpg}
+            };
+        \end{tikzpicture}
+        Errors are clues!
+     \end{frame}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Types of Bugs}
+  \Enlarge
+
+  \begin{enumerate}
+  \myitem  A few working definitions:
+  \begin{enumerate}
+    \mysubitem  \textbf{Exceptions}---unusual behavior (although not necessarily unexpected behavior, particularly in Python) %\pause
+    \mysubitem  \textbf{Errors}---exceptions which cause the program to be unrunnable (cannot be handled at run time) %\pause
+    \mysubitem  \textbf{Traceback}---listing of function calls on the stack at the time the exception arises %\pause
+    \mysubitem  \textbf{Bugs}---errors and exceptions, but also miswritten, ambiguous, or incorrect code which in fact runs but does not advertise its miscreancy
+    \end{enumerate}
+  \end{enumerate}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Common exceptions}
+  \Enlarge
+
+  \begin{enumerate}
+  \myitem  \texttt{SyntaxError}
+  \myitem  \texttt{NameError}
+  \myitem  \texttt{TypeError}
+  \myitem  \texttt{ValueError}
+  \myitem  \texttt{IOError}
+  \myitem  \texttt{IndexError}
+  \myitem  \texttt{KeyError}
+  \myitem  \texttt{ZeroDivisionError}
+  \myitem  \texttt{IndentationError}
+  \myitem  \texttt{Exception}
+  \end{enumerate}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Common exceptions}
+  \Enlarge
+
+  \begin{enumerate}
+  \myitem \texttt{SyntaxError}---check missing colons or parentheses
+  \myitem \texttt{NameError}---check for typos, function definitions
+  \myitem \texttt{TypeError}---check variable types (coerce if necessary)
+  \myitem \texttt{ValueError}---check function parameters
+  \myitem \texttt{IOError}---check that files exist
+  \end{enumerate}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Common exceptions}
+  \Enlarge
+
+  \begin{enumerate}
+  \myitem \texttt{IndexError}---don't reference nonexistent list elements
+  \myitem \texttt{KeyError}---similar to an IndexError, but for dictionaries
+  \myitem  \texttt{ZeroDivisionError}---three guesses...
+  \myitem  \texttt{IndentationError}---check that spaces and tabs aren't mixed
+  \myitem  \texttt{Exception}---generic error category
+  \end{enumerate}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Comprehension Question}
+  \Enlarge
+
+  \begin{Verbatim}
+# calculate squares
+d = list(range(10))
+while i < 10:
+    d[i] = d[i] ** 2.0
+    i += 1
+  \end{Verbatim}
+
+  Which error would this code produce?
+
+  \begin{enumerate}[label=\Alph*]
+  \item  SyntaxError
+  \item  IndexError
+  \item  ValueError
+  \item  NameError
+  \end{enumerate}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Comprehension Question}
+  \Enlarge
+
+  Which of the following would produce \texttt{TypeError}?
+
+  \begin{enumerate}[label=\Alph*]
+  \item  \begin{verbatim}'2' + 2\end{verbatim}
+  \item  \begin{verbatim}2 / 0\end{verbatim}
+  \item  \begin{verbatim}2e8 + (1+0j)\end{verbatim}
+  \item  \begin{verbatim}'2' * 2\end{verbatim}
+  \end{enumerate}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Program stack}
+
+  \begin{tabular}{cc}
+    \begin{minipage}{2in}
+    \begin{verbatim}
+# in file `main.py`
+def do_numerics():
+    print(sin(5.0))
+
+do_numerics()
+
+
+
+
+    \end{verbatim}
+    \end{minipage}
+    &
+    \includegraphics[width=0.5\textwidth]{./img/stack.png}
+    \\
+  \end{tabular}
+\end{frame}
+
+%(you do the same thing when you start cleaning your room, and then you have to set that context aside and clean your bed, and set that context aside and wash your sheets, and set that context aside and run out for detergent)
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Program stack trace}
+
+  \begin{Verbatim}
+Traceback (most recent call last):
+    File "heat_eqn.py", line 87, in <module>
+      main()
+    File "heat_eqn.py", line 77, in main
+      u = set_ic( x,length )
+    File "heat_eqn.py", line 38, in set_ic
+      u[:, 0] = sin(pi*x/length)**2   # deg C
+NameError: name 'u' is not defined
+  \end{Verbatim}
+  \begin{enumerate}
+  \myitem  Read these from end to beginning:
+  \mysubitem  \texttt{u} in \texttt{set\_ic} in \texttt{main} in file \texttt{heat\_eqn.py}
+  \end{enumerate}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Debugging}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Debugging}
+  \Enlarge
+
+Flon's Axiom:
+
+``There is not now, nor has there ever been, nor will there ever be, any programming language in which it is the least bit difficult to write bad code.''
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Debugging example}
+
+  This code should find all words whose first two letters are the same:
+  \begin{Verbatim}[commandchars=\\\{\},commentchar=\%]
+for line in open( "words.txt" ):
+    line = line.strip()
+    if len( line ) >= 2:
+        a,b = line[1:3]
+    if a == b:
+        print( line )
+  \end{Verbatim}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Debugging example}
+
+  This code should find all words whose first two letters are the same:
+  \begin{Verbatim}[commandchars=\\\{\},commentchar=\%]
+for line in open( "words.txt" ):
+    line = line.strip()
+    if len( line ) >= 2:
+        \textcolor{CS101GradTop}{print( line )}
+        a,b = line[1:3]
+        \textcolor{CS101GradTop}{print( a,b )}
+    if a == b:
+        print( line )
+  \end{Verbatim}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Debugging example}
+
+  This code should find all words whose first two letters are the same:
+  \begin{Verbatim}[commandchars=\\\{\},commentchar=\%]
+for line in open( "words.txt" ):
+    line = line.strip()
+    if len( line ) >= 2:
+        a,b = line[\textcolor{CS101GradTop}{0:2}]
+    if a == b:
+        print( line )
+  \end{Verbatim}
+\end{frame}
+
+%(this doesn't tell you where to go, but does tell you if how you're going is valid)
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Debugging strategies}
+  \Enlarge
+
+  \begin{enumerate}
+  \myitem  When do things go wrong? %\pause
+  \myitem  Three categories of problems:
+    \begin{enumerate}
+    \mysubitem  before the code runs
+    \mysubitem  while the code is running
+    \mysubitem  in the results
+    \end{enumerate}
+  \end{enumerate}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Debugging strategies}
+  \Enlarge
+
+  \begin{enumerate}
+  \myitem  Start early. %\pause
+  \myitem  Read the problem statement carefully. %\pause
+  \myitem  Add print statements. %\pause
+  \myitem  Chart the flow of the program. %\pause
+  \myitem  Break the program down into functions. %\pause
+  \myitem  Document functions before writing them. %\pause
+  \myitem  Explain it to someone else. %\pause
+  \myitem  Make no assumptions! If your thinking is not precise, your code will not be precise. %\pause
+  \myitem  Start over from scratch. Take a fresh look at the problem.
+  \end{enumerate}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Debugging strategies}
+  \Enlarge
+
+  Consider the following series statement for a Bessel function of the first kind,
+  $$J_{0}(x) = \sum_{m=0}^{\infty} \frac{(-1)^{m}}{m! (m+1)!} {\left(\frac{x}{2}\right)}^{2m} \text{.} $$
+\end{frame}
+
+%debug bessel function
+%debug Neetesh's code
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Style}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Style}
+  \Enlarge
+
+  \begin{enumerate}
+  \myitem  What makes a good Python code? %\pause
+  \end{enumerate}
+  \begin{center}
+    \textcolor{CS101Base}{\Huge \texttt{import this}}
+  \end{center}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Style}
+  \Enlarge
+
+  \begin{enumerate}
+  \myitem  Document your code!
+  \myitem  Every function should have a docstring.
+  \end{enumerate}
+  \begin{Verbatim}
+def warning( msg ):
+    '''Display a warning message.'''
+    print( 'Warning:  %s'%msg)
+  \end{Verbatim}
+  %\pause
+  \begin{enumerate}
+  \myitem  Docstrings explain what the function does and what its parameters are.
+  \myitem  They always are triple-quoted strings on the first line of the function block.
+  \end{enumerate}
+  %\pause
+  \begin{Verbatim}
+help(warning)
+  \end{Verbatim}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Style}
+  \Enlarge
+
+  \begin{enumerate}
+  \myitem  Use descriptive variable names. %\pause
+  \myitem  Why do we write comments? %\pause
+  \myitem  For the person who next looks at the code!
+  \begin{Verbatim}
+x_vals = [0,0.1,0.2,0.3,0.4]  # meters
+faraday = 96485.3328959  # coulombs,
+                         # electric charge
+  \end{Verbatim}
+  \end{enumerate}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Style}
+  \Enlarge
+
+  \begin{enumerate}
+  \myitem  Use functions to structure code.
+  \myitem  This makes code more readable (and debuggable!).
+  \myitem  A \texttt{main} function lets you organize your program's logic succinctly.
+  \end{enumerate}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Style}
+  \Enlarge
+
+  \begin{enumerate}
+  \myitem  A \texttt{main} function lets you organize your program's logic succinctly.
+  \myitem  We have a special way of writing these so that we can load our code as a module or execute it alone.
+  \end{enumerate}
+  \begin{Verbatim}
+def main():
+    # your code here
+
+if __name__ == '__main__':
+    main()
+  \end{Verbatim}
+\end{frame}
+
+%heat_eqn_cl.py (in functions, not)
+%Compare commented/uncommented code
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+  \frametitle{Course outline}
+  \Enlarge
+
+  Course Summary:
+  \begin{itemize}
+  \item  Python basics:
+    \begin{itemize}
+    \item  operators, expressions, data types, data structures
+    \end{itemize}
+  \item  Python applications:
+    \begin{itemize}
+    \item  workflow, I/O, \correctstar debugging
+    \end{itemize}
+  \item  Scientific Python:
+    \begin{itemize}
+    \item  plotting, calculating, modeling, simulation, optimization
+    \end{itemize}
+  \item  MATLAB:
+    \begin{itemize}
+    \item  recap of the above
+    \end{itemize}
+  \end{itemize}
+
+  \correctstar (you are here)
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Reminders}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+  \frametitle{Reminders}
+  \Enlarge
+
+  \begin{itemize}
+  \myitem  Homework \#7 is due Monday, Oct.\ 17.
+  \myitem  Midterm reflection exercise on website for extra credit (through Friday).
+  \myitem  Office hours will change from Wed to Thu next week (check website).
+  \end{itemize}
+\end{frame}
+
+\end{document}

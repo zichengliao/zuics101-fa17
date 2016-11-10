@@ -1,0 +1,95 @@
+\documentclass[12pt]{article}
+
+\setlength{\topmargin}{-1in} \addtolength{\textheight}{4.00in}
+\setlength{\oddsidemargin}{.00in} \addtolength{\textwidth}{1in}
+
+\usepackage{amsmath,color,graphicx}
+
+\usepackage{listings}      
+\lstset{language=Python}   
+
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{blindtext}
+\usepackage{enumitem}
+
+
+\nofiles
+
+\pagestyle{empty}
+
+\setlength{\parindent}{0in}
+
+
+\begin{document}
+
+\noindent {\sc {\bf {\Large Quiz 7}}
+            \hfill ZJUI CS 101, Fall 2016}
+%\bigskip
+
+\noindent {\sc  {\large Student ID:}
+            \hfill {\large Name:}
+             \hfill}
+%\bigskip
+
+{\bf Question 1.}   What is the final value of \texttt{d} for the code below? (There can be multiple correct answers for this question. Picking any correct answer wins you full credit for this question.)
+\begin{lstlisting}[frame=single]
+x = 'ABBACAB'
+d = {}
+for c in x:
+    if c not in d:
+        d[c] = 0
+    d[c] += 1
+\end{lstlisting}
+\vspace{-0.5cm}
+  \begin{enumerate}[label=\Alph*]
+ \item  \texttt{\{ 'A': 3, 'C': 1, 'B': 3 \}}
+ \item  \texttt{\{ 'A': 3, 'B': 3, 'C': 1 \}}
+ \item  \texttt{\{ 'AAA', 'BBB', 'C'\}}
+ \item  \texttt{[ 3, 3, 1 ]}
+  \end{enumerate}
+%Answer: A or B
+
+{\bf Question 2.}    What does this code below print?
+\begin{lstlisting}[frame=single]
+d = { 'red':1, 'green':2, 'blue':3 }
+for n in d:
+    print( n )
+\end{lstlisting}
+\vspace{-0.5cm}
+\begin{enumerate}[label=\Alph*]
+  \item  The values of \texttt{d}.
+  \item  The keys of \texttt{n}.
+  \item  The key--value pairs of \texttt{d}.
+\end{enumerate}
+%Answer: B
+
+{\bf Question 3.} What does this code below do?
+\begin{lstlisting}[frame=single]
+myfile = open( 'odyssey.txt' )
+text = myfile.read()
+d = {}
+for l in text.split():
+    if l not in d:
+       d[ l ] = 0
+    d[ l ] += 1
+\end{lstlisting}
+\vspace{-0.5cm}
+\begin{enumerate}[label=\Alph*]
+	 \item  Counts all of the lines in \texttt{'odyssey.txt'}.
+	 \item  Counts all of the words in \texttt{'odyssey.txt'}.
+	 \item  Counts all of the characters in \texttt{'odyssey.txt'}.
+\end{enumerate}
+%Answer: B
+
+{\bf Question 4.}   What is the highest possible grade in CS 101 if you get a \emph{zero} on the midterm?
+\vspace{-0.5cm}
+\begin{enumerate}[label=\Alph*]
+   \item  90\%
+   \item  80\%
+   \item  70\%
+   \item  60\%
+\end{enumerate}
+%Answer: 
+
+\end{document}

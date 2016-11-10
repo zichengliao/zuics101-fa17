@@ -1,0 +1,292 @@
+%!TEX program = xelatex
+\documentclass[11pt]{beamer}
+
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{blindtext}
+\usepackage{enumitem}
+\usepackage{fancyvrb}
+
+\usetheme{SaoPaulo}
+
+\title{Python Applications}
+\subtitle{manipulating \texttt{lists}s}
+\author{CS101 Lecture \#13}
+\date{2016-10-10}
+
+\setcounter{showSlideNumbers}{1}
+
+\begin{document}
+  \setcounter{showProgressBar}{0}
+  \setcounter{showSlideNumbers}{0}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\frame{\titlepage}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setcounter{framenumber}{0}
+\setcounter{showProgressBar}{1}
+\setcounter{showSlideNumbers}{1}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Administrivia}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+  \frametitle{Administrivia}
+  \Enlarge
+
+  \begin{itemize}
+  \myitem  Homework \#7 is due Monday, Oct.\ 17.
+  \mysubitem  Use the \texttt{split(',')} approach.
+  \myitem  Midterm reflection exercise on website for extra credit.
+  \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Feedback \& Midterm Results}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Warmup Quiz}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Mutability Question}
+  \Enlarge
+
+  Which of the following sets of \texttt{list} methods \emph{all} change the function in place (have no return value)?
+
+  \begin{enumerate}[label=\Alph*]
+  \item  \texttt{split}, \texttt{append}, \texttt{extend}
+  \item  \texttt{del}, \texttt{index}, \texttt{upper}
+  \item  \texttt{read}, \texttt{readlines}, \texttt{close}
+  \item  \texttt{sort}, \texttt{reverse}, \texttt{append}, \texttt{extend}
+  \end{enumerate}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Mutability Question}
+  \Enlarge
+
+  Which of the following sets of \texttt{list} methods \emph{all} change the function in place (have no return value)?
+
+  \begin{enumerate}[label=\Alph*]
+  \item  \texttt{split}, \textcolor{CS101Alt}{\texttt{append}}, \textcolor{CS101Alt}{\texttt{extend}}
+  \item  \textcolor{CS101Alt}{\texttt{del}}, \texttt{index}, \texttt{upper}
+  \item  \texttt{read}, \texttt{readlines}, \texttt{close}
+  \item  \textcolor{CS101Alt}{\texttt{sort}}, \textcolor{CS101Alt}{\texttt{reverse}}, \textcolor{CS101Alt}{\texttt{append}}, \textcolor{CS101Alt}{\texttt{extend}}  $\star$
+  \end{enumerate}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Working with Containers}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{\texttt{list}s and \texttt{dict}s}
+  \Enlarge
+
+  \begin{tabular}{ll}
+  \hline\hline \\
+  \texttt{list} & \\
+  modifies in place \hspace{2cm} & returns value \\
+  \hline \\
+  \texttt{append} & \texttt{index} \\
+  \texttt{extend} & \texttt{count} \\
+  \texttt{reverse} & \texttt{upper} \\
+  \texttt{sort} & \texttt{isupper} \\
+  \texttt{del} (not method) & etc. \\
+  \end{tabular}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{\texttt{list}s and \texttt{dict}s}
+  \Enlarge
+
+  \begin{tabular}{ll}
+  \hline\hline \\
+  \texttt{dict} & \\
+  modifies in place \hspace{2cm} & returns value \\
+  \hline \\
+  \texttt{del} (not method) & \texttt{values} \\
+   & \texttt{keys} \\
+  \end{tabular} \pause
+  \begin{enumerate}
+  \myitem  Note that there isn't a \texttt{sort} method!
+  \end{enumerate}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Sorting a \texttt{dict} by value}
+
+  \begin{Verbatim}
+# remember me?
+def sortDictAsList( d ):
+    items = list( d.items() )
+    items.sort( key=lambda x:x[1] )
+    return items
+
+d = { 'a':2, 'b':1, 'c':-1, 'd':14 }
+sortDictAsList( d )
+  \end{Verbatim}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Sorting a \texttt{dict} by value}
+  \Enlarge
+
+  We want to know which plankton species has the largest population. \pause
+
+  \begin{Verbatim}
+from csv import DictReader
+reader = DictReader( open( 'plankton.csv' ) )
+plankdata = {}
+for row in reader:
+    plankdata[ row['Species'] ] = \
+        max( float( row['Near-shore, May-93']),
+             float( row['Near-shore, Aug-93']),
+             float( row['Off-shore, May-93']),
+             float( row['Off-shore, Aug-93']) )
+sortDictAsList( plankdata )
+  \end{Verbatim}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Accessing \texttt{list}s}
+  %\Enlarge
+
+  \begin{enumerate}
+  \myitem  Sometimes we have two \texttt{list}s that correspond to each other.
+  \myitem  If we want to loop over both together, we have two approaches open:
+  \end{enumerate}
+  \begin{Verbatim}
+qs = [ 'name', 'quest', 'favourite colour' ]
+as = [ 'Lancelot', 'the Holy Grail', 'blue' ]
+# method 1:
+for i in range(len(qs)):
+    print( 'What is your %s?  It is %s.'%(qs[i],as[i]) )
+  \end{Verbatim}
+  \pause
+  \begin{Verbatim}
+  # method 2:
+  for q,a in zip(qs,as):
+      print( 'What is your %s?  It is %s.'%(q,a) )
+  \end{Verbatim}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Accessing \texttt{list}s}
+  \Enlarge
+
+  \begin{enumerate}
+  \myitem  \texttt{zip} makes two \texttt{list}s \emph{jointly iterable}.
+  \myitem  Consider a function which compares two \texttt{list}s of measurements and determines for each pair of measurements which is larger:
+  \end{enumerate}
+  \begin{Verbatim}
+def pickLarger( a,b ):
+    result = [ ]  # a list of largest values
+    for i,j in zip(a,b):
+        result.append( max( i,j ) )
+    return result
+  \end{Verbatim}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Accessing \texttt{list}s}
+  \Enlarge
+
+  \begin{enumerate}
+  \myitem  What if you need to know both an item and the index of the item?
+  \end{enumerate}
+  \begin{Verbatim}
+my_list = [ 'meter', 'kilogram', 'second' ]
+# one way
+for i in range( len(my_list) ):
+    print( '%s is the %sth item.' % (my_list[i],i) )
+  \end{Verbatim}
+  \pause
+  \begin{Verbatim}
+# another way
+for i,item in enumerate( my_list ):
+    print( '%s is the %sth item.' % (item,i) )
+  \end{Verbatim}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Accessing \texttt{list}s}
+  \Enlarge
+
+  \begin{enumerate}
+  \myitem  Both \texttt{zip} and \texttt{enumerate} are \emph{convenience} functions!
+  \myitem  There are multiple approaches!
+  \end{enumerate}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Accessing \texttt{list}s}
+  %\Enlarge
+
+  \begin{enumerate}
+  \myitem  \emph{Permutations} are used in statistics to analyze all possible configurations of a group of things.
+  \myitem  In engineering, for instance, you see them used in experimental design.
+  \end{enumerate}
+  \begin{Verbatim}
+# one way
+for i in 'ABCD':
+    for j in 'ABCD':
+        if i == j:
+            continue
+        print( i, j )
+  \end{Verbatim}
+  \pause
+  \begin{Verbatim}
+# another way
+from itertools import permutations
+for doublet in permutations( 'ABCD',2 ):
+    print( doublet )
+  \end{Verbatim}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Homework debugging}
+  \Enlarge
+
+  \begin{Verbatim}
+# how to figure out what directory Python is in
+import os
+os.getcwd()  # Get Current Working Directory
+
+# how to figure out what's in that directory
+os.listdir('.')
+
+# when submitting, use:
+open( 'batting.csv' )  #(since in same dir)
+  \end{Verbatim}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Reminders}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+  \frametitle{Reminders}
+  \Enlarge
+
+  \begin{itemize}
+  \myitem  Homework \#7 is due Monday, Oct.\ 17.
+  \mysubitem  Use the \texttt{read().split(',')} approach.
+  \myitem  Midterm reflection exercise on website for extra credit.
+  \end{itemize}
+\end{frame}
+
+\end{document}
