@@ -49,7 +49,8 @@ chunks:
         | [Lecture #11:  dictionaries, mutable arguments](repocur:lectures/lec11.pdf) | 2016-11-02 | [Jeopardy example](repocur:lectures/lec11/jeopardy-example.py), [`jeopardy.csv`](repocur:lectures/lec11/jeopardy.csv) |
         | **Python Applications** | | |
         | [Lecture #12:  workflow, `csv`, `requests`](repocur:lectures/lec12.pdf) | 2016-11-09 | [plankton example](repocur:lectures/lec12/plankton-example.py) · [`plankton.csv`](repocur:lectures/lec12/plankton.csv) · [`autos.csv`](repocur:lectures/lec12/autos.csv) · [`odyssey.txt`](repocur:lectures/lec12/odyssey.txt) <br/> [`csv` module](https://github.com/UI-CS101/cs101-fa16/wiki/Input-&-Output#csv) · [`requests` module](https://github.com/UI-CS101/cs101-fa16/wiki/Input-&-Output#requests) · [sorting `dict`s](https://github.com/UI-CS101/cs101-fa16/wiki/Basic-data-types#dict) |
-                             
+        | [Lecture #13:  `zip`, `enumerate`, `permutations`](repocur:lectures/lec13.pdf) | 2016-10-10 | [`zip` function](https://github.com/UI-CS101/cs101-fa16/wiki/Looping#zip-function) · [`enumerate` function](https://github.com/UI-CS101/cs101-fa16/wiki/Looping#enumerate-function) · [`permutations` function](https://github.com/UI-CS101/cs101-fa16/wiki/Libraries#itertoolspermutations) |
+                                  
 
         ##  Homework
 
