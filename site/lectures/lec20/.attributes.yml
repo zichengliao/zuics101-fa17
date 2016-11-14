@@ -1,0 +1,10 @@
+unenrolled:
+- "*.png"
+- "*.jpg"
+- "*.gif"
+- "*.pdf"
+- "*.txt"
+- "*.ipynb"
+- "*.py"
+- "*.pyc"
+- "*.csv"
