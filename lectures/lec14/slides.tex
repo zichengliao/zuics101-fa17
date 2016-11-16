@@ -13,7 +13,7 @@
 \title{Python Applications}
 \subtitle{debugging code, solving problems}
 \author{CS101 Lecture \#14}
-\date{2016-10-12}
+\date{2016-11-16}
 
 \setcounter{showSlideNumbers}{1}
 
@@ -40,13 +40,16 @@
   \Enlarge
 
   \begin{itemize}
-  \myitem  Homework \#7 is due Monday, Oct.\ 17.
-  \myitem  Midterm reflection exercise on website for extra credit (through Friday).
-  \myitem  Office hours will change from Wed to Thu next week (check website).
+  \myitem  Homework \#6 is due Today, Nov.\ 16.
+  \myitem Prof. Li Er-Ping and Prof. Philip Krein will be out of town tomorrow, so I will (very happily) show up -- \emph{again} -- on tomorrow's ENG100 course.
+  \myitem  Any questions for the lab sessions? suggestions or critiques?
+  %\myitem  Office hours will change from Wed to Thu next week (check website).
   \end{itemize}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\iffalse
+
 \begin{frame}[fragile]
   \frametitle{Brief Note on Directories}
   \Enlarge
@@ -77,6 +80,8 @@
   \end{itemize}
 \end{frame}
 
+\fi
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Warmup Quiz}
 
@@ -92,7 +97,7 @@ for i,j in enumerate( a ):
     print( i,j )
   \end{Verbatim}
 
-  Which of the following answers is a possible output of the above code?
+  Which of the following answers is a possible line of output of the above code?
 
   \begin{enumerate}[label=\Alph*]
   \item  \texttt{4 gamma}
@@ -100,6 +105,8 @@ for i,j in enumerate( a ):
   \item  \texttt{gamma 4}
   \item  \texttt{gamma 2}
   \end{enumerate}
+  
+  (\emph{What does the English word ``enumerate'' mean, and the function definition in python?})
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -114,7 +121,7 @@ for i,j in enumerate( a ):
     print( i,j )
   \end{Verbatim}
 
-  Which of the following answers is a possible output of the above code?
+  Which of the following answers is a possible line of output of the above code?
 
   \begin{enumerate}[label=\Alph*]
   \item  \texttt{4 gamma}
@@ -122,6 +129,7 @@ for i,j in enumerate( a ):
   \item  \texttt{gamma 4}
   \item  \texttt{gamma 2}
   \end{enumerate}
+  
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -136,7 +144,7 @@ for i,j in zip( a,b ):
     print( i,j )
   \end{Verbatim}
 
-  Which of the following answers is a possible output of the above code?
+  Which of the following answers is a possible line of output of the above code?
 
   \begin{enumerate}[label=\Alph*]
   \item  \texttt{4 gamma}
@@ -158,7 +166,7 @@ for i,j in zip( a,b ):
     print( i,j )
   \end{Verbatim}
 
-  Which of the following answers is a possible output of the above code?
+  Which of the following answers is a possible line of output of the above code?
 
   \begin{enumerate}[label=\Alph*]
   \item  \texttt{4 gamma}
@@ -166,6 +174,8 @@ for i,j in zip( a,b ):
   \item  \texttt{gamma 4}  \correctstar
   \item  \texttt{gamma 2}
   \end{enumerate}
+  
+   (\emph{What if b =  [2,3,4,5]?})
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -185,41 +195,61 @@ for i,j in zip( a,b ):
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}[fragile]
-  \frametitle{Debugging}
-  \Enlarge
-
-  \begin{enumerate}
-  \myitem  How do I know it isn’t working?
-  \myitem  What do I expect it to do?
-  \myitem  What is my code doing instead? Why?
-  \end{enumerate}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % full-slide image
 { \setbeamertemplate{navigation symbols}{}
     \begin{frame}[plain]
-        \begin{tikzpicture}[remember picture,overlay]
+        \begin{tikzpicture}[remember picture]
             \node[at=(current page.center)] {
-                \includegraphics[height=\paperheight]{./img/basil.jpg}
+                \includegraphics[height=0.8\paperheight]{./img/einstein.jpg}
             };
         \end{tikzpicture}
-        Errors are clues!
+        
+        \Enlarge
+        errors are cute
+     \end{frame}
+}
+
+{ \setbeamertemplate{navigation symbols}{}
+    \begin{frame}[plain]
+    	My experience with errors:
+	\begin{enumerate}
+         \myitem  You never learn to program correctly without making errors
+        
+         \myitem  Some errors reveal the discrepancies between your way of thinking and the machine's logic
+        
+         \myitem  A genuine intuition is always error-free -- you make errors when you start to \emph{think}.
+        \end{enumerate}
+     
      \end{frame}
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}[fragile]
-  \frametitle{Types of Bugs}
+  \frametitle{Debugging}
+  \Enlarge
+  
+  How do I know it isn’t working?
+  \begin{enumerate}
+  \myitem  What do I expect it to do?
+  \myitem  What is my code doing instead?
+  \myitem  How to identify the source of error and Fix it? 
+  \end{enumerate}
+  \hspace{8mm}==> Debugging
+\end{frame}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Debugging}
   \Enlarge
 
   \begin{enumerate}
   \myitem  A few working definitions:
   \begin{enumerate}
-    \mysubitem  \textbf{Exceptions}---unusual behavior (although not necessarily unexpected behavior, particularly in Python) %\pause
-    \mysubitem  \textbf{Errors}---exceptions which cause the program to be unrunnable (cannot be handled at run time) %\pause
-    \mysubitem  \textbf{Traceback}---listing of function calls on the stack at the time the exception arises %\pause
+    \mysubitem  \textbf{Exceptions}--- unusual behaviors occurred in the execution of a program; caught by a try:\{...\}except e:\{...\} syntax. Most languages (Python, C++, Java) have this. \pause
+    \mysubitem  \textbf{Errors}--- exceptions that cause the program to be unrunnable  \pause
+    \mysubitem  \textbf{Traceback}---listing of function calls on the stack at the time the exception (error) arises \pause
     \mysubitem  \textbf{Bugs}---errors and exceptions, but also miswritten, ambiguous, or incorrect code which in fact runs but does not advertise its miscreancy
     \end{enumerate}
   \end{enumerate}
@@ -240,7 +270,7 @@ for i,j in zip( a,b ):
   \myitem  \texttt{KeyError}
   \myitem  \texttt{ZeroDivisionError}
   \myitem  \texttt{IndentationError}
-  \myitem  \texttt{Exception}
+  \myitem  \texttt{Exception: subsumes all above and many others}
   \end{enumerate}
 \end{frame}
 
@@ -322,10 +352,6 @@ def do_numerics():
     print(sin(5.0))
 
 do_numerics()
-
-
-
-
     \end{verbatim}
     \end{minipage}
     &
@@ -342,18 +368,23 @@ do_numerics()
 
   \begin{Verbatim}
 Traceback (most recent call last):
-    File "heat_eqn.py", line 87, in <module>
-      main()
-    File "heat_eqn.py", line 77, in main
-      u = set_ic( x,length )
-    File "heat_eqn.py", line 38, in set_ic
-      u[:, 0] = sin(pi*x/length)**2   # deg C
-NameError: name 'u' is not defined
+    File "main.py", line 7, in <module>
+      do_numerics()
+    File "main.py", line 4, in do_numerics
+      print(sin(5.0))
+NameError: name 'sin' is not defined
   \end{Verbatim}
+
+  \begin{tabular}{cc}
+  \begin{minipage}{2in}
   \begin{enumerate}
   \myitem  Read these from end to beginning:
-  \mysubitem  \texttt{u} in \texttt{set\_ic} in \texttt{main} in file \texttt{heat\_eqn.py}
+  \mysubitem  \texttt{sin} in \texttt{do\_numerics} in file \texttt{main.py}
   \end{enumerate}
+  \end{minipage}
+  &
+  \includegraphics[width=0.5\textwidth]{./img/stack.png}\\
+  \end{tabular}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -364,16 +395,16 @@ NameError: name 'u' is not defined
   \frametitle{Debugging}
   \Enlarge
 
-Flon's Axiom:
+Brian Kernighan:
 
-``There is not now, nor has there ever been, nor will there ever be, any programming language in which it is the least bit difficult to write bad code.''
+``Debugging is twice as hard as writing the code in the first place. Therefore, if you write the code as cleverly as possible, you are, by definition, not smart enough to debug it.''
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}[fragile]
   \frametitle{Debugging example}
 
-  This code should find all words whose first two letters are the same:
+  This code should find all lines in a file whose first two letters are the same:
   \begin{Verbatim}[commandchars=\\\{\},commentchar=\%]
 for line in open( "words.txt" ):
     line = line.strip()
@@ -388,7 +419,7 @@ for line in open( "words.txt" ):
 \begin{frame}[fragile]
   \frametitle{Debugging example}
 
-  This code should find all words whose first two letters are the same:
+  This code should find all lines in a file whose first two letters are the same:
   \begin{Verbatim}[commandchars=\\\{\},commentchar=\%]
 for line in open( "words.txt" ):
     line = line.strip()
@@ -405,7 +436,7 @@ for line in open( "words.txt" ):
 \begin{frame}[fragile]
   \frametitle{Debugging example}
 
-  This code should find all words whose first two letters are the same:
+  This code should find all lines in a file whose first two letters are the same:
   \begin{Verbatim}[commandchars=\\\{\},commentchar=\%]
 for line in open( "words.txt" ):
     line = line.strip()
@@ -416,9 +447,24 @@ for line in open( "words.txt" ):
   \end{Verbatim}
 \end{frame}
 
+\begin{frame}[fragile]
+  \frametitle{Debugging example}
+
+  This code should find all lines in a file whose first two letters are the same:
+  \begin{Verbatim}[commandchars=\\\{\},commentchar=\%]
+for line in open( "words.txt" ):
+    line = line.strip()
+    if len( line ) >= 2:
+        a,b = line[0:2]
+    \textcolor{CS101GradTop}{if a == b:}
+        print( line )
+  \end{Verbatim}
+\end{frame}
+
 %(this doesn't tell you where to go, but does tell you if how you're going is valid)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\iffalse
 \begin{frame}[fragile]
   \frametitle{Debugging strategies}
   \Enlarge
@@ -433,7 +479,7 @@ for line in open( "words.txt" ):
     \end{enumerate}
   \end{enumerate}
 \end{frame}
-
+\fi
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}[fragile]
   \frametitle{Debugging strategies}
@@ -446,20 +492,37 @@ for line in open( "words.txt" ):
   \myitem  Chart the flow of the program. %\pause
   \myitem  Break the program down into functions. %\pause
   \myitem  Document functions before writing them. %\pause
-  \myitem  Explain it to someone else. %\pause
+  \myitem  Show it to someone else. People have blindspots. %\pause
+  \myitem  Make no assumptions! If your thinking is not precise, your code will not be precise. %\pause
+  \myitem  Start over from scratch. Take a fresh look at the problem.
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Debugging strategies}
+  \Enlarge
+
+  \begin{enumerate}
+  \myitem  Start early. %\pause
+  \myitem  Read the problem statement carefully. %\pause
+  \myitem  \textcolor{CS101GradTop}{Add print statements.} %\pause
+  \myitem  Chart the flow of the program. %\pause
+  \myitem  Break the program down into functions. %\pause
+  \myitem  Document functions before writing them. %\pause
+  \myitem  \textcolor{CS101GradTop}{Show it to someone else. Everyone has a blind spots someone else can easily see.} %\pause
   \myitem  Make no assumptions! If your thinking is not precise, your code will not be precise. %\pause
   \myitem  Start over from scratch. Take a fresh look at the problem.
   \end{enumerate}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}[fragile]
-  \frametitle{Debugging strategies}
-  \Enlarge
+%\begin{frame}[fragile]
+%  \frametitle{Debugging strategies}
+%  \Enlarge
 
-  Consider the following series statement for a Bessel function of the first kind,
-  $$J_{0}(x) = \sum_{m=0}^{\infty} \frac{(-1)^{m}}{m! (m+1)!} {\left(\frac{x}{2}\right)}^{2m} \text{.} $$
-\end{frame}
+%  Consider the following series statement for a Bessel function of the first kind,
+%  $$J_{0}(x) = \sum_{m=0}^{\infty} \frac{(-1)^{m}}{m! (m+1)!} {\left(\frac{x}{2}\right)}^{2m} \text{.} $$
+%\end{frame}
 
 %debug bessel function
 %debug Neetesh's code
@@ -481,6 +544,25 @@ for line in open( "words.txt" ):
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]
+  \frametitle{Style}
+  \Enlarge
+
+  \begin{enumerate}
+  \myitem  Use descriptive variable names. %\pause
+  \myitem  Why do we write comments? %\pause
+  \myitem  For the person who next looks at the code!
+  \begin{Verbatim}
+x_vals = [0,0.1,0.2,0.3,0.4]  # meters
+faraday = 96485.3328959  # coulombs,
+                         # electric charge
+  \end{Verbatim}
+  \end{enumerate}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \begin{frame}[fragile]
   \frametitle{Style}
   \Enlarge
@@ -511,28 +593,12 @@ help(warning)
   \Enlarge
 
   \begin{enumerate}
-  \myitem  Use descriptive variable names. %\pause
-  \myitem  Why do we write comments? %\pause
-  \myitem  For the person who next looks at the code!
-  \begin{Verbatim}
-x_vals = [0,0.1,0.2,0.3,0.4]  # meters
-faraday = 96485.3328959  # coulombs,
-                         # electric charge
-  \end{Verbatim}
-  \end{enumerate}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}[fragile]
-  \frametitle{Style}
-  \Enlarge
-
-  \begin{enumerate}
-  \myitem  Use functions to structure code.
+  \myitem  Use functions to structure code (also called code refactoring).
   \myitem  This makes code more readable (and debuggable!).
   \myitem  A \texttt{main} function lets you organize your program's logic succinctly.
   \end{enumerate}
 \end{frame}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}[fragile]
@@ -542,6 +608,7 @@ faraday = 96485.3328959  # coulombs,
   \begin{enumerate}
   \myitem  A \texttt{main} function lets you organize your program's logic succinctly.
   \myitem  We have a special way of writing these so that we can load our code as a module or execute it alone.
+  \myitem  A module's '\_\_name\_\_' (a built-in variable) is set to '\_\_main\_\_' when it is executed as a script, but not when it is {\emph imported}
   \end{enumerate}
   \begin{Verbatim}
 def main():
@@ -584,6 +651,7 @@ if __name__ == '__main__':
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\iffalse
 \section{Reminders}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -597,5 +665,7 @@ if __name__ == '__main__':
   \myitem  Office hours will change from Wed to Thu next week (check website).
   \end{itemize}
 \end{frame}
+
+\fi
 
 \end{document}
