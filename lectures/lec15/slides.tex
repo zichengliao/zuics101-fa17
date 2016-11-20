@@ -13,7 +13,7 @@
 \title{Numerical Python}
 \subtitle{plotting, arrays}
 \author{CS101 Lecture \#15}
-\date{2016-10-19}
+\date{2016-11-21}
 
 \setcounter{showSlideNumbers}{1}
 
@@ -40,193 +40,10 @@
   \Enlarge
 
   \begin{itemize}
-  \myitem  Homework \#8 is due Monday, Oct.\ 24.
-  \myitem  Office hours change from Wed to Thu this week (check website).
+  \myitem  Homework \#8 is due Friday, Dec.\ 2.
   \end{itemize}
 \end{frame}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Warmup Quiz}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}[fragile]
-  \frametitle{Question \#1}
-  \Enlarge
-
-  \begin{Verbatim}
-NameError:  name 'y' is not defined.
-  \end{Verbatim}
-
-  Which of the following produces this error?
-
-  \begin{enumerate}[label=\Alph*]
-  \item
-  \begin{Verbatim}
-x = 1
-y = x * 2
-  \end{Verbatim}
-  \item
-  \begin{Verbatim}
-x = 0
-y += 1
-  \end{Verbatim}
-  \item
-  \begin{Verbatim}
-x = 'ABCD'
-y = x[ 2 ]
-  \end{Verbatim}
-  \end{enumerate}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}[fragile]
-  \frametitle{Question \#1}
-  \Enlarge
-
-  \begin{Verbatim}
-NameError:  name 'y' is not defined.
-  \end{Verbatim}
-
-  Which of the following produces this error?
-
-  \begin{enumerate}[label=\Alph*]
-  \item
-  \begin{Verbatim}
-x = 1
-y = x * 2
-  \end{Verbatim}
-  \item  \correctstar
-  \begin{Verbatim}
-x = 0
-y += 1
-  \end{Verbatim}
-  \item
-  \begin{Verbatim}
-x = 'ABCD'
-y = x[ 2 ]
-  \end{Verbatim}
-  \end{enumerate}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}[fragile]
-  \frametitle{Question \#2}
-  \Enlarge
-
-  \begin{Verbatim}
-IndexError:  list index out of range.
-  \end{Verbatim}
-
-  Which of the following produces this error?
-
-  \begin{enumerate}[label=\Alph*]
-  \item
-  \begin{Verbatim}
-x = 'ABCD' + 'E'
-x[ 5 ]
-  \end{Verbatim}
-  \item
-  \begin{Verbatim}
-x = [ 1,2 ]
-x[2]
-  \end{Verbatim}
-  \item
-  \begin{Verbatim}
-x = { 1:2, 2:3 }
-y = x[2]
-  \end{Verbatim}
-  \end{enumerate}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}[fragile]
-  \frametitle{Question \#2}
-  \Enlarge
-
-  \begin{Verbatim}
-IndexError:  list index out of range.
-  \end{Verbatim}
-
-  Which of the following produces this error?
-
-  \begin{enumerate}[label=\Alph*]
-  \item
-  \begin{Verbatim}
-x = 'ABCD' + 'E'
-x[ 5 ]
-  \end{Verbatim}
-  \item  \correctstar
-  \begin{Verbatim}
-x = [ 1,2 ]
-x[2]
-  \end{Verbatim}
-  \item
-  \begin{Verbatim}
-x = { 1:2, 2:3 }
-y = x[2]
-  \end{Verbatim}
-  \end{enumerate}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}[fragile]
-  \frametitle{Question \#3}
-  \Enlarge
-
-  \begin{Verbatim}
-SyntaxError:  invalid syntax.
-  \end{Verbatim}
-
-  Which of the following produces this error?
-
-  \begin{enumerate}[label=\Alph*]
-  \item
-  \begin{Verbatim}
-if x < 'HAPPY':
-  print(x.lower()[1])
-  \end{Verbatim}
-  \item
-  \begin{Verbatim}
-if x in 'ABCD':
-  print( 'E' + x[ 0 ] )
-  \end{Verbatim}
-  \item
-  \begin{Verbatim}
-if x = ( 1,2,3 ):
-  print( x[2] + 1 )
-  \end{Verbatim}
-  \end{enumerate}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}[fragile]
-  \frametitle{Question \#3}
-  \Enlarge
-
-  \begin{Verbatim}
-SyntaxError:  invalid syntax.
-  \end{Verbatim}
-
-  Which of the following produces this error?
-
-  \begin{enumerate}[label=\Alph*]
-  \item
-  \begin{Verbatim}
-if x < 'HAPPY':
-  print(x.lower()[1])
-  \end{Verbatim}
-  \item
-  \begin{Verbatim}
-if x in 'ABCD':
-  print( 'E' + x[ 0 ] )
-  \end{Verbatim}
-  \item  \correctstar
-  \begin{Verbatim}
-if x = ( 1,2,3 ):
-  print( x[2] + 1 )
-  \end{Verbatim}
-  \end{enumerate}
-\end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Numerical Python (\texttt{numpy})}
@@ -362,7 +179,7 @@ plt.show()
     \mysubitem  \texttt{plt.plot( x, y )  \# for ptwise data}
     \mysubitem  \texttt{plt.imshow( A )   \# for array data}
     %\pause
-    \myitem  \texttt{plot}:  third argument is \emph{format string} (optional).
+    \myitem  \texttt{plot}:  third argument is \emph{format string} (optional; color string + line style string); default as  'b-' for a solid blue line. 
   \end{enumerate}
   \begin{Verbatim}
 plt.plot( xs, ys, 'r.' )
@@ -387,8 +204,8 @@ plt.show()
   \Enlarge
 
   \begin{itemize}
-  \myitem  Homework \#8 is due Monday, Oct.\ 24.
-  \myitem  Office hours change from Wed to Thu this week (check website).
+  \myitem  Homework \#8 is due Friday, Dec.\ 2.
+ 
   \end{itemize}
 \end{frame}
 
