@@ -1,0 +1,112 @@
+\documentclass[12pt]{article}
+
+\setlength{\topmargin}{-1in} \addtolength{\textheight}{4.00in}
+\setlength{\oddsidemargin}{.00in} \addtolength{\textwidth}{1in}
+
+\usepackage{amsmath,color,graphicx}
+
+\usepackage{listings}      
+\lstset{language=Python}   
+
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{blindtext}
+\usepackage{enumitem}
+
+\usepackage{verbatim}
+
+\nofiles
+
+\pagestyle{empty}
+
+\setlength{\parindent}{0in}
+
+
+\begin{document}
+
+\noindent {\sc {\bf {\Large Quiz 8}}
+            \hfill ZJUI CS 101, Fall 2016}
+%\bigskip
+
+\noindent {\sc  {\large Student ID:}
+            \hfill {\large Name:}
+             \hfill}
+%\bigskip
+
+{\bf Question 1.}     \begin{lstlisting}[frame=single]
+NameError:  name 'y' is not defined.
+ \end{lstlisting}
+
+Which of the following produces this error?
+
+\begin{enumerate}[label=\Alph*]
+ \item
+  	\begin{lstlisting}[frame=single]
+	x = 1
+	y = x * 2
+    \end{lstlisting}
+ \item
+	\begin{lstlisting}[frame=single]
+	x = 0
+	y += 1
+    \end{lstlisting}
+ \item
+	\begin{lstlisting}[frame=single]
+	x = 'ABCD'
+	y = x[2]
+	 \end{lstlisting}
+\end{enumerate}
+%Answer: B
+
+{\bf Question 2.}     \begin{lstlisting}[frame=single]
+IndexError:  list index out of range.
+\end{lstlisting}
+
+Which of the following produces this error?
+
+\begin{enumerate}[label=\Alph*]
+	\item
+	\begin{lstlisting}[frame=single]
+	x = 'ABCD' + 'E'
+	x[5]
+	\end{lstlisting}
+	\item
+	\begin{lstlisting}[frame=single]
+	x = [1,2]
+	x[2]
+	\end{lstlisting}
+	\item
+	\begin{lstlisting}[frame=single]
+	x = {1:2, 2:3}
+	y = x[2]
+   \end{lstlisting}
+\end{enumerate}
+%Answer: B
+
+{\bf Question 3.} 
+\begin{lstlisting}[frame=single]
+SyntaxError:  invalid syntax.
+   \end{lstlisting}
+
+Which of the following produces this error?
+
+\begin{enumerate}[label=\Alph*]
+	\item
+	\begin{lstlisting}[frame=single]
+	if x < 'HAPPY':
+	   print(x.lower()[1])
+	   \end{lstlisting}
+	\item
+	\begin{lstlisting}[frame=single]
+	if x in 'ABCD':
+	   print( 'E' + x[0] )
+	   \end{lstlisting}
+	\item
+	\begin{lstlisting}[frame=single]
+	if x = ( 1,2,3 ):
+	   print( x[2] + 1 )
+	   \end{lstlisting}
+\end{enumerate}
+%Answer: C
+
+\end{document}
