@@ -53,7 +53,8 @@ chunks:
         | [Lecture #14:  `debugging your code`](repocur:lectures/lec14.pdf) | 2016-11-16 | [`bessel-original.py`](repocur:lectures/lec14/bessel-original.py) · [`bessel-fixed.py`](repocur:lectures/lec14/bessel-fixed.py) <br/> [`heat_eqn_raw.py`](repocur:lectures/lec14/heat_eqn_raw.py) · [`heat_eqn_funcs.py`](repocur:lectures/lec14/heat_eqn_funcs.py) <br/> [debugging handout](repocur:lectures/lec14/debugging-flowchart.pdf) |
         | **Numerical Python** | | |
         | [Lecture #15:  `numpy`, `matplotlib`](repocur:lectures/lec15.pdf) | 2016-11-21 | [Python session](repocur:lectures/lec15.ipynb) . [`inflammation.csv`](repocur:lectures/lec15/inflammation.csv) · [`axis` diagram](repocur:lectures/lec15/axes.png) · [Software Carpentry NumPy lesson notes](https://swcarpentry.github.io/python-novice-inflammation/01-numpy/) |
-      
+        | [Lecture #16:  modeling](repocur:lectures/lec16.pdf) | 2016-11-23 | (code in slides) |
+       
 
         ##  Homework
 

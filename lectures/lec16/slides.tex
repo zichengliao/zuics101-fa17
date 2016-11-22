@@ -13,7 +13,7 @@
 \title{Numerical Python}
 \subtitle{modeling, state}
 \author{CS101 Lecture \#16}
-\date{2016-10-24}
+\date{2016-11-23}
 
 \setcounter{showSlideNumbers}{1}
 
@@ -40,200 +40,11 @@
   \Enlarge
 
   \begin{itemize}
-  \myitem  Homework \#8 is due Monday, Oct.\ 24.
-  \myitem  Homework \#9 is due Monday, Oct.\ 31.
+  \myitem  Homework \#7 is due Friday, Nov.\ 25.
+  \myitem  Homework \#8 is due Friday, Dec.\ 2.
   \end{itemize}
 \end{frame}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Warmup Quiz}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}[fragile]
-  \frametitle{Question \#1}
-  \Enlarge
-
-  Which of the following produces a valid plot given data in \texttt{x} and \texttt{y}?
-
-  \begin{enumerate}[label=\Alph*]
-  \item
-  \begin{Verbatim}
-import matplotlib.plot as plot
-plot( x,y )
-  \end{Verbatim}
-  \item
-  \begin{Verbatim}
-import matplotlib.pyplot as plt
-plt.plot( x,y )
-  \end{Verbatim}
-  \item
-  \begin{Verbatim}
-import matplotlib.plot as plot
-plot( x,y )
-  \end{Verbatim}
-  \end{enumerate}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}[fragile]
-  \frametitle{Question \#1}
-  \Enlarge
-
-  Which of the following produces a valid plot given data in \texttt{x} and \texttt{y}?
-
-  \begin{enumerate}[label=\Alph*]
-  \item
-  \begin{Verbatim}
-import matplotlib.plot as plot
-plot( x,y )
-  \end{Verbatim}
-  \item
-  \begin{Verbatim}
-import matplotlib.pyplot as plt
-plt.plot( x,y )
-  \end{Verbatim}
-  \correctstar
-  \item
-  \begin{Verbatim}
-import matplotlib.plot as plot
-plot( x,y )
-  \end{Verbatim}
-  \end{enumerate}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}[fragile]
-  \frametitle{Question \#2}
-  \Enlarge
-
-  \begin{Verbatim}
-import numpy as np
-x = np.array( [ 5,1,3 ] )
-x *= 2
-  \end{Verbatim}
-
-  What is the value of \texttt{x}?
-
-  \begin{enumerate}[label=\Alph*]
-  \item
-  \begin{Verbatim}
-[ 10,2,6 ]
-  \end{Verbatim}
-  \item
-  \begin{Verbatim}
-array( [ 10,2,6 ] )
-  \end{Verbatim}
-  \item
-  \begin{Verbatim}
-[ 5,1,3,5,1,3 ]
-  \end{Verbatim}
-  \item
-  \begin{Verbatim}
-array( [[ 5,1,3 ], [ 5,1,3 ]] )
-  \end{Verbatim}
-  \end{enumerate}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}[fragile]
-  \frametitle{Question \#2}
-  \Enlarge
-
-  \begin{Verbatim}
-import numpy as np
-x = np.array( [ 5,1,3 ] )
-x *= 2
-  \end{Verbatim}
-
-  What is the value of \texttt{x}?
-
-  \begin{enumerate}[label=\Alph*]
-  \item
-  \begin{Verbatim}
-[ 10,2,6 ]
-  \end{Verbatim}
-  \item
-  \begin{Verbatim}
-array( [ 10,2,6 ] )
-  \end{Verbatim}
-  \correctstar
-  \item
-  \begin{Verbatim}
-[ 5,1,3,5,1,3 ]
-  \end{Verbatim}
-  \item
-  \begin{Verbatim}
-array( [[ 5,1,3 ], [ 5,1,3 ]] )
-  \end{Verbatim}
-  \end{enumerate}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}[fragile]
-  \frametitle{Question \#3}
-  \Enlarge
-
-  \begin{Verbatim}
-import numpy as np
-x =  np.array( [ 1 ] * 2 )
-x += 1
-  \end{Verbatim}
-
-  What is the final value of \texttt{x}?
-
-  \begin{enumerate}[label=\Alph*]
-  \item
-  \begin{Verbatim}
-array( [2] )
-  \end{Verbatim}
-  \item
-  \begin{Verbatim}
-array( [ 1,1,1 ] )
-  \end{Verbatim}
-  \item
-  \begin{Verbatim}
-array( [ 2,2 ] )
-  \end{Verbatim}
-  \item
-  \begin{Verbatim}
-array( [ 3 ] )
-  \end{Verbatim}
-  \end{enumerate}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}[fragile]
-  \frametitle{Question \#3}
-  \Enlarge
-
-  \begin{Verbatim}
-import numpy as np
-x =  np.array( [ 1 ] * 2 )
-x += 1
-  \end{Verbatim}
-
-  What is the final value of \texttt{x}?
-
-  \begin{enumerate}[label=\Alph*]
-  \item
-  \begin{Verbatim}
-array( [2] )
-  \end{Verbatim}
-  \item
-  \begin{Verbatim}
-array( [ 1,1,1 ] )
-  \end{Verbatim}
-  \item
-  \begin{Verbatim}
-array( [ 2,2 ] )
-  \end{Verbatim}
-  \correctstar
-  \item
-  \begin{Verbatim}
-array( [ 3 ] )
-  \end{Verbatim}
-  \end{enumerate}
-\end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{More \texttt{numpy}}
@@ -252,7 +63,7 @@ array( [ 3 ] )
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}[fragile]
-  \frametitle{Question \#4}
+  \frametitle{Question}
   \Enlarge
 
 $$
@@ -290,7 +101,7 @@ np.array([[1,1],[2,2],[3,3]])
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}[fragile]
-  \frametitle{Question \#4}
+  \frametitle{Question}
   \Enlarge
 
 $$
@@ -344,6 +155,7 @@ np.array([[1,1],[2,2],[3,3]])
   \myitem  Specify (and query) with \texttt{dtype}:
   \end{enumerate}
   \begin{Verbatim}
+import numpy as np
 a = [ 3,2,4 ]
 x = np.array( a,dtype=np.float64 )
 x.dtype
@@ -389,7 +201,7 @@ v = np.linspace( start, finish, n)
   \begin{enumerate}
   \myitem  Produce arrays from \texttt{start} to \texttt{finish} of \texttt{n} points (\emph{not} spacing!).
   \myitem  Excellent for grids and coordinates.
-  \myitem  May also see \texttt{arange}, but I recommend avoiding its use:
+  \myitem  May also see \texttt{arange}: [start, stop), but I recommend avoiding its use:
   \end{enumerate}
   \begin{Verbatim}
 u = np.arange( 0,10,0.1 )  # tricky!
@@ -400,12 +212,14 @@ u == array( [ 0, 0.1, 0.2, ..., 9.9 ] )
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}[fragile]
   \frametitle{The punchline:  Why?}
-  \Enlarge
+ % \Enlarge
 
   Plot $sin(x)$ for $x \in \left[ 0, 2\pi \right]$ using pure Python.
   %\pause
 
   \begin{Verbatim}
+import matplotlib.pyplot as plt
+%matplotlib inline  
 from math import pi
 x = []   # can't use range!
 for i in range(100):
@@ -414,12 +228,12 @@ from math import sin
 y = []
 for j in range(100):
     y.append( sin(x[j]) )
-
 plt.plot( x,y,'k-' )
 plt.xlim( 0,2*pi )
 plt.ylim( -1,1 )
 plt.show()
   \end{Verbatim}
+  
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -431,6 +245,8 @@ plt.show()
   %\pause
 
   \begin{Verbatim}
+import matplotlib.pyplot as plt
+%matplotlib inline  
 import numpy as np
 x = np.linspace( 0,2*np.pi,101 )
 y = np.sin( x )
@@ -440,6 +256,9 @@ plt.xlim( 0,2*pi )
 plt.ylim( -1,1 )
 plt.show()
   \end{Verbatim}
+  
+ See options for plot at \url{http://stackoverflow.com/questions/8376926/plotting-many-graphs-with-matplotlib}
+ 
 \end{frame}
 
 % Lecture16 slides 37--63
@@ -601,8 +420,8 @@ for i in range(1,n+1):
   \Enlarge
 
   \begin{itemize}
-  \myitem  Homework \#8 is due Monday, Oct.\ 24.
-  \myitem  Homework \#9 is due Monday, Oct.\ 31.
+  \myitem  Homework \#7 is due Friday, Nov.\ 25.
+  \myitem  Homework \#8 is due Friday, Dec.\ 2.
   \end{itemize}
 \end{frame}
 
