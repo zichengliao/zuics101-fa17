@@ -8,3 +8,4 @@ unenrolled:
 - "*.py"
 - "*.pyc"
 - "*.xlsx"
+- "*.html"
