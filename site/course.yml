@@ -55,7 +55,7 @@ chunks:
         | [Lecture #15:  `numpy`, `matplotlib`](repocur:lectures/lec15.pdf) | 2016-11-21 | [Python session](repocur:lectures/lec15.ipynb) . [`inflammation.csv`](repocur:lectures/lec15/inflammation.csv) · [`axis` diagram](repocur:lectures/lec15/axes.png) · [Software Carpentry NumPy lesson notes](https://swcarpentry.github.io/python-novice-inflammation/01-numpy/) |
         | [Lecture #16:  modeling](repocur:lectures/lec16.pdf) | 2016-11-23 | [Python session](repocur:lectures/lec16.ipynb) |
         | [Lecture #17:  modeling & numerical error](repocur:lectures/lec17.pdf) | 2016-11-28 | [Lecture notes](repocur:lectures/notes-numerics.html)|       
-        | [Lecture #18:  randomness] | 2016-11-30  |  |
+        | [Lecture #18:  randomness](repocur:lectures/lec18.pdf) | 2016-11-30  | [pi/4 sequence 1](https://oeis.org/A003881) . [pi/4 sequence 2](http://math.stackexchange.com/questions/14815/why-does-this-converge-to-pi-4)|
         | [Lecture #19:  optimization (brute force)]|  2016-12-05 |  |
         | [Lecture #20:  optimization (heuristic)]|  2016-12-07 |  |
         | [Lecture #21:  error handling]|  2016-12-12 |  |
