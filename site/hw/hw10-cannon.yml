@@ -143,7 +143,7 @@ test_code: |
         feedback.finish(.8,"Your simulated x velocities are incorrect.")
     if not np.allclose(y,cy,atol=.0001):
         feedback.finish(.8,"Your simulated y positions are incorrect.")
-    if not np.allclose(x,cx,atol=.0001):
+    if not np.allclose(x[:,:-1],cx[:,:-1],atol=.0001):
         feedback.finish(.8,"Your simulated x positions are incorrect.")
     # test answer
     if not type(best_angle) is int:

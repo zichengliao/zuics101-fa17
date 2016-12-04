@@ -1,0 +1,76 @@
+type: PythonCodeQuestion
+title: Encoding
+id: decrypt1
+value: 25
+timeout: 10
+
+prompt: |
+    # Introduction
+    Dan Danson is a private detective, and he needs your help solving a case. A diamond thief has left mysterious notes like the one below at the scene of his crimes, and Dan cannot decode them. This homework assignment will help Dan develop a program that will automatically decode *any* similarly encoded message. This first segment will help you understand the problem a little better.
+
+    ![Danson](repo:media/danson.jpg)
+
+    "TICRTIXC'FNCRWTGWCTICPQQBTIWCGBX'JBMCUWXCAYITGT'FCTICRTIXC'FNCWXCRWQCTICFQUC'CAYITGT'FCTICPQQBTIWC'FNCWXCTICVQQNCTFC'ICP'JC'ICWXCTICRTIXC'FNCD'NCTFC'ICP'JC'ICWXCTICPQQBTIWCMXIC'FNCMQYCRQYBNCI'MCUWXCI'AXCIQJUCQPCUWTFVCQPCUWXCZWMITGT'FCMXIC'FNCNQCMQYCUWTF CAMCXHGXBBXFUCPJTXFNCUW'UC'CAYITGT'FCRWXFCWXC'NLYIUICUWXCBMJXCRQYBNCNXITJXCQJCGB'TACUQCXHGXXNCQJCVQCDXMQFNC'CAYITGT'FCTFCUWXCUTVWUXFTFVC'FNCBQQIXFTFVCUWXCIUJTFVICTCNQCFQUCUWTF CUW'UCWXCRQYBNCDYUCWXCRQYBNCGB'TACUQCXHGXXN"
+
+    ## Substitution cipher
+    Dan seems certain that the messages are encoded using a simple substitution cipher. We will start by learning how they work. In a simple substitution cipher, letters in the original message are simply substituted with another letter. For example, all of the `"A"`s in the original message might be changed to `"G"`s in the encrypted message. All of the `"B"`s might be `"Q"`s.
+
+    The alphabet of the encrypted messages Dan has discovered is `"ABCDEFGHIJKLMNOPQRSTUVWXYZ' "`. In other words, we will be dealing with only the upper-case English letters, apostrophes, and spaces. To encode and decode a message, we need to know the *substitution alphabet*, which is a permutation of the original alphabet. This tells us which letters we need to exchange. For example, the substitution alphabet `"TQVMHKJOXLGZWYN 'RIPDAUFCESB"` would mean that we substitute `"A"` $\rightarrow$ `"T"`, `"B"` $\rightarrow$ `"Q"`, `"C"` $\rightarrow$ `"V"`, ... , `"Z"` $\rightarrow$ `"E"`,  `"'"` $\rightarrow$ `"S"`, and `" "` $\rightarrow$ `"B"`.
+
+    Compose a function `substitution` which accepts two arguments. The first parameter `message` will be a string representing a message we want to encode or decode. The second parameter `sub_alpha` will be a list of exactly 28 characters representing the substitution alphabet. The return value should be a string representing the encoded version of the input message. A dictionary may be useful.
+
+    Using the example substitution alphabet above, you should be able to decode a message from the string `" ZP'WRZPAHPURSOFPNHWRPHCVJASOZ"`.
+
+    You need only submit the code defining `substitution` in this step.
+
+setup_code: |
+
+names_for_user: []
+
+names_from_user: [substitution]
+
+test_code: |
+
+    import inspect
+    def csub(m,k):
+        d={}
+        for p,c in zip("ABCDEFGHIJKLMNOPQRSTUVWXYZ' ",k):
+            d[p]=c
+        return ''.join([d[p] for p in m])
+
+
+    # Test function names
+    if not inspect.isfunction(substitution):
+        feedback.finish(0,"substitution must be a function")
+    sub_args=inspect.getargspec(substitution).args
+    if len(sub_args)!=2:
+        feedback.finish(0,"substitution must take exactly 2 arguments")
+    if sub_args[0]!="message":
+        feedback.finish(0,"The first parameter of substitution must be named 'message'")
+    if sub_args[1]!="sub_alpha":
+        feedback.finish(0,"The second parameter of substitution must be named 'sub_alpha'")
+
+    # Test 1
+    sa1=list("TQVMHKJOXLGZWYN 'RIPDAUFCESB")
+    m1="THIS IS A TEST"
+    try:
+        if csub(m1,sa1) != substitution(m1,sa1):
+            feedback.finish(.5,"The return value for substitution is incorrect.")
+    except:
+            feedback.finish(0,"Your function threw an exception when given valid input.")
+    sa1=list(" TVDMRKJOXLGZWYNIPAQHUFCESB'")
+    m1="THIS IS A TEST"
+    try:
+        if csub(m1,sa1) != substitution(m1,sa1):
+            feedback.finish(.5,"The return value for substitution is incorrect.")
+    except:
+            feedback.finish(0,"Your function threw an exception when given valid input.")
+    feedback.finish(1.0,"Substitution is working correctly.")
+
+correct_code: |
+
+    def substitution(message,sub_alpha):
+        d={}
+        for p,c in zip("ABCDEFGHIJKLMNOPQRSTUVWXYZ' ",sub_alpha):
+            d[p]=c
+        return ''.join([d[p] for p in message])

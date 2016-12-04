@@ -1,0 +1,302 @@
+type: PythonCodeQuestion
+title: Hill
+id: decrypt3
+value: 40
+timeout: 300
+data_files:
+    - "media/3-scores.csv"
+    - "media/1-scores.csv"
+
+prompt: |
+    # Part 3
+    "That brute-force approach almost cracked it, but 'almost' won't catch the jewel thief. We need a way to move what we have closer to the right the answer. Got any ideas, kid?"
+
+    To decode the secret messages, you need an approach that will incrementally improve on an existing solution. In other words, you need to write a hill-climbing program. That means we need to formulate this task as an optimization problem.
+
+    ![Danson](repo:media/danson3.jpg)
+
+    ## Scoring
+    First, we need a function to optimize (a figure of merit for candidate solutions). We want to find the substitution that makes our input look most like English. In other words, we need to find the best input for the `substitution` function you composed in the first section. In other other words, we need to find the best permutation of our 28-letter alphabet that creates output resembling English.
+
+    For this task, single-letter use statistics are insufficient for approximating the English language. Fortunately, Dan also has a score file for 3-letter usage called [`3-scores.csv`](repo:media/3-scores.csv). You can load this file using the `read_scores` function you wrote in Part 2.
+
+    Compose a function called `score_string` which accepts two arguments. The first `message` is a string we want to score. The second argument `scores` is the dictionary returned by `read_scores`. The function should iterate over all sequences of 3 letters (3-mers) in `message`, look them up in `scores`, and sum the result. For example, if `message = "THE CAT"`, `score_string` should return `scores["THE"]+scores["HE "]+scores["E C"]+scores[" CA"]+scores["CAT"]` = `5.873757+5.775928+3.786891+3.564959+1.570114` = `20.571649`.
+
+    Some combinations of 3 letters are not found in the `3-scores.csv`. Such 3-mers are either too rare or just plain nonsense to be a part of a valid solution, so we want to penalize them. Every time you encounter such a trio of unknown and unwanted letters in the input string, subtract `11` from the score.  (You may use `try`/`except` or another strategy here.)
+
+    ## Evaluation
+    Given a permutation of our alphabet, how can we measure how good it is? How can we evaluate this candidate solution? First, we should translate the encoded message using our permutation by calling `substitution`. Then, we should call `score_string` on the result.
+
+    Compose a function called `evaluate` that does exactly this. It should take three arguments. The first parameter, `candidate` is a list of the letters of our alphabet permuted in some way. The second, `message` is the encoded message we want to decode. The third, `scores` is the dictionary output from `read_scores`. The `evaluate` function should return the output from `score_string`.
+
+        def evaluate( candidate,message,scores ):
+            x = substitution( message,candidate )
+            return score_string( x,scores )
+
+    ## Step
+    We are ready to start writing our hill climbing algorithm. We need a way to define all the neighbors of our current solution. Given a list containing a permutation of our alphabet, how do we define its neighboring solutions? *In this case, we will consider swapping the position of any two letters in the list to be a neighboring solution.* Your next goal is to write a function that takes a given candidate solution and tries to take one step up the hill. If it succeeds, it returns an improved candidate solution. If it fails to find a better solution, it returns the original candidate solution.
+
+    Define a function named `step` that takes three arguments. The first parameter, `current_solution` is the current best solution we have found so far. The second, `message` is the message we are trying to decode. The third, `scores` is the dictionary output from `read_scores`.  The function should swap the characters at each pair of positions in current best solution to produce a new candidate solution. As you loop through all pairs of positions, evaluate each new candidate solution. If it scores higher than `current_solution`, immediately return new candidate solution. If you reach the end of the loop without improving, return the original solution.
+
+    **HINT 1** Each candidate solution needs to be a *COPY* of `current`, *NOT* an alias.  How did we copy arrays?
+
+    **HINT 2** Looping through pairs of positions can be accomplished using nested for loops.
+
+    **HINT 3** This is very similar to the souvenirs and suitcase problem discussed in lectures 19 and 20.  Take a look at the structure of that code for ideas.
+
+    ## Hill climbing
+    You are now ready to decode the message. Write a function called `find_secret` that takes a single argument `message` an encrypted message. This function should start by finding the greedy solution from Part 2. It should then read in the 3-letter score file and call `step` 50 times or until it can no longer improve on the solution (whichever happens first.) It should then call `substitution` and return the decoded message.
+
+        def find_secret(message):
+            # open the file of scores (1-scores.csv)
+            # and get the counts of the letters
+
+            # set up the translation dictionary
+
+            # solve the greedy (brute-force) solution
+            # using 3-scores.csv
+            # loop in range(50)
+                # get the next key using step
+                # if there is no change, then break and return
+                # else update the key
+            # return the decoded message using the best key
+
+setup_code: |
+    def open(filename,mode="r"):
+        try:
+            data=data_files["media/"+filename]
+        except KeyError:
+            raise IOError("File not found")
+        from io import StringIO
+        return StringIO(data.decode("utf-8"))
+
+names_for_user: [open]
+
+names_from_user: [score_string,evaluate,step,find_secret]
+
+test_code: |
+
+    import inspect
+
+    def cread_scores(input_file):
+        d={}
+        for line in open(input_file):
+            line=line.rstrip()
+            gram,score=line.split(",")
+            d[gram]=float(score)
+        return d
+
+    def ccount_letters(message):
+        counts={}
+        for c in "ABCDEFGHIJKLMNOPQRSTUVWXYZ' ":
+            counts[c]=0
+        for c in message:
+            counts[c]+=1
+        return counts
+
+    def csubstitute(m,k):
+        d={}
+        for p,c in zip("ABCDEFGHIJKLMNOPQRSTUVWXYZ' ",k):
+            d[p]=c
+        return ''.join([d[p] for p in m])
+
+    def cscore_string(message,scores):
+        total=0.0
+        for i in range(len(message)-2):
+                kmer=message[i:i+3]
+                try:
+                        total+=scores[kmer]
+                except:
+                        total+=-11.0
+        return total
+
+    def cevaluate(candidate,message,scores):
+        x=csubstitute(message,candidate)
+        return cscore_string(x,scores)
+
+    def cstep(current_solution,message,scores):
+        current_score=cevaluate(current_solution,message,scores)
+        for i in range(len(current_solution)-1):
+            for j in range(i,len(current_solution)):
+                next_solution=current_solution[:]
+                next_solution[i],next_solution[j]=next_solution[j],next_solution[i]
+                next_score=evaluate(next_solution,message,scores)
+                if next_score>current_score:
+                    return next_solution
+        return current_solution
+
+
+    # Test score_string
+    if not inspect.isfunction(score_string):
+        feedback.finish(0,"score_string must be a function")
+    sub_args=inspect.getargspec(score_string).args
+    if len(sub_args)!=2:
+        feedback.finish(0,"score_string must take exactly 2 arguments")
+    if sub_args[0]!="message":
+        feedback.finish(0,"The first parameter of score_string must be named 'message'")
+    if sub_args[1]!="scores":
+        feedback.finish(0,"The second parameter of score_string must be named 'scores'")
+    scores=cread_scores("3-scores.csv")
+    score_input=" THIS IS THE SECRET MESSAGE WE'RE TESTING QVQX"
+    c_score=cscore_string(score_input,scores)
+    try:
+        s_score=score_string(score_input,scores)
+    except:
+        feedback.finish(0,"score_string threw an exception")
+    if not type(s_score) is float:
+        feedback.finish(0,"score_string did not return a float")
+    if s_score!=c_score:
+        feedback.finish(0,"score_string returned an incorrect value")
+    feedback.add_feedback("score_string is working correctly")
+
+    # Test evaluate
+    if not inspect.isfunction(evaluate):
+        feedback.finish(.5,"evaluate must be a function")
+    sub_args=inspect.getargspec(evaluate).args
+    if len(sub_args)!=3:
+        feedback.finish(.5,"evaluate must take exactly 3 arguments")
+    if sub_args[0]!="candidate":
+        feedback.finish(.5,"The first parameter of evaluate must be named 'candidate'")
+    if sub_args[1]!="message":
+        feedback.finish(.5,"The second parameter of evaluate must be named 'message'")
+    if sub_args[2]!="scores":
+        feedback.finish(.5,"The third argument of evaluate must be named 'scores'")
+    message=" THIS IS THE SECRET MESSAGE WE'RE TESTING QVQX"
+    candidate=['T', ' ', 'U', 'X', 'Q', 'H', 'G', 'K', 'S', 'V', "'", 'Y', 'O', 'L', 'J', 'Z', 'A', 'R', 'C', 'D', 'B', 'P', 'W', 'N', 'M', 'I', 'F', 'E']
+    c_eval=cevaluate(candidate,message,scores)
+    try:
+        s_eval=evaluate(candidate,message,scores)
+    except:
+        feedback.finish(.5,"evaluate threw an exception")
+    if not type(s_eval) is float:
+        feedback.finish(.5,"evaluate did not return a float")
+    if s_eval!=c_eval:
+        feedback.finish(.5,"evaluate returned an incorrect value")
+    feedback.add_feedback("evaluate is working correctly")
+
+    #Test step
+    if not inspect.isfunction(step):
+        feedback.finish(.75,"step must be a function")
+    sub_args=inspect.getargspec(step).args
+    if len(sub_args)!=3:
+        feedback.finish(.75,"step must take exactly 3 arguments")
+    if sub_args[0]!="current_solution":
+        feedback.finish(.75,"The first parameter of step must be named 'current_solution'")
+    if sub_args[1]!="message":
+        feedback.finish(.75,"The second parameter of step must be named 'message'")
+    if sub_args[2]!="scores":
+        feedback.finish(.75,"The third parameter of step must be named 'scores'")
+    message="TICRTIXC'FNCRWTGWCTICPQQBTIWCGBX'JBMCUWXCAYITGT'FCTICRTIXC'FNCWXCRWQCTICFQUC'CAYITGT'FCTICPQQBTIWC'FNCWXCTICVQQNCTFC'ICP'JC'ICWXCTICRTIXC'FNCD'NCTFC'ICP'JC'ICWXCTICPQQBTIWCMXIC'FNCMQYCRQYBNCI'MCUWXCI'AXCIQJUCQPCUWTFVCQPCUWXCZWMITGT'FCMXIC'FNCNQCMQYCUWTF CAMCXHGXBBXFUCPJTXFNCUW'UC'CAYITGT'FCRWXFCWXC'NLYIUICUWXCBMJXCRQYBNCNXITJXCQJCGB'TACUQCXHGXXNCQJCVQCDXMQFNC'CAYITGT'FCTFCUWXCUTVWUXFTFVC'FNCBQQIXFTFVCUWXCIUJTFVICTCNQCFQUCUWTF CUW'UCWXCRQYBNCDYUCWXCRQYBNCGB'TACUQCXHGXXN"
+    candidate=['G', 'D', ' ', 'B', 'Z', 'N', 'U', 'P', 'A', 'W', 'Q', "'", 'C', 'R', 'X', 'F', 'O', 'M', 'J', 'E', 'S', 'Y', 'H', 'T', 'L', 'K', 'I', 'V']
+    s_candidate=candidate[:]
+    try:
+        for i in range(5):
+        	s_candidate=step(s_candidate,message,scores)
+    except:
+        feedback.finish(.75,"step threw an exception")
+    if not type(s_candidate) is list:
+        feedback.finish(.75,"step failed to return a list")
+    if len(s_candidate)!=28:
+        feedback.finish(.75,"step failed to return a list of the correct size")
+    for c in "ABCDEFGHIJKLMNOPQRSTUVWXYZ' ":
+        if c not in s_candidate:
+            feedback.finish(.75,"step failed to return a list containing all of the alphabet")
+    if cevaluate(s_candidate,message,scores)<=cevaluate(candidate,message,scores):
+        feedback.finish(.75,"step failed to improve the solution")
+
+    s_candidate=candidate[:]
+    try:
+        for i in range(50):
+        	s_candidate=step(s_candidate,message,scores)
+    except:
+        feedback.finish(.75,"step threw an exception when called 50 times")
+    if not type(s_candidate) is list:
+        feedback.finish(.75,"step failed to return a list when called 50 times")
+    if len(s_candidate)!=28:
+        feedback.finish(.75,"step failed to return a list of the correct size when called 50 times")
+    for c in "ABCDEFGHIJKLMNOPQRSTUVWXYZ' ":
+        if c not in s_candidate:
+            feedback.finish(.75,"step failed to return a list containing all of the alphabet")
+    decoded="IS WISE AND WHICH IS FOOLISH CLEARLY THE MUSICIAN IS WISE AND HE WHO IS NOT A MUSICIAN IS FOOLISH AND HE IS GOOD IN AS FAR AS HE IS WISE AND BAD IN AS FAR AS HE IS FOOLISH YES AND YOU WOULD SAY THE SAME SORT OF THING OF THE PHYSICIAN YES AND DO YOU THINK MY EXCELLENT FRIEND THAT A MUSICIAN WHEN HE ADJUSTS THE LYRE WOULD DESIRE OR CLAIM TO EXCEED OR GO BEYOND A MUSICIAN IN THE TIGHTENING AND LOOSENING THE STRINGS I DO NOT THINK THAT HE WOULD BUT HE WOULD CLAIM TO EXCEED"
+    if csubstitute(message,s_candidate)!=decoded:
+        feedback.finish(.75,"step is not converging on the correct answer.")
+    feedback.add_feedback("step is working correctly")
+
+    #test find_secret
+    super_secret="BJ'TG YP BGATG J'WJ J'T RTBRHT VWO GTUQYGT W HTWATG JB FT XQGT 'WX 'T PBJ WHXB WPBJ'TG BFITCJ L'YC' YX J'WJ J'TO VWO FT YVRBMTGYX'TA FO RWOVTPJ BZ JWNTX WPA J'QX CBVRTHHTA JB ATMBJT J'TVXTHMTX JB J'TYG AWYHO LWPJX WPA J'TGTZBGT HTXX HYSTHO JB CBPXRYGT WEWYPXJ 'YV CHTWGHO WPA YZ WPO BZ J'TV WGT XQXRTCJTA FO 'YV BZ 'WMYPE PBJYBPX BZ ZGTTABV WPA BZ GTXYXJWPCT JB 'YX WQJ'BGYJO 'T LYHH 'WMT W EBBA RGTJTNJ ZBG ATXJGBOYPE J'TV FO RHWCYPE J'TV WJ J'T VTGCO BZ J'T TPTVO WPA ZBG WHH J'TXT GTWXBPX J'T JOGWPJ VQXJ FT WHLWOX ETJJYPE QR W"
+    super_decoded="OTHER IN ORDER THAT THE PEOPLE MAY REQUIRE A LEADER TO BE SURE HAS HE NOT ALSO ANOTHER OBJECT WHICH IS THAT THEY MAY BE IMPOVERISHED BY PAYMENT OF TAXES AND THUS COMPELLED TO DEVOTE THEMSELVES TO THEIR DAILY WANTS AND THEREFORE LESS LIKELY TO CONSPIRE AGAINST HIM CLEARLY AND IF ANY OF THEM ARE SUSPECTED BY HIM OF HAVING NOTIONS OF FREEDOM AND OF RESISTANCE TO HIS AUTHORITY HE WILL HAVE A GOOD PRETEXT FOR DESTROYING THEM BY PLACING THEM AT THE MERCY OF THE ENEMY AND FOR ALL THESE REASONS THE TYRANT MUST BE ALWAYS GETTING UP A"
+    try:
+        s_super=find_secret(super_secret)
+    except:
+        feedback.finish(.9,"find_secret threw an exception")
+    if s_super==super_decoded:
+        feedback.finish(1,"find_secret works corretly. You are a successful cryptanalyst.")
+    else:
+        feedback.finish(.9,"find_secret is not converging to the correct solution.")
+
+correct_code: |
+    def substitution(message,sub_alpha):
+        d={}
+        for p,c in zip("ABCDEFGHIJKLMNOPQRSTUVWXYZ' ",sub_alpha):
+            d[p]=c
+        return ''.join([d[p] for p in message])
+
+    def read_scores(input_file):
+       d={}
+       for line in open(input_file):
+           line=line.rstrip()
+           gram,score=line.split(",")
+           d[gram]=float(score)
+       return d
+
+    def count_letters(message):
+        counts={}
+        for c in "ABCDEFGHIJKLMNOPQRSTUVWXYZ' ":
+            counts[c]=0
+        for c in message:
+            counts[c]+=1
+        return counts
+
+    def score_string(message,scores):
+        total=0.0
+        for i in range(len(message)-2):
+                kmer=message[i:i+3]
+                try:
+                        total+=scores[kmer]
+                except:
+                        total+=-11.0
+        return total
+
+    def evaluate(candidate,message,scores):
+        x=substitution(message,candidate)
+        return score_string(x,scores)
+
+    def step(current_solution,message,scores):
+        current_score=evaluate(current_solution,message,scores)
+        for i in range(len(current_solution)-1):
+            for j in range(i,len(current_solution)):
+                next_solution=current_solution[:]
+                next_solution[i],next_solution[j]=next_solution[j],next_solution[i]
+                next_score=evaluate(next_solution,message,scores)
+                if next_score>current_score:
+                    return next_solution
+        return current_solution
+
+    def find_secret(message):
+        scores=read_scores("1-scores.csv")
+        counts=count_letters(message)
+
+        translation={}
+        for p,e in zip(sorted(counts,key=counts.get),sorted(scores,key=scores.get)):
+            translation[p]=e
+
+        alphabet="ABCDEFGHIJKLMNOPQRSTUVWXYZ' "
+        candidate_key=[translation[c] for c in alphabet]
+
+        scores=read_scores("3-scores.csv")
+        for s in range(50):
+            next_key=step(current_key,message,scores)
+            if next_key==current_key:
+               break
+            current_key=next_key[:]
+        return decode(message,current_key)

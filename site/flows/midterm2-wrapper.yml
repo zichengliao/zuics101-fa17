@@ -1,0 +1,296 @@
+title: "Midterm #2 Reflections"
+description: |
+    # Midterm #2 Reflections
+
+rules:
+    start:
+    -
+        if_has_role: [student, ta, instructor]
+        if_before: 2016-12-02 18:05:00
+        may_start_new_session: True
+
+    -
+        may_start_new_session: False
+        may_list_existing_sessions: False
+
+    access:
+    -
+        if_before: 2016-12-02 18:05:00
+        permissions: [view, submit_answer, end_session]
+
+    grade_identifier: midterm2_xc
+    grade_aggregation_strategy: use_latest
+
+    grading:
+    -   credit_percent: 100
+
+groups:
+-
+    id: intro
+    pages:
+    -
+        type: Page
+        id: overview
+        content: |
+
+            # Reflections on Midterm
+
+            In order to help you analyze what went well and what didn’t work in your preparation and performance on the second midterm, please fill out this worksheet.  **Although not required, completion of this exercise will increase your midterm grade by 5%.**
+
+-
+    id: questions
+    shuffle: False
+    pages:
+
+    -
+        type: TextQuestion
+        id: time
+        title: Time
+        value: 1
+        prompt: |
+
+            # Midterm #2 Reflections
+
+            Approximately how much time did you spend preparing for this exam (in hours)?
+
+        answers:
+          - type: float
+            value: 0.0
+            atol: 50.0  # absolute tolerance
+
+    -
+        type: InlineMultiQuestion
+        id: prep
+        title: Preparation
+        value: 1
+        prompt: |
+
+            # Midterm #2 Reflections
+
+            What percentage of your test-preparation was spent in each of the following activities?
+
+        question: |
+
+            Reviewing course slides for the first time:  [[blank1]]
+
+            Reviewing course slides (rereading):  [[blank2]]
+
+            Reviewing homework or lab exercises:  [[blank3]]
+
+            Solving problems for practice:  [[blank4]]
+
+            Reviewing your own notes:  [[blank5]]
+
+            Studying outside supplementary materials:  [[blank6]]
+
+        answers:
+
+            blank1:
+                type: ShortAnswer
+                width: 4em
+                required: False
+                correct_answer:
+                  - type: float
+                    value: 50.0
+                    atol: 50.0  # absolute tolerance
+
+
+            blank2:
+                type: ShortAnswer
+                width: 4em
+                required: False
+                correct_answer:
+                  - type: float
+                    value: 50.0
+                    atol: 50.0  # absolute tolerance
+
+            blank3:
+                type: ShortAnswer
+                width: 4em
+                required: False
+                correct_answer:
+                  - type: float
+                    value: 50.0
+                    atol: 50.0  # absolute tolerance
+
+            blank4:
+                type: ShortAnswer
+                width: 4em
+                required: False
+                correct_answer:
+                  - type: float
+                    value: 50.0
+                    atol: 50.0  # absolute tolerance
+
+            blank5:
+                type: ShortAnswer
+                width: 4em
+                required: False
+                correct_answer:
+                  - type: float
+                    value: 50.0
+                    atol: 50.0  # absolute tolerance
+
+            blank6:
+                type: ShortAnswer
+                width: 4em
+                required: False
+                correct_answer:
+                  - type: float
+                    value: 50.0
+                    atol: 50.0  # absolute tolerance
+
+
+    -
+        type: InlineMultiQuestion
+        id: loss
+        title: Points lost
+        value: 1
+        prompt: |
+
+            # Midterm #2 Reflections
+
+            Estimate the percentage of points you lost due to each of the following:
+
+        question: |
+
+            Trouble with syntax:  [[blank1]]
+
+            Trouble with function/method behavior:  [[blank2]]
+
+            Not understanding the concept:  [[blank3]]
+
+            Careless mistakes:  [[blank4]]
+
+            Other [[blank5]]:  [[blank6]]
+
+        answers:
+
+            blank1:
+                type: ShortAnswer
+                width: 4em
+                required: False
+                correct_answer:
+                  - type: float
+                    value: 50.0
+                    atol: 50.0  # absolute tolerance
+
+            blank2:
+                type: ShortAnswer
+                width: 4em
+                required: False
+                correct_answer:
+                  - type: float
+                    value: 50.0
+                    atol: 50.0  # absolute tolerance
+
+            blank3:
+                type: ShortAnswer
+                width: 4em
+                required: False
+                correct_answer:
+                  - type: float
+                    value: 50.0
+                    atol: 50.0  # absolute tolerance
+
+            blank4:
+                type: ShortAnswer
+                width: 4em
+                required: False
+                correct_answer:
+                  - type: float
+                    value: 50.0
+                    atol: 50.0  # absolute tolerance
+
+            blank5:
+                type: ShortAnswer
+                width: 16em
+                required: False
+                correct_answer:
+                  - type: float
+                    value: 50.0
+                    atol: 50.0  # absolute tolerance
+
+            blank6:
+                type: ShortAnswer
+                width: 4em
+                required: False
+                correct_answer:
+                  - type: float
+                    value: 50.0
+                    atol: 50.0  # absolute tolerance
+
+
+    -
+        type: InlineMultiQuestion
+        id: changes
+        title: Changes
+        value: 1
+        prompt: |
+
+            # Midterm #2 Reflections
+
+            Based on your responses to the questions above, name at least three things you plan to do differently in preparing for the final exam. For instance, will you spend more time studying, change a specific study habit or try a new one (if so, name it), make math more automatic so it does not get in the way of physics, try to sharpen some other skill (if so, name it), solve more practice problems, or something else?
+
+        question: |
+
+            1.  [[blank1]]
+
+            2.  [[blank2]]
+
+            3.  [[blank3]]
+
+        answers:
+
+            blank1:
+                type: ShortAnswer
+                width: 16em
+                required: True
+                correct_answer:
+                - <plain>
+
+            blank2:
+                type: ShortAnswer
+                width: 16em
+                required: True
+                correct_answer:
+                - <plain>
+
+            blank3:
+                type: ShortAnswer
+                width: 16em
+                required: True
+                correct_answer:
+                - <plain>
+
+
+    -
+        type: InlineMultiQuestion
+        id: support
+        title: Support
+        value: 1
+        prompt: |
+
+            # Midterm #2 Reflections
+
+            What can we do to better support your learning and your preparation for the final exam?
+
+        question: |
+
+            [[blank1]]
+
+        answers:
+
+            blank1:
+                type: ShortAnswer
+                width: 24em
+                required: False
+                correct_answer:
+                - <plain>
+
+
+completion_text: |
+
+    # Don't Panic!
+
+    We will take your feedback into consideration for midterms in subsequent semesters.  Also, please note that I am not grading your responses, but the system is picking up the default answers.  Completion of this feedback will net you 5% credit towards your Midterm #2 grade.

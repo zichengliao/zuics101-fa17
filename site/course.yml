@@ -55,8 +55,8 @@ chunks:
         | [Lecture #15:  `numpy`, `matplotlib`](repocur:lectures/lec15.pdf) | 2016-11-21 | [Python session](repocur:lectures/lec15.ipynb) · [`inflammation.csv`](repocur:lectures/lec15/inflammation.csv) · [`axis` diagram](repocur:lectures/lec15/axes.png) · [Software Carpentry NumPy lesson notes](https://swcarpentry.github.io/python-novice-inflammation/01-numpy/)  |
         | [Lecture #16:  modeling](repocur:lectures/lec16.pdf) | 2016-11-23 | [Python session](repocur:lectures/lec16.ipynb) |
         | [Lecture #17:  modeling & numerical error](repocur:lectures/lec17.pdf) | 2016-11-28 | [Lecture notes](repocur:lectures/notes-numerics.html)|       
-        | [Lecture #18:  randomness](repocur:lectures/lec18.pdf) | 2016-11-30  | [pi/4 sequence 1](https://oeis.org/A003881) ·  [pi/4 sequence 2](http://math.stackexchange.com/questions/14815/why-does-this-converge-to-pi-4) · [`nouns.txt`](repocur:lectures/lec18/nouns.txt) · [`adjectives.txt`](repocur:lectures/lec18/adjectives.txt) · [`names.txt`](repocur:lectures/lec18/names.txt) · [`verbs.txt`](repocur:lectures/lec18/verbs.txt) |
-        | [Lecture #19:  optimization (brute force)]|  2016-12-05 |  |
+        | [Lecture #18:  randomness](repocur:lectures/lec18.pdf) | 2016-11-30  | [Python session](repocur:lectures/lec18.ipynb) · [pi/4 sequence 1](https://oeis.org/A003881) ·  [pi/4 sequence 2](http://math.stackexchange.com/questions/14815/why-does-this-converge-to-pi-4) · [`nouns.txt`](repocur:lectures/lec18/nouns.txt) · [`adjectives.txt`](repocur:lectures/lec18/adjectives.txt) · [`names.txt`](repocur:lectures/lec18/names.txt) · [`verbs.txt`](repocur:lectures/lec18/verbs.txt) |
+        | [Lecture #19:  optimization (brute force)](repocur:lectures/lec19.pdf)|  2016-12-05 |  |
         | [Lecture #20:  optimization (heuristic)]|  2016-12-07 |  |
         | [Lecture #21:  error handling]|  2016-12-12 |  |
         | **MATLAB** | | |
@@ -78,7 +78,7 @@ chunks:
         | [![](repocur:img/banner-hw01.png)](flow:hw01) <br/> **Due** 2016-10-01 |[![](repocur:img/banner-hw02.png)](flow:hw02) <br/> **Due** 2016-10-19 | [![](repocur:img/banner-hw03.png)](flow:hw03) <br/> **Due** 2016-10-26 |
         | [![](repocur:img/banner-hw04.png)](flow:hw04) <br/> **Due** 2016-11-02 | [![](repocur:img/banner-hw05.png)](flow:hw05) <br/> **Due** 2016-11-09 | [![](repocur:img/banner-hw06.png)](flow:hw06) <br/> **Due** 2016-11-16 |
         | [![](repocur:img/banner-hw07.png)](flow:hw07) <br/> **Due** 2016-11-25 | [![](repocur:img/banner-hw08.png)](flow:hw08) <br/> **Due** 2016-12-02 | [![](repocur:img/banner-hw09.png)](flow:hw09) <br/> **Due** 2016-12-09 |
-        
+        | [![](repocur:img/banner-hw10.png)](flow:hw10) <br/> **Due** 2016-12-20 |
         ### Python Installation
         Although we can't provide technical support in setting up your personal machine, if you decide to install Python we warmly recommend using [Anaconda Python](https://www.continuum.io/downloads) 3.5.
 

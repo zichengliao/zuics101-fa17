@@ -13,7 +13,7 @@
 \title{Numerical Python}
 \subtitle{optimization}
 \author{CS101 Lecture \#19}
-\date{2016-11-02}
+\date{2016-12-05}
 
 \setcounter{showSlideNumbers}{1}
 
@@ -40,13 +40,14 @@
   \Enlarge
 
   \begin{itemize}
-  \myitem  Homework \#10 is due Friday, Nov.\ 11.
-  \myitem  Midterm \#2 is Monday, Nov. 14 from 7–8 p.m.
+  \myitem  Homework \#9 is due Friday, Dec.\ 9.
+  \myitem  Homework \#10 is due Tuesday, Dec.\ 20.
+  \myitem  Midterm \#2 is Monday, Dec. 19 from 7–10 p.m.
   \end{itemize}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Warmup Quiz}
+\section{Warmup Question}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}[fragile]
@@ -214,7 +215,9 @@ plt.show()
     \includegraphics[width=0.25\textwidth]{./img/figure_5.png}
     \\
     & & & \correctstar \\
+    
   \end{tabular}
+    http://matplotlib.org/api/colors\_api.html
   \end{center}
 \end{frame}
 
@@ -456,62 +459,16 @@ for pair in itertools.product( chars, repeat=3 ):
   \emph{per letter!}  This gets very big very quickly!
 \end{frame}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}[fragile]
-  \frametitle{A note on HW10}
-  \Enlarge
-
-  \begin{enumerate}
-  \myitem  In hw10 we run many simulations.
-  \myitem  A good approach:
-    \begin{enumerate}
-    \mysubitem  Create a 2D array for the state variables.
-    \mysubitem  Each \emph{row} tracks a different simulation (angle).
-    \mysubitem  Each \emph{column} tracks one time step.
-    \mysubitem  (You can transpose these as well, but be consistent.)
-    \end{enumerate}
-  \end{enumerate}
-\end{frame}
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}[fragile]
-  \frametitle{A note on HW10}
-
-  \begin{Verbatim}
-# Parameters of simulation
-n = 1000    # number of data points to plot
-m = 20      # number of balls to drop
-start = 0.0 # start time of simulation
-end   = 2.0 # ending time of simulation
-g = -9.8    # acceleration of gravity
-
-# State variable initialization
-t = np.linspace(start,end,n+1)          # time in seconds
-y = np.zeros((m,n+1),dtype=np.float64)  # height in meters
-v = np.zeros((m,n+1),dtype=np.float64)  # velocity in m/s
-
-for i in range(m):
-    y[i][0]=i+1
-  \end{Verbatim}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}[fragile]
-  \frametitle{A note on HW10}
-
-  \begin{Verbatim}
-for i in range(m): # ball number
-    for j in range(1,n+1): # time number
-        if y[i][j-1]>0:
-            y[i,j] = y[i,j-1] + v[i,j-1] * (t[j]-t[j-1])
-            v[i,j] = v[i,j-1] + g * (t[j]-t[j-1])
-        else:
-            y[i,j] = 0
-            v[i,j] = 0
-
-plt.plot( y.transpose() )
-plt.show()
-  \end{Verbatim}
+\begin{frame}
+	\frametitle{Administrivia}
+	\Enlarge
+	
+	\begin{itemize}
+		\myitem  Homework \#9 is due Friday, Dec.\ 9.
+		\myitem  Homework \#10 is due Tuesday, Dec.\ 20.
+		\myitem  Midterm \#2 is Monday, Dec. 19 from 7–10 p.m.
+	\end{itemize}
 \end{frame}
 
 \end{document}

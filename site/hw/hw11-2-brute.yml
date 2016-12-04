@@ -1,0 +1,224 @@
+type: PythonCodeQuestion
+title: Greedy
+id: decrypt2
+value: 35
+timeout: 10
+data_files:
+    - "media/1-scores.csv"
+    - "media/3-scores.csv"
+
+prompt: |
+    # Part 2
+    Dan has been staring at the messages all week, but he has not made a breakthrough decrypting the message. You need to make some progress soon, or the jewel thief will escape. "Maybe a brute-force method will work," Dan says to you. "We can just assign the most frequent letter in the encoded message to the most frequently used English letter, and the second most frequent letter in the encoded message with the second most frequently used English letter. I'm sure that'll crack it!"
+
+    ![Danson](repo:media/danson2.jpg)
+
+    ## Score file
+    Dan offers you a CSV file containing letter frequencies called [`1-scores.csv`](repocur:media/1-scores.csv). You will need to parse this file. Each line corresponds to a letter in our 28-letter alphabet. There is a comma on each line separating two columns. The first column is a string representing a symbol in our alphabet. The second column is a floating point number representing how common that particular symbol is. The higher the number, the more frequently that letter is used. (If you are interested in the details, the floating point number is the log [odds ratio](https://en.wikipedia.org/wiki/Odds_ratio) computed from dozens of novels downloaded from [Project Gutenberg](http://www.gutenberg.org).)
+
+    Compose a function `read_scores` which accepts a single string argument named `input_file`. Read in the file with that name and parse it. Return a dictionary that maps the strings in the first column to the floating point values in the second column.
+
+        def read_scores( input_file ):
+           d = { }
+           for line in open( input_file ):
+               line = line.rstrip( )
+               gram,score = line.split( "," )
+               d[ gram ] = float( score )
+           return d
+
+    ## Letter frequencies
+    Next you need a function to count the frequency of letters in the encoded messages. Compose a function called `count_letters` which accepts a single string argument named `message`. This function should return a dictionary that maps each letter to the number of times it occurs in a string. **Note:** Initialize the count of all 28 letters in our alphabet to zero.
+
+        def count_letters( message ):
+            counts = { }
+            for c in "ABCDEFGHIJKLMNOPQRSTUVWXYZ' ":
+                counts[ c ] = 0
+            for c in message:
+                counts[ c ] += 1
+            return counts
+
+    ## Decrypting the message
+    You are ready to try to decrypt the message from the first part of the assignment. Using the two functions you just wrote, create a dictionary named `translation` that maps the most frequent letters in the substitution alphabet to their corresponding letter in the plaintext alphabet. The most common letter in the substitution alphabet should map to `" "`. The second most common letter should map to `"E"`. The third most common should map to `"T"`. In the case of a tie (two letters have the same count) you can order those letters any way you choose. **Note:** We have intentionally not described how to do this section in detail. This is a problem for you to solve.
+
+    ## Call substitute
+    You now have a mapping between the substitution alphabet letters and their regular alphabet counterparts. You need to call the `substitution` function you wrote in Part 1 to convert the string back to plain text. Remember, `substitute` expects a list of characters *in the order of our 28-character alphabet*, so that is what we need to create. The `translation` dictionary maps letters in the substitution alphabet (the encoded message we have) to the message alphabet (the decoded message we want.)
+
+    Call `substitution` to translate the message from the previous homework assignment and store the result in a string called `greedy_output`.
+
+setup_code: |
+    def open(filename,mode="r"):
+        try:
+            data=data_files["media/"+filename]
+        except KeyError:
+            raise IOError("File not found")
+        from io import StringIO
+        return StringIO(data.decode("utf-8"))
+
+names_for_user: [open]
+
+names_from_user: [read_scores,count_letters,translation,greedy_output]
+
+test_code: |
+
+    import inspect
+    def cread_scores(input_file):
+        d={}
+        for line in open(input_file):
+            line=line.rstrip()
+            gram,score=line.split(",")
+            d[gram]=float(score)
+        return d
+
+    def ccount_letters(message):
+        counts={}
+        for c in "ABCDEFGHIJKLMNOPQRSTUVWXYZ' ":
+            counts[c]=0
+        for c in message:
+            counts[c]+=1
+        return counts
+
+    def csub(m,k):
+        d={}
+        for p,c in zip("ABCDEFGHIJKLMNOPQRSTUVWXYZ' ",k):
+            d[p]=c
+        return ''.join([d[p] for p in m])
+
+    # Test read_scores
+    if not inspect.isfunction(read_scores):
+        feedback.finish(0,"read_scores must be a function")
+    sub_args=inspect.getargspec(read_scores).args
+    if len(sub_args)!=1:
+        feedback.finish(0,"read_scores must take exactly 1 argument")
+    if sub_args[0]!="input_file":
+        feedback.finish(0,"The first parameter of read_scores must be named 'input_file'")
+    c_scores=cread_scores("1-scores.csv")
+    try:
+        s_scores=read_scores("1-scores.csv")
+    except:
+        feedback.finish(0,"read_scores threw an exception while reading 1-scores.csv")
+    if not type(s_scores) is dict:
+        feedback.finish(0,"read_scores did not return a dictionary")
+    ckeys=c_scores.keys()
+    skeys=s_scores.keys()
+    if len(ckeys)!=len(skeys):
+        feedback.finish(0,"The dictionary returned by read_scores has the wrong number of keys.")
+    for key in c_scores:
+        if key not in s_scores:
+            feedback.finish(0,"The dictionary returned by read_scores has an incorrect key: %s" % key)
+        if not type(s_scores[key]) is float:
+            feedback.finish(0,"The dictionary returned by read_scores maps to a non-floating point value")
+        if s_scores[key] != c_scores[key]:
+            feedback.finish(0,"The dictionary returned by read_scores maps to an incorrect value")
+    c_scores=cread_scores("3-scores.csv")
+    try:
+        s_scores=read_scores("3-scores.csv")
+    except:
+        feedback.finish(0,"read_scores threw an exception while reading a test file. Make sure your code works for strings of ANY length in column 1.")
+    for key in c_scores:
+        if key not in s_scores:
+            feedback.finish(0,"The dictionary returned by read_scores has an incorrect key. Make sure your code works for strings of ANY length in column 1")
+        if s_scores[key] != c_scores[key]:
+            feedback.finish(0,"The dictionary returned by read_scores maps to an incorrect value. Make sure your code works for strings of ANY length in column 1")
+    feedback.add_feedback("read_scores is working correctly")
+
+    # Test count_letters
+    if not inspect.isfunction(count_letters):
+        feedback.finish(0,"count_letters must be a function")
+    sub_args=inspect.getargspec(count_letters).args
+    if len(sub_args)!=1:
+        feedback.finish(.5,"count_letters must take exactly 1 argument")
+    if sub_args[0]!="message":
+        feedback.finish(.5,"The first parameter of count_letters must be named 'message'")
+    test_message=" 'ABRACADABRA' "
+    c_counts=ccount_letters(test_message)
+    try:
+        s_counts=count_letters(test_message)
+    except:
+        feedback.finish(.5,"count_letters threw an exception while processing a valid string.")
+    if not type(s_counts) is dict:
+        feedback.finish(.5,"count_letters did not return a dictionary")
+    ckeys=c_counts.keys()
+    skeys=s_counts.keys()
+    if len(ckeys)!=len(skeys):
+        feedback.finish(.5,"The dictionary returned by count_letters has the wrong number of keys.")
+    for key in c_counts:
+        if key not in s_counts:
+            feedback.finish(.5,"The dictionary returned by count_letters has an incorrect key: %s" % key)
+        if not type(s_counts[key]) is int:
+            feedback.finish(.5,"The dictionary returned by count_letters maps to a non-integer value")
+        if s_counts[key] != c_counts[key]:
+            feedback.finish(.5,"The dictionary returned by count_letters maps to an incorrect value")
+    feedback.add_feedback("count_letters is working correctly")
+
+    # Check translation
+    if not type(translation) is dict:
+            feedback.finish(.75,"translation must be a dictionary")
+    c_scores=cread_scores("1-scores.csv")
+    message="TICRTIXC'FNCRWTGWCTICPQQBTIWCGBX'JBMCUWXCAYITGT'FCTICRTIXC'FNCWXCRWQCTICFQUC'CAYITGT'FCTICPQQBTIWC'FNCWXCTICVQQNCTFC'ICP'JC'ICWXCTICRTIXC'FNCD'NCTFC'ICP'JC'ICWXCTICPQQBTIWCMXIC'FNCMQYCRQYBNCI'MCUWXCI'AXCIQJUCQPCUWTFVCQPCUWXCZWMITGT'FCMXIC'FNCNQCMQYCUWTF CAMCXHGXBBXFUCPJTXFNCUW'UC'CAYITGT'FCRWXFCWXC'NLYIUICUWXCBMJXCRQYBNCNXITJXCQJCGB'TACUQCXHGXXNCQJCVQCDXMQFNC'CAYITGT'FCTFCUWXCUTVWUXFTFVC'FNCBQQIXFTFVCUWXCIUJTFVICTCNQCFQUCUWTF CUW'UCWXCRQYBNCDYUCWXCRQYBNCGB'TACUQCXHGXXN"
+    c_counts=ccount_letters(message)
+    c_translation={}
+    for p,e in zip(sorted(c_counts,key=c_counts.get),sorted(c_scores,key=c_scores.get)):
+        c_translation[p]=e
+
+    also_allowed={}
+    for c in c_counts:
+        v=c_counts[c]
+        if v not in also_allowed:
+            also_allowed[v]=[]
+        also_allowed[v].append(c)
+
+    for c in c_translation:
+        if c not in translation:
+            feedback.finish(.75,"translation is missing keys")
+        if not type(translation[c]) is str:
+            feedback.finish(.75,"translation must map to strings")
+        #p=c_translation[c]
+        count=c_counts[c]
+        allowed=[c_translation[p] for p in also_allowed[count]]
+        if translation[c] not in allowed:
+            feedback.finish(.75,"translation maps to incorrect values")
+    feedback.add_feedback("translation is correct")
+
+    alphabet="ABCDEFGHIJKLMNOPQRSTUVWXYZ' "
+    k=[translation[c] for c in alphabet]
+    c_greedy_output=csub(message,k)
+    if c_greedy_output!=greedy_output:
+            feedback.finish(.9,"greedy_output is incorrect")
+    feedback.finish(1,"greedy_output is correct")
+    print(c_greedy_output)
+
+correct_code: |
+    def substitution(message,sub_alpha):
+        d={}
+        for p,c in zip("ABCDEFGHIJKLMNOPQRSTUVWXYZ' ",sub_alpha):
+            d[p]=c
+        return ''.join([d[p] for p in message])
+
+    def read_scores(input_file):
+       d={}
+       for line in open(fname):
+           line=line.rstrip()
+           gram,score=line.split(",")
+           d[gram]=float(score)
+       return d
+
+    def count_letters(message):
+        counts={}
+        for c in "ABCDEFGHIJKLMNOPQRSTUVWXYZ' ":
+            counts[c]=0
+        for c in message:
+            counts[c]+=1
+        return counts
+
+    message="TICRTIXC'FNCRWTGWCTICPQQBTIWCGBX'JBMCUWXCAYITGT'FCTICRTIXC'FNCWXCRWQCTICFQUC'CAYITGT'FCTICPQQBTIWC'FNCWXCTICVQQNCTFC'ICP'JC'ICWXCTICRTIXC'FNCD'NCTFC'ICP'JC'ICWXCTICPQQBTIWCMXIC'FNCMQYCRQYBNCI'MCUWXCI'AXCIQJUCQPCUWTFVCQPCUWXCZWMITGT'FCMXIC'FNCNQCMQYCUWTF CAMCXHGXBBXFUCPJTXFNCUW'UC'CAYITGT'FCRWXFCWXC'NLYIUICUWXCBMJXCRQYBNCNXITJXCQJCGB'TACUQCXHGXXNCQJCVQCDXMQFNC'CAYITGT'FCTFCUWXCUTVWUXFTFVC'FNCBQQIXFTFVCUWXCIUJTFVICTCNQCFQUCUWTF CUW'UCWXCRQYBNCDYUCWXCRQYBNCGB'TACUQCXHGXXN"
+    scores=read_scores("1-scores.csv")
+    counts=count_letters(message)
+
+    translation={}
+    for p,e in zip(sorted(counts,key=counts.get),sorted(scores,key=scores.get)):
+        translation[p]=e
+
+    alphabet="ABCDEFGHIJKLMNOPQRSTUVWXYZ' "
+    key=[translation[c] for c in alphabet]
+
+    greedy_output=substitution(message,key)
