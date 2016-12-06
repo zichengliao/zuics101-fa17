@@ -57,7 +57,7 @@ chunks:
         | [Lecture #17:  modeling & numerical error](repocur:lectures/lec17.pdf) | 2016-11-28 | [Lecture notes](repocur:lectures/notes-numerics.html)|       
         | [Lecture #18:  randomness](repocur:lectures/lec18.pdf) | 2016-11-30  | [Python session](repocur:lectures/lec18.ipynb) · [pi/4 sequence 1](https://oeis.org/A003881) ·  [pi/4 sequence 2](http://math.stackexchange.com/questions/14815/why-does-this-converge-to-pi-4) · [`nouns.txt`](repocur:lectures/lec18/nouns.txt) · [`adjectives.txt`](repocur:lectures/lec18/adjectives.txt) · [`names.txt`](repocur:lectures/lec18/names.txt) · [`verbs.txt`](repocur:lectures/lec18/verbs.txt) |
         | [Lecture #19:  optimization (brute force)](repocur:lectures/lec19.pdf)|  2016-12-05 |  |
-        | [Lecture #20:  optimization (heuristic)]|  2016-12-07 |  |
+        | [Lecture #20:  optimization (heuristic)](repocur:lectures/lec20.pdf)|  2016-12-07 |  [`brute-force.py`](repocur:lectures/lec20/brute-force.py) · [`hill-climbing.py`](repocur:lectures/lec20/hhill-climbing.py) · [`random-walk.py`](repocur:lectures/lec20/random-walk.py) |
         | [Lecture #21:  error handling]|  2016-12-12 |  |
         | **MATLAB** | | |
         | [Lecture #22:  MATLAB basics]|  2016-12-14 |  |
