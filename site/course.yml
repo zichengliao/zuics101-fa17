@@ -99,8 +99,8 @@ chunks:
         
         | Session     | Date       | Supporting Resources | 
         | ------- | ---------- | -------------------- |
-        | [Lab#01:  python & Linux handson](repocur:labs/lab01.pdf) | 2016-09-30 | [lab01.ipynb](repocur:labs/lab01.ipynb) |
-        | [Lab#02:  strings and operators](repocur:labs/lab02.pdf) | 2016-10-09 | [lab02.ipynb](repocur:labs/lab02.ipynb) |
+        | [Lab#01:  python & Linux handson](repocur:labs/lab01.pdf) | 2016-09-30 | [lab01.ipynb](repocur:labs/lab01.ipynb); [reference ans](repocur:labs/lab01_ans.ipynb) |
+        | [Lab#02:  strings and operators](repocur:labs/lab02.pdf) | 2016-10-09 | [lab02.ipynb](repocur:labs/lab02.ipynb); [reference ans](repocur:labs/lab02_ans.ipynb) |
         | [Lab#03:  function & more strings](repocur:labs/lab03.pdf) | 2016-10-14 | [lab03.zip](http://zichengl.net/cs101/lab03.rar) |
         | [Lab#04:  lists, logic & control](repocur:labs/lab04.pdf) | 2016-10-28 | [lab04.zip](http://zichengl.net/cs101/lab04.rar) | 
         | Lab#05:  loops and function logic | 2016-11-4 | [lab05.zip](http://zichengl.net/cs101/lab05.rar) | 
