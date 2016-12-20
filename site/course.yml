@@ -62,7 +62,8 @@ chunks:
         | **MATLAB** | | |
         | [Lecture #22:  MATLAB basics](repocur:lectures/lec22.pdf)|  2016-12-14 |  [MATLAB handout](repocur:media/lab13-handout.pdf) |
         | [No Lecture:  Midterm 2 in the evening]|  2016-12-19 |  |
-        | Lecture #23:  MATLAB I/O, functions | 2016-12-21 | |
+        | [Lecture #23:  MATLAB I/O, functions](repocur:lectures/lec23.pdf) | 2016-12-21 | [`rabbit-bw.jpg`](repocur:lectures/lec23/rabbit-bw.jpg) · [`knight-grey.jpg`](repocur:lectures/lec23/knight-grey.jpg) · [`duck-color.jpg`](repocur:lectures/lec23/duck-color.jpg) <br/> [`finiteDiff.m`](repocur:lectures/lec23/finiteDiff.m) |
+        
         | [No Lecture:  Holiday Break]|  2016-12-26 |  |
         | [No Lecture:  Holiday Break]|  2016-12-28 |  |
         | [No Lecture:  Holiday Break]|  2016-01-02 |  |
