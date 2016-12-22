@@ -109,8 +109,9 @@ chunks:
         | Lab#07:  application of list, dict and strings | 2016-11-18 | [lab07.zip](http://zichengl.net/cs101/lab07.rar) | [lab07_ans.ipynb](repocur:labs/lab07_ans.ipynb) |
         | Lab#08:  application: remapping set for cipher machine | 2016-11-25 | [lab08.zip](http://zichengl.net/cs101/lab08_cipher.rar) | [lab08_ans.ipynb](repocur:labs/lab08_ans.ipynb) |
         | Lab#09:  Modeling fluid behavior | 2016-12-01 | [lab09.zip](http://zichengl.net/cs101/lab09_fluid.rar) | [lab09_ans.ipynb](repocur:labs/lab09_ans.ipynb) |
-        | Lab#10:  Celestial Mechanics | 2016-12-14 | [lab10.zip](http://zichengl.net/cs101/lab10_orbit.rar) | |
-        | Lab#10:  Optimizing over Time | 2016-12-16 | [lab11.zip](http://zichengl.net/cs101/lab11_runtime.rar) | |
+        | Lab#10:  Celestial Mechanics | 2016-12-14 | [lab10.zip](http://zichengl.net/cs101/lab10_orbit.rar) | [lab09_ans.ipynb](repocur:labs/lab10_ans.ipynb) |
+        | Lab#11:  Optimizing over Time | 2016-12-16 | [lab11.zip](http://zichengl.net/cs101/lab11_runtime.rar) | [lab09_ans.ipynb](repocur:labs/lab11_ans.ipynb) |
+        | Lab#12:  Matlab: earthquake! | 2016-12-22 | lab12.zip | |
      
         ##  Examinations
 
