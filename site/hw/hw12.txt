@@ -1,16 +1,19 @@
-Problem Description
+HW12: Please write 7 Octave scripts for the following problems and name these scripts as HW12-1.m, HW12-2.m, ... HW12-7.m, respectively, and zip them into a zip file and upload to BlackBoard's HW 12 submission locker.  
+
+
+HW12-1: Problem Description
 
 Compose a function isOdd which accepts a number n as input and returns true if the number is odd or false is the number is even.
 
 ---
 
-Problem Description
+HW12-2: Problem Description
 
 Compose a function isRight which accepts three positive numbers a, b, c (where c is the largest number). isRight should return true if the triangle with sides a, b and c is right-angled. Otherwise, it should return false. You may use any valid mathematical means to determine if the triangle is right-angled.
 
 ---
 
-Problem Description
+HW12-3: Problem Description
 
 Compose a function everyOther which accepts a vector and returns a vector containing only every other element of the argument vector. That is, it returns the all odd-numbered elements, starting with the first.
 
@@ -31,7 +34,7 @@ y = [5 3 2 -1]
 
 ---
 
-Problem Description
+HW12-4: Problem Description
 
 As you no doubt have drilled into perfection at this point, times tables are memorized charts of basic number multiplications.
 
@@ -53,7 +56,7 @@ Output
 
 ---
 
-Problem Description
+HW12-5: Problem Description
 
 Given an input array of strings (characters) s, pick out the second column of data and convert it into a column vector of data. Missing data will be indicated by the number 9999. If you encounter missing data, you should set it to the average of the neighboring values.
 
@@ -71,7 +74,7 @@ Compose a function read_and_interp which accepts an array in the above format an
 
 ---
 
-Problem Description
+HW12-6: Problem Description
 
 Recall that DNA sequences may be written as text strings consisting of the letters `A`, `C`, `T`, and `G`. We would like to count the number of times that letter combinations of a certain length occur in a string. This is useful because, for instance, a three-letter RNA codon could begin at any point in the sequence.
 
@@ -87,7 +90,7 @@ Your script should thus have three key output variables: `ngrams`, `freqs` (in c
 
 ---
 
-Problem Description
+HW12-7: Problem Description
 
 Provide a function which calculates the so-called R^2 value, an assessment of how well a model fits data points.
 
