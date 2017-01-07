@@ -1,4 +1,4 @@
-HW12: Please write 7 Octave scripts for the following problems and name these scripts as HW12-1.m, HW12-2.m, ... HW12-7.m, respectively, and zip them into a zip file and upload to BlackBoard's HW 12 submission locker.  
+HW12: Please write 7 Octave scripts for the following problems and name these scripts as their corresponding functions' names such as isOdd.m for HW12-1, isRight.m  for HW12-2, everyOther.m for HW12-3, timestable.m for HW12-4, read_and_interp.m for HW12-5, countNGram.m for HW12-6, and r_sqr.m for HW12-7, respectively, and zip them into a zip file and upload to BlackBoard's HW 12 submission locker.  Note that although HW12-6 doesn't require you to write a function but a full program script, you shall name the script as countNGram.m for ease of grading.
 
 
 HW12-1: Problem Description
