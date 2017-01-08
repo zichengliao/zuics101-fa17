@@ -67,8 +67,8 @@ chunks:
         | [No Lecture:  Holiday Break]|  2016-12-26 |  |
         | [No Lecture:  Holiday Break]|  2016-12-28 |  |
         | [No Lecture:  Holiday Break]|  2016-01-02 |  |
-        | [Lecture #24:  MATLAB statistics](repocur:lectures/lec24.pdf) | 2016-01-04 | [call-by-object-reference](https://jeffknupp.com/blog/2012/11/13/is-python-callbyvalue-or-callbyreference-neither/) . [Octave Descriptive Statistics](https://www.gnu.org/software/octave/doc/interpreter/Descriptive-Statistics.html) . [Octave Extra CORRCOEF](https://octave.sourceforge.io/nan/function/corrcoef.html) . [fplot](https://www.gnu.org/software/octave/doc/v4.0.0/Two_002ddimensional-Function-Plotting.html) . [fzero](https://www.gnu.org/software/octave/doc/v4.0.0/Solvers.html#XREFfzero) . [`brexit.csv`](repocur:lectures/lec24/brexit.csv) · [`brexit.m`](repocur:lectures/lec24/brexit.m) · [`lhs.m`](repocur:lectures/lec24/lhs.m) |
-        | Lecture #25:  MATLAB curve fitting | 2016-01-09 | |
+        | [Lecture #24:  MATLAB statistics](repocur:lectures/lec24.pdf) | 2016-01-04 | [call-by-object-reference](https://jeffknupp.com/blog/2012/11/13/is-python-callbyvalue-or-callbyreference-neither/) . [Octave Descriptive Statistics](https://www.gnu.org/software/octave/doc/interpreter/Descriptive-Statistics.html) . [Octave Extra CORRCOEF](https://octave.sourceforge.io/nan/function/corrcoef.html) . [fplot](https://www.gnu.org/software/octave/doc/v4.0.0/Two_002ddimensional-Function-Plotting.html) . [fzero](https://www.gnu.org/software/octave/doc/v4.0.0/Solvers.html#XREFfzero) · [`lhs.m`](repocur:lectures/lec24/lhs.m) |
+        | [Lecture #25:  MATLAB curve fitting](repocur:lectures/lec25.pdf) | 2016-01-09 |  [`examples.m`](repocur:lectures/lec25/examples.m) . [`brexit.csv`](repocur:lectures/lec24/brexit.csv) · [`brexit.m`](repocur:lectures/lec24/brexit.m) · [`rolling_mean.m`](repocur:lectures/lec24/rolling_mean.m) · [`rolling_std.m`](repocur:lectures/lec24/rolling_std.m) |
         | Lecture:  Final review | 2016-01-11 | |
         ##  Homework
 
