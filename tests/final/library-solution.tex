@@ -1,0 +1,1486 @@
+\documentclass{article}
+\usepackage{amsmath,amssymb,listings,upquote}
+\usepackage[margin=3cm]{geometry}
+\usepackage{graphicx,color}
+\lstset{language=Python}
+\usepackage{enumerate}% http://ctan.org/pkg/enumerate
+\usepackage{fancyvrb}
+
+
+\newcounter{zone}
+\setcounter{zone}{0}
+\newcommand{\zone}{\clearpage\refstepcounter{zone}\section*{Zone \arabic{zone}}}
+\newcounter{question}
+\setcounter{question}{0}
+\newcounter{variant}
+\newcounter{questionpoints}
+\newcommand{\question}[1]{\newpage \refstepcounter{question} \setcounter{variant}{0} \setcounter{questionpoints}{#1}}
+\newcommand{\variant}{\vspace{4em}\refstepcounter{variant}\noindent \arabic{question}/\arabic{variant}. (\arabic{questionpoints} point\ifnum \thequestionpoints > 1 s\fi) }
+\newenvironment{answers}{\begin{enumerate}}{\end{enumerate}}
+\newcommand{\answer}{\item }
+\newcommand{\correctanswer}{\item $\bigstar$ }
+\renewcommand{\theenumi}{\Alph{enumi}}
+\newenvironment{solution}{{\bf Solution.} }{\vspace*{.3in}\hrule}
+
+\begin{document}
+
+\begin{center}
+%\textbf{\Large CS 101 Final Exam}
+%
+\includegraphics[width=2in]{../img/final-header.png}
+\end{center}
+
+\bigskip
+\noindent
+\begin{itemize}
+\item  \textbf{Be sure to enter your \underline{NetID} and \underline{the code below} on your Scantron}.  Do not turn this page until instructed to.
+\item  This is a 120-minute exam with 30 questions:
+  \begin{itemize}
+  \item  12 MATLAB multiple-choice questions worth 5 points each;
+  \item  16 Python multiple-choice questions worth 5 points each; and
+  \item  2 coding questions worth 30 points each
+  \end{itemize}
+  for a total of 200 possible points.
+\item  Each multiple choice question has only \emph{one} correct answer.
+\item  You must not communicate with other students during the exam.
+\item  No books, notes, or electronic devices are permitted during the exam.
+\end{itemize}
+
+\bigskip\bigskip
+\noindent
+\textbf{\Large 1. Fill in your information:}
+
+\bigskip
+{\Large\bf
+\begin{tabular}{ll}
+Full Name: & \underbar{\hskip 8cm} \\[0.5em]
+UIN (Student Number): & \underbar{\hskip 8cm} \\[0.5em]
+NetID: & \underbar{\hskip 8cm} \\[0.5em]
+Lab Section: & \underbar{\hskip 8cm}
+\end{tabular}
+}
+
+\bigskip
+\bigskip
+\noindent
+\textbf{\Large 2. Fill in the following answers on the Scantron form:}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\zone \pagebreak \noindent
+\textbf{The following 12 questions involve MATLAB.}
+\\\\
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{5}
+\variant %---------------------------------------------------------------------
+Consider the following MATLAB program:
+\begin{Verbatim}
+x = [ 1 2 ];
+y = [ 3 4 ];
+z = [ y x ; x y ]';
+\end{Verbatim}
+
+What is the \textbf{value} of \texttt{z} after this program executes?
+
+\begin{answers}
+  \correctanswer $ \left[ \begin{array}{cc} 3 & 1 \\ 4 & 2 \\ 1 & 3 \\ 2 & 4 \\ \end{array} \right] $
+  \answer $ \left[ \begin{array}{cccc} 3 & 4 & 1 & 2 \\ 1 & 2 & 3 & 4 \\ \end{array} \right] $
+  \answer $ \left[ \begin{array}{cccc} 1 & 2 & 3 & 4 \\ 3 & 4 & 1 & 2 \\ \end{array} \right] $
+  \answer $ \left[ \begin{array}{cc} 1 & 3 \\ 2 & 4 \\ 3 & 1 \\ 4 & 2 \\ \end{array} \right] $
+  \answer None of the other answers are correct
+\end{answers}
+
+\begin{solution}
+\end{solution}
+
+\variant %---------------------------------------------------------------------
+Consider the following MATLAB program:
+\begin{Verbatim}
+x = [ 1 2 ];
+y = [ 3 4 ];
+z = [ x y ; y x ]';
+\end{Verbatim}
+
+What is the \textbf{value} of \texttt{z} after this program executes?
+
+\begin{answers}
+  \answer $ \left[ \begin{array}{cc} 3 & 1 \\ 4 & 2 \\ 1 & 3 \\ 2 & 4 \\ \end{array} \right] $
+  \answer $ \left[ \begin{array}{cccc} 3 & 4 & 1 & 2 \\ 1 & 2 & 3 & 4 \\ \end{array} \right] $
+  \answer $ \left[ \begin{array}{cccc} 1 & 2 & 3 & 4 \\ 3 & 4 & 1 & 2 \\ \end{array} \right] $
+  \correctanswer $ \left[ \begin{array}{cc} 1 & 3 \\ 2 & 4 \\ 3 & 1 \\ 4 & 2 \\ \end{array} \right] $
+  \answer None of the other answers are correct
+\end{answers}
+
+\begin{solution}
+\end{solution}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{5}
+\variant %---------------------------------------------------------------------
+Consider the following MATLAB program:
+\begin{Verbatim}
+A = ones( 3,3 ) - eye( 3,3 );
+A = A * 2;
+A( 1:2,: ) += 3;
+\end{Verbatim}
+
+What is the \textbf{value} of \texttt{A} after this program executes?
+
+\begin{answers}
+  \correctanswer $ \left[ \begin{array}{ccc} 3 & 5 & 5 \\ 5 & 3 & 5 \\ 2 & 2 & 0 \\ \end{array} \right] $
+  \answer $ \left[ \begin{array}{ccc} 3 & 5 & 2 \\ 5 & 3 & 2 \\ 5 & 5 & 0 \\ \end{array} \right] $
+  \answer $ \left[ \begin{array}{ccc} 0 & 2 & 2 \\ 5 & 3 & 5 \\ 5 & 5 & 3 \\ \end{array} \right] $
+  \answer $ \left[ \begin{array}{ccc} 0 & 5 & 5 \\ 2 & 3 & 5 \\ 2 & 5 & 3 \\ \end{array} \right] $
+  \answer None of the other answers are correct
+\end{answers}
+
+\begin{solution}
+\end{solution}
+
+\variant %---------------------------------------------------------------------
+Consider the following MATLAB program:
+\begin{Verbatim}
+A = ones( 3,3 ) - eye( 3,3 );
+A = A * 3;
+A( :,1:2 ) = A( :,1:2 ) + 3;
+\end{Verbatim}
+
+What is the \textbf{value} of \texttt{A} after this program executes?
+
+\begin{answers}
+  \answer $ \left[ \begin{array}{ccc} 3 & 6 & 6 \\ 6 & 3 & 6 \\ 3 & 3 & 0 \\ \end{array} \right] $
+  \correctanswer $ \left[ \begin{array}{ccc} 3 & 6 & 3 \\ 6 & 3 & 3 \\ 6 & 6 & 0 \\ \end{array} \right] $
+  \answer $ \left[ \begin{array}{ccc} 0 & 3 & 3 \\ 6 & 3 & 6 \\ 6 & 6 & 3 \\ \end{array} \right] $
+  \answer $ \left[ \begin{array}{ccc} 0 & 6 & 6 \\ 3 & 3 & 6 \\ 3 & 6 & 3 \\ \end{array} \right] $
+  \answer None of the other answers are correct
+\end{answers}
+
+\begin{solution}
+\end{solution}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{5}
+\variant %---------------------------------------------------------------------
+Consider the following MATLAB function stored in \texttt{squrge.m}:
+\begin{Verbatim}
+function [ a b ] = squrge( x,y )
+  a = x .^ 2;
+  b = a .* 3 + y;
+end
+\end{Verbatim}
+
+Which of the following correctly assigns the results of a call to \texttt{squrge} \texttt{a} to \texttt{A} and \texttt{b} to \texttt{B}, respectively?
+
+\begin{answers}
+  \answer  \texttt{A,B = squrge( 5,4 );}
+  \answer  \texttt{[ A B ] = squrge( [ 5 4 ] );}
+  \answer  \texttt{[ A B ] = squrge( 5 4 );}
+  \answer  \texttt{[ A B ] = squrge [ 5 4 ];}
+  \correctanswer  \texttt{[ A B ] = squrge( 5,4 );}
+\end{answers}
+
+\begin{solution}
+\end{solution}
+
+\variant %---------------------------------------------------------------------
+Consider the following MATLAB function stored in \texttt{splink.m}:
+\begin{Verbatim}
+function [ a b ] = splink( x,y )
+  a = x .^ 3 - y .^ 2;
+  b = y / 2 + a;
+end
+\end{Verbatim}
+
+Which of the following correctly assigns the results of a call to \texttt{splink} \texttt{a} to \texttt{A} and \texttt{b} to \texttt{B}, respectively?
+
+\begin{answers}
+  \answer  \texttt{A,B = splink( 5,4 );}
+  \answer  \texttt{[ A B ] = splink( [ 5 4 ] );}
+  \answer  \texttt{[ A B ] = splink( 5 4 );}
+  \answer  \texttt{[ A B ] = splink [ 5 4 ];}
+  \correctanswer  \texttt{[ A B ] = splink( 5,4 );}
+\end{answers}
+
+\begin{solution}
+\end{solution}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{5}
+\variant %---------------------------------------------------------------------
+Recollect that MATLAB represents polynomials as an array of coefficients from the highest-order coefficient to the lowest.  For instance,
+$$
+3 x^{2} + 2 x + 1
+$$
+is written as the array \texttt{[ 3 2 1 ]}.
+
+How would we represent the summation of the two polynomials
+$$
+-x^{2} + 3 x + 1
+$$
+and
+$$
+2 x^{3} + 4 x - 1
+$$
+as a MATLAB polynomial array?
+
+\begin{answers}
+  \answer  \texttt{[ -1 3 1 ] + [ 2 4 -1 ]}
+  \answer  \texttt{[ -1 3 1 ] + [ 2 0 4 -1 ]}
+  \correctanswer  \texttt{[ 0 -1 3 1 ] + [ 2 0 4 -1 ]}
+  \answer  \texttt{[ 1 3 -1 0 ] + [ -1 4 0 2 ]}
+  \answer  \texttt{[ 1 3 -1 ] + [ -1 4 2 ]}
+\end{answers}
+
+\begin{solution}
+\end{solution}
+
+\variant %---------------------------------------------------------------------
+Recollect that MATLAB represents polynomials as an array of coefficients from the highest-order coefficient to the lowest.  For instance,
+$$
+3 x^{2} + 2 x + 1
+$$
+is written as the array \texttt{[ 3 2 1 ]}.
+
+How would we represent the difference of the two polynomials
+$$
+-x^{2} + 3 x + 1
+$$
+and
+$$
+x^{3} + 4 x^{2} + 2
+$$
+as a MATLAB polynomial array?
+
+\begin{answers}
+  \correctanswer  \texttt{[ 0 -1 3 1 ] - [ 1 4 0 2 ]}
+  \answer  \texttt{[ -1 3 1 ] - [ 2 0 4 1 ]}
+  \answer  \texttt{[ 0 -1 3 1 ] - [ 2 0 4 1 ]}
+  \answer  \texttt{[ 1 3 -1 0 ] - [ 1 4 0 2 ]}
+  \answer  \texttt{[ 1 3 -1 ] - [ 1 4 2 ]}
+\end{answers}
+
+\begin{solution}
+\end{solution}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{5}
+\variant %---------------------------------------------------------------------
+Consider the following two-dimensional MATLAB array, stored in the variable \texttt{A}:
+$$
+\left[ \begin{array}{ccc}
+1 &  16 &  256 \\
+2 &  32 &  512 \\
+4 &  64 & 1024 \\
+8 & 128 & 2048 \\
+\end{array} \right]
+$$
+
+How can we index and retrieve the value 128 from this array?
+
+\begin{answers}
+  \answer  \texttt{A( 2,4 )}
+  \correctanswer  \texttt{A( 4,2 )}
+  \answer  \texttt{A( 1,3 )}
+  \answer  \texttt{A[ 2,4 ]}
+  \answer  \texttt{A[ 3,1 ]}
+\end{answers}
+
+\begin{solution}
+\end{solution}
+
+\variant %---------------------------------------------------------------------
+Consider the following two-dimensional MATLAB array, stored in the variable \texttt{A}:
+$$
+\left[ \begin{array}{ccc}
+1 &  16 &  256 \\
+2 &  32 &  512 \\
+4 &  64 & 1024 \\
+8 & 128 & 2048 \\
+\end{array} \right]
+$$
+
+How can we index and retrieve the value 512 from this array?
+
+\begin{answers}
+  \answer  \texttt{A( 3,2 )}
+  \correctanswer  \texttt{A( 2,3 )}
+  \answer  \texttt{A( 6 )}
+  \answer  \texttt{A[ 2,3 ]}
+  \answer  \texttt{A[ 1,2 ]}
+\end{answers}
+
+\begin{solution}
+\end{solution}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{5}
+\variant %---------------------------------------------------------------------
+\emph{For this problem, you should compose a function which accomplishes a given task using the available code blocks arranged in the correct functional order.}
+
+Compose a function \texttt{cross\_prod} which accepts two column vectors \texttt{a} and \texttt{b} and returns the value of the cross product,
+$$
+\vec{c} =
+\vec{a} \times \vec{b} =
+\begin{bmatrix}
+    a_2 b_3 - a_3 b_2
+    a_3 b_1 - a_1 b_3
+    a_1 b_2 - a_2 b_1
+\end{bmatrix}
+\text{.}
+$$
+
+\begin{enumerate}[1]
+\item \texttt{end}
+\item \texttt{c(1) = a(2)*b(3) - a(3)*b(2);}
+\item \texttt{function [ c ] = cross\_prod( a,b )}
+\item \texttt{c(2) = a(3)*b(1) - a(1)*b(3);}
+\item \texttt{c = zeros( 3,1 );}
+\item \texttt{c(3) = a(1)*b(2) - a(2)*b(1);}
+\item \texttt{c = zeros( 1,3 );}
+\item \texttt{c = a .* b - b .* a;}
+\item \texttt{function cross\_prod( a,b )}
+\end{enumerate}
+
+\begin{answers}
+  \answer  3, 7, 2, 4, 6, 1
+  \correctanswer  3, 5, 2, 4, 6, 1
+  \answer  9, 5, 8, 1
+  \answer  9, 7, 2, 4, 6, 1
+  \answer  3, 7, 8, 1
+\end{answers}
+
+\begin{solution}
+\end{solution}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{5}
+\variant %---------------------------------------------------------------------
+Consider the following MATLAB program:
+
+\begin{Verbatim}
+s = (3 < 5) | ((2 > 3) & (1 ~= 0))
+\end{Verbatim}
+
+What is the final value of \texttt{s}?
+
+\begin{answers}
+  \answer  \texttt{True}
+  \correctanswer  \texttt{1}
+  \answer  \texttt{0}
+  \answer  \texttt{false}
+\end{answers}
+
+\begin{solution}
+\end{solution}
+
+\variant %---------------------------------------------------------------------
+Consider the following MATLAB program:
+
+\begin{Verbatim}
+s = (5 < 3) | ((2 > 3) & (1 ~= 0))
+\end{Verbatim}
+
+What is the final value of \texttt{s}?
+
+\begin{answers}
+  \answer  \texttt{true}
+  \answer  \texttt{1}
+  \correctanswer  \texttt{0}
+  \answer  \texttt{False}
+\end{answers}
+
+\begin{solution}
+\end{solution}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{5}
+\variant %---------------------------------------------------------------------
+\begin{Verbatim}
+x = eye( 2,2 );
+y = [ x(2,:) ; x(1,:) ];
+A = [ x y ; y x ];
+\end{Verbatim}
+
+What is the final value of \texttt{A( 2:3,2:3 )}?
+
+\begin{answers}
+  \answer  \texttt{[ 0 1 ; 1 0 ]}
+  \correctanswer  \texttt{[ 1 1 ; 1 1 ]}
+  \answer  \texttt{[ 0 0 ; 0 0 ]}
+  \answer  \texttt{[ 1 0 ; 0 1 ]}
+\end{answers}
+
+\begin{solution}
+\end{solution}
+
+\variant %---------------------------------------------------------------------
+\begin{Verbatim}
+x = eye( 2,2 );
+y = [ x(2,:) ; x(1,:) ];
+A = [ y x ; x y ];
+\end{Verbatim}
+
+What is the final value of \texttt{A( 2:3,2:3 )}?
+
+\begin{answers}
+  \answer  \texttt{[ 0 1 ; 1 0 ]}
+  \answer  \texttt{[ 1 1 ; 1 1 ]}
+  \correctanswer  \texttt{[ 0 0 ; 0 0 ]}
+  \answer  \texttt{[ 1 0 ; 0 1 ]}
+\end{answers}
+
+\begin{solution}
+\end{solution}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{5}
+\variant %---------------------------------------------------------------------
+\begin{Verbatim}
+x  = linspace( -10,10,201 );
+y1 = sin( x );
+y2 = cos( x );
+y3 = randn( 1,numel(x) );
+\end{Verbatim}
+
+How would you successfully plot all three of these data series as points?  (Assume any given plot format strings are valid.)
+
+\begin{answers}
+  \answer
+    \begin{Verbatim}
+plot( x, y1,'r.', y2,'g.', y3,'b.' );
+    \end{Verbatim}
+  \answer
+    \begin{Verbatim}
+plot( x, y1, 'r.' );
+plot( x, y2, 'g.' );
+plot( x, y3, 'b.' );
+    \end{Verbatim}
+  \correctanswer
+    \begin{Verbatim}
+hold on;
+plot( x, y1, 'r.' );
+plot( x, y2, 'g.' );
+plot( x, y3, 'b.' );
+    \end{Verbatim}
+  \answer
+    \begin{Verbatim}
+plot( x,y1, x,y2, x,y3 );
+    \end{Verbatim}
+\end{answers}
+
+\begin{solution}
+\end{solution}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{5}
+\variant %---------------------------------------------------------------------
+Consider the following plot, produced from 10,000 random numbers selected from an as-yet-undetermined distribution.
+
+\includegraphics[width=0.4\textwidth]{./hist-normal.png}
+
+Which of the following MATLAB programs could produce this plot?  Assume that all programs work as written.
+
+\begin{answers}
+  \answer
+    \begin{Verbatim}
+x = rand( 10000,1 );
+plot( x );
+    \end{Verbatim}
+  \correctanswer
+    \begin{Verbatim}
+x = randn( 10000,1 );
+hist( x );
+    \end{Verbatim}
+  \answer
+    \begin{Verbatim}
+x = rand( 10000,1 );
+hist( x );
+    \end{Verbatim}
+  \answer
+    \begin{Verbatim}
+x = randn( 10000,1 );
+plot( x );
+    \end{Verbatim}
+\end{answers}
+
+\begin{solution}
+\end{solution}
+
+\variant %---------------------------------------------------------------------
+Consider the following program, which produces 10,000 random numbers selected from a certain distribution and plots them:
+\begin{Verbatim}
+x = rand( 10000,1 );
+plot( x,'k.' );
+\end{Verbatim}
+
+Which of the following plots could result from executing this program?
+
+\begin{answers}
+  \answer
+    \includegraphics[width=0.4\textwidth]{./hist-normal.png}
+  \answer
+    \includegraphics[width=0.4\textwidth]{./plot-normal.png}
+  \correctanswer
+    \includegraphics[width=0.4\textwidth]{./plot-uniform.png}
+  \answer
+    \includegraphics[width=0.4\textwidth]{./plot-integer.png}
+\end{answers}
+
+\begin{solution}
+\end{solution}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{5}
+\variant %---------------------------------------------------------------------
+\begin{Verbatim}
+A = eye( 3,3 );
+for x = 1:2:3
+    A( x,x ) = 0;
+end
+\end{Verbatim}
+
+What is the final value of \texttt{A}?
+
+\begin{answers}
+  \answer $ \left[ \begin{array}{ccc} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1 \\ \end{array} \right] $
+  \correctanswer $ \left[ \begin{array}{ccc} 0 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 0 \\ \end{array} \right] $
+  \answer $ \left[ \begin{array}{ccc} 1 & 0 & 1 \\ 0 & 1 & 0 \\ 1 & 0 & 1 \\ \end{array} \right] $
+  \answer $ \left[ \begin{array}{ccc} 0 & 0 & 0 \\ 0 & 0 & 0 \\ 0 & 0 & 0 \\ \end{array} \right] $
+  \answer $ \left[ \begin{array}{ccc} 1 & 0 & 0 \\ 0 & 0 & 0 \\ 0 & 0 & 1 \\ \end{array} \right] $
+\end{answers}
+
+\begin{solution}
+\end{solution}
+
+\variant %---------------------------------------------------------------------
+\begin{Verbatim}
+A = eye( 3,3 );
+for x = 2:1:3
+    A( x,x ) = 0;
+end
+\end{Verbatim}
+
+What is the final value of \texttt{A}?
+
+\begin{answers}
+  \answer $ \left[ \begin{array}{ccc} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1 \\ \end{array} \right] $
+  \answer $ \left[ \begin{array}{ccc} 0 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 0 \\ \end{array} \right] $
+  \answer $ \left[ \begin{array}{ccc} 1 & 0 & 1 \\ 0 & 1 & 0 \\ 1 & 0 & 1 \\ \end{array} \right] $
+  \answer $ \left[ \begin{array}{ccc} 0 & 0 & 0 \\ 0 & 0 & 0 \\ 0 & 0 & 0 \\ \end{array} \right] $
+  \correctanswer $ \left[ \begin{array}{ccc} 1 & 0 & 0 \\ 0 & 0 & 0 \\ 0 & 0 & 0 \\ \end{array} \right] $
+\end{answers}
+
+\begin{solution}
+\end{solution}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{5}
+\variant %---------------------------------------------------------------------
+\begin{Verbatim}
+A = eye( 3,3 ) - ones( 3,3 );
+for x = 1:3
+    for y = 1:3
+        if x <= y
+            A( x,y ) = x + y;
+        end
+    end
+end
+\end{Verbatim}
+
+What is the final value of \texttt{A}?
+
+\begin{answers}
+  \answer $ \left[ \begin{array}{ccc} 2 & 3 & 4 \\ -1 & 2 & 5 \\ -1 & -1 & 2 \\ \end{array} \right] $
+  \correctanswer $ \left[ \begin{array}{ccc} 2 & 3 & 4 \\ -1 & 4 & 5 \\ -1 & -1 & 6 \\ \end{array} \right] $
+  \answer $ \left[ \begin{array}{ccc} 2 & -1 & -1 \\ 3 & 2 & -1 \\ 4 & 5 & 2 \\ \end{array} \right] $
+  \answer $ \left[ \begin{array}{ccc} -1 & -1 & -1 \\ 2 & -1 & -1 \\ 3 & 4 & -1 \\ \end{array} \right] $
+  \answer $ \left[ \begin{array}{ccc} -1 & -1 & -1 \\ 3 & -1 & -1 \\ 4 & 5 & -1 \\ \end{array} \right] $
+\end{answers}
+
+\begin{solution}
+\end{solution}
+
+\variant %---------------------------------------------------------------------
+\begin{Verbatim}
+A = eye( 3,3 ) + ones( 3,3 );
+for x = 1:3
+    for y = 1:3
+        if x <= y
+            A( x,y ) = x - y;
+        end
+    end
+end
+\end{Verbatim}
+
+What is the final value of \texttt{A}?
+
+\begin{answers}
+  \answer $ \left[ \begin{array}{ccc} 2 & 1 & 1 \\ 1 & 2 & 1 \\ 2 & 1 & 2 \\ \end{array} \right] $
+  \answer $ \left[ \begin{array}{ccc} 0 & 1 & 1 \\ -1 & 0 & 1 \\ -2 & -1 & 0 \\ \end{array} \right] $
+  \correctanswer $ \left[ \begin{array}{ccc} 0 & -1 & -2 \\ 1 & 0 & -1 \\ 1 & 1 & 0 \\ \end{array} \right] $
+  \answer $ \left[ \begin{array}{ccc} -1 & -1 & -1 \\ 2 & -1 & -1 \\ 3 & 4 & -1 \\ \end{array} \right] $
+  \answer $ \left[ \begin{array}{ccc} -1 & -1 & -1 \\ 0 & -1 & -1 \\ 0 & 0 & -1 \\ \end{array} \right] $
+\end{answers}
+
+\begin{solution}
+\end{solution}
+
+\variant %---------------------------------------------------------------------
+\begin{Verbatim}
+A = eye( 3,3 ) + ones( 3,3 );
+for x = 1:3
+    for y = 1:3
+        if x <= y
+            A( y,x ) = x - y;
+        end
+    end
+end
+\end{Verbatim}
+
+What is the final value of \texttt{A}?
+
+\begin{answers}
+  \answer $ \left[ \begin{array}{ccc} 2 & 1 & 1 \\ 1 & 2 & 1 \\ 2 & 1 & 2 \\ \end{array} \right] $
+  \correctanswer $ \left[ \begin{array}{ccc} 0 & 1 & 1 \\ -1 & 0 & 1 \\ -2 & -1 & 0 \\ \end{array} \right] $
+  \answer $ \left[ \begin{array}{ccc} 0 & -1 & -2 \\ 1 & 0 & -1 \\ 1 & 1 & 0 \\ \end{array} \right] $
+  \answer $ \left[ \begin{array}{ccc} -1 & -1 & -1 \\ 2 & -1 & -1 \\ 3 & 4 & -1 \\ \end{array} \right] $
+  \answer $ \left[ \begin{array}{ccc} -1 & -1 & -1 \\ 0 & -1 & -1 \\ 0 & 0 & -1 \\ \end{array} \right] $
+
+\end{answers}
+
+\begin{solution}
+\end{solution}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\zone \pagebreak \noindent
+\textbf{The following 16 questions involve Python.}
+\\\\
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{5}
+\variant %---------------------------------------------------------------------
+Consider the following incomplete Python program:
+\begin{Verbatim}
+a = 'DWALIN'
+b = 'THORIN'
+d = { }
+for x,y in zip( a,b ):
+    ???
+s = ''
+for c in a:
+    s += d[ c ]
+\end{Verbatim}
+
+What should replace the three question marks to cause this program to yield a final value for \texttt{s} of \texttt{'THORIN'}?
+
+\begin{answers}
+  \correctanswer  \texttt{d[ x ] = y}
+  \answer  \texttt{d[ y ] = x}
+  \answer  \texttt{d[ a ] = b}
+  \answer  \texttt{d[ b ] = a}
+  \answer  \texttt{d[ a ] = x}
+\end{answers}
+
+\begin{solution}
+\end{solution}
+
+\variant %---------------------------------------------------------------------
+Consider the following incomplete Python program:
+\begin{Verbatim}
+a = 'DWALIN'
+b = 'THORIN'
+d = { }
+for x,y in zip( a,b ):
+    ???
+s = ''
+for c in b:
+    s += d[ c ]
+\end{Verbatim}
+
+What should replace the three question marks to cause this program to yield a final value for \texttt{s} of \texttt{'DWALIN'}?
+
+\begin{answers}
+  \answer  \texttt{d[ x ] = y}
+  \correctanswer  \texttt{d[ y ] = x}
+  \answer  \texttt{d[ a ] = b}
+  \answer  \texttt{d[ b ] = a}
+  \answer  \texttt{d[ a ] = x}
+\end{answers}
+
+\begin{solution}
+\end{solution}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{5}
+\variant %---------------------------------------------------------------------
+Consider the following Python program:
+\begin{Verbatim}
+d = { 0:0,1:0,2:0 }
+for i in range( 10,15 ):
+    d[ i%3 ] += i
+x = d[ 1 ]
+\end{Verbatim}
+
+What is the final \emph{value} of \texttt{x}?
+
+\begin{answers}
+  \answer  \texttt{12}
+  \correctanswer  \texttt{23}
+  \answer  \texttt{11}
+  \answer  \texttt{25}
+  \answer  \texttt{1}
+\end{answers}
+
+\begin{solution}
+\end{solution}
+
+\variant %---------------------------------------------------------------------
+Consider the following Python program:
+\begin{Verbatim}
+d = { 0:0,1:0,2:0 }
+for i in range( 11,18 ):
+    d[ i%3 ] += i
+x = d[ 1 ]
+\end{Verbatim}
+
+What is the final \emph{value} of \texttt{x}?
+
+\begin{answers}
+  \answer  \texttt{40}
+  \answer  \texttt{42}
+  \answer  \texttt{45}
+  \answer  \texttt{29}
+  \correctanswer  \texttt{27}
+\end{answers}
+
+\begin{solution}
+\end{solution}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{5}
+\variant %---------------------------------------------------------------------
+Consider the following Python program:
+\begin{Verbatim}
+d = { "B":1,"A":1,"G":2,"I":1,"N":1,"S":1 }
+for c in "BILBO":
+    print( d[ c ] + '-' )
+\end{Verbatim}
+
+What kind of exception will this program throw?
+
+\begin{answers}
+  \answer \texttt{KeyError: 'L'}
+  \answer \texttt{TypeError: list indices must be integers, not str}
+  \answer \texttt{SyntaxError: invalid syntax}
+  \correctanswer \texttt{TypeError: unsupported operand type(s) for +: 'int' and 'str'}
+\end{answers}
+
+\begin{solution}
+\end{solution}
+
+\variant %---------------------------------------------------------------------
+Consider the following Python program:
+\begin{Verbatim}
+d = { "B":1,"A":1,"G":2,"I":1,"N" 1,"S":1 }
+for c in "BILBO":
+    print( d[ c ] + '-' )
+\end{Verbatim}
+
+What kind of exception will this program throw?
+
+\begin{answers}
+  \answer \texttt{KeyError: 'L'}
+  \answer \texttt{TypeError: list indices must be integers, not str}
+  \correctanswer \texttt{SyntaxError: invalid syntax}
+  \answer \texttt{TypeError: unsupported operand type(s) for +: 'int' and 'str'}
+\end{answers}
+
+\begin{solution}
+\end{solution}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{5}
+\variant %---------------------------------------------------------------------
+Consider the following Python program:
+\begin{Verbatim}
+e = list( range( 0,10,2 ) )
+d = [ 0,0,0,0 ]
+for i in range( 0,len(e) ):
+    d[ i%4 ] += e[ i ]
+x = d[ 1 ]
+\end{Verbatim}
+
+What is the final \emph{value} of \texttt{x}?
+
+\begin{answers}
+  \answer  \texttt{0}
+  \answer  \texttt{8}
+  \answer  \texttt{10}
+  \correctanswer  \texttt{2}
+  \answer  \texttt{14}
+\end{answers}
+
+\begin{solution}
+\end{solution}
+
+\variant %---------------------------------------------------------------------
+Consider the following Python program:
+\begin{Verbatim}
+e = list( range( 0,10,2 ) )
+d = [ 0,0,0,0 ]
+for i in range( 0,len(e) ):
+    d[ i%4 ] += e[ i ]
+x = d[ 2 ]
+\end{Verbatim}
+
+What is the final \emph{value} of \texttt{x}?
+
+\begin{answers}
+  \answer  \texttt{0}
+  \answer  \texttt{8}
+  \answer  \texttt{10}
+  \answer  \texttt{2}
+  \correctanswer  \texttt{4}
+\end{answers}
+
+\begin{solution}
+\end{solution}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{5}
+\variant %---------------------------------------------------------------------
+Consider the following incomplete Python program:
+\begin{Verbatim}
+sum = 0
+???:
+    sum += i
+\end{Verbatim}
+
+The program is intended to sum all of the integers between 1 and 100 (inclusive). What should replace the three question marks to complete the program?
+
+\begin{answers}
+  \answer  \texttt{for i in range( 0,100 )}
+  \answer  \texttt{while i <= 100}
+  \correctanswer  \texttt{for i in range( 1, 101 )}
+  \answer  \texttt{while i in range( 100 )}
+\end{answers}
+
+\begin{solution}
+\end{solution}
+
+\variant %---------------------------------------------------------------------
+Consider the following incomplete Python program:
+\begin{Verbatim}
+sum = 0
+for i in range( 0,100 ):
+    ???
+\end{Verbatim}
+
+The program is intended to sum all of the integers between 1 and 100 (inclusive). What should replace the three question marks to complete the program?
+
+\begin{answers}
+  \answer  \texttt{sum += 1}
+  \answer  \texttt{sum + 1 = sum}
+  \correctanswer  \texttt{sum += i + 1}
+  \answer  \texttt{sum += i}
+\end{answers}
+
+\begin{solution}
+\end{solution}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{5}
+\variant %---------------------------------------------------------------------
+\begin{Verbatim}
+x = np.array( [ [ 2 ] , [ 3 ] ] * 2 )
+\end{Verbatim}
+
+What is the final \emph{value} of \texttt{x}?
+
+\begin{answers}
+  \answer  $ \left[ \begin{array}{cc} 2 & 2 \\ 3 & 3 \end{array} \right] $
+  \correctanswer  $ \left[ \begin{array}{c} 2 \\ 3 \\ 2 \\ 3 \end{array} \right] $
+  \answer  $ \left[ \begin{array}{cccc} 2 & 3 & 2 & 3 \end{array} \right] $
+  \answer  $ \left[ \begin{array}{cc} 2 & 3 \\ 2 & 3 \end{array} \right] $
+\end{answers}
+
+\begin{solution}
+\end{solution}
+
+\variant %---------------------------------------------------------------------
+\begin{Verbatim}
+x = np.array( [ [ 2 ] , [ 3 ] ] * 3 )
+\end{Verbatim}
+
+What is the final \emph{value} of \texttt{x}?
+
+\begin{answers}
+  \answer  $ \left[ \begin{array}{ccc} 2 & 2 & 2 \\ 3 & 3 & 3 \end{array} \right] $
+  \correctanswer  $ \left[ \begin{array}{c} 2 \\ 3 \\ 2 \\ 3 \\ 2 \\ 3 \end{array} \right] $
+  \answer  $ \left[ \begin{array}{cccccc} 2 & 3 & 2 & 3 & 2 & 3 \end{array} \right] $
+  \answer  $ \left[ \begin{array}{ccc} 2 & 3 \\ 2 & 3 \\ 2 & 3 \end{array} \right] $
+\end{answers}
+
+\begin{solution}
+\end{solution}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{5}
+\variant %---------------------------------------------------------------------
+\begin{Verbatim}
+import itertools
+x = 'beorn'
+???
+    print( x )
+\end{Verbatim}
+
+Replacing the three question marks with which of the following will result in \texttt{'beorn'} being printed exactly five times?
+
+\begin{answers}
+  \answer  \texttt{for a in itertools.combinations(x,5):}
+  \answer  \texttt{for a in itertools.combinations(x,2):}
+  \answer  \texttt{for a in itertools.combinations(x,3):}
+  \correctanswer  \texttt{for a in itertools.combinations(x,4):}
+\end{answers}
+
+\begin{solution}
+\end{solution}
+
+\variant %---------------------------------------------------------------------
+\begin{Verbatim}
+import itertools
+x = 'smaug'
+???
+    print( x )
+\end{Verbatim}
+
+Replacing the three question marks with which of the following will result in \texttt{'smaug'} being printed exactly one time?
+
+\begin{answers}
+  \correctanswer  \texttt{for a in itertools.combinations(x,5):}
+  \answer  \texttt{for a in itertools.combinations(x,2):}
+  \answer  \texttt{for a in itertools.combinations(x,3):}
+  \answer  \texttt{for a in itertools.combinations(x,4):}
+\end{answers}
+
+\begin{solution}
+\end{solution}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{5}
+\variant %---------------------------------------------------------------------
+Consider the following incomplete Python program:
+\begin{Verbatim}
+y = 1.0   # initial position, m
+v = 0.0   # initial velocity, m/s
+g = -9.8  # acceleration due to gravity, m/s^2
+t = ???   # initial time, s
+nt = ???  # number of time intervals, -
+dt = t/nt # time increment, s
+
+while y > 0.0:
+    t += dt
+    v += g * dt
+    y += v * dt
+\end{Verbatim}
+
+Which of the following values for \texttt{t} and \texttt{nt} will yield the most accurate solution?
+
+\begin{answers}
+  \correctanswer  \texttt{t,nt = 1.0,1e5}
+  \answer  \texttt{t,nt = 10.0,1e3}
+  \answer  \texttt{t,nt = 10.0,1e4}
+  \answer  \texttt{t,nt = 1.0,10}
+\end{answers}
+
+\begin{solution}
+\end{solution}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{5}
+\variant %---------------------------------------------------------------------
+\begin{Verbatim}
+s = 'THRANDUIL'
+x = ''
+for i in range( 0,len( s ) ):
+    if ( i>3 ) and ( i<6 ):
+        x += s[ i:i+2 ]
+\end{Verbatim}
+
+What is the \emph{value} of \texttt{x} after this program is executed?
+
+\begin{answers}
+  \correctanswer  \texttt{'NDDU'}
+  \answer  \texttt{'ANND'}
+  \answer  \texttt{'AN'}
+  \answer  \texttt{'ND'}
+  \answer  None of the other answers are correct.
+\end{answers}
+
+\begin{solution}
+\end{solution}
+
+\variant %---------------------------------------------------------------------
+\begin{Verbatim}
+s = 'ELROND'
+x = ''
+for i in range( 0,len( s ) ):
+    if ( i>2 ) and ( i<5 ):
+        x += s[ i:i+2 ]
+\end{Verbatim}
+
+What is the \emph{value} of \texttt{x} after this program is executed?
+
+\begin{answers}
+  \correctanswer  \texttt{'ONND'}
+  \answer  \texttt{'ROON'}
+  \answer  \texttt{'RO'}
+  \answer  \texttt{'ND'}
+  \answer  None of the other answers are correct.
+\end{answers}
+
+\begin{solution}
+\end{solution}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{5}
+\variant %---------------------------------------------------------------------
+\begin{Verbatim}
+def sum_pairs( A ):
+    total = 0
+    ???
+    return total
+\end{Verbatim}
+
+The function \texttt{sum\_pairs} accepts a list of floats named \texttt{A}.  \texttt{sum\_pairs} should return the sum of all pairs of values in the list (without repeats).  For example, given the list \texttt{[ 1,2,3 ]}, \texttt{sum\_pairs} should return \texttt{12} from $(1+2) + (1+3) + (2+3) = 12$.  What should replace the three question marks to complete the function?  (Assume any necessary \texttt{import}s to have taken place already.)
+
+\begin{answers}
+  \correctanswer
+    \begin{Verbatim}
+for i in range( len( A ) ):
+    for j in range( i+1,len( A ) ):
+        total += A[ i ] + A[ j ]
+    \end{Verbatim}
+  \answer
+    \begin{Verbatim}
+for i in range( len( A ) ):
+    for j in range( len( A ) ):
+        total += A[ i ] + A[ j ]
+    \end{Verbatim}
+  \answer
+    \begin{Verbatim}
+for i,j in enumerate( A ):
+        total += A[ i ] + A[ j ]
+    \end{Verbatim}
+  \answer
+    \begin{Verbatim}
+for i in itertools.permutations( A ):
+        total += i[ 0 ] + i[ 1 ]
+    \end{Verbatim}
+\end{answers}
+
+\begin{solution}
+\end{solution}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{5}
+\variant %---------------------------------------------------------------------
+What do we call the optimization heuristic that involves iteratively checking to see if neighboring solutions improve upon the current solution?
+
+\begin{answers}
+  \answer  Conjugate gradient
+  \answer  Local optimum
+  \correctanswer  Hill-climbing
+  \answer  Random search
+\end{answers}
+
+\begin{solution}
+\end{solution}
+
+\variant %---------------------------------------------------------------------
+What do we call the optimization heuristic that involves choosing the best from a stochastically sampled subset of the domain?
+
+\begin{answers}
+  \answer  Brute-force search
+  \answer  Local optimum
+  \answer  Gradient descent
+  \correctanswer  Random search
+\end{answers}
+
+\begin{solution}
+\end{solution}
+
+\variant %---------------------------------------------------------------------
+What do we call the optimization heuristic that involves taking \emph{any} available improvement on the current solution?
+
+\begin{answers}
+  \correctanswer  Brute-force search
+  \answer  Conjugate gradient
+  \answer  Gradient descent
+  \answer  Random search
+\end{answers}
+
+\begin{solution}
+\end{solution}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{5}
+\variant %---------------------------------------------------------------------
+\begin{Verbatim}
+def total_sales( sales_file ):
+    d = { }
+    for line in open( sales_file ):
+        ???
+    return d
+\end{Verbatim}
+
+The function \texttt{total\_sales} should compute the total sales of each employee working for a company by reading a comma-separated value input file of employee sale data.  The result should be returned from the function as a dictionary.  The first column of each line in the input file is expected to contain the employee's name represented as a string.  The second column is expected to contain a floating point number representing the total for that sale.  Here is an example input file:
+\begin{Verbatim}
+Tom,10.0
+Bill,10.55
+Bill,115.50
+Your program should ignore a non-conforming line like this one.
+Bert,30.25
+\end{Verbatim}
+
+The resulting return value for this file should be the following dictionary:
+\begin{Verbatim}
+{ 'Bert':30.25, 'Bill':126.05, 'Tom':10.0 }
+\end{Verbatim}
+
+What should replace the three question marks to complete the function?
+
+\begin{answers}
+  \correctanswer
+    \begin{Verbatim}
+try:
+    s,f = line.split( "," )
+    if s not in d:
+        d[ s ] = 0.0
+    d[ s ] += float( f )
+except:
+    continue
+    \end{Verbatim}
+  \answer
+    \begin{Verbatim}
+if line not in d:
+    d[ line ] = 0.0
+try:
+    s,f = line.split( "," )
+except:
+    d[ s ] += float( f )
+    continue
+    \end{Verbatim}
+  \answer
+    \begin{Verbatim}
+try:
+    s,f = line.split( "," )
+except:
+    continue
+if f not in d:
+    d[ f ] = 0.0
+d[ f ] += float( s )
+    \end{Verbatim}
+  \answer
+    \begin{Verbatim}
+  try:
+      s,f = line.split()
+      d[ s ] += float( f )
+  except:
+      break
+    \end{Verbatim}
+\end{answers}
+
+\begin{solution}
+\end{solution}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{5}
+\variant %---------------------------------------------------------------------
+\begin{Verbatim}
+s = ''.join( [ "0","1","2","1" ] )
+x = 0
+for i in range( len( s )-1 ):
+    x += int( ??? )
+\end{Verbatim}
+
+What should replace the three question marks so the resulting value of x is 34?
+
+\begin{answers}
+  \answer \texttt{s[ i:i+2:i ]}
+  \answer \texttt{s[ i:i+1 ]}
+  \correctanswer \texttt{s[ i+2:i:-1 ]}
+  \answer \texttt{s[ i+1:i+2 ]}
+\end{answers}
+
+\begin{solution}
+\end{solution}
+
+\variant %---------------------------------------------------------------------
+\begin{Verbatim}
+s = ''.join( [ "2","2","0","1" ] )
+x = 0
+for i in range( len( s )-1 ):
+    x += int( ??? )
+\end{Verbatim}
+
+What should replace the three question marks so the resulting value of x is 13?
+
+\begin{answers}
+  \answer \texttt{s[ i:i+2:i ]}
+  \answer \texttt{s[ i:i+1 ]}
+  \correctanswer \texttt{s[ i+2:i:-1 ]}
+  \answer \texttt{s[ i+1:i+2 ]}
+\end{answers}
+
+\begin{solution}
+\end{solution}
+
+\variant %---------------------------------------------------------------------
+\begin{Verbatim}
+s = ''.join( [ "1","1","0","2" ] )
+x = 0
+for i in range( len( s )-1 ):
+    x += int( ??? )
+\end{Verbatim}
+
+What should replace the three question marks so the resulting value of x is 23?
+
+\begin{answers}
+  \answer \texttt{s[ i:i+2:i ]}
+  \answer \texttt{s[ i:i+1 ]}
+  \correctanswer \texttt{s[ i+2:i:-1 ]}
+  \answer \texttt{s[ i+1:i+2 ]}
+\end{answers}
+
+\begin{solution}
+\end{solution}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{5}
+\variant %---------------------------------------------------------------------
+\begin{Verbatim}
+x = [ ]
+for i in range( 1,101 ):
+    for j in range( i+1,101 ):
+        t = i,j
+        x.append( t )
+\end{Verbatim}
+
+After the program runs, which of the following is an element of \texttt{x}?
+
+\begin{answers}
+  \correctanswer \texttt{(10,52)}
+  \answer \texttt{(0,33)}
+  \answer \texttt{(42,15)}
+  \answer \texttt{(78,78)}
+  \answer \texttt{(11,4)}
+\end{answers}
+
+\begin{solution}
+\end{solution}
+
+\variant %---------------------------------------------------------------------
+\begin{Verbatim}
+x = [ ]
+for i in range( 1,101 ):
+    for j in range( i+1,101 ):
+        t = i,j
+        x.append( t )
+\end{Verbatim}
+
+After the program runs, which of the following is \emph{not} an element of \texttt{x}?
+
+\begin{answers}
+  \correctanswer \texttt{(55,55)}
+  \answer \texttt{(4,33)}
+  \answer \texttt{(19,32)}
+  \answer \texttt{(78,100)}
+  \answer \texttt{(1,20)}
+\end{answers}
+
+\begin{solution}
+\end{solution}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{5}
+\variant %---------------------------------------------------------------------
+\begin{Verbatim}
+e = [ 1,1,2,2,3,3,4,4,5,5 ]
+d = { 0:0,1:0,2:0 }
+for a,b in enumerate( e ):
+    d[ a%3 ] += b
+x = d[ 1 ]
+\end{Verbatim}
+
+After it is run, what is the final \emph{value} of \texttt{x}?
+
+\begin{answers}
+  \answer \texttt{3}
+  \answer \texttt{10}
+  \answer \texttt{12}
+  \answer \texttt{22}
+  \correctanswer \texttt{8}
+\end{answers}
+
+\begin{solution}
+\end{solution}
+
+\variant %---------------------------------------------------------------------
+\begin{Verbatim}
+e = [ 5,5,4,4,3,3,2,2,1,1 ]
+d = { 0:0,1:0,2:0 }
+for a,b in enumerate( e ):
+    d[ a%3 ] += b
+x = d[ 2 ]
+\end{Verbatim}
+
+After it is run, what is the final \emph{value} of \texttt{x}?
+
+\begin{answers}
+  \answer \texttt{3}
+  \answer \texttt{10}
+  \answer \texttt{12}
+  \answer \texttt{22}
+  \correctanswer \texttt{8}
+\end{answers}
+
+\begin{solution}
+\end{solution}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{5}
+\variant %---------------------------------------------------------------------
+\begin{Verbatim}
+x = "5 4 1".split()
+x = x.sort()
+try:
+    print( len( x ) )
+except:
+    print( type( x ) )
+\end{Verbatim}
+
+After it is run, what is printed by this program?
+
+\begin{answers}
+  \answer \texttt{TypeError}
+  \answer \texttt{3}
+  \answer \texttt{list}
+  \correctanswer \texttt{NoneType}
+\end{answers}
+
+\begin{solution}
+\end{solution}
+
+\variant %---------------------------------------------------------------------
+\begin{Verbatim}
+x = "1 2 3".split()
+x = ','.join( x )
+try:
+    print( x.append( 4 ) )
+except:
+    print( type( x ) )
+\end{Verbatim}
+
+After it is run, what is printed by this program?
+
+\begin{answers}
+  \answer \texttt{TypeError}
+  \answer \texttt{[1,2,3,4]}
+  \answer \texttt{list}
+  \correctanswer \texttt{str}
+\end{answers}
+
+\begin{solution}
+\end{solution}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\zone \pagebreak \noindent
+
+\question{25}
+\variant %---------------------------------------------------------------------
+
+You have been hired by a private investigation firm to crack an smartphone of indeterminate provenance (and a process of questionable legality).  The default password is exactly five characters long, with possible characters selected from the upper- and lower-case alphabets and the ten digits \texttt{0} to \texttt{9}.  Assume that you have available a function \texttt{test\_password} which returns \texttt{True} if the password is correct and \texttt{False} otherwise.
+
+Compose a Python function \texttt{crack\_phone} which accepts no arguments and returns a string representing the correct password which unlocks the smartphone.  You may \texttt{import itertools} in your solution if you prefer, but no other libraries are allowed.
+
+\begin{Verbatim}
+alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
+\end{Verbatim}
+
+\begin{solution}
+\end{solution}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\zone \pagebreak \noindent
+
+\question{25}
+\variant %---------------------------------------------------------------------
+Consider the Taylor series definition of the sine function:
+$$
+\sin (x) = x
++ \frac{x^3}{3!}
++ \frac{x^5}{5!}
++ \frac{x^7}{7!}
++ ...
+$$
+The series converges for all real $x$, so to calculate $\sin(x)$ to within a few decimal places of accuracy one just needs to include sufficient terms in the calculation.
+
+The following MATLAB function \texttt{sine} was written in order to calculate the value of $\sin(x)$ for all $x$ to three decimal places of accuracy (\texttt{atol} in the code).  Translate this function into a Python function---also called \texttt{sine}---which yields identical output from the function as the MATLAB function for given input.  You may \texttt{import numpy as np} in your solution if you prefer, but no other libraries are allowed.  (Assume a valid NumPy-compatible function \texttt{factorial} is also available.)
+
+\begin{Verbatim}
+function [ y ] = sine( x )
+    y = 0;
+    yold = 1;
+    n = 0;
+    atol = 1e-3;  % tolerance
+    while ( abs( y-yold ) > atol )
+        yold = y;
+        term = ( x .^ ( 2*n+1 ) ) / factorial( ( 2*n+1 ) );
+        if (mod(n,2) == 1)
+            term = -term;
+        end
+        y = y + term;
+        n = n + 1;
+    end
+end
+\end{Verbatim}
+
+\begin{solution}
+\end{solution}
+% practice:  exp
+
+\end{document}
