@@ -1,0 +1,98 @@
+\documentclass[12pt]{article}
+
+\setlength{\topmargin}{-1in} \addtolength{\textheight}{4.00in}
+\setlength{\oddsidemargin}{.00in} \addtolength{\textwidth}{1in}
+
+\usepackage{amsmath,color,graphicx}
+
+\usepackage{listings}      
+\lstset{language=Python}   
+
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{blindtext}
+\usepackage{enumitem}
+
+\usepackage{verbatim}
+
+\usepackage{fancyvrb}
+
+\nofiles
+
+\pagestyle{empty}
+
+\setlength{\parindent}{0in}
+
+
+\begin{document}
+
+\noindent {\sc {\bf {\Large Quiz 11}}
+            \hfill ZJUI CS 101, Fall 2016}
+\bigskip
+
+\noindent {\sc  {\large Student ID:}
+            \hfill {\large Name:}
+             \hfill}
+\bigskip
+
+%\bigskip
+
+{\bf Question 1.}     
+
+  \begin{Verbatim}
+  x = 1
+  y = true
+  ~(x ~= y || y < x)
+  \end{Verbatim}
+  
+  What is the result of this operation?
+  
+  \begin{enumerate}[label=\Alph*]
+  	\item  \texttt{true}
+  	\item  \texttt{false}
+  	\item  \texttt{0}
+  	\item  \texttt{1}
+  \end{enumerate}
+
+%Answer: A or D
+
+%\bigskip
+
+{\bf Question 2.} 
+    \begin{Verbatim}
+    A = [ 1 0 ; 4 5 ];
+    A( A > 0 )
+    \end{Verbatim}
+    
+    What is the value of \texttt{ans}?
+    
+    \begin{enumerate}[label=\Alph*]
+    	\item  \texttt{[ 1 0 ; 1 1 ]}
+    	\item  \texttt{[ 1 0 , 1 1 ]}
+    	\item  \texttt{[ 1 4 5 ]}
+    	\item  \texttt{1}  (true)
+    \end{enumerate}
+%Answer: C
+
+{\bf Question 3.} 
+   \begin{Verbatim}
+   x = 10;
+   if ( x / 2 ) <= 5 | ( x == 1 )
+      x = x + 1;
+   end
+   if x ~= 10 & x <= x
+      x = x * 2;
+   end
+   \end{Verbatim}
+   
+   What is the final value of \texttt{x}?
+   
+   \begin{enumerate}[label=\Alph*]
+   	\item  \texttt{10}
+   	\item  \texttt{11}
+   	\item  \texttt{20}
+   	\item  \texttt{22}
+   \end{enumerate}
+%Answer: D
+
+\end{document}
