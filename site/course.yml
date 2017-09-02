@@ -23,8 +23,8 @@ chunks:
         | **Lectures**         | Mon/Wed 09h00–09h50; [A-0425](http://intlcampus.zju.edu.cn/en/content/campus-visit) |
         | **Labs**             | Per-section, [see below](#labs); [A-0418](http://intlcampus.zju.edu.cn/en/content/campus-visit) |
         | **Class URL**        | [`https://relate.cs.illinois.edu/course/zuics101fa16/`](https://relate.cs.illinois.edu/course/zuics101fa16/) |
-        | **Class forum**      | <a href="https://c.zju.edu.cn/" target="_blank" role="button" class="btn btn-info">Blackboard &raquo;</a> |
         | **Instructor**       |  [`Zicheng Liao`](mailto:zliao@zju.edu.cn) |
+        | **Class forum**      | <a href="https://c.zju.edu.cn/" target="_blank" role="button" class="btn btn-info">Blackboard &raquo;</a> |
         | **repl.it Python** | <a href="https://repl.it/languages/python3" target="_blank" role="button" class="btn btn-info">Run online &raquo;</a> |
         | **Online Python Tutor** | <a href="http://www.pythontutor.com/" target="_blank" role="button" class="btn btn-info">Debug/visualize online &raquo;</a> |
         | ** Online Jupyter Notebook** | <a href="https://try.jupyter.org/" target="_blank" role="button" class="btn btn-info">Run online &raquo;</a> |
@@ -75,6 +75,7 @@ chunks:
 
         |            |          |          |
         | ---------- | -------- | -------- |
+        | [homework-01](repocur:lectures/lec24.pdf) <br/> **Due** 2016-10-10 | **Due** 2016-10-11 |  **Due** 2016-10-12 |
         | [![](repocur:img/banner-hw01.png)](flow:hw01) <br/> **Due** 2016-10-01 |[![](repocur:img/banner-hw02.png)](flow:hw02) <br/> **Due** 2016-10-19 | [![](repocur:img/banner-hw03.png)](flow:hw03) <br/> **Due** 2016-10-26 |
         | [![](repocur:img/banner-hw04.png)](flow:hw04) <br/> **Due** 2016-11-02 | [![](repocur:img/banner-hw05.png)](flow:hw05) <br/> **Due** 2016-11-09 | [![](repocur:img/banner-hw06.png)](flow:hw06) <br/> **Due** 2016-11-16 |
         | [![](repocur:img/banner-hw07.png)](flow:hw07) <br/> **Due** 2016-11-25 | [![](repocur:img/banner-hw08.png)](flow:hw08) <br/> **Due** 2016-12-02 | [![](repocur:img/banner-hw09.png)](flow:hw09) <br/> **Due** 2016-12-09 |
@@ -89,7 +90,6 @@ chunks:
         
         ##  Labs
         <a name="labs"></a>
-        Instructor: Zicheng Liao
         
         All labs meet in [A-0418](http://intlcampus.zju.edu.cn/en/content/campus-visit). A1: **Fri 08h00–09h5**; B1: **Fri 10h00–11h50**
         
