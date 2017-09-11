@@ -84,16 +84,16 @@ chunks:
         
         Late Policy: late submission made by Friday 12pm will receive 50% credit; 25% credit by the weekend (Sunday 12pm). No further extension is accepted.
         
-        ### Python Installation
-        Although we can't provide technical support in setting up your personal machine, if you decide to install Python we warmly recommend using [Anaconda Python](https://www.continuum.io/downloads) 3.5.
-
-        ### Octave (Free Verion "MatLab") Installation
-        You can use an online version of Octave [here](http://octave-online.net/). You can also [download and install Octave](https://www.gnu.org/software/octave/download.html) on your own laptop or desktop so that you can use it when offline.
-
-        
         | Session     | Date       | Supporting Resources | Reference ans |
         | ------- | ---------- | ----------------- | ---------- |
         | [Lab#01:  python & Linux handson](repocur:labs/lab01.pdf) | 2016-09-30 | [lab01.ipynb](repocur:labs/lab01.ipynb) | [lab01_ans.ipynb](repocur:labs/lab01_ans.ipynb) |
+        | ------- | ---------- | ----------------- | ---------- |
+        ##### Python Installation
+        Although we can't provide technical support in setting up your personal machine, if you decide to install Python we warmly recommend using [Anaconda Python](https://www.continuum.io/downloads) 3.5.
+
+        ##### Octave (Free Verion "MatLab") Installation
+        You can use an online version of Octave [here](http://octave-online.net/). You can also [download and install Octave](https://www.gnu.org/software/octave/download.html) on your own laptop or desktop so that you can use it when offline.
+
         
         ##  Examinations
 
