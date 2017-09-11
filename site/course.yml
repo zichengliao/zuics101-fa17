@@ -16,8 +16,6 @@ chunks:
 
         #   ZJUI CS101—Introduction to Computing for Engineering and Science
 
-        ##  Resources
-
         | What                 | When and Where |
         | -------------------- | -------------- |
         | **Lectures**         | Tue/Thu 10h00–10h50 11h00-11h50; [A-0425](http://intlcampus.zju.edu.cn/en/content/campus-visit) |
@@ -33,7 +31,7 @@ chunks:
 
         ##  Lectures
 
-        | Lecture | Date       | Supporting Resources |
+        |  | Date       | Supporting Resources |
         | ------- | ---------- | -------------------- |
         | **Python Basics** | | |
         | [Lecture #1:  introduction](repocur:lectures/lec01.pdf) | 2017-09-19 |  |
