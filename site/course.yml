@@ -62,25 +62,18 @@ chunks:
         | [Lecture #22:  MATLAB basics](repocur:lectures/lec22.pdf)|  2016-12-14 |  [MATLAB handout](repocur:media/lab13-handout.pdf) |
         | [No Lecture:  Midterm 2 in the evening]|  2016-12-19 |  |
         | [Lecture #23:  MATLAB I/O, functions](repocur:lectures/lec23.pdf) | 2016-12-21 | [`rabbit-bw.jpg`](repocur:lectures/lec23/rabbit-bw.jpg) · [`knight-grey.jpg`](repocur:lectures/lec23/knight-grey.jpg) · [`duck-color.jpg`](repocur:lectures/lec23/duck-color.jpg) <br/> [`finiteDiff.m`](repocur:lectures/lec23/finiteDiff.m) |
-        
         | [No Lecture:  Holiday Break]|  2016-12-26 |  |
         | [No Lecture:  Holiday Break]|  2016-12-28 |  |
         | [No Lecture:  Holiday Break]|  2016-01-02 |  |
         | [Lecture #24:  MATLAB statistics](repocur:lectures/lec24.pdf) | 2016-01-04 | [call-by-object-reference](https://jeffknupp.com/blog/2012/11/13/is-python-callbyvalue-or-callbyreference-neither/) . [Octave Descriptive Statistics](https://www.gnu.org/software/octave/doc/interpreter/Descriptive-Statistics.html) . [Octave Extra CORRCOEF](https://octave.sourceforge.io/nan/function/corrcoef.html) . [fplot](https://www.gnu.org/software/octave/doc/v4.0.0/Two_002ddimensional-Function-Plotting.html) . [fzero](https://www.gnu.org/software/octave/doc/v4.0.0/Solvers.html#XREFfzero) · [`lhs.m`](repocur:lectures/lec24/lhs.m) |
         | [Lecture #25:  MATLAB curve fitting](repocur:lectures/lec25.pdf) | 2016-01-09 |  [`examples.m`](repocur:lectures/lec25/examples.m) . [`brexit.csv`](repocur:lectures/lec24/brexit.csv) · [`brexit.m`](repocur:lectures/lec24/brexit.m) · [`rolling_mean.m`](repocur:lectures/lec24/rolling_mean.m) · [`rolling_std.m`](repocur:lectures/lec24/rolling_std.m) |
         | Lecture:  Final review | 2016-01-11 | [Python mumerical operations on arrays](http://www.scipy-lectures.org/intro/numpy/operations.html) . [Numpy ndarray any](https://docs.scipy.org/doc/numpy-1.10.0/reference/generated/numpy.ndarray.any.html#numpy.ndarray.any) . [Python boolean and integer](http://stackoverflow.com/questions/2764017/is-false-0-and-true-1-in-python-an-implementation-detail-or-is-it-guarante) . [Numpy Question](http://stackoverflow.com/questions/12052520/numpy-why-is-numpy-array2-any-1-false) · [MATLAB Find Array Elements That Meet a Condition](https://www.mathworks.com/help/matlab/matlab_prog/find-array-elements-that-meet-a-condition.html)|
+        
         ##  Homework 
 
         Homework assignments are due at 6:00 p.m. on the due date. Many homework assignments are from [the CodeLab site](http://www.tcgo1.com/).
 
-        |            |          |          |
-        | ---------- | -------- | -------- |
-        | [![](repocur:img/banner-hw01.png)](flow:hw01) <br/> **Due** 2016-10-01 |[![](repocur:img/banner-hw02.png)](flow:hw02) <br/> **Due** 2016-10-19 | [![](repocur:img/banner-hw03.png)](flow:hw03) <br/> **Due** 2016-10-26 |
-        | [![](repocur:img/banner-hw04.png)](flow:hw04) <br/> **Due** 2016-11-02 | [![](repocur:img/banner-hw05.png)](flow:hw05) <br/> **Due** 2016-11-09 | [![](repocur:img/banner-hw06.png)](flow:hw06) <br/> **Due** 2016-11-16 |
-        | [![](repocur:img/banner-hw07.png)](flow:hw07) <br/> **Due** 2016-11-25 | [![](repocur:img/banner-hw08.png)](flow:hw08) <br/> **Due** 2016-12-02 | [![](repocur:img/banner-hw09.png)](flow:hw09) <br/> **Due** 2016-12-09 |
-        | [![](repocur:img/banner-hw10.png)](flow:hw10) <br/> **Due** 2016-12-20 | [![](repocur:img/banner-hw11.png)](flow:hw11) <br/> **Due** 2017-01-04 |  [![](repocur:img/banner-hw12.png)](repocur:hw/hw12.pdf) <br/> **Due** 2016-01-13 |
-       
-       
+        
         ### Python Installation
         Although we can't provide technical support in setting up your personal machine, if you decide to install Python we warmly recommend using [Anaconda Python](https://www.continuum.io/downloads) 3.5.
 
