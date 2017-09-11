@@ -22,7 +22,7 @@ groups:
         id: overview
         content: |
 
-            #   Homework Assignments
+            #   Homework Assignment
 
             For the first several homework assignments, you will work on the
             CodeLab platform.  This requires you to register an account with the
@@ -43,7 +43,7 @@ groups:
 
             1.  Navigate to [the CodeLab site](http://www.tcgo1.com).
             2.  Click `Register for CodeLab`.
-            3.  Enter your Zhejiang University email address and real first
+            3.  Enter your Zhejiang University email address and your real first
                 and last names (these show up in the course roster).  Verify and
                 submit.
             4.  After you receive the verification email, go ahead and complete
