@@ -1,0 +1,177 @@
+chunks:
+
+-
+    title: "ZJUI CS101 Fall 2017"
+    id: Welcome
+    rules:
+    -
+        if_after: 2017-09-18 00:00:00
+        if_before: 2018-01-22 00:00:00
+        weight: 100
+
+    -
+        weight: 0
+
+    content: |
+
+        #   ZJUI CS101—Introduction to Computing for Engineering and Science
+
+        ##  Resources
+
+        | What                 | When and Where |
+        | -------------------- | -------------- |
+        | **Lectures**         | Tue/Thu 10h00–10h50 11h00-11h50; [A-0425](http://intlcampus.zju.edu.cn/en/content/campus-visit) |
+        | **Labs**             | Wed, [see below](#labs); [A-0418](http://intlcampus.zju.edu.cn/en/content/campus-visit) |
+        | **Class URL**        | [`http://relate.intl.zju.edu.cn:8000/course/zjui-cs101-fa17/`](http://relate.intl.zju.edu.cn:8000/course/zjui-cs101-fa17/) |
+        | **Instructor**       |  [`Zicheng Liao`](mailto:zliao@zju.edu.cn) |
+        | **Class forum**      | <a href="https://c.zju.edu.cn/" target="_blank" role="button" class="btn btn-info">Blackboard &raquo;</a> |
+        | **repl.it Python** | <a href="https://repl.it/languages/python3" target="_blank" role="button" class="btn btn-info">Run online &raquo;</a> |
+        | **Online Python Tutor** | <a href="http://www.pythontutor.com/" target="_blank" role="button" class="btn btn-info">Debug/visualize online &raquo;</a> |
+        | ** Online Jupyter Notebook** | <a href="https://try.jupyter.org/" target="_blank" role="button" class="btn btn-info">Run online &raquo;</a> |
+        | **Anaconda's latest Python 3.X version to run  Jupyter Notebook** | <a href="http://jupyter.readthedocs.io/en/latest/install.html#installing-jupyter-using-anaconda-and-conda" target="_blank" role="button" class="btn btn-info">Download and install &raquo;</a> |
+
+
+        ##  Lectures
+
+        | Lecture | Date       | Supporting Resources |
+        | ------- | ---------- | -------------------- |
+        | [Lecture #1:  introduction](repocur:lectures/lec01.pdf) | 2016-09-26 |  |
+        | [Lecture #2:  literals, variables](repocur:lectures/lec02.pdf) | 2016-09-28 | [Python session](repocur:lectures/lec02notes.pdf) |
+        | [Lecture #3:  data types (`int`, `float`, `str`)](repocur:lectures/lec03.pdf) | 2016-10-08 | [Floating point Overflow/Underflow](http://sites.cs.queensu.ca/courses/cisc121/Record/Week09/Arith.pdf); [Signed-integer representation (Pages 53-55)](https://koclab.cs.ucsb.edu/teaching/cs16/docx/Integers.pdf)|
+        | [Lecture #4:  string formatting, functions](repocur:lectures/lec04.pdf) | 2016-10-10 |  |
+        | [Lecture #5:  methods, coding](repocur:lectures/lec05.pdf) | 2016-10-12 | [Python session](repocur:lectures/lec05.ipynb); [Python formatting codes](http://www.ucs.cam.ac.uk/docs/course-notes/unix-courses/archived/archived-python-courses/PythonProgIntro/files/formatting.pdf); [Python Integer Overflow](http://mortada.net/can-integer-operations-overflow-in-python.html) |
+        | [Lecture #6:  functions, conditionals](repocur:lectures/lec06.pdf) | 2016-10-17 |[Python session](repocur:lectures/lec06.ipynb)  |
+        | [Lecture #7:  lists, `while` loops](repocur:lectures/lec07.pdf) | 2016-10-19 | [Python session](repocur:lectures/lec07.ipynb) |
+        | [Lecture #8:  branched conditionals, `for` loops, range](repocur:lectures/lec08.pdf) | 2016-10-24 |  |
+        | [Lecture #9:  mutability, list and string methods](repocur:lectures/lec09.pdf) | 2016-10-26 | [Python session](repocur:lectures/lec09.ipynb); [Floating Point Arithmetic: Issues and Limitations](https://docs.python.org/3/tutorial/floatingpoint.html); [List/string length](http://www.hacksparrow.com/python-length-or-size-of-list-tuple-array.html); [Python built-in functions](https://docs.python.org/3/library/functions.html) |
+        | [Lecture #10:  multidimensional indexing, file operations](repocur:lectures/lec10.pdf) | 2016-10-31 | [Python session](repocur:lectures/lec10.ipynb)； [`words.txt`](repocur:lectures/lec10/words.txt), [`numbers.txt`](repocur:lectures/lec10/numbers.txt) |
+        | [Lecture #11:  dictionaries, mutable arguments](repocur:lectures/lec11.pdf) | 2016-11-02 | [Jeopardy example](repocur:lectures/lec11/jeopardy-example.py), [`jeopardy.csv`](repocur:lectures/lec11/jeopardy.csv) |
+        | **Python Applications** | | |
+        | [Lecture #12:  workflow, `csv`, `requests`](repocur:lectures/lec12.pdf) | 2016-11-09 | [plankton example](repocur:lectures/lec12/plankton-example.py) · [`plankton.csv`](repocur:lectures/lec12/plankton.csv) · [`autos.csv`](repocur:lectures/lec12/autos.csv) · [`odyssey.txt`](repocur:lectures/lec12/odyssey.txt) <br/> [`csv` module](https://github.com/UI-CS101/cs101-fa16/wiki/Input-&-Output#csv) · [`requests` module](https://github.com/UI-CS101/cs101-fa16/wiki/Input-&-Output#requests) · [sorting `dict`s](https://github.com/UI-CS101/cs101-fa16/wiki/Basic-data-types#dict) |
+        | [Lecture #13:  `zip`, `enumerate`, `permutations`](repocur:lectures/lec13.pdf) | 2016-11-14 | [Python session](repocur:lectures/lec13.ipynb); [`zip` function](https://github.com/UI-CS101/cs101-fa16/wiki/Looping#zip-function) · [`enumerate` function](https://github.com/UI-CS101/cs101-fa16/wiki/Looping#enumerate-function) · [`permutations` function](https://github.com/UI-CS101/cs101-fa16/wiki/Libraries#itertoolspermutations) |
+        | [Lecture #14:  `debugging your code`](repocur:lectures/lec14.pdf) | 2016-11-16 | [`bessel-original.py`](repocur:lectures/lec14/bessel-original.py) · [`bessel-fixed.py`](repocur:lectures/lec14/bessel-fixed.py) <br/> [`heat_eqn_raw.py`](repocur:lectures/lec14/heat_eqn_raw.py) · [`heat_eqn_funcs.py`](repocur:lectures/lec14/heat_eqn_funcs.py) <br/> [debugging handout](repocur:lectures/lec14/debugging-flowchart.pdf) |
+        | **Numerical Python** | | |
+        | [Lecture #15:  `numpy`, `matplotlib`](repocur:lectures/lec15.pdf) | 2016-11-21 | [Python session](repocur:lectures/lec15.ipynb) · [`inflammation.csv`](repocur:lectures/lec15/inflammation.csv) · [`axis` diagram](repocur:lectures/lec15/axes.png) · [Software Carpentry NumPy lesson notes](https://swcarpentry.github.io/python-novice-inflammation/01-numpy/)  |
+        | [Lecture #16:  modeling](repocur:lectures/lec16.pdf) | 2016-11-23 | [Python session](repocur:lectures/lec16.ipynb) |
+        | [Lecture #17:  modeling & numerical error](repocur:lectures/lec17.pdf) | 2016-11-28 | [Lecture notes](repocur:lectures/notes-numerics.html)|       
+        | [Lecture #18:  randomness](repocur:lectures/lec18.pdf) | 2016-11-30  | [Python session](repocur:lectures/lec18.ipynb) · [pi/4 sequence 1](https://oeis.org/A003881) ·  [pi/4 sequence 2](http://math.stackexchange.com/questions/14815/why-does-this-converge-to-pi-4) · [`nouns.txt`](repocur:lectures/lec18/nouns.txt) · [`adjectives.txt`](repocur:lectures/lec18/adjectives.txt) · [`names.txt`](repocur:lectures/lec18/names.txt) · [`verbs.txt`](repocur:lectures/lec18/verbs.txt) |
+        | [Lecture #19:  optimization (brute force)](repocur:lectures/lec19.pdf)|  2016-12-05 |  |
+        | [Lecture #20:  optimization (heuristic)](repocur:lectures/lec20.pdf)|  2016-12-07 |  [`brute-force.py`](repocur:lectures/lec20/brute-force.py) · [`hill-climbing.py`](repocur:lectures/lec20/hill-climbing.py) · [`random-walk.py`](repocur:lectures/lec20/random-walk.py) |
+        | [Lecture #21:  error handling](repocur:lectures/lec21.pdf)|  2016-12-12 | [square brackets vs parentheses](http://stackoverflow.com/questions/8900166/whats-the-difference-between-lists-enclosed-by-square-brackets-and-parentheses) |
+        | **MATLAB** | | |
+        | [Lecture #22:  MATLAB basics](repocur:lectures/lec22.pdf)|  2016-12-14 |  [MATLAB handout](repocur:media/lab13-handout.pdf) |
+        | [No Lecture:  Midterm 2 in the evening]|  2016-12-19 |  |
+        | [Lecture #23:  MATLAB I/O, functions](repocur:lectures/lec23.pdf) | 2016-12-21 | [`rabbit-bw.jpg`](repocur:lectures/lec23/rabbit-bw.jpg) · [`knight-grey.jpg`](repocur:lectures/lec23/knight-grey.jpg) · [`duck-color.jpg`](repocur:lectures/lec23/duck-color.jpg) <br/> [`finiteDiff.m`](repocur:lectures/lec23/finiteDiff.m) |
+        
+        | [No Lecture:  Holiday Break]|  2016-12-26 |  |
+        | [No Lecture:  Holiday Break]|  2016-12-28 |  |
+        | [No Lecture:  Holiday Break]|  2016-01-02 |  |
+        | [Lecture #24:  MATLAB statistics](repocur:lectures/lec24.pdf) | 2016-01-04 | [call-by-object-reference](https://jeffknupp.com/blog/2012/11/13/is-python-callbyvalue-or-callbyreference-neither/) . [Octave Descriptive Statistics](https://www.gnu.org/software/octave/doc/interpreter/Descriptive-Statistics.html) . [Octave Extra CORRCOEF](https://octave.sourceforge.io/nan/function/corrcoef.html) . [fplot](https://www.gnu.org/software/octave/doc/v4.0.0/Two_002ddimensional-Function-Plotting.html) . [fzero](https://www.gnu.org/software/octave/doc/v4.0.0/Solvers.html#XREFfzero) · [`lhs.m`](repocur:lectures/lec24/lhs.m) |
+        | [Lecture #25:  MATLAB curve fitting](repocur:lectures/lec25.pdf) | 2016-01-09 |  [`examples.m`](repocur:lectures/lec25/examples.m) . [`brexit.csv`](repocur:lectures/lec24/brexit.csv) · [`brexit.m`](repocur:lectures/lec24/brexit.m) · [`rolling_mean.m`](repocur:lectures/lec24/rolling_mean.m) · [`rolling_std.m`](repocur:lectures/lec24/rolling_std.m) |
+        | Lecture:  Final review | 2016-01-11 | [Python mumerical operations on arrays](http://www.scipy-lectures.org/intro/numpy/operations.html) . [Numpy ndarray any](https://docs.scipy.org/doc/numpy-1.10.0/reference/generated/numpy.ndarray.any.html#numpy.ndarray.any) . [Python boolean and integer](http://stackoverflow.com/questions/2764017/is-false-0-and-true-1-in-python-an-implementation-detail-or-is-it-guarante) . [Numpy Question](http://stackoverflow.com/questions/12052520/numpy-why-is-numpy-array2-any-1-false) · [MATLAB Find Array Elements That Meet a Condition](https://www.mathworks.com/help/matlab/matlab_prog/find-array-elements-that-meet-a-condition.html)|
+        ##  Homework 
+
+        Homework assignments are due at 6:00 p.m. on the due date. Many homework assignments are from [the CodeLab site](http://www.tcgo1.com/).
+
+        |            |          |          |
+        | ---------- | -------- | -------- |
+        | [![](repocur:img/banner-hw01.png)](flow:hw01) <br/> **Due** 2016-10-01 |[![](repocur:img/banner-hw02.png)](flow:hw02) <br/> **Due** 2016-10-19 | [![](repocur:img/banner-hw03.png)](flow:hw03) <br/> **Due** 2016-10-26 |
+        | [![](repocur:img/banner-hw04.png)](flow:hw04) <br/> **Due** 2016-11-02 | [![](repocur:img/banner-hw05.png)](flow:hw05) <br/> **Due** 2016-11-09 | [![](repocur:img/banner-hw06.png)](flow:hw06) <br/> **Due** 2016-11-16 |
+        | [![](repocur:img/banner-hw07.png)](flow:hw07) <br/> **Due** 2016-11-25 | [![](repocur:img/banner-hw08.png)](flow:hw08) <br/> **Due** 2016-12-02 | [![](repocur:img/banner-hw09.png)](flow:hw09) <br/> **Due** 2016-12-09 |
+        | [![](repocur:img/banner-hw10.png)](flow:hw10) <br/> **Due** 2016-12-20 | [![](repocur:img/banner-hw11.png)](flow:hw11) <br/> **Due** 2017-01-04 |  [![](repocur:img/banner-hw12.png)](repocur:hw/hw12.pdf) <br/> **Due** 2016-01-13 |
+       
+       
+        ### Python Installation
+        Although we can't provide technical support in setting up your personal machine, if you decide to install Python we warmly recommend using [Anaconda Python](https://www.continuum.io/downloads) 3.5.
+
+        ### Octave (Free Verion "MatLab") Installation
+        You can use an online version of Octave [here](http://octave-online.net/). You can also [download and install Octave](https://www.gnu.org/software/octave/download.html) on your own laptop or desktop so that you can use it when offline.
+        
+        ##  Labs
+        <a name="labs"></a>
+        
+        All labs meet in [A-0418](http://intlcampus.zju.edu.cn/en/content/campus-visit). A1: **Fri 08h00–09h5**; B1: **Fri 10h00–11h50**
+        
+        You should attend your own lab section to complete and submit assignments. Exceptions must be approved in advance.
+        
+        Late Policy: late submission made by Friday 12pm will receive 50% credit; 25% credit by the weekend (Sunday 12pm). No further extension is accepted.
+        
+        | Session     | Date       | Supporting Resources | Reference ans |
+        | ------- | ---------- | ----------------- | ---------- |
+        | [Lab#01:  python & Linux handson](repocur:labs/lab01.pdf) | 2016-09-30 | [lab01.ipynb](repocur:labs/lab01.ipynb) | [lab01_ans.ipynb](repocur:labs/lab01_ans.ipynb) |
+        | [Lab#02:  strings and operators](repocur:labs/lab02.pdf) | 2016-10-09 | [lab02.ipynb](repocur:labs/lab02.ipynb) | [lab02_ans.ipynb](repocur:labs/lab02_ans.ipynb) |
+        | [Lab#03:  function & more strings](repocur:labs/lab03.pdf) | 2016-10-14 | [lab03.zip](http://zichengl.net/cs101/lab03.rar) | [lab03_ans.ipynb](repocur:labs/lab03_ans.ipynb) |
+        | [Lab#04:  lists, logic & control](repocur:labs/lab04.pdf) | 2016-10-28 | [lab04.zip](http://zichengl.net/cs101/lab04.rar) | [lab04_ans.ipynb](repocur:labs/lab04_ans.ipynb) |
+        | Lab#05:  loops and function logic | 2016-11-4 | [lab05.zip](http://zichengl.net/cs101/lab05.rar) | [lab05_ans.ipynb](repocur:labs/lab05_ans.ipynb) |
+        | Lab#06:  data analysis | 2016-11-11 | [lab06.zip](http://zichengl.net/cs101/lab06.rar) | [lab06_ans.ipynb](repocur:labs/lab06_ans.ipynb) |
+        | Lab#07:  application of list, dict and strings | 2016-11-18 | [lab07.zip](http://zichengl.net/cs101/lab07.rar) | [lab07_ans.ipynb](repocur:labs/lab07_ans.ipynb) |
+        | Lab#08:  application: remapping set for cipher machine | 2016-11-25 | [lab08.zip](http://zichengl.net/cs101/lab08_cipher.rar) | [lab08_ans.ipynb](repocur:labs/lab08_ans.ipynb) |
+        | Lab#09:  Modeling fluid behavior | 2016-12-01 | [lab09.zip](http://zichengl.net/cs101/lab09_fluid.rar) | [lab09_ans.ipynb](repocur:labs/lab09_ans.ipynb) |
+        | Lab#10:  Celestial Mechanics | 2016-12-14 | [lab10.zip](http://zichengl.net/cs101/lab10_orbit.rar) | [lab10_ans.ipynb](repocur:labs/lab10_ans.ipynb) |
+        | Lab#11:  Optimizing over Time | 2016-12-16 | [lab11.zip](http://zichengl.net/cs101/lab11_runtime.rar) | [lab11_ans.ipynb](repocur:labs/lab11_ans.ipynb) |
+        | Lab#12:  matlab: earthquake | 2016-12-23 | [lab12.zip](http://zichengl.net/cs101/lab12_quake.rar) |  [lab12_ans.zip](http://zichengl.net/cs101/lab12_ans.rar) |
+        | Lab#13:  weather forecast | 2016-1-6 | [lab13.zip](http://zichengl.net/cs101/lab13_forecast.rar) |  [lab13_ans.zip](http://zichengl.net/cs101/lab13_ans.rar) |
+     
+        ##  Examinations
+
+        Please bring your campus card and arrive early.  Consider visiting the location ahead of time so you know where you'll be taking the exam.
+
+        | Exam | Date | Supporting Resources |
+        | ---- | ---- | -------------------- |
+        | Midterm #1 | November 7, Monday 7pm-9pm in A-0414 -- as the day of the 12th lecture | [Practice midterm](repocur:lectures/midterm1-practice-updated.pdf); [Midterm solution](repocur:lectures/midterm1-solution.pdf); [Midterm question statistics](repocur:lectures/zjui-midterm1-questiongrades.pdf)|
+        | Midterm #2 | December 19, Monday 7pm-9pm in A-0414 -- No lecture on that day |  [Practice midterm](repocur:lectures/midterm2-practice.pdf); [Answers](repocur:lectures/midterm2-practice-answers.pdf)|
+        | Final | January 20, Friday 8am-11am in A-0414|  [Practice final](repocur:lectures/practice-final.pdf); [Answers](repocur:lectures/practice-final-solutions.pdf) |
+
+
+       
+        Conflict exams are available for students with approved exceptions (such as another exam at the same time).  Email course administration *prior* to the date of the midterm for more information.
+
+
+        ##  Office Hours
+
+        Please email the instructor [`zliao@zju.edu.cn`](mailto:zliao@zju.edu.cn) to arrange a meeting slot by providing your available meeting slots.
+        
+    
+        ##  Policies
+
+        ### Grading
+
+        | Component | Fraction of Total | Notes |
+        | --------- | ----------------- | ----- |
+        | Homework  | 20% | Lowest grade dropped |
+        | Labs      | 25% | Lowest grade dropped |
+        | Lecture quiz | 10% | Participation-based; can drop three |
+        | Midterms  | 20% | |
+        | Final     | 25% | Comprehensive |
+        
+        
+        ## References
+        
+        There is no physical textbook to buy for this course. Below, you will find references that will help you. Some are online textbooks. Others are interactive tutorials. They are listed here in order of quality. If you feel confused or lost, start with Code Academy.
+        
+        * [CodeAcademy](https://www.codecademy.com/en/tracks/python)
+        * Book: [Introduction to Computation and Programming Using Python](https://mitpress.mit.edu/books/introduction-computation-and-programming-using-python-0) ([a Chinese edition](http://product.dangdang.com/1483202832.html)), [archive.org](https://archive.org/details/IntroductionToComputationAndProgrammingUsingPythonRevisedGuttagJohnV.)
+        * Book: [Python for Everyone: Exploring Data with Python 3](https://books.trinket.io/pfe/index.html)  
+        * [Think Python](http://www.greenteapress.com/thinkpython/)
+        * [Learning Python the Hard Way](http://learnpythonthehardway.org/book/)
+        * [A Byte of Python](http://www.swaroopch.com/notes/python/)
+        * [How to Think Like a Computer Scientist](http://interactivepython.org/runestone/static/thinkcspy/toc.html#t-o-c)
+        * [Non-Programmers Tutorial for Python](https://en.wikibooks.org/wiki/Non-Programmer%27s_Tutorial_for_Python_3)
+        * [The Python Tutorial](https://docs.python.org/3/tutorial/)
+    
+
+        ### Absence Policy
+
+        Students should attend the lecture and lab section for which they registered, or they will receive a zero for that lecture attendance or lab. Permitted absences require proof of overriding considerations. Official proof of absence need to be in forms of doctor's note or letter provided by an authority that clearly states that the purpose of the letter is to prove absence; examples include a doctor's note, travel proof from an athletic team, etc. Special events might be taken into consideration only if it was contacted at least 72 hours in advance. To request for absence, students shall email course administration [zliao@zju.edu.cn](mailto: zliao@zju.edu.cn). 
+
+        When a student has a permitted absence for lab, make-up labs will be arranged. Make-up labs will be held in office hours under supervision.
+
+        ### Academic Integrity
+
+        Cheating not only robs you of an opportunity to learn, it also devalues your peers' hard work. Because of this, we take cheating very seriously in this course. The first case of cheating will result in a zero on the assignment or exam. The second case of cheating will result in a zero for the course. We will also report instances of cheating to the college and to your department. You'll find the official UIUC university policies on academic integrity [here](http://studentcode.illinois.edu/article1_part4_1-402.html). You can learn more about the UIUC Computer Science Department's stance [here](https://wiki.illinois.edu//wiki/display/undergradProg/Honor+Code).
+
+        Plagiarism is also very easy to detect in a programming class. Do not take shortcuts. Always do your own work. Note that we encourage discussion on course content. However, please write answers/codes to homework and lab assignments on your own (unless in some labs when you are instructed to complete assignments in pairs or groups).
+
+        Our philosophy in this course is based on the fact that (in real life) most of the time you have access to many resources: websites, peers, mentors, books, and others' source code. Your competence will be greatly increased by the resources you can use without recourse to external references, but when learning it only makes sense to let you function in a realistic manner. Thus, for lab exercises and assignments, you should work alone unless told otherwise, but you may consult outside sources of information. Any consultation is subject to the following restrictions: (1) you may not copy that source's work verbatim (i.e., ALWAYS write YOUR OWN code!); and (2) you must cite all sources used and the contribution they made to your work. This policy is designed to protect you against plagiarism.
+
+        You must also protect your own work from plagiarism. If you allow your peers to copy your work, you could end up with academic dishonesty. Do not send solutions to your peers. Do not show them your solution. Do not give out your account passwords. Do not leave your login sessions active.
