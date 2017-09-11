@@ -35,40 +35,27 @@ chunks:
 
         | Lecture | Date       | Supporting Resources |
         | ------- | ---------- | -------------------- |
-        | [Lecture #1:  introduction](repocur:lectures/lec01.pdf) | 2016-09-26 |  |
-        | [Lecture #2:  literals, variables](repocur:lectures/lec02.pdf) | 2016-09-28 | [Python session](repocur:lectures/lec02notes.pdf) |
-        | [Lecture #3:  data types (`int`, `float`, `str`)](repocur:lectures/lec03.pdf) | 2016-10-08 | [Floating point Overflow/Underflow](http://sites.cs.queensu.ca/courses/cisc121/Record/Week09/Arith.pdf); [Signed-integer representation (Pages 53-55)](https://koclab.cs.ucsb.edu/teaching/cs16/docx/Integers.pdf)|
-        | [Lecture #4:  string formatting, functions](repocur:lectures/lec04.pdf) | 2016-10-10 |  |
-        | [Lecture #5:  methods, coding](repocur:lectures/lec05.pdf) | 2016-10-12 | [Python session](repocur:lectures/lec05.ipynb); [Python formatting codes](http://www.ucs.cam.ac.uk/docs/course-notes/unix-courses/archived/archived-python-courses/PythonProgIntro/files/formatting.pdf); [Python Integer Overflow](http://mortada.net/can-integer-operations-overflow-in-python.html) |
-        | [Lecture #6:  functions, conditionals](repocur:lectures/lec06.pdf) | 2016-10-17 |[Python session](repocur:lectures/lec06.ipynb)  |
-        | [Lecture #7:  lists, `while` loops](repocur:lectures/lec07.pdf) | 2016-10-19 | [Python session](repocur:lectures/lec07.ipynb) |
-        | [Lecture #8:  branched conditionals, `for` loops, range](repocur:lectures/lec08.pdf) | 2016-10-24 |  |
-        | [Lecture #9:  mutability, list and string methods](repocur:lectures/lec09.pdf) | 2016-10-26 | [Python session](repocur:lectures/lec09.ipynb); [Floating Point Arithmetic: Issues and Limitations](https://docs.python.org/3/tutorial/floatingpoint.html); [List/string length](http://www.hacksparrow.com/python-length-or-size-of-list-tuple-array.html); [Python built-in functions](https://docs.python.org/3/library/functions.html) |
-        | [Lecture #10:  multidimensional indexing, file operations](repocur:lectures/lec10.pdf) | 2016-10-31 | [Python session](repocur:lectures/lec10.ipynb)； [`words.txt`](repocur:lectures/lec10/words.txt), [`numbers.txt`](repocur:lectures/lec10/numbers.txt) |
-        | [Lecture #11:  dictionaries, mutable arguments](repocur:lectures/lec11.pdf) | 2016-11-02 | [Jeopardy example](repocur:lectures/lec11/jeopardy-example.py), [`jeopardy.csv`](repocur:lectures/lec11/jeopardy.csv) |
+        | [Lecture #1:  introduction](repocur:lectures/lec01.pdf) | 2017-09-19 |  |
+        | [Lecture #2:  literals, variables](repocur:lectures/lec02.pdf) | 2017-09-21 | [Python session](repocur:lectures/lec02notes.pdf) |
+        | [Lecture #3:  data types (`int`, `float`, `str`)](repocur:lectures/lec03.pdf) | 2017-09-26 | [Floating point Overflow/Underflow](http://sites.cs.queensu.ca/courses/cisc121/Record/Week09/Arith.pdf); [Signed-integer representation (Pages 53-55)](https://koclab.cs.ucsb.edu/teaching/cs16/docx/Integers.pdf)|
+        | [Lecture #4:  string formatting, functions](repocur:lectures/lec04.pdf) | 2017-09-28 |  |
+        | [Lecture #5:  methods, coding](repocur:lectures/lec05.pdf) | 2017-10-10 | [Python session](repocur:lectures/lec05.ipynb); [Python formatting codes](http://www.ucs.cam.ac.uk/docs/course-notes/unix-courses/archived/archived-python-courses/PythonProgIntro/files/formatting.pdf); [Python Integer Overflow](http://mortada.net/can-integer-operations-overflow-in-python.html) |
+        | [Lecture #6:  functions, conditionals](repocur:lectures/lec06.pdf) | 2017-10-12 |[Python session](repocur:lectures/lec06.ipynb)  |
+        | [Lecture #7:  lists, `while` loops](repocur:lectures/lec07.pdf) | 2017-10-17 | [Python session](repocur:lectures/lec07.ipynb) |
+        | [Lecture #8:  branched conditionals, `for` loops, range](repocur:lectures/lec08.pdf) | 2017-10-19 |  |
+        | [Lecture #9:  mutability, list and string methods](repocur:lectures/lec09.pdf) | 2017-10-24 | [Python session](repocur:lectures/lec09.ipynb); [Floating Point Arithmetic: Issues and Limitations](https://docs.python.org/3/tutorial/floatingpoint.html); [List/string length](http://www.hacksparrow.com/python-length-or-size-of-list-tuple-array.html); [Python built-in functions](https://docs.python.org/3/library/functions.html) |
+        | [Lecture #10:  multidimensional indexing, file operations](repocur:lectures/lec10.pdf) | 2017-10-26 | [Python session](repocur:lectures/lec10.ipynb)； [`words.txt`](repocur:lectures/lec10/words.txt), [`numbers.txt`](repocur:lectures/lec10/numbers.txt) |
+        | [Lecture #11:  dictionaries, mutable arguments](repocur:lectures/lec11.pdf) | 2017-10-31 | [Jeopardy example](repocur:lectures/lec11/jeopardy-example.py), [`jeopardy.csv`](repocur:lectures/lec11/jeopardy.csv) |
+        | [Midterm 1: No Lecture]|  TBA |  |
         | **Python Applications** | | |
-        | [Lecture #12:  workflow, `csv`, `requests`](repocur:lectures/lec12.pdf) | 2016-11-09 | [plankton example](repocur:lectures/lec12/plankton-example.py) · [`plankton.csv`](repocur:lectures/lec12/plankton.csv) · [`autos.csv`](repocur:lectures/lec12/autos.csv) · [`odyssey.txt`](repocur:lectures/lec12/odyssey.txt) <br/> [`csv` module](https://github.com/UI-CS101/cs101-fa16/wiki/Input-&-Output#csv) · [`requests` module](https://github.com/UI-CS101/cs101-fa16/wiki/Input-&-Output#requests) · [sorting `dict`s](https://github.com/UI-CS101/cs101-fa16/wiki/Basic-data-types#dict) |
-        | [Lecture #13:  `zip`, `enumerate`, `permutations`](repocur:lectures/lec13.pdf) | 2016-11-14 | [Python session](repocur:lectures/lec13.ipynb); [`zip` function](https://github.com/UI-CS101/cs101-fa16/wiki/Looping#zip-function) · [`enumerate` function](https://github.com/UI-CS101/cs101-fa16/wiki/Looping#enumerate-function) · [`permutations` function](https://github.com/UI-CS101/cs101-fa16/wiki/Libraries#itertoolspermutations) |
-        | [Lecture #14:  `debugging your code`](repocur:lectures/lec14.pdf) | 2016-11-16 | [`bessel-original.py`](repocur:lectures/lec14/bessel-original.py) · [`bessel-fixed.py`](repocur:lectures/lec14/bessel-fixed.py) <br/> [`heat_eqn_raw.py`](repocur:lectures/lec14/heat_eqn_raw.py) · [`heat_eqn_funcs.py`](repocur:lectures/lec14/heat_eqn_funcs.py) <br/> [debugging handout](repocur:lectures/lec14/debugging-flowchart.pdf) |
         | **Numerical Python** | | |
-        | [Lecture #15:  `numpy`, `matplotlib`](repocur:lectures/lec15.pdf) | 2016-11-21 | [Python session](repocur:lectures/lec15.ipynb) · [`inflammation.csv`](repocur:lectures/lec15/inflammation.csv) · [`axis` diagram](repocur:lectures/lec15/axes.png) · [Software Carpentry NumPy lesson notes](https://swcarpentry.github.io/python-novice-inflammation/01-numpy/)  |
-        | [Lecture #16:  modeling](repocur:lectures/lec16.pdf) | 2016-11-23 | [Python session](repocur:lectures/lec16.ipynb) |
-        | [Lecture #17:  modeling & numerical error](repocur:lectures/lec17.pdf) | 2016-11-28 | [Lecture notes](repocur:lectures/notes-numerics.html)|       
-        | [Lecture #18:  randomness](repocur:lectures/lec18.pdf) | 2016-11-30  | [Python session](repocur:lectures/lec18.ipynb) · [pi/4 sequence 1](https://oeis.org/A003881) ·  [pi/4 sequence 2](http://math.stackexchange.com/questions/14815/why-does-this-converge-to-pi-4) · [`nouns.txt`](repocur:lectures/lec18/nouns.txt) · [`adjectives.txt`](repocur:lectures/lec18/adjectives.txt) · [`names.txt`](repocur:lectures/lec18/names.txt) · [`verbs.txt`](repocur:lectures/lec18/verbs.txt) |
-        | [Lecture #19:  optimization (brute force)](repocur:lectures/lec19.pdf)|  2016-12-05 |  |
-        | [Lecture #20:  optimization (heuristic)](repocur:lectures/lec20.pdf)|  2016-12-07 |  [`brute-force.py`](repocur:lectures/lec20/brute-force.py) · [`hill-climbing.py`](repocur:lectures/lec20/hill-climbing.py) · [`random-walk.py`](repocur:lectures/lec20/random-walk.py) |
-        | [Lecture #21:  error handling](repocur:lectures/lec21.pdf)|  2016-12-12 | [square brackets vs parentheses](http://stackoverflow.com/questions/8900166/whats-the-difference-between-lists-enclosed-by-square-brackets-and-parentheses) |
-        | **MATLAB** | | |
-        | [Lecture #22:  MATLAB basics](repocur:lectures/lec22.pdf)|  2016-12-14 |  [MATLAB handout](repocur:media/lab13-handout.pdf) |
-        | [No Lecture:  Midterm 2 in the evening]|  2016-12-19 |  |
-        | [Lecture #23:  MATLAB I/O, functions](repocur:lectures/lec23.pdf) | 2016-12-21 | [`rabbit-bw.jpg`](repocur:lectures/lec23/rabbit-bw.jpg) · [`knight-grey.jpg`](repocur:lectures/lec23/knight-grey.jpg) · [`duck-color.jpg`](repocur:lectures/lec23/duck-color.jpg) <br/> [`finiteDiff.m`](repocur:lectures/lec23/finiteDiff.m) |
-        
-        | [No Lecture:  Holiday Break]|  2016-12-26 |  |
-        | [No Lecture:  Holiday Break]|  2016-12-28 |  |
-        | [No Lecture:  Holiday Break]|  2016-01-02 |  |
-        | [Lecture #24:  MATLAB statistics](repocur:lectures/lec24.pdf) | 2016-01-04 | [call-by-object-reference](https://jeffknupp.com/blog/2012/11/13/is-python-callbyvalue-or-callbyreference-neither/) . [Octave Descriptive Statistics](https://www.gnu.org/software/octave/doc/interpreter/Descriptive-Statistics.html) . [Octave Extra CORRCOEF](https://octave.sourceforge.io/nan/function/corrcoef.html) . [fplot](https://www.gnu.org/software/octave/doc/v4.0.0/Two_002ddimensional-Function-Plotting.html) . [fzero](https://www.gnu.org/software/octave/doc/v4.0.0/Solvers.html#XREFfzero) · [`lhs.m`](repocur:lectures/lec24/lhs.m) |
-        | [Lecture #25:  MATLAB curve fitting](repocur:lectures/lec25.pdf) | 2016-01-09 |  [`examples.m`](repocur:lectures/lec25/examples.m) . [`brexit.csv`](repocur:lectures/lec24/brexit.csv) · [`brexit.m`](repocur:lectures/lec24/brexit.m) · [`rolling_mean.m`](repocur:lectures/lec24/rolling_mean.m) · [`rolling_std.m`](repocur:lectures/lec24/rolling_std.m) |
-        | Lecture:  Final review | 2016-01-11 | [Python mumerical operations on arrays](http://www.scipy-lectures.org/intro/numpy/operations.html) . [Numpy ndarray any](https://docs.scipy.org/doc/numpy-1.10.0/reference/generated/numpy.ndarray.any.html#numpy.ndarray.any) . [Python boolean and integer](http://stackoverflow.com/questions/2764017/is-false-0-and-true-1-in-python-an-implementation-detail-or-is-it-guarante) . [Numpy Question](http://stackoverflow.com/questions/12052520/numpy-why-is-numpy-array2-any-1-false) · [MATLAB Find Array Elements That Meet a Condition](https://www.mathworks.com/help/matlab/matlab_prog/find-array-elements-that-meet-a-condition.html)|
+        | [Midterm 2: No Lecture]|  TBA |  |
+        | **MATLAB!** | | |
+        | [Midterm I: No Lecture]|  2017-12-26 |  |
+        | [Holiday Break: No Lecture]|  2017-12-26 |  |
+        | [Holiday Break: No Lecture]|  2017-12-28 |  |
+        | [Holiday Break: No Lecture]|  2018-01-02 |  |
+        | | | |
         
         ##  Homework 
 
@@ -86,7 +73,7 @@ chunks:
         
         | Session     | Date       | Supporting Resources | Reference ans |
         | ------- | ---------- | ----------------- | ---------- |
-        | [Lab#01:  python & Linux handson](repocur:labs/lab01.pdf) | 2016-09-30 | [lab01.ipynb](repocur:labs/lab01.ipynb) | [lab01_ans.ipynb](repocur:labs/lab01_ans.ipynb) |
+        | [Lab#01:  python & Linux handson](repocur:labs/lab01.pdf) | 2017-09-20 | [lab01.ipynb](repocur:labs/lab01.ipynb) | |
         | | | | |
         
         #### Python Installation
@@ -128,9 +115,9 @@ chunks:
         * [Non-Programmers Tutorial for Python](https://en.wikibooks.org/wiki/Non-Programmer%27s_Tutorial_for_Python_3)
         * [The Python Tutorial](https://docs.python.org/3/tutorial/)
     
-        ##  Policies
-
-        ### Grading
+    
+    
+        ## Grading
 
         | Component | Fraction of Total | Notes |
         | --------- | ----------------- | ----- |
