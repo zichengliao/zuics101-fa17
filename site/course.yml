@@ -51,7 +51,6 @@ chunks:
         | **Numerical Python** | | |
         | [Midterm 2: No Lecture]|  TBA |  |
         | **MATLAB!** | | |
-        | [Midterm I: No Lecture]|  2017-12-26 |  |
         | [Holiday Break: No Lecture]|  2017-12-26 |  |
         | [Holiday Break: No Lecture]|  2017-12-28 |  |
         | [Holiday Break: No Lecture]|  2018-01-02 |  |
@@ -73,7 +72,7 @@ chunks:
         
         | Session     | Date       | Supporting Resources | Reference ans |
         | ------- | ---------- | ----------------- | ---------- |
-        | [Lab#01:  python & Linux handson](repocur:labs/lab01.pdf) | 2017-09-20 | [lab01.ipynb](repocur:labs/lab01.ipynb) | |
+        | [Lab#01:  python & Linux handson] | 2017-09-20 | [lab01.ipynb]() | |
         | | | | |
         
         #### Python Installation
@@ -89,8 +88,8 @@ chunks:
 
         | Exam | Date | Supporting Resources |
         | ---- | ---- | -------------------- |
-        | Midterm #1 | TBA | |
-        | Midterm #2 | TBA | |
+        | Midterm 1 | TBA | |
+        | Midterm 2 | TBA | |
         | Final | TBA | |
      
         Conflict exams are available for students with approved exceptions (such as another exam at the same time).  Email course administration *prior* to the date of the midterm for more information.
