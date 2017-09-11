@@ -37,7 +37,7 @@ rules:
       permissions: [view]
 
     -
-      if_after: 2017-01-25 12:59:59
+      if_after: 2017-11-25 12:59:59
       if_has_role: [student]
       permissions: []
 
@@ -45,7 +45,7 @@ rules:
       # Unfinished full-credit session marked 'end' after due date.
       if_has_tag: main
       if_in_progress: True
-      if_after: 2017-01-25 18:05:00
+      if_after: 2017-11-25 18:05:00
       if_expiration_mode: end
       message: |
         The due date has passed. If you have marked your session to
@@ -62,7 +62,7 @@ rules:
     -
       # Full-credit session before due date. Don't show answer.
       if_has_tag: main
-      if_before: 2017-01-25 18:05:00
+      if_before: 2017-11-25 18:05:00
       if_in_progress: False
       permissions: [view, see_correctness]
 
