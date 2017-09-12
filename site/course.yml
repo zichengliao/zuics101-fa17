@@ -18,7 +18,7 @@ chunks:
 
         | What                 | When and Where |
         | -------------------- | -------------- |
-        | **Lectures**         | Tue/Thu `10h00–10h50` or `11h00-11h50`; Room `A-0414` |
+        | **Lectures**         | Tue/Thu [`10h00–10h50`](#lectures) or [`11h00-11h50`](#lectures); `A-0414` |
         | **Labs**             | Wednesday, [`schedule`](#labs) |
         | **Class URL**        | [`http://relate.intl.zju.edu.cn:8000/course/zjui-cs101-fa17/`](http://relate.intl.zju.edu.cn:8000/course/zjui-cs101-fa17/) |
         | **Instructor**       |  [`Zicheng Liao`](mailto:zliao@zju.edu.cn) |
@@ -30,7 +30,8 @@ chunks:
 
 
         ##  Lectures
-
+        <a name="lectures"></a>
+        
         | Python Basics | Date       | Supporting Resources |
         | ------- | ---------- | -------------------- |
         | [Lecture #1:  introduction](repocur:lectures/lec01.pdf) | 2017-09-19 |  |
