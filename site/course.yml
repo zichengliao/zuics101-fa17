@@ -37,13 +37,13 @@ chunks:
         | [Lecture #2:  literals, variables](repocur:lectures/lec02.pdf) | 2017-09-21 | [Python session](repocur:lectures/lec02notes.pdf) |
         | [Lecture #3:  data types (`int`, `float`, `str`)](repocur:lectures/lec03.pdf) | 2017-09-26 | [Floating point Overflow/Underflow](http://sites.cs.queensu.ca/courses/cisc121/Record/Week09/Arith.pdf); [Signed-integer representation (Pages 53-55)](https://koclab.cs.ucsb.edu/teaching/cs16/docx/Integers.pdf)|
         | [Lecture #4:  string formatting, functions](repocur:lectures/lec04.pdf) | 2017-09-28 |  |
-        | [Lecture #5:  methods, coding](repocur:lectures/lec05.pdf) | 2017-10-10 | [Python session](repocur:lectures/lec05.ipynb); [Python formatting codes](http://www.ucs.cam.ac.uk/docs/course-notes/unix-courses/archived/archived-python-courses/PythonProgIntro/files/formatting.pdf); [Python Integer Overflow](http://mortada.net/can-integer-operations-overflow-in-python.html) |
-        | [Lecture #6:  functions, conditionals](repocur:lectures/lec06.pdf) | 2017-10-12 |[Python session](repocur:lectures/lec06.ipynb)  |
-        | [Lecture #7:  lists, `while` loops](repocur:lectures/lec07.pdf) | 2017-10-17 | [Python session](repocur:lectures/lec07.ipynb) |
-        | [Lecture #8:  branched conditionals, `for` loops, range](repocur:lectures/lec08.pdf) | 2017-10-19 |  |
-        | [Lecture #9:  mutability, list and string methods](repocur:lectures/lec09.pdf) | 2017-10-24 | [Python session](repocur:lectures/lec09.ipynb); [Floating Point Arithmetic: Issues and Limitations](https://docs.python.org/3/tutorial/floatingpoint.html); [List/string length](http://www.hacksparrow.com/python-length-or-size-of-list-tuple-array.html); [Python built-in functions](https://docs.python.org/3/library/functions.html) |
-        | [Lecture #10:  multidimensional indexing, file operations](repocur:lectures/lec10.pdf) | 2017-10-26 | [Python session](repocur:lectures/lec10.ipynb)； [`words.txt`](repocur:lectures/lec10/words.txt), [`numbers.txt`](repocur:lectures/lec10/numbers.txt) |
-        | [Lecture #11:  dictionaries, mutable arguments](repocur:lectures/lec11.pdf) | 2017-10-31 | [Jeopardy example](repocur:lectures/lec11/jeopardy-example.py), [`jeopardy.csv`](repocur:lectures/lec11/jeopardy.csv) |
+        | [Lecture #5:  methods, coding] | 2017-10-10 | [Python session]; [Python formatting codes](http://www.ucs.cam.ac.uk/docs/course-notes/unix-courses/archived/archived-python-courses/PythonProgIntro/files/formatting.pdf); [Python Integer Overflow](http://mortada.net/can-integer-operations-overflow-in-python.html) |
+        | [Lecture #6:  functions, conditionals] | 2017-10-12 |[Python session]  |
+        | [Lecture #7:  lists, `while` loops] | 2017-10-17 | [Python session] |
+        | [Lecture #8:  branched conditionals, `for` loops, range] | 2017-10-19 |  |
+        | [Lecture #9:  mutability, list and string methods] | 2017-10-24 | [Python session]; [Floating Point Arithmetic: Issues and Limitations](https://docs.python.org/3/tutorial/floatingpoint.html); [List/string length](http://www.hacksparrow.com/python-length-or-size-of-list-tuple-array.html); [Python built-in functions](https://docs.python.org/3/library/functions.html) |
+        | [Lecture #10:  multidimensional indexing, file operations] | 2017-10-26 | [Python session]; [`words.txt`], [`numbers.txt`] |
+        | [Lecture #11:  dictionaries, mutable arguments] | 2017-10-31 | [Jeopardy example], [`jeopardy.csv`] |
         | [Midterm 1: No Lecture]|  TBA |  |
         | **Python Applications** | | |
         | **Numerical Python** | | |
