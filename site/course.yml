@@ -37,13 +37,13 @@ chunks:
         | [Lecture #2:  literals, variables](repocur:lectures/lec02.pdf) | 2017-09-21 | [Python session](repocur:lectures/lec02notes.pdf) |
         | [Lecture #3:  data types (`int`, `float`, `str`)](repocur:lectures/lec03.pdf) | 2017-09-26 | [Floating point Overflow/Underflow](http://sites.cs.queensu.ca/courses/cisc121/Record/Week09/Arith.pdf); [Signed-integer representation (Pages 53-55)](https://koclab.cs.ucsb.edu/teaching/cs16/docx/Integers.pdf)|
         | [Lecture #4:  string formatting, functions](repocur:lectures/lec04.pdf) | 2017-09-28 |  |
-        | [Lecture #5:  methods, coding] | 2017-10-10 | [Python session]; [Python formatting codes](http://www.ucs.cam.ac.uk/docs/course-notes/unix-courses/archived/archived-python-courses/PythonProgIntro/files/formatting.pdf); [Python Integer Overflow](http://mortada.net/can-integer-operations-overflow-in-python.html) |
-        | [Lecture #6:  functions, conditionals] | 2017-10-12 |[Python session]  |
-        | [Lecture #7:  lists, `while` loops] | 2017-10-17 | [Python session] |
+        | [Lecture #5:  methods, coding] | 2017-10-10 |  |
+        | [Lecture #6:  functions, conditionals] | 2017-10-12 | |
+        | [Lecture #7:  lists, `while` loops] | 2017-10-17 |  |
         | [Lecture #8:  branched conditionals, `for` loops, range] | 2017-10-19 |  |
-        | [Lecture #9:  mutability, list and string methods] | 2017-10-24 | [Python session]; [Floating Point Arithmetic: Issues and Limitations](https://docs.python.org/3/tutorial/floatingpoint.html); [List/string length](http://www.hacksparrow.com/python-length-or-size-of-list-tuple-array.html); [Python built-in functions](https://docs.python.org/3/library/functions.html) |
-        | [Lecture #10:  multidimensional indexing, file operations] | 2017-10-26 | [Python session]; [`words.txt`], [`numbers.txt`] |
-        | [Lecture #11:  dictionaries, mutable arguments] | 2017-10-31 | [Jeopardy example], [`jeopardy.csv`] |
+        | [Lecture #9:  mutability, list and string methods] | 2017-10-24 | |
+        | [Lecture #10:  multidimensional indexing, file operations] | 2017-10-26 | |
+        | [Lecture #11:  dictionaries, mutable arguments] | 2017-10-31 | |
         | [Midterm 1: No Lecture]|  TBA |  |
         | **Python Applications** | | |
         | **Numerical Python** | | |
