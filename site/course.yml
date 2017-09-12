@@ -65,12 +65,13 @@ chunks:
         | Lab Groups | When   | Where |
         | ---------- | ----   | ----- |
         |A1| **Wed 08h00–09h50** | D-331 |
-        |A3| **Wed 08h00–09h50** | D-221 |
         |A2| **Wed 10h00–11h50** | D-331 |
+        |A3| **Wed 08h00–09h50** | D-221 |
         |B1| **Wed 13h00–14h50** | D-331 |
-        |B3| **Wed 13h00–14h50** | D-221 |
         |B2| **Wed 15h00–16h50** | D-331 |
-
+        |B3| **Wed 13h00–14h50** | D-221 |
+        | | | |
+        
         You should attend your own lab section to complete and submit assignments. Exceptions must be approved in advance.
         
         Late Policy: late submission made by Friday 12pm will receive 50% credit; 25% credit by the weekend (Sunday 12pm). No further extension is accepted.
@@ -78,6 +79,7 @@ chunks:
         | Session     | Date       | Supporting Resources | Reference ans |
         | ------- | ---------- | ----------------- | ---------- |
         | [Lab #1:  python & Linux handson] | 2017-09-20 | [lab01.ipynb] | |
+        | [Lab #2:  strings and operators] | 2017-09-27 | [lab02.ipynb] | |
         | | | | |
         
         #### Python Installation
