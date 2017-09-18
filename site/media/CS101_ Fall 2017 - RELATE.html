@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<!-- saved from url=(0058)http://relate.intl.zju.edu.cn:8000/course/zjui-cs101-fa17/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style class="vjs-styles-defaults">
+    .video-js {
+      width: 300px;
+      height: 150px;
+    }
+
+    .vjs-fluid {
+      padding-top: 56.25%
+    }
+  </style>
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>
+  CS101:
+  Fall 2017
+  -
+  RELATE
+</title>
+
+    <link href="./CS101_ Fall 2017 - RELATE_files/bootstrap.css" rel="stylesheet">
+    <link href="./CS101_ Fall 2017 - RELATE_files/jquery-ui.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="./CS101_ Fall 2017 - RELATE_files/font-awesome.css">
+    <link rel="stylesheet" href="./CS101_ Fall 2017 - RELATE_files/style.min.css">
+    <link rel="stylesheet" href="./CS101_ Fall 2017 - RELATE_files/style.css">
+
+    
+    
+    <script src="./CS101_ Fall 2017 - RELATE_files/jquery.js.下载"></script>
+    <script src="./CS101_ Fall 2017 - RELATE_files/jquery-ui.js.下载"></script>
+    <script src="./CS101_ Fall 2017 - RELATE_files/bootstrap.js.下载"></script>
+    <script src="./CS101_ Fall 2017 - RELATE_files/jstree.min.js.下载"></script>
+
+    
+
+    
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <link href="./CS101_ Fall 2017 - RELATE_files/video-js.min.css" rel="stylesheet">
+    <script src="./CS101_ Fall 2017 - RELATE_files/video.min.js.下载"></script>
+    <script type="text/javascript">
+      videojs.options.flash.swf = "/static/videojs/dist/video-js/video-js.swf"
+    </script>
+  <style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Menu_Button .MathJax_Hover_Arrow {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px; font-family: 'Courier New',Courier; font-size: 9px; color: #F0F0F0}
+.MathJax_Menu_Button .MathJax_Hover_Arrow span {display: block; background-color: #AAA; border: 1px solid; border-radius: 3px; line-height: 0; padding: 4px}
+.MathJax_Hover_Arrow:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_Hover_Arrow:hover span {background-color: #CCC!important}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_About.MathJax_MousePost {outline: none}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 2px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 2px 2em; background: transparent}
+.MathJax_MenuArrow {position: absolute; right: .5em; padding-top: .25em; color: #666666; font-size: .75em}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuArrow.RTL {left: .5em; right: auto}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuRadioCheck {position: absolute; left: 1em}
+.MathJax_MenuRadioCheck.RTL {right: 1em; left: auto}
+.MathJax_MenuLabel {padding: 2px 2em 4px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #CCCCCC; margin: 4px 1px 0px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: Highlight; color: HighlightText}
+.MathJax_MenuDisabled:focus, .MathJax_MenuLabel:focus {background-color: #E8E8E8}
+.MathJax_ContextMenu:focus {outline: none}
+.MathJax_ContextMenu .MathJax_MenuItem:focus {outline: none}
+#MathJax_AboutClose {top: .2em; right: .2em}
+.MathJax_Menu .MathJax_MenuClose {top: -10px; left: -10px}
+.MathJax_MenuClose {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; font-family: 'Courier New',Courier; font-size: 24px; color: #F0F0F0}
+.MathJax_MenuClose span {display: block; background-color: #AAA; border: 1.5px solid; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; line-height: 0; padding: 8px 0 6px}
+.MathJax_MenuClose:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_MenuClose:hover span {background-color: #CCC!important}
+.MathJax_MenuClose:hover:focus {outline: none}
+</style><style type="text/css">.MathJax_Preview .MJXf-math {color: inherit!important}
+</style><style type="text/css">.MJX_Assistive_MathML {position: absolute!important; top: 0; left: 0; clip: rect(1px, 1px, 1px, 1px); padding: 1px 0 0 0!important; border: 0!important; height: 1px!important; width: 1px!important; overflow: hidden!important; display: block!important; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none}
+.MJX_Assistive_MathML.MJX_Assistive_MathML_Block {width: 100%!important}
+</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style><style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1em; bottom: 1.5em; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><style type="text/css">.MJXp-script {font-size: .8em}
+.MJXp-right {-webkit-transform-origin: right; -moz-transform-origin: right; -ms-transform-origin: right; -o-transform-origin: right; transform-origin: right}
+.MJXp-bold {font-weight: bold}
+.MJXp-italic {font-style: italic}
+.MJXp-scr {font-family: MathJax_Script,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-frak {font-family: MathJax_Fraktur,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-sf {font-family: MathJax_SansSerif,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-cal {font-family: MathJax_Caligraphic,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-mono {font-family: MathJax_Typewriter,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-largeop {font-size: 150%}
+.MJXp-largeop.MJXp-int {vertical-align: -.2em}
+.MJXp-math {display: inline-block; line-height: 1.2; text-indent: 0; font-family: 'Times New Roman',Times,STIXGeneral,serif; white-space: nowrap; border-collapse: collapse}
+.MJXp-display {display: block; text-align: center; margin: 1em 0}
+.MJXp-math span {display: inline-block}
+.MJXp-box {display: block!important; text-align: center}
+.MJXp-box:after {content: " "}
+.MJXp-rule {display: block!important; margin-top: .1em}
+.MJXp-char {display: block!important}
+.MJXp-mo {margin: 0 .15em}
+.MJXp-mfrac {margin: 0 .125em; vertical-align: .25em}
+.MJXp-denom {display: inline-table!important; width: 100%}
+.MJXp-denom > * {display: table-row!important}
+.MJXp-surd {vertical-align: top}
+.MJXp-surd > * {display: block!important}
+.MJXp-script-box > *  {display: table!important; height: 50%}
+.MJXp-script-box > * > * {display: table-cell!important; vertical-align: top}
+.MJXp-script-box > *:last-child > * {vertical-align: bottom}
+.MJXp-script-box > * > * > * {display: block!important}
+.MJXp-mphantom {visibility: hidden}
+.MJXp-munderover {display: inline-table!important}
+.MJXp-over {display: inline-block!important; text-align: center}
+.MJXp-over > * {display: block!important}
+.MJXp-munderover > * {display: table-row!important}
+.MJXp-mtable {vertical-align: .25em; margin: 0 .125em}
+.MJXp-mtable > * {display: inline-table!important; vertical-align: middle}
+.MJXp-mtr {display: table-row!important}
+.MJXp-mtd {display: table-cell!important; text-align: center; padding: .5em 0 0 .5em}
+.MJXp-mtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-mlabeledtr {display: table-row!important}
+.MJXp-mlabeledtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mlabeledtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MJXp-scale0 {-webkit-transform: scaleX(.0); -moz-transform: scaleX(.0); -ms-transform: scaleX(.0); -o-transform: scaleX(.0); transform: scaleX(.0)}
+.MJXp-scale1 {-webkit-transform: scaleX(.1); -moz-transform: scaleX(.1); -ms-transform: scaleX(.1); -o-transform: scaleX(.1); transform: scaleX(.1)}
+.MJXp-scale2 {-webkit-transform: scaleX(.2); -moz-transform: scaleX(.2); -ms-transform: scaleX(.2); -o-transform: scaleX(.2); transform: scaleX(.2)}
+.MJXp-scale3 {-webkit-transform: scaleX(.3); -moz-transform: scaleX(.3); -ms-transform: scaleX(.3); -o-transform: scaleX(.3); transform: scaleX(.3)}
+.MJXp-scale4 {-webkit-transform: scaleX(.4); -moz-transform: scaleX(.4); -ms-transform: scaleX(.4); -o-transform: scaleX(.4); transform: scaleX(.4)}
+.MJXp-scale5 {-webkit-transform: scaleX(.5); -moz-transform: scaleX(.5); -ms-transform: scaleX(.5); -o-transform: scaleX(.5); transform: scaleX(.5)}
+.MJXp-scale6 {-webkit-transform: scaleX(.6); -moz-transform: scaleX(.6); -ms-transform: scaleX(.6); -o-transform: scaleX(.6); transform: scaleX(.6)}
+.MJXp-scale7 {-webkit-transform: scaleX(.7); -moz-transform: scaleX(.7); -ms-transform: scaleX(.7); -o-transform: scaleX(.7); transform: scaleX(.7)}
+.MJXp-scale8 {-webkit-transform: scaleX(.8); -moz-transform: scaleX(.8); -ms-transform: scaleX(.8); -o-transform: scaleX(.8); transform: scaleX(.8)}
+.MJXp-scale9 {-webkit-transform: scaleX(.9); -moz-transform: scaleX(.9); -ms-transform: scaleX(.9); -o-transform: scaleX(.9); transform: scaleX(.9)}
+.MathJax_PHTML .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style></head>
+
+  <body><div id="MathJax_Message" style="display: none;"></div>
+
+    <!-- Fixed navbar -->
+    <div class="navbar navbar-default" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="http://relate.intl.zju.edu.cn:8000/course/zjui-cs101-fa17/">
+  CS101
+  Fall 2017
+</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          
+          <ul class="nav navbar-nav">
+
+            
+  
+  <li class="dropdown">
+    <a href="http://relate.intl.zju.edu.cn:8000/course/zjui-cs101-fa17/#" class="dropdown-toggle" data-toggle="dropdown">Jump to<b class="caret"></b></a>
+    <ul class="dropdown-menu">
+    
+      
+        <li><a href="http://relate.intl.zju.edu.cn:8000/course/zjui-cs101-fa17/#Welcome">ZJUI CS101 Fall 2017</a></li>
+      
+    
+    </ul>
+  </li>
+
+
+  
+  <li class="dropdown">
+    
+    <a href="http://relate.intl.zju.edu.cn:8000/course/zjui-cs101-fa17/#" class="dropdown-toggle" data-toggle="dropdown">Student<b class="caret"></b></a>
+    <ul class="dropdown-menu">
+      
+      
+      
+        <li><a href="http://relate.intl.zju.edu.cn:8000/course/zjui-cs101-fa17/calendar/">View calendar</a></li>
+      
+      <li><a href="http://relate.intl.zju.edu.cn:8000/course/zjui-cs101-fa17/">Back to course page</a></li>
+    </ul>
+  </li>
+  
+
+  
+
+  
+
+  
+
+
+            
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            
+  
+
+
+            
+              
+              
+              
+                <li><a href="http://relate.intl.zju.edu.cn:8000/login/">Sign in</a></li>
+              
+            
+          </ul>
+          
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+
+    
+    <div class="container">
+      
+
+
+
+
+
+
+
+
+
+
+
+
+      
+  
+
+
+      
+  
+  
+  
+    <div class="well">
+      You're not currently signed in.
+      <a class="btn-lg btn-primary" href="http://relate.intl.zju.edu.cn:8000/login/?next=/course/zjui-cs101-fa17/" role="button">Sign in&nbsp;»</a>
+    </div>
+  
+
+
+  
+  <a id="Welcome"></a>
+    <h1>ZJUI CS101—Introduction to Computing for Engineering and Science</h1>
+<table class="table table-condensed">
+<thead>
+<tr>
+<th>What</th>
+<th>When and Where</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Lectures</strong></td>
+<td>Tue/Thu <a href="http://relate.intl.zju.edu.cn:8000/course/zjui-cs101-fa17/#lectures"><code>10h00–10h50</code></a> or <a href="http://relate.intl.zju.edu.cn:8000/course/zjui-cs101-fa17/#lectures"><code>11h00-11h50</code></a>; <code>A-0414</code></td>
+</tr>
+<tr>
+<td><strong>Labs</strong></td>
+<td>Wednesday, <a href="http://relate.intl.zju.edu.cn:8000/course/zjui-cs101-fa17/#labs"><code>schedule</code></a></td>
+</tr>
+<tr>
+<td><strong>Instructor</strong></td>
+<td><a href="mailto:zliao@zju.edu.cn"><code>Zicheng Liao</code></a></td>
+</tr>
+<tr>
+<td><strong>Teaching Assistant</strong></td>
+<td><a href="mailto:zlchn@zju.edu.cn"><code>Lei Zhao</code></a> <a href="mailto:liygcheng@zju.edu.cn"><code>Lechao Cheng</code></a> <a href="mailto:ql_huang@zju.edu.cn"><code>Qingle Huang</code></a></td>
+</tr>
+<tr>
+<td><strong>Class forum</strong></td>
+<td><a href="https://c.zju.edu.cn/" role="button" target="_blank" class="btn btn-info">Blackboard »</a></td>
+</tr>
+<tr>
+<td><strong>repl.it Python</strong></td>
+<td><a href="https://repl.it/languages/python3" role="button" target="_blank" class="btn btn-info">Run online »</a></td>
+</tr>
+<tr>
+<td><strong>Online Python Tutor</strong></td>
+<td><a href="http://www.pythontutor.com/" role="button" target="_blank" class="btn btn-info">Debug/visualize online »</a></td>
+</tr>
+<tr>
+<td><strong> Online Jupyter Notebook</strong></td>
+<td><a href="https://try.jupyter.org/" role="button" target="_blank" class="btn btn-info">Run online »</a></td>
+</tr>
+<tr>
+<td><strong>Anaconda's latest Python 3.X version to run  Jupyter Notebook</strong></td>
+<td><a href="http://jupyter.readthedocs.io/en/latest/install.html#installing-jupyter-using-anaconda-and-conda" role="button" target="_blank" class="btn btn-info">Download and install »</a></td>
+</tr>
+</tbody>
+</table>
+<h2>Lectures</h2>
+<p><a name="lectures"></a></p>
+<table class="table table-condensed">
+<thead>
+<tr>
+<th>Python Basics</th>
+<th>Date</th>
+<th>Supporting Resources</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="http://relate.intl.zju.edu.cn:8000/course/zjui-cs101-fa17/f/lectures/lec01.pdf">Lecture #1:  introduction</a></td>
+<td>2017-09-19</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="http://relate.intl.zju.edu.cn:8000/course/zjui-cs101-fa17/f/lectures/lec02.pdf">Lecture #2:  literals, variables</a></td>
+<td>2017-09-21</td>
+<td><a href="http://relate.intl.zju.edu.cn:8000/course/zjui-cs101-fa17/f/lectures/lec02notes.pdf">Python session</a></td>
+</tr>
+<tr>
+<td><a href="http://relate.intl.zju.edu.cn:8000/course/zjui-cs101-fa17/f/lectures/lec03.pdf">Lecture #3:  data types (<code>int</code>, <code>float</code>, <code>str</code>)</a></td>
+<td>2017-09-26</td>
+<td><a href="http://sites.cs.queensu.ca/courses/cisc121/Record/Week09/Arith.pdf">Floating point Overflow/Underflow</a>; <a href="https://koclab.cs.ucsb.edu/teaching/cs16/docx/Integers.pdf">Signed-integer representation (Pages 53-55)</a></td>
+</tr>
+<tr>
+<td><a href="http://relate.intl.zju.edu.cn:8000/course/zjui-cs101-fa17/f/lectures/lec04.pdf">Lecture #4:  string formatting, functions</a></td>
+<td>2017-09-28</td>
+<td></td>
+</tr>
+<tr>
+<td>[Lecture #5:  methods, coding]</td>
+<td>2017-10-10</td>
+<td></td>
+</tr>
+<tr>
+<td>[Lecture #6:  functions, conditionals]</td>
+<td>2017-10-12</td>
+<td></td>
+</tr>
+<tr>
+<td>[Lecture #7:  lists, <code>while</code> loops]</td>
+<td>2017-10-17</td>
+<td></td>
+</tr>
+<tr>
+<td>[Lecture #8:  branched conditionals, <code>for</code> loops, range]</td>
+<td>2017-10-19</td>
+<td></td>
+</tr>
+<tr>
+<td>[Lecture #9:  mutability, list and string methods]</td>
+<td>2017-10-24</td>
+<td></td>
+</tr>
+<tr>
+<td>[Lecture #10:  multidimensional indexing, file operations]</td>
+<td>2017-10-26</td>
+<td></td>
+</tr>
+<tr>
+<td>[Lecture #11:  dictionaries, mutable arguments]</td>
+<td>2017-10-31</td>
+<td></td>
+</tr>
+<tr>
+<td>[Midterm 1: No Lecture]</td>
+<td>TBA</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Python Applications</strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Numerical Python</strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>[Midterm 2: No Lecture]</td>
+<td>TBA</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>MATLAB!</strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>[Holiday Break: No Lecture]</td>
+<td>2017-12-26</td>
+<td></td>
+</tr>
+<tr>
+<td>[Holiday Break: No Lecture]</td>
+<td>2017-12-28</td>
+<td></td>
+</tr>
+<tr>
+<td>[Holiday Break: No Lecture]</td>
+<td>2018-01-02</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2>Homework</h2>
+<p>Homework assignments are due at 6:00 p.m. on the due date. Many homework assignments are from <a href="http://www.tcgo1.com/">the CodeLab site</a>.</p>
+<h2>Labs</h2>
+<p><a name="labs"></a></p>
+<table class="table table-condensed">
+<thead>
+<tr>
+<th>Lab Groups</th>
+<th>When</th>
+<th>Where</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A1</td>
+<td><strong>Wed 08h00–09h50</strong></td>
+<td>D-331</td>
+</tr>
+<tr>
+<td>A2</td>
+<td><strong>Wed 10h00–11h50</strong></td>
+<td>D-331</td>
+</tr>
+<tr>
+<td>A3</td>
+<td><strong>Wed 08h00–09h50</strong></td>
+<td>D-211</td>
+</tr>
+<tr>
+<td>B1</td>
+<td><strong>Wed 13h00–14h50</strong></td>
+<td>D-331</td>
+</tr>
+<tr>
+<td>B2</td>
+<td><strong>Wed 15h00–16h50</strong></td>
+<td>D-331</td>
+</tr>
+<tr>
+<td>B3</td>
+<td><strong>Wed 13h00–14h50</strong></td>
+<td>D-211</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>You should attend your own lab section to complete and submit assignments. Exceptions must be approved in advance.</p>
+<p>Late Policy: late submission made by Friday 12pm will receive 50% credit; 25% credit by the weekend (Sunday 12pm). No further extension is accepted.</p>
+<table class="table table-condensed">
+<thead>
+<tr>
+<th>Session</th>
+<th>Date</th>
+<th>Supporting Resources</th>
+<th>Reference ans</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Lab #1:  get started</td>
+<td>2017-09-20</td>
+<td>[lab01.pdf]</td>
+<td></td>
+</tr>
+<tr>
+<td>[Lab #2:  strings and operators]</td>
+<td>2017-09-27</td>
+<td>[lab02.ipynb]</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4>Python Installation</h4>
+<p>Although we can't provide technical support in setting up your personal machine, if you decide to install Python we warmly recommend using <a href="https://www.continuum.io/downloads">Anaconda Python</a> 3.5.</p>
+<h4>Octave (Free Verion "MatLab") Installation</h4>
+<p>You can use an online version of Octave <a href="http://octave-online.net/">here</a>. You can also <a href="https://www.gnu.org/software/octave/download.html">download and install Octave</a> on your own laptop or desktop so that you can use it when offline.</p>
+<h2>Examinations</h2>
+<p>Please bring your campus card and arrive early.  Consider visiting the location ahead of time so you know where you'll be taking the exam.</p>
+<table class="table table-condensed">
+<thead>
+<tr>
+<th>Exam</th>
+<th>Date</th>
+<th>Supporting Resources</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Midterm 1</td>
+<td>TBA</td>
+<td></td>
+</tr>
+<tr>
+<td>Midterm 2</td>
+<td>TBA</td>
+<td></td>
+</tr>
+<tr>
+<td>Final</td>
+<td>TBA</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Conflict exams are available for students with approved exceptions (such as another exam at the same time).  Email course administration <em>prior</em> to the date of the midterm for more information.</p>
+<h2>Office Hours</h2>
+<p>Please email the instructor <a href="mailto:zliao@zju.edu.cn"><code>zliao@zju.edu.cn</code></a> to arrange a meeting by providing your available time slots.</p>
+<h2>References</h2>
+<p>There is no physical textbook to buy for this course. Below, you will find references that will help you. Some are online textbooks. Others are interactive tutorials. They are listed here in order of quality. If you feel confused or lost, start with Code Academy.</p>
+<ul>
+<li><a href="https://www.codecademy.com/en/tracks/python">CodeAcademy</a></li>
+<li>Book: <a href="https://mitpress.mit.edu/books/introduction-computation-and-programming-using-python-0">Introduction to Computation and Programming Using Python</a> (<a href="http://product.dangdang.com/1483202832.html">a Chinese edition</a>), <a href="https://archive.org/details/IntroductionToComputationAndProgrammingUsingPythonRevisedGuttagJohnV.">archive.org</a></li>
+<li>Book: <a href="https://books.trinket.io/pfe/index.html">Python for Everyone: Exploring Data with Python 3</a></li>
+<li><a href="http://www.greenteapress.com/thinkpython/">Think Python</a></li>
+<li><a href="http://learnpythonthehardway.org/book/">Learning Python the Hard Way</a></li>
+<li><a href="http://www.swaroopch.com/notes/python/">A Byte of Python</a></li>
+<li><a href="http://interactivepython.org/runestone/static/thinkcspy/toc.html#t-o-c">How to Think Like a Computer Scientist</a></li>
+<li><a href="https://en.wikibooks.org/wiki/Non-Programmer%27s_Tutorial_for_Python_3">Non-Programmers Tutorial for Python</a></li>
+<li><a href="https://docs.python.org/3/tutorial/">The Python Tutorial</a></li>
+</ul>
+<h2>Grading</h2>
+<table class="table table-condensed">
+<thead>
+<tr>
+<th>Component</th>
+<th>Fraction of Total</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Homework</td>
+<td>20%</td>
+<td>Lowest grade dropped</td>
+</tr>
+<tr>
+<td>Labs</td>
+<td>25%</td>
+<td>Lowest grade dropped</td>
+</tr>
+<tr>
+<td>Lecture quiz</td>
+<td>10%</td>
+<td>Participation-based; can drop three</td>
+</tr>
+<tr>
+<td>Midterms</td>
+<td>20%</td>
+<td></td>
+</tr>
+<tr>
+<td>Final</td>
+<td>25%</td>
+<td>Comprehensive</td>
+</tr>
+</tbody>
+</table>
+<h3>Absence Policy</h3>
+<p>Students should attend the lecture and lab section for which they registered, or they will receive a zero for that lecture attendance or lab. Permitted absences require proof of overriding considerations. Official proof of absence need to be in forms of doctor's note or letter provided by an authority that clearly states that the purpose of the letter is to prove absence; examples include a doctor's note, travel proof from an athletic team, etc. Special events might be taken into consideration only if it was contacted at least 72 hours in advance. To request for absence, students shall email the instructor <a href="mailto:zliao@zju.edu.cn"><code>zliao@zju.edu.cn</code></a>.</p>
+<p>When a student has a permitted absence for lab, make-up labs will be arranged. Make-up labs will be held in office hours under supervision.</p>
+<h3>Academic Integrity</h3>
+<p>Cheating not only robs you of an opportunity to learn, it also devalues your peers' hard work. Because of this, we take cheating very seriously in this course. The first case of cheating will result in a zero on the assignment or exam. The second case of cheating will result in a zero for the course. We will also report instances of cheating to the college and to your department. You'll find the official UIUC university policies on academic integrity <a href="http://studentcode.illinois.edu/article1_part4_1-402.html">here</a>. You can learn more about the UIUC Computer Science Department's stance <a href="https://wiki.illinois.edu//wiki/display/undergradProg/Honor+Code">here</a>.</p>
+<p>Plagiarism is also very easy to detect in a programming class. Do not take shortcuts. Always do your own work. Note that we encourage discussion on course content. However, please write answers/codes to homework and lab assignments on your own (unless in some labs when you are instructed to complete assignments in pairs or groups).</p>
+<p>Our philosophy in this course is based on the fact that (in real life) most of the time you have access to many resources: websites, peers, mentors, books, and others' source code. Your competence will be greatly increased by the resources you can use without recourse to external references, but when learning it only makes sense to let you function in a realistic manner. Thus, for lab exercises and assignments, you should work alone unless told otherwise, but you may consult outside sources of information. Any consultation is subject to the following restrictions: (1) you may not copy that source's work verbatim (i.e., ALWAYS write YOUR OWN code!); and (2) you must cite all sources used and the contribution they made to your work. This policy is designed to protect you against plagiarism.</p>
+<p>You must also protect your own work from plagiarism. If you allow your peers to copy your work, you could end up with academic dishonesty. Do not send solutions to your peers. Do not show them your solution. Do not give out your account passwords. Do not leave your login sessions active.</p>
+  
+
+
+    </div>
+    
+
+    
+    <!-- JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script type="text/javascript" src="./CS101_ Fall 2017 - RELATE_files/MathJax.js.下载">
+    </script>
+    <script type="text/x-mathjax-config;executed=true">
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js", "TeX/boldsymbol.js"],
+        messageStyle: "none",
+        // jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+          displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+          processEscapes: true
+        },
+      });
+    </script>
+  
+
+</body></html>
