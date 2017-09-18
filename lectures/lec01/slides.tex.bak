@@ -286,7 +286,7 @@
 	\textcolor{\CSBase}{\small \texttt{\url{https://en.wikipedia.org/wiki/ILLIAC}}}
 \end{frame}
 
-
+\iffalse
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}[fragile]
   \frametitle{Instruction}
@@ -315,6 +315,22 @@
   \includegraphics[width=\textwidth]{./img/assembler-4.png}
 \end{frame}
 
+\fi
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Instruction}
+
+  \includegraphics[width=\textwidth]{./img/assembler-4.png}\pause
+  \begin{itemize}
+    \myitem an instruction consists a sequence of 8-bit signals
+    \myitem byte: an 8-bit signal
+    \myitem a bit: 0 or 1 (binary)
+  \end{itemize}
+\end{frame}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
@@ -332,8 +348,9 @@
   \frametitle{Programming language}
 
   %\begin{centering}
-  \includegraphics[width=0.5\textwidth]{./img/python-logo.png} \hfill\\
-  \hspace{5mm}{\small Python (logo)}
+  \includegraphics[width=0.3\textwidth]{./img/python-logo.png} \hspace{5mm}
+  \includegraphics[width=0.3\textwidth]{./img/matlab.png}  \\
+  \hspace{5mm}{\small Python}
   %\end{centering}
 \end{frame}
 
@@ -495,11 +512,11 @@ num_raindrops = volume_rain / volume_raindrop}
 	
 \end{frame}
 
-
+\iffalse
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}[fragile]
   \frametitle{Computability Thesis}
- \centering
+  \centering
   \includegraphics[width=0.75\textwidth]{./img/turing-et-al.jpg}\\
   The ``Church-Turing thesis''\\
   \textcolor{\CSBase}{\tiny \texttt{\url{https://en.wikipedia.org/wiki/Church\%E2\%80\%93Turing_thesis}}}
@@ -510,7 +527,7 @@ num_raindrops = volume_rain / volume_raindrop}
   \end{center}
 \end{frame}
 
-\iffalse
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}[fragile]
@@ -573,22 +590,17 @@ num_raindrops = volume_rain / volume_raindrop}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\iffalse
 \section{Reminders}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
+\begin{frame}[plain,c]
   \frametitle{Reminders}
   \Enlarge
 
-  %\begin{itemize}
- % \myitem i>clicker \\ \textcolor{\CSGradBot}{\footnotesize\hspace{1em} Grades count starting Wed 08-31}
-  %\end{itemize}
   \begin{center}
-    \textcolor{\CSBase}{\small \texttt{\url{http://relate.intl.zju.edu.cn:8000/course/zjui-cs101-fa17/}}}
+    {\Huge Lab \#1 this Wednesday}\\ \vspace{2mm}
+    \textcolor{\CSBase}{({\bf Bring your Laptop to the Lab session})}
   \end{center}
 \end{frame}
-
-\fi
 
 \end{document}

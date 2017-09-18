@@ -21,7 +21,7 @@
 \title{Welcome to CS \emph{101}!}
 \subtitle{Introduction to Programming}
 \author{CS101 Lecture \#1}
-\date{2016-09-26}
+\date{2017-09-19}
 
 %\setcounter{showSlideNumbers}{1} %commented by Tao to avoid error
 
@@ -86,22 +86,6 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
-  \frametitle{Grading}
-  \begin{tabular}{*{27}{ll}}
-    \toprule
-    20\% & Homework \\
-    25\% & Labs \\
-    10\% & Lecture Participation \\
-    20\% & Midterms \\
-    25\% & Final Exam \\
-    \bottomrule
-  \end{tabular}
-\end{frame}
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
   \frametitle{Required Supplies}
   %\Enlarge %commented by Tao to avoid error
 
@@ -109,7 +93,7 @@
     %\myitem i>clicker \\ \textcolor{\CSGradBot}{\footnotesize\hspace{1em} Grades count starting Wed 08-31} \pause  %commented by Tao to avoid error
     %\myitem CodeLab account \\ \textcolor{\CSGradBot}{\footnotesize\hspace{1em} Instructions in \texttt{hw01}} \pause %commented by Tao to avoid error
     %\myitem No textbook! %commented by Tao to avoid error
-    \item CodeLab account \\ \textcolor{\CSGradBot}{\footnotesize\hspace{1em} online programming exercising platform for homeworks}
+    \item CodeLab account \\ \textcolor{\CSGradBot}{\footnotesize\hspace{1em} online programming platform for homeworks}
     					\\ \textcolor{\CSGradBot}{\footnotesize\hspace{1em} Instructions in \texttt{lab01} (tomorrow) for registration}
     					%\\ \textcolor{\CSGradBot}{\footnotesize\hspace{1em} Have your CodeLab account registered before the Lab session (starts on Wednesday!)}
     %\pause %commented by Tao to avoid error
@@ -129,8 +113,8 @@
     \myitem No late homework submissions. \pause
     \myitem All machine-generated grades are final. \pause
     \myitem Late registrants should keep up with work. \\ \textcolor{\CSGradBot}{\footnotesize\hspace{1em} Corollary:  No extensions or exceptions for late registration.} \pause
-    \myitem Get help at Blackboard forum. \\ \textcolor{\CSGradBot}{\footnotesize\hspace{1em} Be civil to staff and peers.}\pause
-    							       \\ \textcolor{\CSGradBot}{\footnotesize\hspace{1em} All posts containing solutions should be marked as private.}
+    \myitem Get help at Blackboard forum. \\ \textcolor{\CSGradBot}{\footnotesize\hspace{1em} Be civil to staff and peers.}
+    							       %\\ \textcolor{\CSGradBot}{\footnotesize\hspace{1em} All posts containing solutions should be marked as private.}
   \end{itemize}
 \end{frame}
 
@@ -153,6 +137,21 @@
 
 \end{frame}
 \fi
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+  \frametitle{Grading}
+  \begin{tabular}{*{27}{ll}}
+    \toprule
+    20\% & Homework \\
+    25\% & Labs \\
+    10\% & Lecture Participation \\
+    20\% & Midterms \\
+    25\% & Final Exam \\
+    \bottomrule
+  \end{tabular}
+\end{frame}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}[plain,c]
@@ -286,7 +285,7 @@
 	\textcolor{\CSBase}{\small \texttt{\url{https://en.wikipedia.org/wiki/ILLIAC}}}
 \end{frame}
 
-
+\iffalse
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}[fragile]
   \frametitle{Instruction}
@@ -315,6 +314,22 @@
   \includegraphics[width=\textwidth]{./img/assembler-4.png}
 \end{frame}
 
+\fi
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Instruction}
+
+  \includegraphics[width=\textwidth]{./img/assembler-4.png}\pause
+  \begin{itemize}
+    \myitem an instruction consists a sequence of 8-bit signals
+    \myitem byte: an 8-bit signal
+    \myitem a bit: 0 or 1 (binary)
+  \end{itemize}
+\end{frame}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
@@ -332,8 +347,9 @@
   \frametitle{Programming language}
 
   %\begin{centering}
-  \includegraphics[width=0.5\textwidth]{./img/python-logo.png} \hfill\\
-  \hspace{5mm}{\small Python (logo)}
+  \includegraphics[width=0.3\textwidth]{./img/python-logo.png} \hspace{5mm}
+  \includegraphics[width=0.3\textwidth]{./img/matlab.png}  \\
+  \hspace{5mm}{\small Python}
   %\end{centering}
 \end{frame}
 
@@ -495,7 +511,7 @@ num_raindrops = volume_rain / volume_raindrop}
 	
 \end{frame}
 
-
+\iffalse
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}[fragile]
   \frametitle{Computability Thesis}
@@ -510,7 +526,7 @@ num_raindrops = volume_rain / volume_raindrop}
   \end{center}
 \end{frame}
 
-\iffalse
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}[fragile]
@@ -549,7 +565,7 @@ num_raindrops = volume_rain / volume_raindrop}
 	\frametitle{}
 	\Enlarge
 	\vspace{5mm}
-	``Good leaders ask how to do; great leaders ask what to do.''
+	Good leaders ask how to do things; great leaders ask what to do.
 	
 	\vspace{2mm}
 	\hfill \includegraphics[width=0.3\textwidth]{./img/wenmei.png} \hspace{10mm} \\
@@ -573,22 +589,17 @@ num_raindrops = volume_rain / volume_raindrop}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\iffalse
 \section{Reminders}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
+\begin{frame}[plain,c]
   \frametitle{Reminders}
   \Enlarge
 
-  %\begin{itemize}
- % \myitem i>clicker \\ \textcolor{\CSGradBot}{\footnotesize\hspace{1em} Grades count starting Wed 08-31}
-  %\end{itemize}
   \begin{center}
-    \textcolor{\CSBase}{\small \texttt{\url{http://relate.intl.zju.edu.cn:8000/course/zjui-cs101-fa17/}}}
+    {\Huge Lab \#1 this Wednesday}\\ \vspace{2mm}
+    \textcolor{\CSBase}{({\bf Bring your Laptop to the Lab session})}
   \end{center}
 \end{frame}
-
-\fi
 
 \end{document}
