@@ -35,9 +35,9 @@ chunks:
         | Python Basics | Date       | Supporting Resources |
         | ------- | ---------- | -------------------- |
         | [Lecture #1:  introduction](repocur:lectures/lec01.pdf) | 2017-09-19 |  |
-        | [Lecture #2:  literals, variables](repocur:lectures/lec02.pdf) | 2017-09-21 | [Python session](repocur:lectures/lec02notes.pdf) |
-        | [Lecture #3:  data types (`int`, `float`, `str`)](repocur:lectures/lec03.pdf) | 2017-09-26 | [Floating point Overflow/Underflow](http://sites.cs.queensu.ca/courses/cisc121/Record/Week09/Arith.pdf); [Signed-integer representation (Pages 53-55)](https://koclab.cs.ucsb.edu/teaching/cs16/docx/Integers.pdf)|
-        | [Lecture #4:  string formatting, functions](repocur:lectures/lec04.pdf) | 2017-09-28 |  |
+        | [Lecture #2:  literals, variables] | 2017-09-21 | [Python session](repocur:lectures/lec02notes.pdf) |
+        | [Lecture #3:  data types (`int`, `float`, `str`)] | 2017-09-26 | [Floating point Overflow/Underflow](http://sites.cs.queensu.ca/courses/cisc121/Record/Week09/Arith.pdf); [Signed-integer representation (Pages 53-55)](https://koclab.cs.ucsb.edu/teaching/cs16/docx/Integers.pdf)|
+        | [Lecture #4:  string formatting, functions] | 2017-09-28 |  |
         | [Lecture #5:  methods, coding] | 2017-10-10 |  |
         | [Lecture #6:  functions, conditionals] | 2017-10-12 | |
         | [Lecture #7:  lists, `while` loops] | 2017-10-17 |  |
