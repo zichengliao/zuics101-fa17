@@ -58,7 +58,10 @@ chunks:
         ##  Homework 
 
         Homework assignments are due at 6:00 p.m. on the due date. Many homework assignments are from [the CodeLab site](http://www.tcgo1.com/).
-
+        
+        |            |          |          |
+        | ---------- | -------- | -------- |
+        | [![](repocur:img/banner-hw01.png)](flow:hw01) <br/> **Due** 2017-9-25 | | |
                 
         ##  Labs
         <a name="labs"></a>
@@ -79,7 +82,7 @@ chunks:
         
         | Session     | Date       | Supporting Resources | Reference ans |
         | ------- | ---------- | ----------------- | ---------- |
-        | Lab #1:  get started | 2017-09-20 | [lab01.pdf] | |
+        | Lab #1:  get started | 2017-09-20 | [lab01.pdf](repocur:labs/lab01.pdf) | |
         | [Lab #2:  strings and operators] | 2017-09-27 | [lab02.ipynb] | |
         | | | | |
         
@@ -106,7 +109,7 @@ chunks:
 
         ##  Office Hours
 
-        Please email the instructor [`zliao@zju.edu.cn`](mailto:zliao@zju.edu.cn) to arrange a meeting by providing your available time slots.
+        Please email the instructor to arrange a meeting by providing your available time slots.
         
     
         ## References
