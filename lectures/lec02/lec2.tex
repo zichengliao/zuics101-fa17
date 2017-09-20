@@ -99,13 +99,25 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
+  \frametitle{Question \#4}
+  \Enlarge
+
+  Python is:
+  \begin{enumerate}[label=\Alph*]
+  \item  \emph{an interpreted language}
+  \item  a compiled language
+  \end{enumerate}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
   \frametitle{Interpreted vs Compiled}
   \Enlarge
 
   \begin{itemize}
-    \item A \emph{compiled} language has a compiler to compile its code into machine instructions. E.g. C, C++\\
+    \item A \emph{compiled} language has a compiler to compile its code into machine instructions, e.g., C, C++\\
     
-    \item A \emph{interpreted} language executes its program directly without pre-compilation of the entire code.  E.g., python, matlab
+    \item A \emph{interpreted} language executes its program directly -- one line at a time,  e.g., python, matlab
   \end{itemize}
 
 \end{frame}
@@ -119,7 +131,7 @@
 \begin{frame}
   \frametitle{Literal}
   	{\Enlarge What is a literal? }\\ \pause
-	A fixed value, e.g. 5, 3 + 7, 'a string'
+	A fixed value, e.g. 5, 'apple'
 \end{frame}
 
 
@@ -147,6 +159,7 @@
 
   \begin{itemize}
   \myitem  Manipulates data (verb)
+  \myitem \texttt{+},\texttt{-},\texttt{*},\texttt{/}
   \end{itemize}
 \end{frame}
 
@@ -158,7 +171,7 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
-  \frametitle{It needs a statement to make sense!}
+  \frametitle{It needs operands to make sense!}
   \includegraphics[width=\textwidth]{./img/computer-operator-1.png}
 \end{frame}
 
@@ -168,8 +181,8 @@
   \Enlarge
 
   \begin{itemize}
-  \myitem  Combines literals and operators (phrase) \pause
-  \myitem  Produce a new value
+  \myitem  The combination of operands and operators \pause
+  \myitem  Produce a new value (another literal)
     \begin{itemize}
     \mysubitem  \texttt{3 * 5}
     \mysubitem  \texttt{100 - 23}
@@ -204,10 +217,25 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
-  \frametitle{Question}
+  \frametitle{Order of Operator}
   \Enlarge
 
+  (also called: Operator Precedence)\\
   $\mathtt{1 + 1 * 2} \overset{?}{=}$
+  \begin{enumerate}[label=\Alph*]
+  \item  4
+  \item  3
+  \item  Something else
+  \end{enumerate}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+  \frametitle{Change order of operator by parentheses}
+  \Enlarge
+
+  $\mathtt{(1 + 1) * 2} \overset{?}{=}$
   \begin{enumerate}[label=\Alph*]
   \item  4
   \item  3
@@ -220,22 +248,39 @@
   \frametitle{Question}
   \Enlarge
 
-  $\mathtt{23 + 6 / 2 - 4} \overset{?}{=}$
+  $\mathtt{23 + 6 \texttt{/}  2 - 4} \overset{?}{=}$
   \begin{enumerate}[label=\Alph*]
   \item  22
-  \item  18
-  \item  -9
+  \item  -1
+  \item  35
   \item  Something else
   \end{enumerate}
 \end{frame}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
   \frametitle{Use parentheses!}
   \Enlarge
 
-  $\mathtt{23 + \left(6 / 2\right) - 4}$ is always clearer.
+  $\mathtt{23 + (6 \texttt{/} 2) - 4}$ is always clearer.
 \end{frame}
+
+
+\iffalse
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+  \frametitle{Use parentheses!}
+  \Enlarge
+  
+  $\mathtt{23 + \left(6 / 3\right) - 4}$ is always clearer.
+  %\begin{itemize}
+  %\myitem $\mathtt{23 + \left(6 / 2\right) - 4}$ is always clearer. \pause
+  %\myitem avoid mistake when expression gets complicated \pause
+  %\myitem readability!
+  %\end{itemize}
+\end{frame}
+\fi
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
@@ -245,7 +290,16 @@
   \begin{itemize}
   \myitem  exponentiation, \texttt{**} \pause
   \myitem  modulus, \texttt{\%}  (important) \pause
-  \myitem  floor division, \texttt{//}
+  	\begin{itemize} 
+	%\mysubitem a\%b: reminder of a\texttt{/}b \pause
+	\mysubitem 5\texttt{\%}2 = 1 \pause
+	\end{itemize}
+  \myitem  floor division, \texttt{//}\pause
+        \begin{itemize} 
+	\mysubitem 5\texttt{//}2 = 2 \pause
+	\mysubitem (-5)\texttt{//}2 = ? 
+	%\mysubitem a\texttt{\%}b = a - (a\texttt{//}b)\texttt{*}b
+	\end{itemize}
   \end{itemize}
 \end{frame}
 
@@ -256,11 +310,11 @@
 
   \begin{itemize}
   \myitem  bitwise \texttt{OR}, \texttt{|}
-  \myitem  bitwise \texttt{XOR}, \texttt{\^{}}
   \myitem  bitwise \texttt{AND}, \texttt{\&}
-  \myitem  bitwise left shift, \texttt{<{}<}
-  \myitem  bitwise right shift, \texttt{>{}>}
+  \myitem  bitwise \texttt{XOR}, \texttt{\^{}}
   \end{itemize}
+  
+  \includegraphics[width=0.8\textwidth]{./img/logictable.png}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -278,8 +332,28 @@
   \end{enumerate}
 \end{frame}
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+  \frametitle{What are some other operators?}
+  \Enlarge
+
+  \begin{itemize}
+  \myitem  bitwise left shift, \texttt{<{}<}
+  \myitem  bitwise right shift, \texttt{>{}>}
+  \end{itemize}  \pause
+  
+  \hspace{5mm} 00001111 \texttt{<{}<} 1 = 00011110 \\ \pause
+  %\hspace{5mm} a \texttt{<{}<} b = a*(2**b) \\ \pause
+  \hspace{5mm} 00011110 \texttt{>{}>} 2 = 00000111
+  %\hspace{5mm} what does ``a \texttt{>{}>} b'' equal to? \\ \pause
+  %\hspace{5mm} a \texttt{>{}>} b = a//(2**b) 
+  
+\end{frame}
+
 %TODO: make a graphic
 %http://www.tutorialspoint.com/python/bitwise_operators_example.htm
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
@@ -304,6 +378,7 @@
   \includegraphics[width=\textwidth]{./img/computer-memory-0.png}
 \end{frame}
 
+\iffalse
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
   \frametitle{How do we reuse values?}
@@ -311,13 +386,15 @@
 
   \begin{itemize}
   \myitem  Low-level languages refer directly to memory address:
+  
   \begin{tabular}{*{27}{l}}
+    \texttt{LOAD DATA AT} & \texttt{00001101 01001110} \\
     \texttt{ADD DATA AT}     & \texttt{10101101 11010100} \\
-    \texttt{TO DATA AT}      & \texttt{11010100 01001001} \\
-    \texttt{STORE RESULT AT} & \texttt{00001101 01001110} \\
   \end{tabular}
   \end{itemize}
 \end{frame}
+
+\fi
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
@@ -396,12 +473,35 @@
   \texttt{x = 17 + 7*9} \\
   \texttt{x = 3}
   \begin{enumerate}[label=\Alph*]
-  \item  0
   \item  1
-  \item  2
   \item  3
+  \item  6
+  \item Something Else
   \end{enumerate}
 \end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+  \frametitle{Example}
+  \Enlarge
+
+  What value is stored in the variable \texttt{x}? \\
+  \texttt{x = 17 + 7*9} \\
+  \texttt{x = 3}\\
+  \texttt{x + 3}
+  \begin{enumerate}[label=\Alph*]
+  \item  1
+  \item  3
+  \item  6
+  \item Something Else
+  \end{enumerate}\pause
+  
+  \vspace{2mm}
+  \texttt{x + 3} is a literal\\
+  The execution of a literal does not change machine state
+  
+\end{frame}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
@@ -409,7 +509,7 @@
   \Enlarge
 
   \begin{itemize}
-  \myitem  A statement changes the state of the computer (sentence) \pause
+  \myitem  A \emph{statement} changes the state of the computer (sentence) \pause
   \myitem  Example:  an assignment
   \end{itemize}
 \end{frame}
@@ -422,11 +522,13 @@
   \begin{itemize}
   \myitem  Programs consist of series of statements: \pause
     \begin{itemize}
-    \mysubitem  A script is a file containing a series of Python statement. \pause
-    \mysubitem  A notebook (as we use in the lab) also collects series of Python statements. \pause
-    \mysubitem  These are stored in text (thereâ€™s no magic, just text). \pause
+    \mysubitem  A series of python statements is also called a python \emph{script}. \pause
+    %\mysubitem  A notebook (as we use in the lab) also collects series of Python statements. \pause
+    \mysubitem  A python script is stored in text that you can edit (thereâ€™s no magic, just text). \pause
+    %\mysubitem There are various IDEs for writing and managing complicated programs (1000+ code files) \pause
+    %\mysubitem IDE: integrated development environment for writing programs and manage them \pause
   \end{itemize}
-  \myitem  Each instruction is executed in order from top to bottomâ€”together, these statements make up a program.
+  \myitem  Each statement is executed in order from top to bottom by the python interpreter --€”together, these statements  form a program.
   \end{itemize}
  \end{frame}
 
@@ -439,8 +541,14 @@
 x = 10
 y = x ** 2
 y = y + y
-  \end{semiverbatim}
+  \end{semiverbatim} \pause
+  
+  {\small
+  Save the code to file: my\_first\_script.py \\
+  Run from your command line window (Linux or iOS, Windows also OK):\\ >> python my\_first\_script.py }
 \end{frame}
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Reminders}
@@ -453,7 +561,7 @@ y = y + y
   \begin{itemize}
   %\myitem  Register your i>clicker on Compass.
   %\myitem  
-  \item Homework \#1 due Friday, Sept.\ 30, 6:00 p.m.
+  \item Homework \#1 due Monday, Sep.\ 25, 6:00 p.m.
   \end{itemize}
 \end{frame}
 
