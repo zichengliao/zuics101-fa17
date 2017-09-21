@@ -34,26 +34,11 @@ chunks:
         
         | Python Basics | Date       | Supporting Resources |
         | ------- | ---------- | -------------------- |
-        | [Lecture #1:  introduction](repocur:lectures/lec01.pdf) | 2017-09-19 |  |
-        | [Lecture #2:  literals, variables] | 2017-09-21 | [Python session](repocur:lectures/lec02notes.pdf) |
+        | [Lecture #1:  Introduction](repocur:lectures/lec01.pdf) | 2017-09-19 |  |
+        | [Lecture #2:  literals, variables](repocur:lectures/lec02.pdf) | 2017-09-21 | [Python session](repocur:lectures/lec02notes.pdf) |
         | [Lecture #3:  data types (`int`, `float`, `str`)] | 2017-09-26 | [Floating point Overflow/Underflow](http://sites.cs.queensu.ca/courses/cisc121/Record/Week09/Arith.pdf); [Signed-integer representation (Pages 53-55)](https://koclab.cs.ucsb.edu/teaching/cs16/docx/Integers.pdf)|
-        | [Lecture #4:  string formatting, functions] | 2017-09-28 |  |
-        | [Lecture #5:  methods, coding] | 2017-10-10 |  |
-        | [Lecture #6:  functions, conditionals] | 2017-10-12 | |
-        | [Lecture #7:  lists, `while` loops] | 2017-10-17 |  |
-        | [Lecture #8:  branched conditionals, `for` loops, range] | 2017-10-19 |  |
-        | [Lecture #9:  mutability, list and string methods] | 2017-10-24 | |
-        | [Lecture #10:  multidimensional indexing, file operations] | 2017-10-26 | |
-        | [Lecture #11:  dictionaries, mutable arguments] | 2017-10-31 | |
-        | [Midterm 1: No Lecture]|  TBA |  |
-        | **Python Applications** | | |
-        | **Numerical Python** | | |
-        | [Midterm 2: No Lecture]|  TBA |  |
-        | **MATLAB!** | | |
-        | [Holiday Break: No Lecture]|  2017-12-26 |  |
-        | [Holiday Break: No Lecture]|  2017-12-28 |  |
-        | [Holiday Break: No Lecture]|  2018-01-02 |  |
         | | | |
+        
         
         ##  Homework 
 
@@ -83,7 +68,6 @@ chunks:
         | Session     | Date       | Supporting Resources | Reference ans |
         | ------- | ---------- | ----------------- | ---------- |
         | Lab #1:  get started | 2017-09-20 | [lab01.pdf](repocur:labs/lab01.pdf) | |
-        | [Lab #2:  strings and operators] | 2017-09-27 | [lab02.ipynb] | |
         | | | | |
         
         #### Python Installation
