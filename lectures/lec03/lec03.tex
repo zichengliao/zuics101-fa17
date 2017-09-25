@@ -38,8 +38,8 @@
   \Enlarge
   \begin{itemize}
   \mysubitem  Homework \#1 deadline just passed.
-  \mysubitem  Final answer counts.
-  \mysubitem  Answers have been released on CodeLab.
+  %\mysubitem  Final answer counts.
+  \mysubitem  Solutions have been released on CodeLab.
   \end{itemize}
 \end{frame}
 
@@ -51,10 +51,11 @@
   \myitem  Where can you get help in this class?
     \begin{itemize}
     \mysubitem  Blackboard forum 
-    \mysubitem  Instructors in labs and office hours 
+    \mysubitem  Lab and office hours 
     \mysubitem  Email me
-    \end{itemize} \pause
-   \myitem  You don't need to install Python---but you're encouraged to have one.
+    \mysubitem  \emph{Make use of search engine!}
+    \end{itemize} %\pause
+   %\myitem  You don't need to install Python---but you're encouraged to have one.
   \end{itemize}
 \end{frame}
 
@@ -233,11 +234,11 @@ x = 5
   \Enlarge
 
   \texttt{01001000 01000101 01001100 01001100} \\
-  A binary code that passes through a processor
+  A computer binary code
   \begin{itemize}
-  \myitem  Machine binary code represents different kinds of data (5, 'apple', operator +, memory address) \pause
+  \myitem  Computer represents different kinds of data (5, 'apple', operator +) in 0s and 1s\pause
   \myitem  Different types of data are {\bf encoded} in binary with different rules \pause
-  \myitem  The same binary data can be interpreted in different ways based on their \emph{data type}
+  \myitem What is \emph{encoding}?
   \end{itemize}
 \end{frame}
 
@@ -246,7 +247,9 @@ x = 5
 \begin{frame}
   \frametitle{Example}
   \Enlarge
-
+  The same binary data can be interpreted in different ways based on their \emph{data type} \\ \pause
+  
+  \vspace{4mm}
   \texttt{01100111} can be the number \texttt{103}, hexadecimal \texttt{67}, or a letter \texttt{'g'}, etc. \\ \pause
   
   \vspace{4mm}
@@ -376,12 +379,12 @@ x = 5
     \textcolor{CS101GradBot}{(Anything with a decimal point---\texttt{2.4}, \texttt{3.0}.)} \pause
   \myitem  What's different? \pause
     \begin{itemize}
-    \mysubitem  represents \emph{Real numbers} (integers, fractional, and $\pi$, $e$) 
-    \mysubitem  up to a precision \pause
+    \mysubitem  represents \emph{Real numbers} (integers, fractional, and $\pi$, $e$, sqrt(2), etc.) \pause
+    \mysubitem  up to a precision and limit (maximum and minimum)
     \end{itemize}
-  \myitem Floating point representation in Binary
+  %\myitem Floating point representation in Binary
   \end{itemize}
-  \hspace{7mm}\textcolor{blue}{\small \texttt{\url{https://en.wikipedia.org/wiki/IEEE_754-1985}}} {\small(IEEE 754 standard)}
+  %\hspace{7mm}\textcolor{blue}{\small \texttt{\url{https://en.wikipedia.org/wiki/IEEE_754-1985}}} {\small(IEEE 754 standard)}
   %\textcolor{blue}{\small \texttt{\url{http://sites.cs.queensu.ca/courses/cisc121/Record/Week09/Arith.pdf}}}
 \end{frame}
 
@@ -418,7 +421,8 @@ x = 5
   %\Enlarge
   \begin{center}
   \vspace{3mm}
-  \includegraphics[width=0.55\textwidth]{./img/monroeeinstein.png}
+  \includegraphics[width=0.55\textwidth]{./img/monroeeinstein.png}\\
+  Einstein or Monroe?
   \end{center}
 \end{frame}
 
@@ -505,7 +509,7 @@ z = x + y
   \Enlarge
   \includegraphics[width=\textwidth]{./img/ascii-table.png} \\ \pause
   
-  {\small The table provides an \emph{encoding} scheme from number to symbols} \\
+  {\small The table provides an \emph{encoding} scheme from symbols to numbers} \\
   \texttt{72 69 76 76 79} = \texttt{H E L L O} %\pause
   
   %\texttt{'HELLO'}
@@ -568,7 +572,7 @@ z = x + y
     \begin{itemize}
     \mysubitem  Uses the \texttt{+} symbol
     \mysubitem  \texttt{'RACE' + 'CAR'} \pause
-    \mysubitem the ``same'' operator work differently with different operands (\emph{operator overload})
+    \mysubitem the ``same'' operator works differently with different types of operand (\emph{operator overload})
     \end{itemize} \pause
   \myitem  \textbf{Repetition}:  repeat a string
     \begin{itemize}
@@ -594,7 +598,7 @@ z = x + y
     \mysubitem  Requires indicator of type inside of string
     \end{itemize} \pause
   \begin{semiverbatim}
-x = 100 * 54
+x = 123 * 54
 s = "String is: %i" % x
 print(s)
   \end{semiverbatim}
