@@ -1,0 +1,563 @@
+%!TEX program = xelatex
+\documentclass[11pt]{beamer}
+
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{blindtext}
+\usepackage{enumitem}
+\usepackage{fancyvrb}
+
+\usetheme{SaoPaulo}
+
+\title{Python Basics!}
+\subtitle{scripting, logic, control}
+\author{CS101 Lecture \#6}
+\date{2016-10-17}
+
+\setcounter{showSlideNumbers}{1}
+
+\begin{document}
+  \setcounter{showProgressBar}{0}
+  \setcounter{showSlideNumbers}{0}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\frame{\titlepage}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setcounter{framenumber}{0}
+\setcounter{showProgressBar}{1}
+\setcounter{showSlideNumbers}{1}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Administrivia}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+  \frametitle{Administrivia}
+  \Enlarge
+  \begin{itemize}
+  \myitem  Homework \#2 is due Wed Oct.\ 19.
+  \myitem  Homework \#3 is due Wed Oct.\ 26.
+  \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Warmup Question (No Quiz this lecture!)}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+	\frametitle{Question \#1}
+	\Enlarge
+	
+	\begin{Verbatim}[commandchars=\\\{\},commentchar=\%]
+    s = "74.125.21.147"
+    i = s.find( "." )
+    x = s[i+1:i+3]
+    x = x * 2
+	\end{Verbatim}
+	What is the value of \texttt{x}?
+	\begin{enumerate}[label=\Alph*]
+		\item  \texttt{"125125"}
+		\item  \texttt{250}
+		\item  \texttt{"1212"} % $\star$
+		\item  \texttt{24}
+	\end{enumerate}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Composing Functions}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+	\frametitle{Example:  Defining functions}
+	\Enlarge
+	
+ \begin{Verbatim}[commandchars=\\\{\},commentchar=\%]
+def pow(a, b):
+    y = a ** b
+    return y
+\end{Verbatim}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+	\frametitle{Defining functions}
+	\Enlarge
+	
+	\begin{itemize}
+		\myitem  We define a function with the following:
+		\begin{itemize}
+			\mysubitem  the keyword \texttt{def}
+			\mysubitem  the name of the function
+			\mysubitem  a pair of parentheses
+			\mysubitem  a \textbf{block} of code
+		\end{itemize}
+	\end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+	\frametitle{Example:  Defining functions}
+	\Enlarge
+	
+	\begin{columns}
+		\begin{column}{0.75\textwidth}
+			\begin{Verbatim}[commandchars=\\\{\},commentchar=\%]
+def greetings():
+   print("Bom dia!")
+   print("Bonjour!")
+   print("Ni hao!")
+   print("Hello!")
+   print("Shalom!")
+   print("Guten tag!")
+   print("Konichiwa!")
+   print("As-salamu alaykum!")
+			\end{Verbatim}
+		\end{column}
+		\begin{column}{0.25\textwidth}
+			header \\ ~ \\ ~ \\ ~ \\ ~ body \\ ~ \\ ~ \\ ~ \\ ~ \\
+		\end{column}
+	\end{columns}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Block}
+  \Enlarge
+
+  \begin{itemize}
+  \myitem  A section of code grouped together. %\pause
+  \myitem  Begins with a \texttt{:}. %\pause
+  \myitem  Contents of the block are indented:
+  \end{itemize}
+  \begin{Verbatim}[commandchars=\\\{\},commentchar=\%]
+def hello():
+    print('hello')
+  \end{Verbatim}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+  \frametitle{Scope}
+  \Enlarge
+
+  \begin{itemize}
+  \myitem  Variables defined inside of a block are \emph{independent} of variables outside of the block. %\pause
+  \myitem  Variables inside a block \emph{do not exist} outside of the block. %\pause
+  \myitem  Blocks are isolated from the rest of the code!
+  \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Example:  Defining functions}
+  \Enlarge
+
+  \begin{Verbatim}[commandchars=\\\{\},commentchar=\%]
+\textcolor{CS101AltDark}{
+a = 5}
+\textcolor{CS101AltDark}{
+def fun():}
+\textcolor{CS101PureBase}{
+    a = 3}
+\textcolor{CS101PureBase}{
+    b = 4}
+\textcolor{CS101PureBase}{
+    a = a + b } 
+\textcolor{CS101AltDark}{fun()}
+\textcolor{CS101AltDark}{print(a)}
+  \end{Verbatim}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{\texttt{return}}
+  \Enlarge
+
+  \begin{itemize}
+  \myitem  Functions can return values with the keyword \texttt{return}. %\pause
+    \begin{Verbatim}[commandchars=\\\{\},commentchar=\%]
+def three():
+    return 3
+    \end{Verbatim}
+  \myitem  %\pause \texttt{return} immediately exits a function. %\pause
+    \begin{Verbatim}[commandchars=\\\{\},commentchar=\%]
+def zero():
+  return 0
+  print('0')
+    \end{Verbatim}
+   \myitem Does the above code face an error?\\
+   \myitme Does the print statement take effect if invoking the function? 
+  \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Parameters}
+  \Enlarge
+
+  \begin{itemize}
+  \myitem  Functions can accept values as parameters (input, arguments). %\pause
+  \myitem  These variables are declared in the function header. %\pause
+  \myitem  Multiple parameters are separated by commas. %\pause
+  \end{itemize}
+  \begin{Verbatim}[commandchars=\\\{\},commentchar=\%]
+def print_message( msg ):
+    print( msg )
+  \end{Verbatim}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Example}
+  \Enlarge
+
+  \begin{Verbatim}[commandchars=\\\{\},commentchar=\%]
+def fun(a):
+    return a+2
+
+x = fun(2) * fun(3)
+  \end{Verbatim}
+  What is the value of \texttt{x}?
+  \begin{enumerate}[label=\Alph*]
+  \item  \texttt{6}
+  \item  \texttt{8}
+  \item  \texttt{24}
+  \item  None of the above.   % $\star$
+  \end{enumerate}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Example}
+  \Enlarge
+
+  \begin{Verbatim}[commandchars=\\\{\},commentchar=\%]
+def fun(m):
+    return m.title().swapcase()
+
+x = fun( "abb") + fun( "acab" )
+  \end{Verbatim}
+  What is the value of \texttt{x}?
+  \begin{enumerate}[label=\Alph*]
+  \item  \texttt{'AbbAcab'}
+  \item  \texttt{'aBBaCAB'} % $\star$  
+  \item  \texttt{'abbacab'}
+  \item  \texttt{'ABBACAB'}
+  \end{enumerate}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Example}
+  \Enlarge
+
+  \begin{Verbatim}[commandchars=\\\{\},commentchar=\%]
+def fun(a,b):
+    c = ((a + ' ') * len(b)).title()
+
+x = fun( "ab", "caa" )
+  \end{Verbatim}
+  What is the value of \texttt{x}?
+  \begin{enumerate}[label=\Alph*]
+  \item  \texttt{'ab ab ab '}
+  \item  \texttt{'Ab Ab Ab '}
+  \item  \texttt{'AB AB AB '}
+  \item  None of the above.   % $\star$
+  \end{enumerate}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Example}
+  \Enlarge
+
+  \begin{Verbatim}[commandchars=\\\{\},commentchar=\%]
+def fun(a,b):
+    c = ((a + ' ') * len(b)).title()
+    return c
+
+x = fun( "ab", "caa" )
+  \end{Verbatim}
+  What is the value of \texttt{x}?
+  \begin{enumerate}[label=\Alph*]
+  \item  \texttt{'ab ab ab '}
+  \item  \texttt{'Ab Ab Ab '} % $\star$
+  \item  \texttt{'AB AB AB '}
+  \end{enumerate}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Boolean Logic}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Boolean}
+  \Enlarge
+
+  \begin{itemize}
+  \myitem  \texttt{bool} is a type with two possible values:
+    \begin{itemize}
+    \mysubitem  \texttt{True}
+    \mysubitem  \texttt{False}
+    \end{itemize} %\pause
+  \myitem  We use these to make decisions.
+  \myitem  Their logic is based on Boolean algebra. %\pause
+  \myitem  Operators:
+    \begin{itemize}
+    \mysubitem  \texttt{and}
+    \mysubitem  \texttt{or}
+    \mysubitem  \texttt{not}
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Example:  Boolean logic}
+  \Enlarge
+
+  \begin{center}
+  $$
+  0 < x \leq 10
+  $$
+  \\
+  \texttt{(x > 0) and (x <= 10)}
+  \end{center}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Boolean operators}
+  \Enlarge
+
+  \begin{columns}
+  \begin{column}{0.6\textwidth}
+  \begin{tabular}{lll}
+  \texttt{and}   & \texttt{True}  & \texttt{False} \\
+  \texttt{True}  & \texttt{True}  & \texttt{False} \\
+  \texttt{False} & \texttt{False} & \texttt{False} \\
+  \end{tabular}
+  \newline \newline \newline
+  \textcolor{CS101GradBot}{
+  \begin{tabular}{lll}
+  \texttt{or}    & \texttt{True}  & \texttt{False} \\
+  \texttt{True}  & \texttt{True}  & \texttt{True}  \\
+  \texttt{False} & \texttt{True}  & \texttt{False} \\
+  \end{tabular}
+  }
+  \end{column}
+  \begin{column}{0.4\textwidth}
+    True when BOTH inputs are true
+    \newline \newline \newline
+    \textcolor{CS101GradBot}{
+    True when EITHER input is true
+    }
+  \end{column}
+  \end{columns}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Boolean operators}
+  \Enlarge
+
+  \begin{columns}
+  \begin{column}{0.6\textwidth}
+  \begin{tabular}{lll}
+  \texttt{not}   & Result         \\
+  \texttt{True}  & \texttt{False} \\
+  \texttt{False} & \texttt{True}  \\
+  \end{tabular}
+  \end{column}
+  \begin{column}{0.4\textwidth}
+    Inverts truth-value
+  \end{column}
+  \end{columns}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Example}
+  \Enlarge
+
+  \begin{Verbatim}[commandchars=\\\{\},commentchar=\%]
+def fun():
+    return True and False
+
+x = fun() and not (True or False)
+  \end{Verbatim}
+  What is the value of \texttt{x}?
+  \begin{enumerate}[label=\Alph*]
+  \item  \texttt{True}
+  \item  \texttt{False}  %$\star$
+  \end{enumerate}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Comparison operators}
+  \Enlarge
+
+  \begin{itemize}
+  \myitem  These produce Boolean output.
+    \begin{itemize}
+    \mysubitem  less than, \texttt{<}
+    \mysubitem  greater than, \texttt{>}
+    \mysubitem  less than or equal to, \texttt{<=}
+    \mysubitem  greater than or equal to, \texttt{>=}
+    \mysubitem  \textcolor{red}{equal to, \texttt{==}}
+    \mysubitem  not equal to, \texttt{!=}
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Example}
+  \Enlarge
+
+  \begin{Verbatim}[commandchars=\\\{\},commentchar=\%]
+a = 5
+b = 3
+
+x = (a < 5) and ((b <= 5) or (a != b))
+  \end{Verbatim}
+  What is the value of \texttt{x}?
+  \begin{enumerate}[label=\Alph*]
+  \item  \texttt{True}
+  \item  \texttt{False} % $\star$
+  \end{enumerate}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Example}
+  \Enlarge
+
+  \begin{Verbatim}[commandchars=\\\{\},commentchar=\%]
+a = 'URSA MAJOR'
+b = 'GEMINI'
+
+x = a < b and a[1] != b[-2]
+  \end{Verbatim}
+  What is the value of \texttt{x}?
+  \begin{enumerate}[label=\Alph*]
+  \item  \texttt{True}
+  \item  \texttt{False}  % $\star$
+  \end{enumerate}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Example}
+  \Enlarge
+
+  \begin{Verbatim}[commandchars=\\\{\},commentchar=\%]
+def fun(a,b):
+    return a<b
+a = 3
+b = 4
+x = fun(b,a)
+  \end{Verbatim}
+  What is the value of \texttt{x}?
+  \begin{enumerate}[label=\Alph*]
+  \item  \texttt{True}
+  \item  \texttt{False} % $\star$
+  \end{enumerate}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Conditional Execution}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Control flow}
+  \Enlarge
+
+  \begin{itemize}
+  \myitem  \emph{Control flow} represents actual sequence of lines executed by processor. %\pause
+  \myitem  \emph{Conditional execution} lets you execute (or not) a block of code based on logical comparison.
+  \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Example:  \texttt{if} statement}
+  \Enlarge
+
+  \begin{Verbatim}[commandchars=\\\{\},commentchar=\%]
+ans = input( "Enter a number:" )
+if float(ans) < 0:
+    print( "The number was negative." )
+  \end{Verbatim}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{\texttt{if} statement}
+  \Enlarge
+
+  \begin{itemize}
+  \myitem  We create an \texttt{if} statement as follows:
+    \begin{itemize}
+    \mysubitem  the keyword \texttt{if}
+    \mysubitem  a logical comparison (results in \texttt{bool})
+    \mysubitem  a \textbf{block} of code
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Alternative execution}
+  \Enlarge
+
+  \begin{itemize}
+  \myitem  This lets us make decisions in the program! %\pause
+  \myitem  We can change program behavior as it executes.
+  \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Example:  \texttt{if} statements}
+  \Enlarge
+
+  \begin{Verbatim}[commandchars=\\\{\},commentchar=\%]
+ans = input( "Enter a number:" )
+if float(ans) < 0:
+    print( "The number was negative." )
+if float(ans) > 0:
+    print( "The number was positive." )
+if float(ans) == 0:
+    print( "The number was zero." )
+  \end{Verbatim}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Example:  \texttt{if} statements}
+  \Enlarge
+  if they have eggs, get six!\\
+  \textcolor{blue}{\small \texttt{\url{http://sites.cs.queensu.ca/courses/cisc121/Record/Week09/Arith.pdf}}}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Reminders}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+  \frametitle{Reminders}
+  \Enlarge
+
+  \begin{itemize}
+  \myitem  Homework \#2 is due Wed Oct.\ 19.
+  \myitem  Homework \#3 is due Wed Oct.\ 26.
+  \end{itemize}
+\end{frame}
+
+\end{document}
