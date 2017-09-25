@@ -36,7 +36,7 @@ chunks:
         | ------- | ---------- | -------------------- |
         | [Lecture #1:  Introduction](repocur:lectures/lec01.pdf) | 2017-09-19 |  |
         | [Lecture #2:  literals, variables](repocur:lectures/lec02.pdf) | 2017-09-21 | [Python session](repocur:lectures/lec02notes.pdf) |
-        | [Lecture #3:  data types (`int`, `float`, `str`)](repocur:lectures/lec03.pdf) | 2017-09-26 | [Floating point Overflow/Underflow](http://sites.cs.queensu.ca/courses/cisc121/Record/Week09/Arith.pdf); [Signed-integer representation (Pages 53-55)](https://koclab.cs.ucsb.edu/teaching/cs16/docx/Integers.pdf)|
+        | [Lecture #3:  data types (`int`, `float`, `str`)] | 2017-09-26 | [Floating point Overflow/Underflow](http://sites.cs.queensu.ca/courses/cisc121/Record/Week09/Arith.pdf); [Signed-integer representation (Pages 53-55)](https://koclab.cs.ucsb.edu/teaching/cs16/docx/Integers.pdf)|
         | | | |
         
         
