@@ -37,9 +37,9 @@
   \frametitle{Administrivia}
   \Enlarge
   \begin{itemize}
-  \mysubitem  Homework \#2--\#6 will be later. \pause
-  \mysubitem  Final answer counts. \pause
-  \mysubitem  Answers will be released 18 hours later.
+  \mysubitem  Homework \#1 deadline just passed.
+  \mysubitem  Final answer counts.
+  \mysubitem  Answers have been released on CodeLab.
   \end{itemize}
 \end{frame}
 
@@ -48,14 +48,35 @@
   \frametitle{Administrivia}
   \Enlarge
   \begin{itemize}
-  \myitem  Lab \#2 tomorrow Sunday. \pause
   \myitem  Where can you get help in this class?
     \begin{itemize}
     \mysubitem  Blackboard forum 
     \mysubitem  Instructors in labs and office hours 
+    \mysubitem  Email me
     \end{itemize} \pause
-  \myitem  You don't need to install Python---but if you do, use Python 3. \pause
-  \myitem  This is not a ``weeder'' class---you can succeed!
+   \myitem  You don't need to install Python---but you're encouraged to have one.
+  \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+  \frametitle{Administrivia}
+  %\Enlarge
+  %\begin{itemize}
+  Course enrollment and CodeLab registration using zju.edu.cn account (or the intl. account) is OK. \\
+  
+  \vspace{2mm}
+  But {\bf Lab submissions} (to: \textcolor{blue}{cs101homework@intl.zju.edu.cn}) have to come from your \textcolor{blue}{intl.zju.edu.cn} account.
+  %\end{itemize}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+  \frametitle{Administrivia}
+  \Enlarge
+  \begin{itemize}
+  \myitem  {\Large Lab \#2 tomorrow.}
   \end{itemize}
 \end{frame}
 
@@ -70,10 +91,10 @@
   \begin{semiverbatim}
 x = 10 \pause
 y = x * x \pause
-x * x = y \pause
+x * x = y \pause  \textcolor{red}{# error! assignment is from rhs to lhs} \pause
+x,y = y,x   # a neat trick
+\end{semiverbatim}
 
-x,y = y,x  # a neat trick
-  \end{semiverbatim}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -139,7 +160,7 @@ y = x * y
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}[fragile]
-  \frametitle{Question \#2}
+  \frametitle{Question \#4}
   \Enlarge
 
   \begin{semiverbatim}
@@ -163,6 +184,25 @@ y = x * y
 
   \begin{semiverbatim}
 x = 10
+y = x + 1
+y = x * y
+  \end{semiverbatim}
+  What do we call \texttt{x * y}?
+  \begin{enumerate}[label=\Alph*]
+  \item  a literal
+  \item  a variable
+  \item  an expression
+  \item  a statement
+  \end{enumerate}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Question \#6}
+  \Enlarge
+
+  \begin{semiverbatim}
+x = 10
 y = x
 x = 5
   \end{semiverbatim}
@@ -173,7 +213,7 @@ x = 5
   \end{enumerate}
 \end{frame}
 
-
+\iffalse
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
 	\frametitle{Reminder}
@@ -182,51 +222,36 @@ x = 5
 		\myitem  You will have graded quiz starting from the upcoming Monday lecture!
 	\end{itemize}
 \end{frame}
-
+\fi
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Data Types}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
-  \frametitle{What is an \textbf{encoding}?}
+  \frametitle{Why need data type?}
   \Enlarge
 
   \texttt{01001000 01000101 01001100 01001100} \\
-  What does a binary data value like this represent?
+  A binary code that passes through a processor
   \begin{itemize}
-  \myitem  What does binary data represent? \pause
-  \myitem  How does the processor know?
+  \myitem  Machine binary code represents different kinds of data (5, 'apple', operator +, memory address) \pause
+  \myitem  Different types of data are {\bf encoded} in binary with different rules \pause
+  \myitem  The same binary data can be interpreted in different ways based on their \emph{data type}
   \end{itemize}
 \end{frame}
 
-\iffalse
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-  \frametitle{Our execution model}
-  \includegraphics[width=\textwidth]{./img/computer-process-raw.png}
-\end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
-  \frametitle{What is an \textbf{encoding}?}
+  \frametitle{Example}
   \Enlarge
 
-  \texttt{01001000 01000101 01001100 01001100} \\
-  What does a binary data value like this represent?
-  \begin{itemize}
-  \myitem  What does binary data represent?
-  \myitem  How does the processor know?
-  \myitem  The \textbf{encoding} interprets the value.
-  \end{itemize}
+  \texttt{01100111} can be the number \texttt{103}, hexadecimal \texttt{67}, or a letter \texttt{'g'}, etc. \\ \pause
+  
+  \vspace{4mm}
+  In order to interpret it correctly, we need to know its data type.
 \end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-  \frametitle{Our execution model}
-  \includegraphics[width=\textwidth]{./img/computer-process.png}
-\end{frame}
-\fi
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
@@ -235,23 +260,17 @@ x = 5
   \Enlarge
 
   \begin{itemize}
-  \myitem  A \textbf{data type} defines an encoding rule.
-  \myitem  All values have a type. \pause
-  \myitem  The type defines how data is represented in memory. \pause
-  \myitem  The type defines allowed operations and how they work.
-  \end{itemize}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-  \frametitle{Example}
-  \Enlarge
-
-  \texttt{01100111} can be the number \texttt{103}, the letter \texttt{g}, hexadecimal \texttt{67}, etc.
+  \myitem  A \textbf{data type} defines an encoding rule. \pause
   \begin{itemize}
-  \myitem  So what are these data types?
+  \mysubitem  i.e. how data is represented in memory by 0s and 1s. \pause
+  \end{itemize}
+  \myitem  It also defines the allowed operations 
+  \begin{itemize}
+  	\mysubitem e.g. cannot do arithmetic to characters.
+  \end{itemize}
   \end{itemize}
 \end{frame}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Numeric Data Types}
@@ -262,19 +281,21 @@ x = 5
   \Enlarge
 
   \begin{itemize}
-  \myitem  Binary can naturally represent `natural numbers' :
+  \myitem  Binary encoding for numbers:
     \begin{tabular}{*{27}{l}}
       \texttt{00000000} & 0 & \texttt{00000100} & 4 & \texttt{00001000} & 8\\
       \texttt{00000001} & 1 & \texttt{00000101} & 5 & \texttt{00001001} & 9\\
       \texttt{00000010} & 2 & \texttt{00000110} & 6 & ... & \\
-      \texttt{00000011} & 3 & \texttt{00000111} & 7 & \texttt{11111111} & 255\\
-    \end{tabular}
+      \texttt{00000011} & 3 & \texttt{00000111} & 7 & \texttt{11111111} & ...\\
+    \end{tabular}\pause
+  
+  \myitem example: 01011010
   \end{itemize} \pause
   
-  \begin{center}
-  \textcolor{blue}{\small \texttt{\url{https://en.wikipedia.org/wiki/Binary_number}}} \\
-  \textcolor{blue}{\small \texttt{\url{https://www.bottomupcs.com/chapter01.xhtml\#d0e660}}} 
-  \end{center}
+  
+  %\textcolor{blue}{\small \texttt{\url{https://en.wikipedia.org/wiki/Binary_number}}} \\
+  \hspace{7mm} \textcolor{blue}{\small \texttt{\url{https://www.bottomupcs.com/chapter01.xhtml}}} 
+  
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -283,11 +304,15 @@ x = 5
   \Enlarge
 
   \begin{itemize}
-  \myitem  How about \emph{Integers}? \\
-  $$ ..., -3, -2, -1, 0, 1, 2, 3, ... $$
-  \myitem Negative numbers?  \\ \pause
-  \myitem Use the leftmost bit as \textbf{sign bit}. \\ \pause
-  \myitem What are the limits of a 8-bit integer representation (with nagatives)?\\ \pause
+  \myitem  How about \emph{Integers}? \\ 
+  $$ ..., -3, -2, -1, 0, 1, 2, 3, ... $$\vspace{-2mm}  \pause
+  \myitem Negative numbers  \pause
+  	\begin{itemize}
+		\mysubitem Use the leftmost bit as \textbf{sign bit}. \pause
+		\mysubitem 0 for positive; 1 for negative\pause
+		\mysubitem the rest of the bits representing magnitude\pause
+	\end{itemize}
+  \myitem What are the limits of a 8-bit integer representation?\\ \pause
     $$ -128 ... 127 $$
   \end{itemize}
 \end{frame}
@@ -347,16 +372,17 @@ x = 5
   \Enlarge
 
   \begin{itemize}
-  \myitem  Floating-point numbers include a fractional part. \pause \\
+  \myitem  Floating-point numbers include a fractional part. \\
     \textcolor{CS101GradBot}{(Anything with a decimal point---\texttt{2.4}, \texttt{3.0}.)} \pause
-  \myitem  What are limits? \pause
+  \myitem  What's different? \pause
     \begin{itemize}
-    \mysubitem  Overflow/underflow
-    \mysubitem  Precision ($\pi$, $e$) \pause
+    \mysubitem  represents \emph{Real numbers} (integers, fractional, and $\pi$, $e$) 
+    \mysubitem  up to a precision \pause
     \end{itemize}
-  \myitem Float representation in Binary
+  \myitem Floating point representation in Binary
   \end{itemize}
-  \textcolor{blue}{\small \texttt{\url{http://sites.cs.queensu.ca/courses/cisc121/Record/Week09/Arith.pdf}}}
+  \hspace{7mm}\textcolor{blue}{\small \texttt{\url{https://en.wikipedia.org/wiki/IEEE_754-1985}}} {\small(IEEE 754 standard)}
+  %\textcolor{blue}{\small \texttt{\url{http://sites.cs.queensu.ca/courses/cisc121/Record/Week09/Arith.pdf}}}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -381,10 +407,23 @@ x = 5
     \mysubitem  \texttt{3.0 + 5.0 $\rightarrow$ 8.0} \pause
     \mysubitem  \texttt{3   + 5.5 $\rightarrow$ ?} (what happens here?)
     \end{itemize} \pause
-  \myitem  Engineers and scientists need to think carefully about data type, precision, and the \emph{conversion}.
+  \myitem  Engineers and scientists need to think carefully about data type, precision, and type \emph{conversion}.
   \end{itemize}
 \end{frame}
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+  %\frametitle{Complex numbers, $\mathbb{C}$}
+  %\Enlarge
+  \begin{center}
+  \vspace{3mm}
+  \includegraphics[width=0.55\textwidth]{./img/monroeeinstein.png}
+  \end{center}
+\end{frame}
+
+
+\iffalse
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
   \frametitle{Complex numbers, $\mathbb{C}$}
@@ -455,35 +494,53 @@ z = x + y
   \end{enumerate}
 \end{frame}
 
+\fi
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{String Data Type}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-  \frametitle{How does text work?}
-  \Enlarge
-
-  \begin{itemize}
-  \myitem  Each symbol is stored individually, one byte long: \\
-    \begin{tabular}{*{27}{l}}
-      \texttt{01001000} & 72 \\
-      \texttt{01000101} & 69 \\
-      \texttt{01001100} & 76 \\
-      \texttt{01001100} & 76 \\
-      \texttt{01001111} & 79 \\
-    \end{tabular}
-  \end{itemize}
-\end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
   \frametitle{ASCII encoding table}
   \Enlarge
-  \includegraphics[width=\textwidth]{./img/ascii-table.png} \pause
+  \includegraphics[width=\textwidth]{./img/ascii-table.png} \\ \pause
+  
+  {\small The table provides an \emph{encoding} scheme from number to symbols} \\
+  \texttt{72 69 76 76 79} = \texttt{H E L L O} %\pause
+  
+  %\texttt{'HELLO'}
+\end{frame}
 
-  \texttt{72 69 76 76 79} = \texttt{H E L L O} \pause
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+  \frametitle{How to store text on computer?}
+  \Enlarge
 
-  \texttt{'HELLO'}
+  \begin{itemize}
+  \myitem \texttt{H E L L O} = \texttt{72 69 76 76 79} \pause
+  \myitem  Each symbol is stored individually, one byte long: \\
+   \vspace{2mm} \pause
+    \begin{tabular}{*{27}{l}}
+      72 & \texttt{01001000} \\
+      69 & \texttt{01000101} \\
+      76 & \texttt{01001100} \\
+      76 & \texttt{01001100} \\
+      79 & \texttt{01001111} \\
+    \end{tabular} \pause
+    
+    \vspace{2mm}
+    {\small \texttt{'HELLO'} : \textcolor{CS101GradBot}{\texttt{01001000 01000101 01001100 01001100 01001111}}}
+  \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+  \frametitle{How to store text on computer?}
+  \Enlarge
+
+  \begin{itemize}
+   \myitem What's the size of a plain txt file with 1000 english words? 
+  \end{itemize}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -510,7 +567,8 @@ z = x + y
   \myitem  \textbf{Concatenation}:  combine two strings
     \begin{itemize}
     \mysubitem  Uses the \texttt{+} symbol
-    \mysubitem  \texttt{'RACE' + 'CAR'}
+    \mysubitem  \texttt{'RACE' + 'CAR'} \pause
+    \mysubitem the ``same'' operator work differently with different operands (\emph{operator overload})
     \end{itemize} \pause
   \myitem  \textbf{Repetition}:  repeat a string
     \begin{itemize}
@@ -661,7 +719,7 @@ z = s[i]
   \item  \texttt{'C'}
   \item  \texttt{'D'}
   \item  \texttt{'E'}
-  \end{enumerate} \pause
+  \end{enumerate}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -675,21 +733,10 @@ i = (11 % 3) + 3
 z = s[i]
   \end{semiverbatim}
 
-  What is the value of \texttt{z}? \\ \pause
-  How about \texttt{s[-6]}?
+  What is the value of \texttt{z}?
+  %How about \texttt{s[-5]}?
 \end{frame}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Reminders}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-  \frametitle{Reminders}
-  \Enlarge
-
-  \begin{itemize}
-  \myitem  Lab \#2 tomorrow Sunday. 
-  \end{itemize}
-\end{frame}
 
 \end{document}
