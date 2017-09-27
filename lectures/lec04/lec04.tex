@@ -97,17 +97,27 @@
   \frametitle{Strings}
   \Enlarge
 
-  \begin{itemize}
+  \begin{itemize} \pause
   \myitem  As a literal:  text surrounded by quotes.
     \begin{itemize}
     \mysubitem  \texttt{'DEEP'}, or \texttt{"DEEP"} \pause
-    \mysubitem single quote(\texttt{''}) and double quote (\texttt{""}) are equivalent (not in C or C++)
+    \mysubitem single quote(\texttt{''}) and double quote (\texttt{""}) are equivalent in python (not in C or C++)
     \end{itemize}\pause
   \myitem  Can have arbitrary length, including an empty string (\texttt{''}). \pause
-  \myitem  Each unit is a character --- also a string type \pause
-  \myitem  In C/C++, a character (`char') is a different data type from a string (`str')
+  \myitem  Each element is a character --- also a string type \pause
+  \myitem  In C/C++, a character is a different data type (\texttt{char})
   \end{itemize}
 \end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+  \frametitle{Strings}
+  \Enlarge
+
+  \begin{center}
+  \texttt{'the quick brown fox jumps over a lazy dog'}
+  \end{center}
+ \end{frame}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -152,14 +162,16 @@
   \begin{itemize}
   \myitem  \textbf{Formatting}: Creates string with other data types inserted in \pause
     \begin{itemize}
-    \mysubitem  Formats different data types as a string \pause
-    \mysubitem  Requires a special indicator of Formatting: \texttt{\%}
+    %\mysubitem  Formats other data types as a string \pause
+    \mysubitem  Requires a special indicator of Formatting: \texttt{\%} \pause
     \mysubitem  Requires indicator of data type
     \end{itemize} \pause
   \begin{semiverbatim}
-x = 123 * 54
+x = 100 * 54
 s = "The value of x is: %\textcolor{CS101GradBot}{i}" % \textcolor{CS101GradBot}{x}
-print(s)
+print(s)\pause
+
+\textcolor{CS101GradBot}{The value of x is: 5400}
   \end{semiverbatim}
   \end{itemize}
 \end{frame}
@@ -173,8 +185,7 @@ print(s)
   \begin{itemize}
   \myitem  Creates string with value inserted
     \begin{itemize}
-    \mysubitem  Formats nicely
-    \mysubitem  Requires indicator of type inside of string
+    \mysubitem  Indicators for different data types
       \begin{tabular}{*{27}{ll}}
         \texttt{'\%i'} & \texttt{int} \\
         \texttt{'\%f'} & \texttt{float} \\
@@ -211,9 +222,9 @@ m2 = "Your grade is:  %f." % grade
 print(m1)
 print(m2) \pause
 
-\textcolor{CS101PureBase}{
+\textcolor{CS101GradBot}{
 Hello, Tao!}
-\textcolor{CS101PureBase}{
+\textcolor{CS101GradBot}{
 Your grade is 0.666667.} 
 \end{Verbatim}
 
@@ -222,7 +233,7 @@ Your grade is 0.666667.}
 m3 = "Your grade is:  %\textcolor{red}{.3}f" % grade
 print(m3) \pause
 
-\textcolor{CS101PureBase}{
+\textcolor{CS101GradBot}{	%CS101PureBase
 Your grade is 0.667.}
 \end{Verbatim}
 \fi
@@ -252,24 +263,28 @@ print(s)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
-  \frametitle{Special characters}
+  \frametitle{Escape character \texttt{'\textbackslash'}}
   \Enlarge
 
   \begin{itemize}
-  \myitem  Special characters, start with \texttt{\textbackslash}
+  \myitem Read as "back slash"
+  \myitem  Defines special characters
+  
     \begin{tabular}{*{27}{l}}
       \texttt{\textbackslash n} & new line \\
       \texttt{\textbackslash t} & tab (tabular key)\\
+      \texttt{\textbackslash v} & vertical tab \\
+   \end{tabular} \pause
+  \myitem De-specialize special characters \pause
+  
+    \begin{tabular}{*{27}{l}}
       \texttt{\textbackslash \textbackslash} & \texttt{\textbackslash} \\
       \texttt{\textbackslash '} & \texttt{'} \\
       \texttt{\textbackslash "} & \texttt{"} \\
    \end{tabular} 
-  \myitem \texttt{\textbackslash} is called the \emph{escape} character
-  \begin{itemize}
-  	\mysubitem  \textcolor{blue}{\small \texttt{\url{https://docs.python.org/2.0/ref/strings.html}}} 
-  \end{itemize}
-  \end{itemize}
+ \end{itemize} \pause
   
+  \hspace{7mm} \textcolor{blue}{\small \texttt{\url{https://docs.python.org/2.0/ref/strings.html}}} 
 \end{frame}
 
 
@@ -279,38 +294,44 @@ print(s)
   \Enlarge
 
   \hspace{10mm}Try: \\
-  \hspace{12mm}\texttt{\small print('Hello Tao\texttt{\textcolor{red}{\textbackslash n}}Your grade is 0.667') \\
+  \hspace{12mm}\texttt{\small print('Hello, Tao!\texttt{\textcolor{red}{\textbackslash n}}Your grade is 0.667') \\
   \hspace{12mm}print('3 plus 5 is:\texttt{\textcolor{red}{\textbackslash t}}\%i', \% (3+5)) \\
-  \hspace{12mm}print('put .ipynb file in: C:\texttt{\textcolor{red}{\textbackslash \textbackslash}}Users\texttt{\textcolor{red}{\textbackslash \textbackslash}}nick')
-  }
+  \hspace{12mm}print('put .ipynb file in C:\texttt{\textcolor{red}{\textbackslash \textbackslash}}Users\texttt{\textcolor{red}{\textbackslash \textbackslash}}nick')} 
+  
+  \vspace{3mm}
+  \hspace{12mm}\texttt{\small \textcolor{CS101GradBot}{Hello, Tao!\\
+  \hspace{12mm}Your grade is 0.667 \\\vspace{1mm}\pause
+  \hspace{12mm}3 plus 5 is:\hspace{5mm}8\\\vspace{1mm}\pause
+   \hspace{12mm}put .ipynb file in C:\textbackslash Users\textbackslash nick}}
 \end{frame}
 
+\iffalse
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
   \frametitle{Quote in Quote}
   \Enlarge
 
   \begin{itemize}
-  \myitem  ``Emily's not coming today''
+  \myitem  ``Emily's not coming today'' \pause
   	\begin{itemize}
-	\mysubitem try: \texttt{{\small print('Emily's not coming today')}}
-	\mysubitem try: \texttt{{\small print("Emily's not coming today")}}
+	\mysubitem \texttt{{\small print('Emily's not coming today')}}
+	\mysubitem \texttt{{\small print("Emily's not coming today")}}
 	\end{itemize}\pause
-  \myitem ``Movie of the week is ''Beauty and Beast''''
+  \myitem ``Movie of the week is ''Beauty and Beast''''\pause
   	\begin{itemize}
-	\mysubitem \texttt{{\small print('Movie of the week is ''Beauty and Beast"')}}
-	\mysubitem \texttt{{\small print("Movie of the week is ''Beauty and Beast" ")}}
+	\mysubitem \texttt{{\small print('Movie of the week is "Beauty and Beast"')}}
+	\mysubitem \texttt{{\small print("Movie of the week is "Beauty and Beast" ")}}
 	\end{itemize} \pause
   \myitem rule-of-thumb 
   	\begin{itemize}
 	\mysubitem use double quote to enclose single quote
 	\mysubitem use single quote to enclose double quote \pause
-	\mysubitem use \texttt{\textbackslash '} or \texttt{\textbackslash "} for quotes inside a string \pause
-	\mysubitem sometimes use triple quote (\texttt{''' '''})
+	\mysubitem use \texttt{\textbackslash '} or \texttt{\textbackslash "} for quotes inside a string
+	%\mysubitem sometimes use triple quote (\texttt{''' '''})
 	\end{itemize}
  \end{itemize}
 \end{frame}
-
+\fi
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}[fragile]
@@ -322,12 +343,34 @@ print(s)
 \begin{semiverbatim}
 a = "FIRE"
 a[0]
-\end{semiverbatim}
+\end{semiverbatim} \pause
   \myitem  The integer is the index. \pause
   \myitem  \textcolor{red}{We count from zero!} \pause
   \myitem  If negative, counts down from end. \pause
-  \myitem  Does this work on other data types like \texttt{int}?
+  \myitem \texttt{a[-1]} is the last element
+  %\myitem  Does this work on other data types like \texttt{int}?
   \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Question}
+  \Enlarge
+
+  \begin{semiverbatim}
+s = "ABCDE"
+i = (11 % 3) - 7
+z = s[i]
+  \end{semiverbatim}
+
+  What is the value of \texttt{z}?
+  \begin{enumerate}[label=\Alph*]
+  \item  \texttt{'A'}
+  \item  \texttt{'B'}
+  \item  \texttt{'C'}
+  \item  \texttt{'D'}
+  \item  \texttt{'E'}
+  \end{enumerate}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -336,8 +379,8 @@ a[0]
   \Enlarge
 
   \begin{itemize}
-  \myitem  Extracts range of characters (\emph{substring}) \pause
-  \myitem  Range specified inside of indexing operator \pause
+  \myitem  Extracts a range of characters (\emph{substring}) 
+  \myitem  Index range specified inside \texttt{[]}
 \begin{semiverbatim}
 a = "FIREHOUSE"
 a[0:4]
@@ -369,6 +412,7 @@ x = alpha[1:3]
   \end{enumerate}
 \end{frame}
 
+\iffalse
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}[fragile]
   \frametitle{Slicing operator \textbf{:} with stepsize}
@@ -384,10 +428,39 @@ alpha[1:3:\textcolor{CS101GradBot}{2}]   \hspace{2mm} \textcolor{CS101GradBot}{\
 \myitem Stepsize can be negative
 \begin{semiverbatim}
 alpha[4:1:\textcolor{CS101GradBot}{-1}] \pause
-'EDC' \pause
-alpha[-1:1:\textcolor{CS101GradBot}{-2}]
+'EDC'
 \end{semiverbatim}
+%alpha[-1:1:\textcolor{CS101GradBot}{-2}]
   \end{itemize}
+\end{frame}
+\fi
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Question}
+  \Enlarge
+
+  \begin{semiverbatim}
+s = "ABCDE"
+i = (11 % 3) + 3
+z = s[i]
+  \end{semiverbatim}
+
+  What is the value of \texttt{z}? \\\vspace{2mm}\pause
+  %How about \texttt{s[-5]}?
+  \textcolor{red}{\emph{Error}: Out-of-Index!}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+  %\frametitle{Complex numbers, $\mathbb{C}$}
+  %\Enlarge
+  \begin{center}
+  \vspace{3mm}
+  \includegraphics[width=1.3\textwidth]{./img/outofindex}\\
+  \end{center}
 \end{frame}
 
 
@@ -400,15 +473,18 @@ alpha[-1:1:\textcolor{CS101GradBot}{-2}]
   \Enlarge
 
   \begin{itemize}
-  \myitem  A \emph{function} is a small program (block of code) we can run within Python. \pause
+  \myitem  A \emph{function} is a piece of code (code block) we can execute with a single line. \pause
     \begin{itemize}
-    \mysubitem  Saves us from rewriting code
-    \mysubitem  Don't reinvent the wheel!
+    \mysubitem  Provides an interface that \emph{encapsulates} a series of actions \pause
+    \mysubitem  Saves us from rewriting code \pause
+    \mysubitem  Makes code cleaner and easy to read \pause
+    \mysubitem  Serves as building blocks to build up bigger programs
     \end{itemize} \pause
-  \myitem  Analogy:  Functions are more verbs. \pause
-  \myitem  Also called subroutine or procedure.
+  \myitem  Analogy:  Functions are like verbs.
+  %\myitem  Also called subroutine or procedure.
   \end{itemize}
 \end{frame}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
@@ -416,8 +492,8 @@ alpha[-1:1:\textcolor{CS101GradBot}{-2}]
   \Enlarge
 
   \begin{itemize}
-  \myitem  When we want to execute a function, we call or invoke it. \pause
-  \myitem  Use name of the function with parentheses. \pause
+  %\myitem  When we want to execute a function, we \emph{call} or \emph{invoke} it. \pause
+  \myitem  Use name of the function with parentheses.
     \begin{itemize}
     \mysubitem  \texttt{print()}
     \end{itemize} \pause
@@ -426,55 +502,143 @@ alpha[-1:1:\textcolor{CS101GradBot}{-2}]
   \end{itemize}
 \end{frame}
 
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
   \frametitle{Arguments}
   \Enlarge
 
   \begin{itemize}
-  \myitem  Functions can act on data. \pause
-  \myitem  \emph{Arguments} are the input to functions. \pause
-  \myitem  Functions can return a value.  (fruitful) \pause
-  \myitem  Return values are the output of a function. \pause
+  \myitem  Functions can take data as input. \pause
+  \myitem  The data that passes to a function is called \emph{Arguments}. \pause
     \begin{itemize}
-    \mysubitem  \texttt{print('10')} \pause
-    \mysubitem  \texttt{len('Rex Kwon Do')} \pause
-    \mysubitem  \texttt{abs(-123)}
+    \mysubitem  \texttt{print(\textcolor{CS101GradBot}{5})} \pause
+    \mysubitem  \texttt{len(\textcolor{CS101GradBot}{'Rex Kwon Do'})} \pause
+    \mysubitem  \texttt{abs(\textcolor{CS101GradBot}{-123})} \pause
     \end{itemize}
-  \end{itemize}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-  \frametitle{Arguments}
-  \Enlarge
-
-  \begin{itemize}
-  \myitem  \emph{Arguments} are values passed \emph{to} a function. \pause
   \myitem  A function can accept zero to many arguments. \pause
   \myitem  Multiple arguments are separated by commas:
     \begin{itemize}
-    \mysubitem  \texttt{min( 1,4,5 )}
-    \mysubitem  \texttt{max( 1,4,5 )}
+    %\mysubitem  \texttt{print('10')} \pause
+    \mysubitem  \texttt{min(\textcolor{CS101GradBot}{1, 4, 5})}
+    \mysubitem  \texttt{max(\textcolor{CS101GradBot}{1, 4, 5})}
     \end{itemize}
   \end{itemize}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
-  \frametitle{Type conversion.}
+  \frametitle{Return value}
+  \Enlarge
+
+  \begin{itemize}
+  \myitem  Functions can return a result: {\bf return value}. \pause
+  \myitem  Return values are the output of a function. \pause
+  \begin{itemize}
+    \mysubitem  \texttt{a = min(1, 4, 5)}
+    \mysubitem  \texttt{b = max(1, 4, 5)} \pause
+  \end{itemize}
+  \myitem Can return nothing 
+  \begin{itemize}
+    \mysubitem  \texttt{print(5)} \pause
+    \mysubitem  \texttt{a = print(5)} \pause
+    \mysubitem a is a \texttt{'\textcolor{CS101GradBot}{NoneType}'}
+  \end{itemize} 
+  \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Example}
+  \Enlarge
+
+ 
+  \begin{semiverbatim} 
+\textcolor{red}{def} f(x)\textcolor{red}{:}
+    y = x**2 
+    area = 0.5*math.pi * y 
+    return area
+  \end{semiverbatim}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Example}
+  \Enlarge
+
+ 
+  \begin{semiverbatim} 
+def \textcolor{red}{f}(x):
+    y = x**2 
+    area = 0.5*math.pi * y
+    return area
+  \end{semiverbatim}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Example}
+  \Enlarge
+
+ 
+  \begin{semiverbatim} 
+def f(\textcolor{red}{x}):
+    y = x**2 
+    area = 0.5*math.pi * y
+    return area
+  \end{semiverbatim}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Example}
+  \Enlarge
+
+ 
+  \begin{semiverbatim} 
+def f(x):
+    \textcolor{red}{y = x**2} 
+    \textcolor{red}{area = 0.5*math.pi * y} 
+    return area
+  \end{semiverbatim}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Example}
+  \Enlarge
+
+ 
+  \begin{semiverbatim} 
+def f(x):
+    y = x**2
+    area = 0.5*math.pi * y
+    \textcolor{red}{return} \textcolor{CS101PureBase}{area}
+  \end{semiverbatim}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+  \frametitle{Type conversion}
   \Enlarge
 
   \begin{itemize}
   \myitem  A set of built-in functions to convert data from one type to another. \pause
     \begin{itemize}
-    \mysubitem  \texttt{float( "0.3" )}
-    \mysubitem  \texttt{str( 3 + 5j )}
+    \mysubitem  \texttt{float('3.14')} 
+    %\mysubitem  \texttt{float('3.00e-2')} \pause
+    \mysubitem  \texttt{str(3.14)}
+    \mysubitem  \texttt{int(3.14)} 
     \end{itemize} \pause
   \myitem  Be careful of nonsense:
     \begin{itemize}
-    \mysubitem  \texttt{int( "Rex" )}
-    \mysubitem  \texttt{int( 3 + 5j )}
+    \mysubitem  \texttt{int('Rex')}
+    \mysubitem  \texttt{int(3 + 5j)}
     \end{itemize}
   \end{itemize}
 \end{frame}
@@ -485,23 +649,30 @@ alpha[-1:1:\textcolor{CS101GradBot}{-2}]
   \Enlarge
 
   \begin{itemize}
-  \myitem  \texttt{input()} is a built-in function. \pause
-  \myitem  Takes keyboard input from prompt by user \pause
-  \myitem  No argument to the function \pause
+  \myitem  \texttt{x = input()} \pause
+  \myitem  Takes keyboard input typed by user \pause
   \myitem  Return value:  keyboard input from user (as \texttt{str})
+  \myitem  No argument to the function \pause
+  \begin{itemize}
+  	\mysubitem \textcolor{CS101GradBot}{cannot skip the parentheses! }
+  \end{itemize}
   \end{itemize}
 \end{frame}
 
+
+\iffalse
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
   \frametitle{Goal}
   \Enlarge
 
   \begin{itemize}
-  \myitem  A program should achieve a goal. \pause
-  \myitem  Next time we will write our first nontrivial program.
+  %\myitem  A program should achieve a goal.
+  \myitem  Next time we will start writing our own python program.
   \end{itemize}
 \end{frame}
+\fi
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Reminders}
@@ -512,7 +683,8 @@ alpha[-1:1:\textcolor{CS101GradBot}{-2}]
   \Enlarge
 
   \begin{itemize}
-  \myitem Homework \#2 is due Wed Oct.\ 19. 
+  \myitem Homework \#2 is due Tuesday Oct.\ 3. \pause
+  \myitem Opps, no class next week
   \end{itemize}
 \end{frame}
 

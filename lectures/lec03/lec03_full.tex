@@ -547,4 +547,200 @@ z = x + y
   \end{itemize}
 \end{frame}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+  \frametitle{Strings}
+  \Enlarge
+
+  \begin{itemize}
+  \myitem  As a literal:  text surrounded by quotes.
+    \begin{itemize}
+    \mysubitem  \texttt{"DEEP"}
+    \end{itemize} \pause
+  \myitem  Each symbol is a character. \pause
+  \myitem  Unlike numeric types, strings vary in length.
+  \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+  \frametitle{String operations}
+  \Enlarge
+
+  \begin{itemize}
+  \myitem  \textbf{Concatenation}:  combine two strings
+    \begin{itemize}
+    \mysubitem  Uses the \texttt{+} symbol
+    \mysubitem  \texttt{'RACE' + 'CAR'} \pause
+    \mysubitem the ``same'' operator works differently with different types of operand (\emph{operator overload})
+    \end{itemize} \pause
+  \myitem  \textbf{Repetition}:  repeat a string
+    \begin{itemize}
+    \mysubitem  Uses the \texttt{*}
+    \mysubitem  \texttt{'HELLO '*10}
+    \end{itemize} \pause
+  \myitem  \textbf{Formatting}:  used to encode other data as string
+    \begin{itemize}
+    \mysubitem  Uses \texttt{\%} symbol
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Formatting operator}
+  \Enlarge
+
+  \begin{itemize}
+  \myitem  Creates string with value inserted \pause
+    \begin{itemize}
+    \mysubitem  Formats nicely
+    \mysubitem  Requires indicator of type inside of string
+    \end{itemize} \pause
+  \begin{semiverbatim}
+x = 123 * 54
+s = "String is: %i" % x
+print(s)
+  \end{semiverbatim}
+  \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Example}
+  \Enlarge
+
+  \begin{Verbatim}[commandchars=\\\{\}]
+name = "Tao"
+grade = 2 / 3
+m1 = "Hello, %s!" % name
+m2 = "Your grade is:  %f." % grade
+print(m1)
+print(m2) \pause
+
+\textcolor{CS101PureBase}{
+Hello, Tao!}
+\textcolor{CS101PureBase}{
+Your grade is 0.66667.}
+  \end{Verbatim}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Example}
+  \Enlarge
+
+  \begin{semiverbatim}
+x = 3
+s = ("%i" % (x+1)) * x**(5%x)
+print(s)
+  \end{semiverbatim}
+
+  What does this program print?
+  \begin{enumerate}[label=\Alph*]
+  \item  \texttt{333333333333}
+  \item  \texttt{444444444}
+  \item  \texttt{9999}
+  \item  \texttt{\%i\%i\%i\%i\%i}
+  \end{enumerate}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Indexing operator}
+  \Enlarge
+
+  \begin{itemize}
+  \myitem  Extracts single character \pause
+\begin{semiverbatim}
+a = "FIRE"
+a[0]
+\end{semiverbatim} \pause
+  \myitem  The integer is the index. \pause
+  \myitem  \textcolor{red}{\bf We count from zero!} (same in C, C++, Java) \pause
+  \myitem  If negative, counts down from end.
+  \myitem a[-1] refers to the last character
+  \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Question}
+  \Enlarge
+
+  \begin{semiverbatim}
+s = "ABCDE"
+i = 3
+x = s[i]
+  \end{semiverbatim}
+
+  What is the value of \texttt{x}?
+  \begin{enumerate}[label=\Alph*]
+  \item  \texttt{'A'}
+  \item  \texttt{'B'}
+  \item  \texttt{'C'}
+  \item  \texttt{'D'}
+  \item  \texttt{'E'}
+  \end{enumerate}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Question}
+  \Enlarge
+
+  \begin{semiverbatim}
+s = "ABCDE"
+i = 25 % 3
+y = s[i]
+  \end{semiverbatim}
+
+  What is the value of \texttt{y}?
+  \begin{enumerate}[label=\Alph*]
+  \item  \texttt{'A'}
+  \item  \texttt{'B'}
+  \item  \texttt{'C'}
+  \item  \texttt{'D'}
+  \item  \texttt{'E'}
+  \end{enumerate}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Question}
+  \Enlarge
+
+  \begin{semiverbatim}
+s = "ABCDE"
+i = (11 % 3) - 7
+z = s[i]
+  \end{semiverbatim}
+
+  What is the value of \texttt{z}?
+  \begin{enumerate}[label=\Alph*]
+  \item  \texttt{'A'}
+  \item  \texttt{'B'}
+  \item  \texttt{'C'}
+  \item  \texttt{'D'}
+  \item  \texttt{'E'}
+  \end{enumerate}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Question}
+  \Enlarge
+
+  \begin{semiverbatim}
+s = "ABCDE"
+i = (11 % 3) + 3
+z = s[i]
+  \end{semiverbatim}
+
+  What is the value of \texttt{z}?
+  %How about \texttt{s[-5]}?
+\end{frame}
+
+
+
 \end{document}
