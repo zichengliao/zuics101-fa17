@@ -6,10 +6,17 @@
 \usepackage{blindtext}
 \usepackage{enumitem}
 
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{blindtext}
+\usepackage{enumitem}
+\usepackage{fancyvrb}
+
 \usetheme{SaoPaulo}
 
 \title{Python Basics!}
-\subtitle{functions, scope}
+\subtitle{strings, functions, scope}
 \author{CS101 Lecture \#4}
 \date{2016-10-10}
 
@@ -40,27 +47,50 @@
 %    \mysubitem  Don't panic! \pause
 %    \end{itemize}
 %  \myitem  Complete Homework \#1 before 6:00 p.m. today. \pause
-  \myitem  Homework \#2 is due Wed Oct.\ 19. 
+  \myitem  Homework \#2 is due Tuesday Oct.\ 3. 
   %\pause
 %  \myitem  No lab next week (Labor Day).
   \end{itemize}
 \end{frame}
 
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Data Types---A Few Points}
+\section{Data Types---Strings}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
-  \frametitle{Complex numbers, $\mathbb{C}$}
+  \frametitle{ASCII table}
+  \Enlarge
+  \includegraphics[width=\textwidth]{./img/ascii-table.png} \\ \pause
+  
+  {\small The table provides an \emph{encoding} scheme from symbols to numbers} \\
+  \texttt{72 69 76 76 79} = \texttt{H E L L O} %\pause
+  
+  %\texttt{'HELLO'}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+  \frametitle{How to store text on computer?}
   \Enlarge
 
   \begin{itemize}
-  \myitem  Represent numbers with an imaginary component.
-  \myitem  Use \texttt{j} for $i$: \\
-    \textcolor{CS101GradBot}{\texttt{z = 1.0 + 1j}} \pause
-  \myitem  \texttt{z.real + z.imag * 1j}
+  \myitem \texttt{H E L L O} = \texttt{72 69 76 76 79} \pause
+  \myitem  Each symbol is stored individually, one byte long: \\
+   \vspace{2mm} \pause
+    \begin{tabular}{*{27}{l}}
+      72 & \texttt{01001000} \\
+      69 & \texttt{01000101} \\
+      76 & \texttt{01001100} \\
+      76 & \texttt{01001100} \\
+      79 & \texttt{01001111} \\
+    \end{tabular} \pause
+    
+    \vspace{2mm}
+    {\small \texttt{'HELLO'} : \textcolor{CS101GradBot}{\texttt{01001000 01000101 01001100 01001100 01001111}}}
   \end{itemize}
 \end{frame}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
@@ -71,10 +101,11 @@
   \myitem  As a literal:  text surrounded by quotes.
     \begin{itemize}
     \mysubitem  \texttt{'DEEP'}, or \texttt{"DEEP"} \pause
-    \mysubitem single quote(' ') and double quote (" ") are equivalent (not in C or C++)
+    \mysubitem single quote(\texttt{''}) and double quote (\texttt{""}) are equivalent (not in C or C++)
     \end{itemize}\pause
-  \myitem  Each symbol is a character.
-  \myitem  A string can have arbitrary length, including an empty string ('').
+  \myitem  Can have arbitrary length, including an empty string (\texttt{''}). \pause
+  \myitem  Each unit is a character --- also a string type \pause
+  \myitem  In C/C++, a character (`char') is a different data type from a string (`str')
   \end{itemize}
 \end{frame}
 
@@ -88,9 +119,13 @@
   \myitem  \textbf{Concatenation}:  combine two strings
     \begin{itemize}
     \mysubitem  Uses the \texttt{+} symbol (operator for string concatenation) \pause
-    \mysubitem  \texttt{'RACE' + 'CAR'}
+    \mysubitem  \texttt{'RACE' + 'CAR'}\pause
+    \mysubitem the ``same'' operator works differently with different types of operand (\emph{operator overload})
     \end{itemize}
-  \end{itemize}
+  \end{itemize} \pause
+   \vspace{-1mm}
+   \hspace{15mm}\texttt{\textcolor{CS101GradBot}{1 + 2 = 3}} \\ \vspace{1mm}
+   \hspace{15mm}\texttt{\textcolor{CS101GradBot}{'RACE' + 'CAR' = 'RACECAR'}} 
 \end{frame}
 
 
@@ -110,18 +145,25 @@
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
+\begin{frame}[fragile]
   \frametitle{String operations}
   \Enlarge
 
   \begin{itemize}
-  \myitem  \textbf{Formatting}:  used to encode other data as string
+  \myitem  \textbf{Formatting}: Creates string with other data types inserted in \pause
     \begin{itemize}
-    \mysubitem  Uses \texttt{\%} symbol
-    \mysubitem 'The revenue of this month is \emph{\textcolor{CS101GradBot}{100,000}} HKD'
-    \end{itemize}
+    \mysubitem  Formats different data types as a string \pause
+    \mysubitem  Requires a special indicator of Formatting: \texttt{\%}
+    \mysubitem  Requires indicator of data type
+    \end{itemize} \pause
+  \begin{semiverbatim}
+x = 123 * 54
+s = "The value of x is: %\textcolor{CS101GradBot}{i}" % \textcolor{CS101GradBot}{x}
+print(s)
+  \end{semiverbatim}
   \end{itemize}
 \end{frame}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
@@ -157,21 +199,90 @@ print( 'A string:    \%s' \% 'seven' )
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Example}
+  \Enlarge
+
+  \begin{Verbatim}[commandchars=\\\{\}]
+name = "Tao"
+grade = 2 / 3
+m1 = "Hello, %s!" % name
+m2 = "Your grade is:  %f." % grade
+print(m1)
+print(m2) \pause
+
+\textcolor{CS101PureBase}{
+Hello, Tao!}
+\textcolor{CS101PureBase}{
+Your grade is 0.666667.} 
+\end{Verbatim}
+
+\iffalse
+\begin{Verbatim}[commandchars=\\\{\}]
+m3 = "Your grade is:  %\textcolor{red}{.3}f" % grade
+print(m3) \pause
+
+\textcolor{CS101PureBase}{
+Your grade is 0.667.}
+\end{Verbatim}
+\fi
+
+\end{frame} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Example}
+  \Enlarge
+
+  \begin{semiverbatim}
+x = 3
+s = ("%i" % (x+1)) * x**(5%x)
+print(s)
+  \end{semiverbatim}
+
+  What does this program print?
+  \begin{enumerate}[label=\Alph*]
+  \item  \texttt{333333333333}
+  \item  \texttt{444444444}
+  \item  \texttt{9999}
+  \item  \texttt{\%i\%i\%i\%i\%i}
+  \end{enumerate}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
   \frametitle{Special characters}
   \Enlarge
 
   \begin{itemize}
-  \myitem  Special characters defined in ASCII, start with \texttt{\textbackslash}
+  \myitem  Special characters, start with \texttt{\textbackslash}
     \begin{tabular}{*{27}{l}}
-      \texttt{"\textbackslash n"} & new line \\
-      \texttt{"\textbackslash t"} & tab \\
-      \texttt{"\textbackslash \textbackslash"} & \texttt{\textbackslash} \\
-    \end{tabular}
-  \myitem print('the result of 3 plus 5 is:\texttt{\textbackslash}n\%i', \% (3+5))
-  \myitem print('the result of 3 plus 5 is:\texttt{\textbackslash}t\%i', \% (3+5))
-  \myitem print('put file in: C:\texttt{\textbackslash \textbackslash} Users\texttt{\textbackslash \textbackslash} john\texttt{\textbackslash \textbackslash}')
+      \texttt{\textbackslash n} & new line \\
+      \texttt{\textbackslash t} & tab (tabular key)\\
+      \texttt{\textbackslash \textbackslash} & \texttt{\textbackslash} \\
+      \texttt{\textbackslash '} & \texttt{'} \\
+      \texttt{\textbackslash "} & \texttt{"} \\
+   \end{tabular} 
+  \myitem \texttt{\textbackslash} is called the \emph{escape} character
+  \begin{itemize}
+  	\mysubitem  \textcolor{blue}{\small \texttt{\url{https://docs.python.org/2.0/ref/strings.html}}} 
   \end{itemize}
+  \end{itemize}
+  
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Example}
+  \Enlarge
+
+  \hspace{10mm}Try: \\
+  \hspace{12mm}\texttt{\small print('Hello Tao\texttt{\textcolor{red}{\textbackslash n}}Your grade is 0.667') \\
+  \hspace{12mm}print('3 plus 5 is:\texttt{\textcolor{red}{\textbackslash t}}\%i', \% (3+5)) \\
+  \hspace{12mm}print('put .ipynb file in: C:\texttt{\textcolor{red}{\textbackslash \textbackslash}}Users\texttt{\textcolor{red}{\textbackslash \textbackslash}}nick')
+  }
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -182,19 +293,20 @@ print( 'A string:    \%s' \% 'seven' )
   \begin{itemize}
   \myitem  ``Emily's not coming today''
   	\begin{itemize}
-	\mysubitem try: {\small print('Emily's not coming today')}
-	\mysubitem try: {\small print("Emily's not coming today")}
+	\mysubitem try: \texttt{{\small print('Emily's not coming today')}}
+	\mysubitem try: \texttt{{\small print("Emily's not coming today")}}
 	\end{itemize}\pause
-  \myitem ``Movie of the week is ''Kongfu Panda''''
+  \myitem ``Movie of the week is ''Beauty and Beast''''
   	\begin{itemize}
-	\mysubitem try: {\small print('Movie of the week is ''Kongfu Panda"')}
-	\mysubitem try: {\small print("Movie of the week is ''Kongfu Panda" ")}
+	\mysubitem \texttt{{\small print('Movie of the week is ''Beauty and Beast"')}}
+	\mysubitem \texttt{{\small print("Movie of the week is ''Beauty and Beast" ")}}
 	\end{itemize} \pause
   \myitem rule-of-thumb 
   	\begin{itemize}
 	\mysubitem use double quote to enclose single quote
-	\mysubitem use single quote to enclose double quote
-	\mysubitem use \texttt{\textbackslash '} or \texttt{\textbackslash "} for quotes inside a string 
+	\mysubitem use single quote to enclose double quote \pause
+	\mysubitem use \texttt{\textbackslash '} or \texttt{\textbackslash "} for quotes inside a string \pause
+	\mysubitem sometimes use triple quote (\texttt{''' '''})
 	\end{itemize}
  \end{itemize}
 \end{frame}
