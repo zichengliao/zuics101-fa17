@@ -68,7 +68,7 @@ chunks:
         | Session     | Date       | Supporting Resources | Reference ans |
         | ------- | ---------- | ----------------- | ---------- |
         | Lab #1:  get started | 2017-09-20 | [lab01.pdf](repocur:labs/lab01.pdf) | |
-        | Lab #1:  get started | 2017-09-20 | [lab02.ipynb](repocur:labs/lab02.ipynb); [rocket.py](repocur:labs/rocket.py) | |
+        | Lab #2:  Operators and Expression | 2017-09-20 | [lab02.ipynb](repocur:labs/lab02.ipynb); [rocket.py](repocur:labs/rocket.py) | |
         | | | | |
         
         #### Python Installation
