@@ -1,0 +1,4 @@
+a test line in new filea second line
+a third line
+
+new content in the end
