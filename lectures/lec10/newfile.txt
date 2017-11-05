@@ -1,4 +1,3 @@
-a test line in new filea second line
-a third line
+a test line
 
-new content in the end
+this is a new line of an existing file####
