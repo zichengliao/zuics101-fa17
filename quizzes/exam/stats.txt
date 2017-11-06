@@ -1,0 +1,21 @@
+all
+mean: 14.5
+median: 15
+percentile(25,50,75): 12, 15, 17
+highest: 26!
+
+
+
+Session A
+mean: 13.9
+median: 14
+percentile(25,50,75): 11, 14, 16
+highest: 26
+
+
+
+Session B
+mean: 15.0
+median: 15
+percentile(25,50,75): 13, 15, 17
+highest: 24
