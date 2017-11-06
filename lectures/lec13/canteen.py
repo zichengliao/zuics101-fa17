@@ -11,7 +11,7 @@ for day in range(1,31):
             nextC += 1
     for i in range(C):
         if np.random.randint(10) < 2:
-            nextC -= 1
             nextW += 1
+            nextC -= 1
     W, C = nextW, nextC
     print('Day %i: %i for Western food, %i for Chinese foot'%(day, W,C))
