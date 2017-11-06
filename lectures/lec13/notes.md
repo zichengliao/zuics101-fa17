@@ -1,1 +1,0 @@
-https://jeffknupp.com/blog/2013/02/06/write-cleaner-python-use-exceptions/
