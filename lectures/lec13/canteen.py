@@ -1,6 +1,6 @@
 import numpy as np
-W = 250
-C = 250
+W = 50
+C = 450
 print('Day 0: %i for Western food, %i for Chinese foot'%(W,C))
 
 for day in range(1,31):
