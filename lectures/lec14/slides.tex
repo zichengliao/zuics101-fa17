@@ -11,8 +11,8 @@
 
 \title{Python Applications}
 \subtitle{manipulating \texttt{lists}s}
-\author{CS101 Lecture \#13}
-\date{2016-11-14}
+\author{CS101 Lecture \#14}
+\date{2016-11-9}
 
 \setcounter{showSlideNumbers}{1}
 
@@ -37,8 +37,9 @@
   \Enlarge
 
   \begin{itemize}
-  \myitem  Homework \#7 is due Friday, Nov.\ 25.
-  \mysubitem  Use the \texttt{split(',')} approach.
+  \myitem  Homework \#6 is out; due on Nov.\ 13.
+  \myitem Last CodeLab homework
+  \myitem Complete your profile info. on CodeLab
 %  \myitem  Midterm reflection exercise on website for extra credit.
   \end{itemize}
 \end{frame}
@@ -47,14 +48,14 @@
 %\section{Feedback \& Midterm Results}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Warmup Quiz (No Real Quiz Today)}
+\section{Warmup question}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}[fragile]
   \frametitle{Mutability Question}
   \Enlarge
 
-  Which of the following sets of \texttt{list} methods \emph{all} change the function in place (have no return value)?
+  Which of the following sets of \texttt{list} methods \emph{all} change the \texttt{list} in place (have no return value)?
 
   \begin{enumerate}[label=\Alph*]
   \item  \texttt{split}, \texttt{append}, \texttt{extend}
@@ -69,7 +70,7 @@
   \frametitle{Mutability Question}
   \Enlarge
 
-  Which of the following sets of \texttt{list} methods \emph{all} change the function in place (have no return value)?
+  Which of the following sets of \texttt{list} methods \emph{all} change the \texttt{list} in place (have no return value)?
 
   \begin{enumerate}[label=\Alph*]
   \item  \texttt{split}, \textcolor{CS101Alt}{\texttt{append}}, \textcolor{CS101Alt}{\texttt{extend}}
@@ -94,9 +95,9 @@
   \hline \\
   \texttt{append} & \texttt{index} \\
   \texttt{extend} & \texttt{count} \\
-  \texttt{reverse} & \texttt{upper} \\
-  \texttt{sort} & \texttt{isupper} \\
-  \texttt{del} (not method) & etc. \\
+  \texttt{reverse} &  \\
+  \texttt{sort} &  \\
+  \texttt{del} (not method) &  \\
   \end{tabular}
 \end{frame}
 
@@ -134,6 +135,7 @@ sortDictAsList( d )
   \end{Verbatim}
 \end{frame}
 
+\iffalse
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}[fragile]
   \frametitle{Sorting a \texttt{dict} by value}
@@ -154,6 +156,8 @@ for row in reader:
 sortDictAsList( plankdata )
   \end{Verbatim}
 \end{frame}
+\fi
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}[fragile]
@@ -256,6 +260,7 @@ for doublet in permutations( 'ABCD',2 ):
   \end{Verbatim}
 \end{frame}
 
+\iffalse
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}[fragile]
   \frametitle{Homework debugging}
@@ -270,9 +275,11 @@ os.getcwd()  # Get Current Working Directory
 os.listdir('.')
 
 # when submitting, use:
-open( 'batting.csv' )  #(since in same dir)
+open( 'plankton.csv' )  #(since in same dir)
   \end{Verbatim}
 \end{frame}
+
+\fi
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Reminders}
@@ -283,9 +290,8 @@ open( 'batting.csv' )  #(since in same dir)
   \Enlarge
 
   \begin{itemize}
-  \myitem  Homework \#7 is due Friday, Nov.\ 25.
-  \mysubitem  Use the \texttt{split(',')} approach.
-%  \myitem  Midterm reflection exercise on website for extra credit.
+  \myitem  Homework \#6 is out; due on Nov.\ 13.
+    %  \myitem  Midterm reflection exercise on website for extra credit.
   \end{itemize}
 \end{frame}
 

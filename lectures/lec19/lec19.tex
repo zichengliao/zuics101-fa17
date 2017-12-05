@@ -1,0 +1,620 @@
+%!TEX program = xelatex
+\documentclass[11pt]{beamer}
+
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{blindtext}
+\usepackage{enumitem}
+\usepackage{fancyvrb}
+\usepackage{tikz}
+
+\usetheme{SaoPaulo}
+
+\title{Numerical Python}
+\subtitle{optimization}
+\author{CS101 Lecture \#19}
+\date{2016-11-28}
+
+\setcounter{showSlideNumbers}{1}
+
+\newcommand{\correctstar}{{\Large\textcolor{red}{$\star$}}}
+
+\begin{document}
+  \setcounter{showProgressBar}{0}
+  \setcounter{showSlideNumbers}{0}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\frame{\titlepage}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setcounter{framenumber}{0}
+\setcounter{showProgressBar}{1}
+\setcounter{showSlideNumbers}{1}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Administrivia}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+  \frametitle{Administrivia}
+  \Enlarge
+
+  \begin{itemize}
+  \myitem Homework \#7 is due Monday, Dec.\ 4. \pause
+  \myitem Mid-term II is on this Thursday
+  \myitem Covers until (inclusive) today's lecture (lec11-19)
+  \end{itemize}
+\end{frame}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Warmup Question}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Question \#1}
+
+  \begin{Verbatim}
+x = 'ABCD'
+z = 'XYZ'
+
+for a in itertools.product( x,y ):
+    print( ' '.join( a ) )
+  \end{Verbatim}
+
+Which of the following is \emph{not} printed?
+
+  \begin{enumerate}[label=\Alph*]
+    \item  \texttt{'A X'}
+    \item  \texttt{'B D'}
+    \item  \texttt{'C X'}
+    \item  \texttt{'D Z'}
+  \end{enumerate}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Question \#1}
+
+  \begin{Verbatim}
+x = 'ABCD'
+z = 'XYZ'
+
+for a in itertools.product( x,y ):
+    print( ' '.join( a ) )
+  \end{Verbatim}
+
+Which of the following is \emph{not} printed?
+
+  \begin{enumerate}[label=\Alph*]
+    \item  \texttt{'A X'}
+    \item  \texttt{'B D'}  \correctstar
+    \item  \texttt{'C X'}
+    \item  \texttt{'D Z'}
+  \end{enumerate}
+\end{frame}
+
+
+
+%Which of the following blocks will implement a brute-force search over the entire parameter space?
+\section{Brute-Force Search}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Brute-force search}
+
+  \begin{enumerate}
+  \myitem  Brute-force search of a password: %\pause
+  \end{enumerate}
+  \begin{Verbatim}
+def check_password( pwd ):
+    if pwd == 'pas':
+        return True
+    else:
+        return False
+
+chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'+\
+        'abcdefghijklmnopqrstuvwxyz0123456789'
+for pair in itertools.product( chars, repeat=3 ):
+    pair = ''.join( pair )
+    if check_password( pair ):
+        print( pair )
+  \end{Verbatim}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\section{Brute-Force Search}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Brute-force search}
+  \Enlarge
+
+  \begin{enumerate}
+  \myitem  Assume that a password can contain characters from the alphabet (upper- and lower-case); digits; and a selection of special characters (ampersand, dash):  86 characters.  \pause
+  \end{enumerate}
+  \begin{center}
+  \begin{tabular}{rr}
+    Characters & Search Space \\ \hline
+    1 & 86 \\
+    2 & $86^{2} = 7\,396$ \\ \pause
+    3 & $86^{3} = 636\,056$ \\
+    4 & $86^{4} = 54\,700\,816$ \\
+    5 & $86^{5} = 4\,704\,270\,176$ \\ \pause
+    10 & $86^{10} = 2.2 \times 10^{19}$ \\
+    20 & $86^{20} = 4.9 \times 10^{38}$ \\
+  \end{tabular}
+  \end{center}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Brute-force search}
+  \Enlarge
+
+  \begin{enumerate}
+  \myitem  If Python can try a password attempt every $1 \times 10^{-7}$ s, how long does it take to crack a password of length $n$?
+  \end{enumerate}
+  \begin{center}
+  \begin{tabular}{rrl}
+    Characters & Search Space & Time\\ \hline
+    1 & 86                    & $8.6 \times 10^{-6} \,\text{s}$ \\
+    2 & $7\,396$              & $7.4 \times 10^{-4} \,\text{s}$ \\
+    3 & $636\,056$            & $6.4 \times 10^{-2} \,\text{s}$ \\
+    4 & $54\,700\,816$        & $5.4 \,\text{s}$ \\
+    5 & $4\,704\,270\,176$    & $470.4 \,\text{s}$ \\ \pause
+    10 & $2.2 \times 10^{19}$ & $1.9 \times 10^{14} \,\text{s}$  \\ \pause
+    20 & $4.9 \times 10^{38}$ & $4.9 \times 10^{31} \,\text{s}$ \\
+  \end{tabular}
+  \end{center}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Heuristic Optimization}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Heuristic optimization}
+  \Enlarge
+
+  \begin{enumerate}
+  \myitem  In many cases, a ``good-enough'' solution is fine.  \pause
+  \myitem  If we have measure of \emph{relative} merit, we can assess candidate solutions by how good they are.  \pause
+  \myitem  Heuristic algorithms don't guarantee the `best' solution, but are often adequate. % (and the only choice!).
+  \end{enumerate}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Hill-climbing algorithm}
+  \Enlarge
+
+  \begin{enumerate}
+  \myitem  {\textbf Strategy}:  Always selecting neighboring candidate solution which improves on this one. \pause
+  \myitem  {\textbf Analogy}:  Trying to find the highest hill by only taking a step uphill from where you are. \pause
+  \myitem  {\textbf Pitfall}:  Get stuck at \emph{local} optimum solution.
+  \end{enumerate}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Steepest ascent algorithm}
+  \Enlarge
+
+  \begin{enumerate}
+  \myitem  {\textbf Strategy}:  Tweaking our current solution by changing all elements to improve the result.  Picking the candidate solution with the greatest improvement. \pause
+  \myitem  {\textbf Analogy}:  Trying to find the highest hill by always taking the \emph{steepest} step uphill from where you are. \pause
+  \myitem  {\textbf Pitfall}:  Finding a \emph{local} optimum instead of the \emph{global} optimum. QUESTION: how to find the steepest direction?
+  \end{enumerate}
+\end{frame}
+
+\iffalse
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Random sampling}
+  \Enlarge
+
+  \begin{enumerate}
+  \myitem  {\textbf Strategy}:  Choosing at random a candidate solution (sometimes within a constrained space). \pause
+  \myitem  {\textbf Analogy}:  Picking random heights in the region of a hill, accepting the tallest as the highest. \pause
+  \myitem  {\textbf Pitfall}:  Without good constraints, can miss the optimum value.
+  \end{enumerate}
+\end{frame}
+\fi
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Random walk}
+  \Enlarge
+
+  \begin{enumerate}
+  \myitem  {\textbf Strategy}:  Tweaking the current candidate solution at random, and possibly rejecting the solution if worse. \pause
+  \myitem  {\textbf Analogy}:  Taking random steps near a hill, but maybe not taking the step if it's worse. \pause
+  \myitem  {\textbf Pitfall}:  Converging slowly, can still miss best candidate solution.  BENEFIT:  has a way to get away from being stuck at local optima.
+  \end{enumerate}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Example}
+  \Enlarge
+
+  \begin{enumerate}
+  %\myitem  We require:
+    %\begin{enumerate}
+    %\mysubitem  A problem with \emph{relative} solution merit
+    %\mysubitem  An algorithm to assess solutions
+    %\end{enumerate}
+  %\myitem  The password cracking didn't have the former.
+  \myitem  Let's revisit the bag-packing algorithm.
+  \end{enumerate}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Example}
+  \Enlarge
+
+  \begin{enumerate}
+  \myitem  Our strategies:
+    \begin{enumerate}
+    \mysubitem  Brute-force (last lecture)
+    \mysubitem  Hill-climbing 
+      \begin{enumerate}
+      \mysubitem  Select most valuable item, then add next most valuable item, etc. 
+      %\mysubitem  Select the heaviest item, then add next heaviest, etc. \pause
+      \end{enumerate}
+    %\mysubitem  Random sampling \pause
+    \mysubitem  Random walk:  make a random move from current solution, accept the move based on merit
+    \end{enumerate}
+  \end{enumerate}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Setup}
+  \Enlarge
+
+  \begin{Verbatim}
+import numpy as np
+import matplotlib.pyplot as plt
+import itertools
+
+n = 10
+items   = list( range( n ) )
+weights = np.random.uniform( size=(n,) ) * 50
+values  = np.random.uniform( size=(n,) ) * 100
+  \end{Verbatim}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Setup}
+
+  \begin{Verbatim}
+def f( wts, vals ):
+    total_weight = 0
+    total_value = 0
+
+    for i in range( len( wts ) ):
+        total_weight += wts[ i ]
+        total_value  += vals[ i ]
+
+    if total_weight >= 50:
+        return 0
+    else:
+        return total_value
+  \end{Verbatim}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Brute-force search}
+
+  \begin{Verbatim}
+import itertools
+
+max_value = 0.0
+max_set = None
+for i in range(n):
+    for set in itertools.combinations( items,i ):
+        wts  = []
+        vals = []
+        for item in set:
+            wts.append( weights[ item ] )
+            vals.append( values[ item ] )
+        value = f( wts,vals )
+        if value > max_value:
+            max_value = value
+            max_set = set
+  \end{Verbatim}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Tracking cases}
+
+  \begin{Verbatim}
+max_value = 0.0
+max_set = None
+for i in range(n):
+    for set in itertools.combinations( items,i ):
+        wts  = []
+        vals = []
+        for item in set:
+            wts.append( weights[ item ] )
+            vals.append( values[ item ] )
+        value = f( wts,vals )
+        if value > max_value:
+            max_value = value
+            max_set = set
+            print( max_value, vals )
+  \end{Verbatim}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Plot result}
+
+  \begin{Verbatim}
+vals = values[np.array(max_set)]   #watch out this!
+plt.plot( vals, 'bs' )
+plt.xlim( ( 0, len(vals) ) )
+plt.show()
+  \end{Verbatim}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Hill-climbing search}
+
+  \begin{Verbatim}
+max_wt = 50.0
+
+wts  = weights[ : ]
+vals = values[ : ]
+
+best_vals = [ ]
+best_wts  = [ ]
+best_vals.append( max( vals ) )
+best_wts.append( wts[ vals.index( max( vals ) ) ] )
+vals.remove( max( vals ) )
+wts.remove( wts[ vals.index( max( vals ) ) ] )
+  \end{Verbatim}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Hill-climbing search}
+
+  \begin{Verbatim}
+while sum(best_wts)+wts[vals.index(max(vals))] < max_wt:
+    best_vals.append( max( vals ) )
+    best_wts.append( wts[ vals.index( max( vals ) ) ] )
+    vals.remove( max( vals ) )
+    wts.remove( wts[ vals.index( max( vals ) ) ] )
+
+# plot out values in final solution
+plt.plot(best_vals, 'bs')
+plt.xlim((0, len(best_vals)))
+plt.show()
+  \end{Verbatim}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{What is the strategy here?}
+  \Enlarge
+
+  \begin{enumerate}
+  \myitem Pick the next item with the largest value until it overloads \pause
+  \myitem QUESTION: is it the best strategy we can have? \pause
+  \begin{enumerate}
+  	\mysubitem Strategy 2: pick the next item with the least weight until it overloads \pause
+	\mysubitem Strategy 3: pick the next item with the highest value/weight ratio until overloads. \pause
+  \end{enumerate}
+  \myitem Any of these guarantees to find the global optimal solution?
+  \end{enumerate}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Random walk}
+
+  \begin{Verbatim}
+#start with a configuration at random (empty set)
+selected = np.zeros(n)
+current_wts = weights[np.where(selected==1)]
+current_vals = values[np.where(selected==1)]
+#alter it at random with small likelihood of getting worse
+for t in range( 1000 ):
+    # make a change in 'selected'
+    # two possible moves:  adding or swaping
+    ...
+    trial_wts = weights[np.where(selected==1)]
+    trial_vals = values[np.where(selected==1)]
+    if f(trial_wts,trial_vals)>f(current_wts,current_vals):
+        #if improvement, accept the change
+        current_wts,current_vals = trial_wts, trial_vals
+    else:
+        # do nothing
+  \end{Verbatim}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Random walk}
+
+  \begin{Verbatim}
+#start with a configuration at random
+selected = np.random.uniform(size=(10,)) < 0.2
+current_wts = weights[np.where(selected==1)]
+current_vals = values[np.where(selected==1)]
+#alter it at random with small likelihood of getting worse
+for t in range( 1000 ):
+    # make a change in 'selected'
+    # two possible moves:  adding or swaping
+    ...
+    trial_wts = weights[np.where(selected==1)]
+    trial_vals = values[np.where(selected==1)]
+    if f(trial_wts,trial_vals)>f(current_wts,current_vals):
+        #if improvement, accept the change
+        current_wts,current_vals = trial_wts, trial_vals
+    else:
+        #otherwise, accept the change with a *probability*
+  \end{Verbatim}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Random walk (extended)}
+  \Enlarge
+
+  \begin{enumerate}
+  \myitem How to define the set of moves at each timestep?
+  \myitem How to define the accept probability when there is no improvement?
+  \begin{enumerate}
+  	\mysubitem{\emph{Simulated annealing}}
+	\mysubitem{\emph{Monte Carlo Markov Chain} (MCMC)}
+  \end{enumerate}
+  \end{enumerate}
+\end{frame}
+
+
+\iffalse
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Code Performance}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Code performance}
+  \Enlarge
+
+  \begin{enumerate}
+  \myitem  In order to compare algorithms, we need a way to measure code run time (called ``wallclock time''). \pause
+  \myitem  The \texttt{timeit} module provides three ways to time your code: \pause
+    \begin{enumerate}
+    \mysubitem  Interpreter:  \texttt{timeit.timeit('func( n )', number=10000)} \pause
+    \mysubitem  Command line:  \texttt{python3 -m timeit 'code'} \pause
+    \mysubitem  Notebook:  \texttt{\%timeit func( n )}  (this is easiest) \pause
+    \end{enumerate}
+  \myitem  These run your code many times and return an average time to completion.
+  \end{enumerate}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Fibonacci sequence}
+  \Enlarge
+
+  $$
+  F_{n} = F_{n-1} + F_{n-2} \hspace{2cm} F_{1} = F_{2} = 1
+  $$
+
+  $$
+  1\,1\,2\,3\,5\,8\,13\,21\,34\,55\,...
+  $$
+
+  \pause
+
+  $$
+  F_{n} = \frac{\left( \frac{1+\sqrt{5}}{2} \right)^{n} + \left( \frac{2}{1+\sqrt{5}} \right)^{n}}{\sqrt{5} + \frac{1}{2}}
+  $$
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Analytical Fibonacci}
+  \Enlarge
+
+  \begin{Verbatim}
+def fib_a( n ):
+    sqrt_5 = 5**0.5;
+    p = ( 1 + sqrt_5 ) / 2;
+    q = 1 / p;
+    return int( (p**n + q**n) / sqrt_5 + 0.5 )
+  \end{Verbatim}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Recursive Fibonacci}
+  \Enlarge
+
+  \begin{Verbatim}
+def fib_r( n ):
+    if n == 1 or n == 2:
+        return 1
+    else:
+        return fib_r( n-1 ) + fib_r( n-2 )
+  \end{Verbatim}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Comparison}
+  \Enlarge
+
+  \begin{Verbatim}
+%timeit fib_a( 12 )
+%timeit fib_r( 12 )
+  \end{Verbatim}
+  \pause
+  \begin{enumerate}
+  \myitem  On my machine, \texttt{fib\_a} is 55 $\times$ faster than \texttt{fib\_r} for \texttt{n = 12}.  (Will this performance get better or worse for larger \texttt{n}?)
+  \end{enumerate}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Comparing Results}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Comparing results}
+  \Enlarge
+
+  \begin{enumerate}
+  \myitem  \texttt{array}s don't play nicely with comparisons:
+  \begin{Verbatim}
+one = np.ones( ( 5, ) )
+if one == 1:
+    print( 'setup correct' )
+  \end{Verbatim}
+  \pause
+  \begin{Verbatim}[commandchars=\\\{\},commentchar=\%]
+\textcolor{red}{ValueError}: The truth value of an array
+    with more than one element is ambiguous.
+  \end{Verbatim}
+  \pause
+  \myitem  Which element is compared?  It's ambiguous.
+  \end{enumerate}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Comparing results}
+  \Enlarge
+
+  \begin{enumerate}
+  \myitem  \texttt{array}s have the built-in methods \texttt{any} and \texttt{all}:
+  \begin{Verbatim}
+one = np.ones( ( 5, ) )
+if one.all() == 1:
+    print( 'setup correct' )
+  \end{Verbatim}
+  \pause
+  \begin{Verbatim}[commandchars=\\\{\},commentchar=\%]
+domain = np.linspace( 0,10,11 )
+if domain.any() == 1:
+    print( 'setup contains one' )
+  \end{Verbatim}
+  \end{enumerate}
+\end{frame}
+
+\fi
+
+\end{document}

@@ -11,9 +11,9 @@
 \usetheme{SaoPaulo}
 
 \title{Numerical Python}
-\subtitle{plotting, arrays}
+\subtitle{numpy.array, plotting}
 \author{CS101 Lecture \#15}
-\date{2016-11-21}
+\date{2016-11-14}
 
 \setcounter{showSlideNumbers}{1}
 
@@ -31,22 +31,45 @@
 \setcounter{showProgressBar}{1}
 \setcounter{showSlideNumbers}{1}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Administrivia}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-  \frametitle{Administrivia}
+\section{Warm-up Questions}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Multidimensional indexing}
   \Enlarge
+  
+a = [ [1, 2], [3, 4], [5, 6, 7] ]
 
-  \begin{itemize}
-  \myitem  Homework \#8 is due Friday, Dec.\ 2.
-  \end{itemize}
+\begin{enumerate}
+\myitem What is the type of \texttt{a}?
+\myitem What is the value of a[2][2]?
+\myitem What is the value of a[1][2]?
+\end{enumerate}
+
 \end{frame}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Numerical Python (\texttt{numpy})}
+\begin{frame}[fragile]
+  \frametitle{Multidimensional indexing}
+  \Enlarge
+Create the following two-dimensional list:
+  
+\begin{Verbatim}
+x = [ [1,0,0,0],
+      [0,1,0,0],
+      [0,0,1,0],
+      [0,0,0,1] ]
+\end{Verbatim}
+
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Array}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}[fragile]
@@ -71,7 +94,7 @@ mydata * 2.0  # doesn't double values!
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}[fragile]
-  \frametitle{\texttt{numpy}}
+  \frametitle{\texttt{numpy.array}}
   \Enlarge
 
   \begin{Verbatim}
@@ -85,29 +108,216 @@ import numpy as np  # better way
   \begin{Verbatim}
 data = np.array( [ 4.5, 6.0, 1.2, 5.4 ] )
 data * 2.0
+np.exp(data)
   \end{Verbatim}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\section{More \texttt{numpy}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Indexing arrays}
+  \Enlarge
+
+  \includegraphics[width=0.67\textwidth]{./img/ndarray.png}
+
+  \begin{enumerate}
+  \myitem  \texttt{numpy.array} indexes an element by \texttt{array[row][col]}.
+  \myitem  \texttt{numpy.array} indexes a row by \texttt{array[row]}.
+  \myitem  \texttt{numpy.array} indexes a sub-array by \texttt{array[r1:r2, c1:c2]}.
+  \end{enumerate}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}[fragile]
-  \frametitle{\texttt{numpy}}
+  \frametitle{Indexing arrays}
+  \Enlarge
+
+  \includegraphics[width=0.67\textwidth]{./img/ndarray.png}
+
+  \begin{enumerate}
+  \myitem  What is \texttt{a[1:3][1:2]}?.
+  \end{enumerate}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Question}
+  \Enlarge
+
+$$
+x =
+\left(
+\begin{array}{cc}
+1 & 1 \\
+2 & 2 \\
+3 & 3
+\end{array}
+\right)
+$$
+
+  What will produce this array?
+
+  \begin{enumerate}[label=\Alph*]
+  \item
+  \begin{Verbatim}
+np.array([[1,2,3],[1,2,3]])
+  \end{Verbatim}
+  \item
+  \begin{Verbatim}
+np.array([2,3])
+  \end{Verbatim}
+  \item
+  \begin{Verbatim}
+np.array([3,2])
+  \end{Verbatim}
+  \item
+  \begin{Verbatim}
+np.array([[1,1],[2,2],[3,3]])
+  \end{Verbatim}
+  \end{enumerate}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Question}
+  \Enlarge
+
+$$
+x =
+\left(
+\begin{array}{cc}
+1 & 1 \\
+2 & 2 \\
+3 & 3
+\end{array}
+\right)
+$$
+
+  What will produce this array?
+
+  \begin{enumerate}[label=\Alph*]
+  \item
+  \begin{Verbatim}
+np.array([[1,2,3],[1,2,3]])
+  \end{Verbatim}
+  \item
+  \begin{Verbatim}
+np.array([2,3])
+  \end{Verbatim}
+  \item
+  \begin{Verbatim}
+np.array([3,2])
+  \end{Verbatim}
+  \item
+  \begin{Verbatim}
+np.array([[1,1],[2,2],[3,3]])
+  \end{Verbatim}
+  \correctstar
+  \end{enumerate}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{\texttt{numpy.array}}
   \Enlarge
 
   Consider a data set containing patient inflammation records for 60 patients over a period of 40 days, contained in \texttt{inflammation.csv}.
 
   \begin{Verbatim}
-  data = np.loadtxt( './data/inflammation.csv',
-                     delimiter=',' )
+data = np.loadtxt( './data/inflammation.csv',
+                   delimiter=',' )
   \end{Verbatim}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}[fragile]
-  \frametitle{\texttt{numpy}}
+  \frametitle{\texttt{numpy.array}}
   \Enlarge
 
   \includegraphics[width=\textwidth]{./img/axes.png}
 \end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{\texttt{numpy} Data types}
+  \Enlarge
+
+  \begin{enumerate}
+  \myitem  \texttt{numpy} supports many possible data types:
+    \begin{enumerate}
+    \mysubitem  \texttt{bool}
+    \mysubitem  \texttt{int16}, \texttt{int32}
+    \mysubitem  \texttt{float16}, \texttt{float32}, \texttt{float64}
+    \mysubitem  \texttt{complex64}, \texttt{complex128}
+    \end{enumerate} %\pause
+  \myitem  For the most part, stick with \texttt{bool}, \texttt{int32}, and \texttt{float64} (most accurate).
+  \myitem  Specify (and query) with \texttt{dtype}:
+  \end{enumerate}
+  \begin{Verbatim}
+import numpy as np
+a = [ 3,2,4 ]
+x = np.array( a,dtype=np.float64 )
+x.dtype
+  \end{Verbatim}
+\end{frame}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Other arrays}
+  \Enlarge
+  \begin{Verbatim}
+x = np.zeros([2,3] ) # zeroes
+y = np.ones([4,1])   # ones, 4 rows, 1 column
+y = np.ones([1,4])   # ones, 1 row, 4 columns
+y = np.ones([4])     # ones, a row vector
+  \end{Verbatim}
+
+  \begin{enumerate}
+  \myitem  Produce arrays of zeros or ones with specified dimensions.
+  \end{enumerate}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Other arrays}
+  \Enlarge
+
+  \begin{Verbatim}
+z = np.eye( 5 )         # 5x5 identity matrix
+  \end{Verbatim}
+  \begin{enumerate}
+  \myitem  Produces identity matrix of specified square dimension.
+  \end{enumerate}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Other arrays}
+  \Enlarge
+
+  \begin{Verbatim}
+w = np.linspace( 0,10,101 )
+v = np.linspace( start, finish, n)
+  \end{Verbatim}
+  \begin{enumerate}
+  \myitem  Produce arrays from \texttt{start} to \texttt{finish} of \texttt{n} points (\emph{not} spacing!).
+  \myitem  Excellent for grids and coordinates.
+  \myitem  May also use \texttt{arange}: [start, stop) %, but I recommend avoiding its use:
+  \end{enumerate}
+  \begin{Verbatim}
+u = np.arange( 0,10,0.1 )  
+u == array( [ 0, 0.1, 0.2, ..., 9.9 ] )
+  \end{Verbatim}
+\end{frame}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Plotting (\texttt{matplotlib})}
@@ -119,7 +329,6 @@ data * 2.0
 
   \begin{Verbatim}
 import matplotlib.pyplot as plt
-%matplotlib inline               # jupyter only
   \end{Verbatim}
   %\pause
   \begin{enumerate}
@@ -141,9 +350,9 @@ plt.show()
 
   \begin{enumerate}
   \myitem  \emph{Always} include labels:
-  \mysubitem  \texttt{plt.xlabel( 'domain' )}
-  \mysubitem  \texttt{plt.ylabel( 'range' )}
-  \mysubitem  \texttt{plt.title( 'topical data' )}
+  	\mysubitem  \texttt{plt.xlabel( 'domain' )}
+  	\mysubitem  \texttt{plt.ylabel( 'range' )}
+  	\mysubitem  \texttt{plt.title( 'topical data' )}
   \end{enumerate}
   \begin{Verbatim}
 plt.plot( xs, ys )
@@ -187,26 +396,83 @@ plt.show()
   \end{Verbatim}
   %\pause
   \begin{enumerate}
-    \myitem  \texttt{plot}:  can also take keyword arguments.
+    \myitem  \texttt{plot}:  can also take \emph{keyword arguments}.
   \end{enumerate}
   \begin{Verbatim}
-plt.plot( xs, ys, 'r.', label='height' )
+plt.plot( xs, ys, 'r.', linewidth=1.0 )
 plt.show()
   \end{Verbatim}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Reminders}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-  \frametitle{Reminders}
+\begin{frame}[fragile]
+  \frametitle{\texttt{matplotlib}}
   \Enlarge
 
-  \begin{itemize}
-  \myitem  Homework \#8 is due Friday, Dec.\ 2.
- 
-  \end{itemize}
+More options of plot: 
+
+\url{http://stackoverflow.com/questions/8376926/plotting-many-graphs-with-matplotlib}\\
+
+\vspace{2mm}
+\url{https://matplotlib.org/api/pyplot_api.html}
+
 \end{frame}
+
+\iffalse
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  %\frametitle{The punchline:  Why?}
+  \frametitle{Plot $sin(x)$ for $x \in \left[ 0, 2\pi \right]$ using \texttt{numpy}.}
+ % \Enlarge
+
+  %Plot $sin(x)$ for $x \in \left[ 0, 2\pi \right]$ using pure Python.
+  %\pause
+
+  \begin{Verbatim}
+import matplotlib.pyplot as plt
+%matplotlib inline  
+from math import pi
+x = []   # can't use range!
+for i in range(100):
+    x.append( 2*pi*i/100 )
+from math import sin
+y = []
+for j in range(100):
+    y.append( sin(x[j]) )
+plt.plot( x,y,'k-' )
+plt.xlim( 0,2*pi )
+plt.ylim( -1,1 )
+plt.show()
+  \end{Verbatim}
+  
+\end{frame}
+\fi
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  %\frametitle{The punchline:  Why?}
+  \frametitle{Plot $sin(x)$ for $x \in \left[ 0, 2\pi \right]$ using \texttt{numpy}.}
+  \Enlarge
+
+  
+  %\pause
+
+  \begin{Verbatim}
+import matplotlib.pyplot as plt
+%matplotlib inline  
+import numpy as np
+x = np.linspace( 0,2*np.pi,101 )
+y = np.sin( x )
+
+plt.plot( x,y,'k-' )
+plt.xlim( 0,2*pi )
+plt.ylim( -1,1 )
+plt.show()
+  \end{Verbatim}
+   
+\end{frame}
+
+
+
+
 
 \end{document}
