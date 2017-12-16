@@ -1,3 +1,3 @@
 function [rhs] = mylhs2(x)
-    rhs = -2*x.^3 + 3*x.^2 -4*x - 5;
+    rhs = x.^3 - x.^2 -14*x + 24;
 end
