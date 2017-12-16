@@ -1,0 +1,171 @@
+%!TEX program = xelatex
+\documentclass[11pt]{beamer}
+
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{blindtext}
+\usepackage{enumitem}
+\usepackage{fancyvrb}
+\usepackage{tikz}
+
+\usetheme{SaoPaulo}  % can use SaoPaulo as well
+
+\title{MATLAB}
+\subtitle{Applications:  Statistics}
+\author{CS101 Lecture \#24}
+\date{2017-01-04}
+
+\setcounter{showSlideNumbers}{1}
+
+\newcommand{\correctstar}{{\Large\textcolor{red}{$\star$}}}
+
+\begin{document}
+  \setcounter{showProgressBar}{0}
+  \setcounter{showSlideNumbers}{0}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\frame{\titlepage}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setcounter{framenumber}{0}
+\setcounter{showProgressBar}{1}
+\setcounter{showSlideNumbers}{1}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Administrivia}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+  \frametitle{Administrivia}
+  \Enlarge
+
+  \begin{itemize}
+  \myitem  Homework \#12 is due Friday, Jan.\ 13.  %\pause
+  \myitem  No lab \emph{next} week.  %\pause
+  \myitem  Final examination will be held Jan.\ 20, Friday 8am-11am in A-0414.  %\pause
+ % \myitem  Grade check period coming up:  Dec.\ 9--14.  \textcolor{CS101Base}{All Compass grades will be considered final after this.}
+  \end{itemize}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Statistics}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Random numbers}
+  \Enlarge
+
+  \begin{enumerate}
+  \myitem  MATLAB supports many varieties of RNG:
+    \begin{enumerate}
+    \mysubitem  \texttt{rand}, uniform distribution $[0,1)$
+    \mysubitem  \texttt{randn}, normal distribution
+    \mysubitem  \texttt{randi}, random integers $[0,n)$
+    \end{enumerate}
+  \end{enumerate}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{\texttt{rand}}
+  \Enlarge
+
+  \begin{Verbatim}
+rand(5);      % generate 5x5 matrix
+rand(5,1);    % generate 5x1 row vector
+10 * rand(3); % 3x3 matrix from [0,10)
+  \end{Verbatim}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{\texttt{randi}}
+  \Enlarge
+
+  \begin{Verbatim}
+randi(5);      % generate number from [0,5]
+randi(5,2);    % generate 2x2 matrix
+randi([-5,5],10,1); % from [-5,5] in 10x1
+  \end{Verbatim}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{\texttt{randn}}
+  \Enlarge
+
+  \begin{Verbatim}
+randn();       % single normal number
+randn(5);      % generate 5x5 matrix
+randn(5,2);    % generate 5x2 matrix
+  \end{Verbatim}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Example:  Seed}
+
+  \begin{Verbatim}
+randn( 'seed',1 );
+x = linspace( 0,2*pi,101 )';
+y = sin( x/50 ) ./ x + .002 * randn( 101,1 );
+% Right-array division (./)
+clf  %Clear current figure window
+plot( x,y,'.' );
+  \end{Verbatim}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Statistical quantities}
+  \Enlarge
+
+  \begin{enumerate}
+  \myitem  Many operations are available:
+    \begin{enumerate}
+    \mysubitem  \texttt{mean} (average), \texttt{median}, \texttt{std}
+    \mysubitem  \texttt{max}, \texttt{min}, \texttt{range}
+    \mysubitem  \texttt{prctile} 
+    \mysubitem  \texttt{iqr}: interquartile range; prctile(75) - prctile(25)
+    \mysubitem  \texttt{sort}
+    \mysubitem  \texttt{corrcoef}: the correlation coefficient of two random variables is a measure of their linear dependence
+    \end{enumerate}
+  \end{enumerate}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Statistical plots}
+  \Enlarge
+
+  \begin{enumerate}
+  \myitem  Many operations are available:
+    \begin{enumerate}
+    \mysubitem \texttt{plot} (matplotlib was copying matlab.plot)
+    \mysubitem \texttt{hist}
+    \mysubitem \texttt{bar}
+    \mysubitem \texttt{boxplot}
+    \end{enumerate}
+  \end{enumerate}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Examples}
+  \Enlarge
+  \begin{Verbatim}
+x = randn( 6,1 );
+y = randn( 6,1 );
+A = [x y 2*y+3 ];
+R = iqr ( A )
+  \end{Verbatim}
+\end{frame}
+
+
+
+
+% - PDE toolbox example?
+% - find factorial using function browser
+
+\end{document}

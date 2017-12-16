@@ -13,8 +13,8 @@
 
 \title{MATLAB}
 \subtitle{Introduction, Part II}
-\author{CS101 Lecture \#23}
-\date{2016-12-21}
+\author{CS101 Lecture \#22}
+\date{2016-12-12}
 
 \setcounter{showSlideNumbers}{1}
 
@@ -41,9 +41,9 @@
   \Enlarge
 
   \begin{itemize}
-  \myitem  Midterm \#2 graded
-  \myitem  Homework \#11 will be  due Wed Jan. 4.  \pause
-  \myitem  Homework \#12 will be released over the break, due Friday, Jan 13. 
+  \myitem  Last Lab session this Wednesday.
+  \myitem  Next Wednesday for Q\&A.
+  \myitem  Homework \#9 this Thursday.
   %\myitem  Grade check period coming up:  Dec.\ 9--14.  \pause
   \end{itemize}
 \end{frame}
@@ -148,7 +148,7 @@ How do we access \texttt{6} in this array?
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{MATLAB}
+\section{MATLAB cont.d}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}[fragile]
@@ -159,13 +159,44 @@ How do we access \texttt{6} in this array?
   \myitem  \texttt{a = [ 1 2 3 ]; \%row vector}
   \myitem  \texttt{b = [ 1 2 3 ]'; \%column vector}
   \myitem  \texttt{A = [ 1 2 3 ; 4 5 6 ]; \%matrix}
-  \myitem  \texttt{B = [ a ; b ];  \% matrix composition}
+  \myitem  \texttt{B = [ a ; b ];  }
   \end{enumerate}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Indexing arrays}
+  \Enlarge
+
+  \begin{enumerate}
+  \myitem  In more dimensions:
+  \end{enumerate}
+  \begin{semiverbatim}
+A = [ 1,2,3 ; 4,5,6 ; 7,8,9 ];
+B = A( 1:2,1:2 );
+C = A( :,1:2 );
+D = A( :,1:2:end)   \% start:interval:stop
+  \end{semiverbatim}
 \end{frame}
 
 % Today will feel like a grab bag.
 % Many things will be useful.  I will try to identify those that are not expected to be on an exam, however.
 %TODO: check all code, add finite difference equations?
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Array Indexing}
+  \Enlarge
+
+  \begin{enumerate}
+  \myitem  We can slicing an array with an array of indices.
+  \end{enumerate}
+  \begin{semiverbatim}
+A = 0:10:100;
+B = A( [ 5,9,2,2,5 ] );
+  \end{semiverbatim}
+\end{frame}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -181,14 +212,14 @@ How do we access \texttt{6} in this array?
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}[fragile]
-  \frametitle{Array operations}
+  \frametitle{Matrix--Vector Operations}
   \Enlarge
 
   \begin{enumerate}
-  \myitem  Matrix v. elementwise operations:
-    \begin{enumerate}
-    \mysubitem  Matrix operations are matrix--vector operations:
-    \end{enumerate}
+  \myitem  Identity matrix does not move things
+    %\begin{enumerate}
+    %\mysubitem  Matrix operations are matrix--vector operations:
+    %\end{enumerate}
   \end{enumerate}
   $$
 \left( \begin{array}{cc}
@@ -205,11 +236,11 @@ How do we access \texttt{6} in this array?
   3
 \end{array} \right)
   $$
-  \pause
   \begin{Verbatim}
 [ 1 0 ; 0 1 ] * [ 2 3 ]'
   \end{Verbatim}
   \pause
+  \vspace{2mm}
   $$
 \left( \begin{array}{cc}
   1 & 2 \\
@@ -221,8 +252,8 @@ How do we access \texttt{6} in this array?
 \end{array} \right)
 =
 \left( \begin{array}{c}
-  2+6 \\
-  3+2
+  2+3*2 \\
+  2+3
 \end{array} \right)
 =
 \left( \begin{array}{c}
@@ -230,22 +261,64 @@ How do we access \texttt{6} in this array?
   5
 \end{array} \right)
   $$
-  \pause
   \begin{Verbatim}
 [ 1 2 ; 1 1 ] * [ 2 3 ]'
+  \end{Verbatim}
+  \vspace{2mm}
+  \pause
+  $$
+\left( \begin{array}{ccc}
+  1 & 1 & 0\\
+  0 & 1 & 1\\
+\end{array} \right)
+\left( \begin{array}{c}
+  2 \\
+  3 \\
+  1 \\
+\end{array} \right)
+=
+\left( \begin{array}{c}
+  2+3+0\\
+  0+3+1
+\end{array} \right)
+=
+\left( \begin{array}{c}
+  5 \\
+  4
+\end{array} \right)
+  $$
+  \begin{Verbatim}
+[ 1 1 0; 0 1 1] * [ 2 3 1]'
   \end{Verbatim}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}[fragile]
-  \frametitle{Array operations}
+  \frametitle{Matrix multiplication}
+  \Enlarge
+  \begin{tikzpicture}[remember picture]
+  \node[at=(current page.center)] {
+                \includegraphics[height=0.4\paperheight]{./img/mult2.png}
+            };
+  \end{tikzpicture} \pause
+  \begin{enumerate}
+     \myitem  Matrix multiplications are matrix--vector operations: \pause
+     	\begin{enumerate}
+	\mysubitem \texttt{A*B(:,1) = C(:,1)}
+	\end{enumerate}
+  \end{enumerate}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Elementwise operations}
   \Enlarge
 
   \begin{enumerate}
-  \myitem  Matrix v. elementwise operations:
-    \begin{enumerate}
-    \mysubitem  Elementwise operations are spreadsheet-like operations:
-    \end{enumerate}
+  \myitem  Elementwise operations are spreadsheet-like operations:
+    %\begin{enumerate}
+    %\mysubitem  
+    %\end{enumerate}
   \end{enumerate}
   $$
 \left( \begin{array}{cc}
@@ -269,58 +342,23 @@ How do we access \texttt{6} in this array?
   \end{Verbatim}
 \end{frame}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}[fragile]
-  \frametitle{Indexing arrays}
-  \Enlarge
 
-  \begin{enumerate}
-  \myitem  We can index arrays with arrays.
-  \end{enumerate}
-  \begin{semiverbatim}
-A = 0:10:100;
-B = A( [ 5,9,2,2 ] );
-  \end{semiverbatim}
-  \pause
-  \begin{enumerate}
-  \myitem  This permits slicing.
-  \end{enumerate}
-  \begin{semiverbatim}
-A = 0:10:100;
-B = A( 4:7 );
-  \end{semiverbatim}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}[fragile]
-  \frametitle{Indexing arrays}
-  \Enlarge
-
-  \begin{enumerate}
-  \myitem  In more dimensions:
-  \end{enumerate}
-  \begin{semiverbatim}
-A = [ 1,2,3 ; 4,5,6 ; 7,8,9 ];
-B = A( 1:2,1:2 );
-C = A( :,1:2 );
-  \end{semiverbatim}
-\end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}[fragile]
-  \frametitle{Multiple returns}
+  \frametitle{Multiple return values}
   \Enlarge
 
   \begin{enumerate}
-  \myitem  Functions can return several values.  \pause
+  \myitem  Functions can return several values. 
   \end{enumerate}
   \begin{Verbatim}
-function [ a,b ] = nonsense( x,y )
+function [ a,b ] = func( x )
     a = x ^ 2;
-    b = y ^ 3;
+    b = x ^ 3;
 end
 
-[ q r ] = nonsense( 3,4 )
+[ q r ] = func( 3 )
   \end{Verbatim}
 \end{frame}
 
@@ -345,6 +383,7 @@ end
  % \end{enumerate}
 %\end{frame}
 
+\iffalse
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}[fragile]
   \frametitle{Plotting}
@@ -385,70 +424,97 @@ ylabel( 'y values' );
   \myitem  We've seen these parts---what about the rest of our ``control structures''?
   \end{enumerate}
 \end{frame}
+\fi
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}[fragile]
-  \frametitle{Finite difference}
 
-  \begin{Verbatim}
-%% set parameters
-alpha = 0.1;
-tmax = 0.5;     % maximum time (s)
-length = 3.0;   % length of material
-dx = 0.2;       % mesh spacing
-dt = 0.01;      % time step (s)
 
-%% data storage initialization
-t = 0:dt:tmax;                  % (s)
-x = 0:dx:length;                % (m)
-u = zeros(numel(t), numel(x));  % Kelvin
-  \end{Verbatim}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}[fragile]
-  \frametitle{Finite difference}
-
-  \begin{Verbatim}
-%% set initial condition
-u(1,x>=1&x<=2) = 353.15;         % Kelvin (= 80 deg C)
-r = alpha * dt / (dx^2);
-s = 1 - 2*r;
-
-%% loop through time steps
-for i = 2:1:numel(t)
-    for j = 2:1:(numel(x)-1)
-       u(i,j) = r*u(i-1,j-1) + s*u(i-1,j) + r*u(i-1,j+1);
-    end
-end
-  \end{Verbatim}
-\end{frame}
-
+\iffalse
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}[fragile]
   \frametitle{\texttt{for} statement}
   \Enlarge
 
   \begin{itemize}
-  \myitem  The \texttt{for} loop ranges over a set of possible values. \pause
+  \myitem  The \texttt{for} loop iterates over a set of possible values. \pause
   \myitem  This is \emph{not} as flexible as Python's \texttt{in} syntax---think of always having to loop over the \emph{index} rather than the item.
   \end{itemize}
 \end{frame}
 
+\fi
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}[fragile]
   \frametitle{\texttt{for} statement}
   \Enlarge
 
+  \vspace{3mm}
   \begin{itemize}
+  \myitem  The \texttt{for} loop iterates over a set of possible values. 
   \myitem  We create a \texttt{for} loop as follows:
     \begin{itemize}
-    \mysubitem  statement \texttt{for var in range}, where you create \texttt{var} and provide \texttt{range}
-    \mysubitem  one or more statements
-    \mysubitem  closing statement \texttt{end}
+    \mysubitem  start with \texttt{\color{red} for var = range}, where you create \texttt{var} and provide \texttt{range}
+    \mysubitem  a \textbf{block} of code
+    \mysubitem  closing statement \texttt{\color{red} end}
     \end{itemize}
   \pause
   \myitem  Also have \texttt{continue} and \texttt{break} available.
+  \myitem  No colons
+  \end{itemize}
+    \begin{verbatim}
+    sum = 0;
+    for i = 1:100
+        sum = sum + i^2;
+    end
+    \end{verbatim}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Example: Finite difference}
+
+  \begin{Verbatim}
+%% set parameters
+a = -9.8;
+tmax = 0.5;     % maximum time (s)
+dt = 0.01;      % time step (s)
+
+%% data initialization
+t = 0:dt:tmax;                % (s)
+v = zeros(size(t));           % (m/s)
+y = zeros(size(t));           % (m)
+y(1) = 1;
+  \end{Verbatim}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Example: Finite difference}
+
+  \begin{Verbatim}
+%% loop through time steps
+for i = 2:length(t)   %or numel
+     v(i) = v(i-1) + a*dt;
+     y(i) = y(i-1) + v(i-1)*dt;
+end
+  \end{Verbatim}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{\texttt{if}/\texttt{else} statement}
+  \Enlarge
+
+  \begin{itemize}
+  \myitem  We create an \texttt{if} statement as follows:
+    \begin{itemize}
+    \mysubitem  the keyword \texttt{\color{red} if}
+    \mysubitem  a logical comparison  (more on this)
+    \mysubitem  a \textbf{block} of code 
+    \mysubitem  the keyword \texttt{\color{red} end}
+    \end{itemize}
+  \myitem Also have \texttt{else} and \texttt{elseif} available.
+  \myitem No colons
   \end{itemize}
 \end{frame}
 
@@ -464,30 +530,77 @@ function [ y ] = absolute( x )
         y = x;
     else
         y = -x;
+    end
 end
   \end{semiverbatim}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}[fragile]
-  \frametitle{\texttt{if}/\texttt{else} statement}
+  \frametitle{\texttt{while} statement}
   \Enlarge
 
   \begin{itemize}
-  \myitem  We create an \texttt{if}/\text{else} statement as follows:
+  \myitem  We create an \texttt{while} statement as follows:
     \begin{itemize}
-    \mysubitem  the keyword \texttt{if}
-    \mysubitem  a logical comparison \textcolor{red}{(more on these!)}
-    \mysubitem  a \textbf{block} of code  \pause
-    \mysubitem  the keyword \texttt{elseif} \textcolor{red}{(note this!)}
-    \mysubitem  a new logical comparison
-    \mysubitem  a different \textbf{block} of code  \pause
-    \mysubitem  the keyword \texttt{else}
-    \mysubitem  a different \textbf{block} of code  \pause
-    \mysubitem  the keyword \texttt{end}
+    \mysubitem  the keyword \texttt{\color{red} while}
+    \mysubitem  a logical comparison
+    \mysubitem  a \textbf{block} of code 
+    \mysubitem  the keyword \texttt{\color{red} end}
     \end{itemize}
+  \myitem Also have \texttt{continue} and \texttt{break} available.
+  \myitem No colons
   \end{itemize}
 \end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{The Art of MATLAB programming}
+  \Enlarge
+
+  \begin{itemize}
+  \myitem  Rewrite for/while loops as built-in Matrix operations
+  \begin{itemize}
+  	\mysubitem  for/while loops are slow in matlab
+	\mysubitem  Matlab as a high-level language is overall slower than C/C++
+	\mysubitem  However, its built-in matrix/vector operations are highly optimized and very fast!
+  \end{itemize}
+  \myitem How?
+  \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{The Art of MATLAB programming}
+  \Enlarge
+  \begin{itemize}
+  	\myitem Example: compute the inner product of two vectors \texttt{a} and \texttt{b}
+  \end{itemize}
+  \begin{semiverbatim}
+  ans = 0;
+  for i = 1:length(a)
+      ans = ans + a(i)*b(i);
+  end
+  \end{semiverbatim}
+  \begin{itemize}
+  	\myitem What other ways to do this?
+  \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{The Art of MATLAB programming}
+  \Enlarge
+  \begin{itemize}
+  	\myitem Exercise: find the closest number in \texttt{a} for each number in \texttt{b}
+  \end{itemize}
+  \begin{semiverbatim}
+    a = [51  47  53   2  21  39  57  20  31   7];
+    b = [56  75  13  30  35   8  30  28  90  93];
+  \end{semiverbatim}
+\end{frame}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}[fragile]
@@ -495,8 +608,8 @@ end
   \Enlarge
 
   \begin{itemize}
-  \myitem  MATLAB does \emph{not} have a \texttt{bool} data type. \pause
-  \myitem  Instead of \texttt{True}/\texttt{False}, MATLAB uses integers:
+  \myitem  MATLAB uses the \texttt{logical} type for boolean. \pause
+  \myitem  A \texttt{logical} type is 1-byte long, has values 0/1:
     \begin{itemize}
     \mysubitem  \texttt{0} means \texttt{False}
     \mysubitem  \texttt{1} means \texttt{True}
@@ -504,34 +617,53 @@ end
   \pause
   \myitem  Available logical operators include:
     \begin{itemize}
-    \mysubitem  \texttt{<}, \texttt{>}, \texttt{<=}, \texttt{>=}, \texttt{==}, \texttt{\~=}
-    \mysubitem  \texttt{\&\&} for `and', \texttt{||} for `or'
-    \mysubitem  \texttt{ismember} checks equality of elements in arrays.
-    \mysubitem  Also, logical operators as indices! \pause
-    \mysubitem  \texttt{A( A<0 )}
+    \mysubitem  \texttt{<}, \texttt{>}, \texttt{<=}, \texttt{>=}, \texttt{==},  $\~$\texttt{=}
+    \mysubitem  \texttt{\&\&, \&} for AND
+    \mysubitem  \texttt{||, |} for OR \pause
+    \mysubitem  \texttt{\&\&, ||} are called \emph{short-circuit} logical operator \pause
+    %\mysubitem  \texttt{ismember} checks equality of elements in arrays.
+    \mysubitem  Can use logical operators for indexing!
+    %\mysubitem  \texttt{A( A<0 )}
     \end{itemize}
   \end{itemize}
 \end{frame}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Slicing an array with logical operators}
+  \Enlarge
+  \begin{enumerate}
+  \myitem  Slicing an array with logical operators.
+  \end{enumerate}
+  \begin{semiverbatim}
+A = rand(10,5) - rand(10,5);
+B = A( A < 0 );
+A( A<0 ) = 0
+  \end{semiverbatim}
+\end{frame}
+
+\section{File I/O}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}[fragile]
   \frametitle{File I/O}
   \Enlarge
 
   \begin{enumerate}
-  \myitem  Saving data uses \texttt{save}:
+  \myitem  Saving data uses \texttt{'save'}:
   \end{enumerate}
   \begin{Verbatim}
 A = [ 1 2 3 ; 4 5 6 ];
-save( 'test', 'A' );
+B = 5;
+save( 'myvariables', 'A', 'B' );
   \end{Verbatim}
-  \pause
   \begin{enumerate}
-  \myitem  Note that the \emph{string} version of the variable name is required!
-  \myitem  \texttt{load} also useful:
+  \myitem  Note that the \emph{string} version of the variable name is required. \pause
+  \myitem  \texttt{'load'} to load the variables from saved file:
   \end{enumerate}
   \begin{Verbatim}
-A = load( 'test', 'A' );
+all = load('myvariables')
+load( 'myvariables', 'A' );
   \end{Verbatim}
 \end{frame}
 
@@ -541,17 +673,38 @@ A = load( 'test', 'A' );
   \Enlarge
 
   \begin{enumerate}
-  \myitem  A more advanced tool:  \texttt{importdata}
+  \myitem  load (write) matrix data from (to) txt file: 
   \end{enumerate}
   \begin{Verbatim}
-data = importdata( 'rainfall.txt' );
+M = dlmread( 'rawmatdata.txt' );
+dlmwrite(filename, M);
   \end{Verbatim}
   \pause
   \begin{enumerate}
-  \myitem  Can be used to process CSVs.  \pause
-  \myitem  Old process using \texttt{fopen}, \texttt{fscanf}, \texttt{fclose}, \texttt{fprintf} also common.
+  \myitem  ASCII-delimited numeric data. 
+  \myitem  Automatically detect delimiter in file, or specified
   \end{enumerate}
 \end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{File I/O}
+  \Enlarge
+
+  \begin{enumerate}
+  \myitem  A more advanced (general) tool:  \texttt{importdata}
+  \end{enumerate}
+  \begin{Verbatim}
+data = importdata( 'rawmatdata.txt' );
+plankt = importdata('../lec12/plankton.csv');
+  \end{Verbatim}
+  \pause
+  \begin{enumerate}
+  %\myitem  Can be used to process CSVs.  \pause
+  \myitem  Old process using \texttt{fopen}, \texttt{fprintf}, \texttt{fscanf}, \texttt{fclose} also common.
+  \end{enumerate}
+\end{frame}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}[fragile]
@@ -562,17 +715,76 @@ data = importdata( 'rainfall.txt' );
   \myitem  Images can also be opened as files.
   \end{enumerate}
   \begin{Verbatim}
-A = importdata( 'rabbit-bw.jpg' );
+A = importdata( 'duck-grey.jpg' );
 image( A );
   \end{Verbatim}
   \pause
   \begin{enumerate}
   \myitem  Black and white images are arrays of \texttt{0}s and \texttt{1}s.
   \myitem  Greyscale images are values from \texttt{0} and \texttt{1}.
-  \myitem  Color images are three-dimensional arrays.  (Why?)
-  \myitem  Variations exist depending on the underlying data.
+  \myitem  Color images are three-dimensional arrays.  (Why?) 
+  %\myitem  Other methods to open/write/display image file: \texttt{imread,imwrite,imshow,imagesc,pcolor}.
   \end{enumerate}
 \end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Strings}
+  \Enlarge
+
+  \begin{enumerate}
+  \myitem  Also supports strings, not as convenient as numbers (python is a better choice for handling strings) \pause
+  \myitem Manages string as an array of the '\texttt{char}' type \pause
+  \myitem  Enclosed with single quotes (only!).
+  \end{enumerate}
+  
+  \begin{Verbatim}
+   s = 'a brown fox';
+   class(s)
+   size(s)
+  \end{Verbatim}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{String formating and print}
+  \Enlarge
+
+  \begin{enumerate}
+  \myitem  Print formatted strings with \texttt{sprintf}, \texttt{fprintf}
+  \end{enumerate}
+  \begin{Verbatim}
+s = sprintf( '%d %f\n', 5, sin(pi/4) ); 
+
+%output to screen  (screen is as a file!)
+fprintf('%d %f\n', 5, sin(pi/4)); 
+
+%output to file
+fp = fopen('newfile.txt', 'w')
+fprintf(fp, '%d %f\n', 5, sin(pi/3));
+fclose(fp)
+\end{Verbatim}
+\end{frame}
+
+
+\begin{frame}[fragile]
+  \frametitle{Look for more information}
+  \Enlarge
+
+  \begin{enumerate}
+    \myitem  help \texttt{func\_name}   
+    	\begin{enumerate}
+	\mysubitem displays help information to the screen
+	\end{enumerate}
+    \myitem  doc \texttt{func\_name}   
+    	\begin{enumerate}
+	\mysubitem opens matlab's documentation book
+	\end{enumerate}\pause
+  \end{enumerate}
+
+\end{frame}
+
 
 % - PDE toolbox example?
 % - find factorial using function browser
